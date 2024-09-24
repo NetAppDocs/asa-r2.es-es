@@ -1,0 +1,40 @@
+---
+sidebar: sidebar 
+permalink: videos/video_transcript_provision_san_storage.html 
+keywords: frontmatter, front matter 
+summary: Vea vídeos breves que muestran cómo utilizar System Manager de ONTAP para realizar tareas comunes de forma rápida y sencilla en sus sistemas de almacenamiento R2 de ASA. 
+---
+= Configure el almacenamiento SAN en su sistema ASA R2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se proporciona la siguiente transcripción para el video `Provision SAN storage on your ASA r2 storage system`.
+
+link:videos-common-tasks.html#video_transcript_return_provision_san_storage["Volver a la página"]
+
+Puede usar System Manager de ONTAP para aprovisionar de forma rápida y sencilla unidades de almacenamiento para hosts en su sistema de almacenamiento R2 de ASA.
+
+En este ejemplo, crearemos seis nuevas unidades de almacenamiento para un host de VMware.
+
+En el menú Administrador del sistema, seleccione *Almacenamiento* y luego seleccione *Agregar*.
+
+Introduzca un nombre para las unidades de almacenamiento, el número de unidades y la capacidad de cada unidad; a continuación, seleccione el sistema operativo del host.
+
+Si crea más de una unidad, de forma predeterminada, cada unidad se crea con la misma capacidad.
+
+Seleccione *Más opciones* para ingresar la información de su anfitrión. Para este ejemplo, seleccionaremos el protocolo SCSI y agregaremos un nuevo host iSCSI.
+
+Introduzca el nombre de host y, a continuación, añada los iniciadores de host y una descripción.
+
+Selecciona *programar instantáneas* Protege tus unidades de almacenamiento con instantáneas regulares.
+
+Seleccione la protección remota para *replicar sus unidades a una ubicación remota*.
+
+Seleccione una VM de almacenamiento y una política de replicación; seleccione *Agregar*.
+
+Las unidades de almacenamiento deben estar en un grupo de consistencia para la replicación. Introduzca el nombre de un grupo de consistencia y seleccione *Crear*.
+
+Ha aprovisionado de forma rápida y fácil unidades de almacenamiento de 6 TB para hosts VMware con protección de datos local y remota.

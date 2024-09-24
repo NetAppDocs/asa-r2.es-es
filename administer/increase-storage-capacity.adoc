@@ -1,0 +1,72 @@
+---
+sidebar: sidebar 
+permalink: administer/increase-storage-capacity.html 
+keywords: increase, capacity, node, shelf, drive, expand, storage, asa r2, asa r2, asa a1k, asa 70, asa 90 
+summary: Añada unidades a un nodo o bandeja para aumentar la capacidad de las unidades de almacenamiento ASA R2. 
+---
+= Aumente la capacidad de almacenamiento en los sistemas de almacenamiento R2 de ASA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Añada unidades a un nodo o bandeja para aumentar la capacidad de almacenamiento del sistema ASA R2.
+
+
+
+== Utilice NetApp Hardware Universe para preparar la instalación de una unidad nueva
+
+Antes de instalar una unidad nueva en un nodo o bandeja, utilice NetApp Hardware Universe para confirmar que la unidad que desea añadir es compatible con la plataforma ASA R2 y para identificar la ranura correcta para la unidad nueva. Las ranuras correctas para añadir unidades varían según el modelo de plataforma y la versión de ONTAP. En algunos casos, es necesario añadir unidades a ranuras específicas en secuencia.
+
+.Pasos
+. Vaya a la link:https://hwu.netapp.com/["NetApp Hardware Universe"^].
+. En *Productos*, selecciona tus configuraciones de hardware.
+. Seleccione su plataforma ASA R2.
+. Seleccione su versión de ONTAP; luego seleccione *Mostrar resultados*.
+. Debajo del gráfico, selecciona *Haga clic aquí para ver vistas alternativas*; luego elige la vista que coincida con tu configuración.
+. Utilice la vista de su configuración para confirmar que la unidad nueva es compatible y la ranura correcta para la instalación.
+
+
+.Resultado
+Ha confirmado que la unidad nueva es compatible y conoce la ranura adecuada para la instalación.
+
+
+
+== Instale una nueva unidad en el ASA R2
+
+La cantidad mínima de unidades que debe añadir en un solo procedimiento es de seis. Al añadir una sola unidad, se puede reducir el rendimiento.
+
+.Acerca de esta tarea
+Debe repetir los pasos de este procedimiento con cada unidad.
+
+.Pasos
+. Puesta a tierra apropiadamente usted mismo.
+. Retire con cuidado el bisel de la parte delantera de la plataforma.
+. Inserte la nueva unidad en la ranura correcta.
++
+.. Con la palanca de leva en posición abierta, utilice ambas manos para insertar la nueva transmisión.
+.. Presione hasta que la unidad se detenga.
+.. Cierre el asa de leva de forma que la unidad esté completamente asentada en el plano medio y el asa encaje en su lugar.
++
+Asegúrese de cerrar el mango de leva lentamente para que quede alineado correctamente con la cara de la transmisión.
+
+
+
+. Verifique que el LED de actividad de la unidad (verde) esté iluminado.
++
+** SI el LED está fijo, la unidad tiene alimentación.
+** Si el LED parpadea, la unidad se enciende y las operaciones de I/O están en curso. El LED también parpadeará si se está actualizando el firmware de la unidad.
++
+El firmware de la unidad se actualiza automáticamente (sin interrupciones) en las unidades nuevas que no tienen versiones de firmware actuales.
+
+
+
+. Si el nodo está configurado para la asignación automática de unidades, puede esperar a que ONTAP asigne automáticamente las nuevas unidades a un nodo. Si el nodo no está configurado para la asignación automática de unidades o si se prefiere, es posible asignar las unidades manualmente.
++
+Las unidades nuevas no se reconocen hasta que se asignan a un nodo.
+
+
+
+.¿Cuál es el siguiente?
+Una vez que se reconozcan las unidades nuevas, verifique que se hayan añadido y se haya especificado correctamente su propiedad.

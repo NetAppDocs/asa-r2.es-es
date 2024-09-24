@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: administer/reboot-take-over-give-back-nodes.html 
+keywords: reboot, take over, give back, nodes, asa r2, asa r2, asa a1k, asa 70, asa 90 
+summary: Es posible que necesite reiniciar un nodo para mantenimiento, solucionar problemas, actualizaciones de software u otros motivos administrativos. 
+---
+= Reinicie un nodo en un sistema de almacenamiento ASA R2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible que necesite reiniciar un nodo para mantenimiento, solucionar problemas, actualizaciones de software u otros motivos administrativos. Cuando un nodo se reinicia, su compañero de alta disponibilidad ejecuta automáticamente una toma de control. A continuación, el nodo del partner realiza una devolución al control automática cuando el nodo reiniciado vuelve a conectarse.
+
+.Pasos
+. En System Manager, seleccione *Clúster > Descripción general*.
+. Seleccione image:icon_kabob.gif["tres puntos verticales azules"] junto al nodo que desea reiniciar y, a continuación, seleccione *Reiniciar*.
+. Introduzca el motivo por el que está reiniciando el nodo; a continuación, seleccione *Reiniciar*.
++
+El motivo por el que se introduce el reinicio se registra en el registro de auditoría del sistema.
+
+
+
+.El futuro
+Mientras el nodo se está reiniciando, su compañero de alta disponibilidad realiza una toma de control para que no haya interrupción en el servicio de datos. Cuando el reinicio se completa, el partner de alta disponibilidad realiza un retorno al nodo primario.

@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: manage-data/delete-storage-units.html 
+keywords: delete lun, delete namespace, delete storage unit, asa r2 
+summary: Elimine unidades de almacenamiento para reducir la cantidad de almacenamiento físico que necesita o liberar el espacio necesario para otras aplicaciones host. 
+---
+= Elimine unidades de almacenamiento en los sistemas de almacenamiento R2 de ASA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Elimine una unidad de almacenamiento si ya no necesita mantener los datos contenidos en la unidad. Eliminar unidades de almacenamiento que ya no son necesarias puede ayudar a liberar el espacio necesario para otras aplicaciones host.
+
+.Antes de empezar
+Si la unidad de almacenamiento que desea eliminar se encuentra en un grupo de consistencia que está en una relación de replicación, debe link:../data-protection/manage-consistency-groups.html#remove-a-storage-unit-from-a-consistency-group["retire la unidad de almacenamiento del grupo de consistencia"] antes de eliminarla.
+
+.Pasos
+. En System Manager, seleccione *Almacenamiento*.
+. Pase el ratón sobre el nombre de la unidad de almacenamiento que desea eliminar.
+. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Eliminar*.
+. Confirme que la eliminación no se puede deshacer.
+. Seleccione *Eliminar*.
+
+
+.El futuro
+Puede usar el espacio liberado de la unidad de almacenamiento eliminada hasta link:modify-storage-units.html["aumente el tamaño"] las unidades de almacenamiento que necesiten capacidad adicional.

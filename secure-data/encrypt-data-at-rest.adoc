@@ -1,0 +1,53 @@
+---
+sidebar: sidebar 
+permalink: secure-data/encrypt-data-at-rest.html 
+keywords: asa r2, secure data, data security, encrypt, data at rest, data-at-rest, encryption 
+summary: Cifre los datos en reposo para que no se puedan leer si se devuelven, se pierden o si roban un disco. Use el cifrado de hardware y software para habilitar la protección de doble capa. 
+searchtitle: Proteja los datos en reposo con el cifrado mediante ONTAP System Manager| ASA R2 
+---
+= Cifrado de datos estáticos en sistemas de almacenamiento R2 de ASA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al cifrar datos en reposo, no se podrán leer si un medio de almacenamiento se reasigna, devuelve, se pierde o es robado. Puede usar System Manager de ONTAP para cifrar sus datos a nivel de hardware y software para lograr una protección de doble capa.
+
+El cifrado en almacenamiento de NetApp (NSE) admite el cifrado de hardware mediante unidades de cifrado automático (SED). SEDS cifra los datos a medida que se escriben. Cada SED contiene una clave de cifrado única. Los datos cifrados almacenados en el SED no se pueden leer sin la clave de cifrado del SED. Los nodos que intentan leer desde un SED se deben autenticar para acceder a la clave de cifrado del SED. Los nodos se autentican obteniendo una clave de autenticación de un administrador de claves y, a continuación, presentando la clave de autenticación al SED. Si la clave de autenticación es válida, el SED le dará al nodo su clave de cifrado para acceder a los datos que contiene.
+
+Use el administrador de claves incorporado o un gestor de claves externo de ASA R2 para servir claves de autenticación a los nodos.
+
+Además de NSE, también puede habilitar el cifrado del software para añadir otra capa de seguridad a sus datos.
+
+.Pasos
+. En el Administrador del sistema, selecciona *Clúster > Configuración*.
+. En la sección *Seguridad*, en *Cifrado*, selecciona *Configurar*.
+. Configure el gestor de claves.
++
+[cols="2"]
+|===
+| Opción | Pasos 
+
+
+| Configure el gestor de claves incorporado  a| 
+.. Seleccione *Onboard Key Manager* para agregar los servidores de claves.
+.. Introduzca una frase de contraseña.
+
+
+
+
+| Configure un gestor de claves externo  a| 
+.. Seleccione *Administrador de claves externo* para agregar los servidores de claves.
+.. image:icon_add.gif["un signo más azul seguido de la palabra add"]Seleccione para agregar los servidores de claves.
+.. Añada los certificados de CA del servidor KMIP.
+.. Añada los certificados de cliente KMIP.
+
+
+|===
+. Seleccione *Cifrado de doble capa* para habilitar el cifrado de software.
+. Seleccione *Guardar*.
+
+
+.El futuro
+Ahora que ha cifrado sus datos en reposo, si utiliza el protocolo NVMe/TCP, puede hacerlo link:nvme-tcp-connections.html["cifrar todos los datos enviados a través de la red"] entre su host NVMe/TCP y su sistema ASA R2.

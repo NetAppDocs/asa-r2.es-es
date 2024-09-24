@@ -1,0 +1,76 @@
+---
+sidebar: sidebar 
+permalink: data-protection/restore-data.html 
+keywords: restore data, asa r2, data restoration 
+summary: Si los datos de un grupo de consistencia están dañados o se pierden, puede restaurar todo el grupo de coherencia desde una snapshot remota. 
+---
+= Restauración de los datos en sistemas de almacenamiento R2 de ASA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los datos de un grupo de coherencia o unidad de almacenamiento protegidos por Snapshot se pueden restaurar si se pierden o resultan dañados.
+
+
+
+== Restaure un grupo de consistencia
+
+Al restaurar un grupo de coherencia, se reemplazan los datos de todas las unidades de almacenamiento del grupo de coherencia con los datos de una copia Snapshot. Los cambios realizados en las unidades de almacenamiento después de crear la instantánea no se restauran.
+
+Es posible restaurar un grupo de coherencia desde una copia de Snapshot local o remota.
+
+[role="tabbed-block"]
+====
+.Restaurar desde una instantánea local
+--
+.Pasos
+. En System Manager, seleccione *Protección > Grupos de consistencia*.
+. Haga doble clic en el grupo de consistencia que contiene los datos que necesita restaurar.
++
+Se abrirá la página de detalles del grupo de consistencia.
+
+. Seleccione *Snapshots*.
+. Seleccione la instantánea que desea restaurar y, a continuación, seleccione image:icon_kabob.gif["tres puntos verticales azules"].
+. Seleccione *Restaurar grupo de consistencia desde esta instantánea*; luego seleccione *Restaurar*.
+
+
+--
+.Restaurar desde una snapshot remota
+--
+.Pasos
+. En System Manager, seleccione *Protección > Replicación*.
+. Selecciona *Destinos locales*.
+. Seleccione el *Source* que desea restaurar y, a continuación, seleccione image:icon_kabob.gif["tres puntos verticales azules"].
+. Seleccione *Restaurar*.
+. Seleccione el clúster, la máquina virtual de almacenamiento y el grupo de consistencia en el que desea restaurar datos.
+. Seleccione la copia de Snapshot desde la que desea restaurar.
+. Cuando se le solicite, ingrese “Restaurar”; luego seleccione *Restaurar*.
+
+
+--
+====
+.Resultado
+El grupo de coherencia se restaura al momento específico de la Snapshot utilizada para la restauración.
+
+
+
+== Restaurar una unidad de almacenamiento
+
+Al restaurar una unidad de almacenamiento, se reemplazan todos los datos de la unidad de almacenamiento con los datos de una instantánea. Los cambios realizados en la unidad de almacenamiento después de crear la instantánea no se restauran.
+
+.Pasos
+. En System Manager, seleccione *Almacenamiento*.
+. Haga doble clic en la unidad de almacenamiento que contiene los datos que necesita restaurar.
++
+Se abrirá la página de detalles de la unidad de almacenamiento.
+
+. Seleccione *Snapshots*.
+. Seleccione la copia Snapshot que desea restaurar.
+. Seleccione image:icon_kabob.gif["tres puntos verticales azules"]; y, a continuación, seleccione *Restaurar*.
+. Seleccione *Usar esta instantánea para restaurar la unidad de almacenamiento*; luego seleccione *Restaurar*.
+
+
+.Resultado
+La unidad de almacenamiento se restaura al punto en el tiempo de la instantánea utilizada para la restauración.

@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: get-started/quick-start.html 
+keywords: asa r2, asa a1k, asa a70, asa a90, get started, getting started, quick start, install, set up 
+summary: 'Para comenzar a usar un sistema ASA R2 (ASA A1K, ASA A70, ASA A90), instalar el hardware, configurar el clúster, configurar el acceso a los datos y aprovisionar el almacenamiento.' 
+searchtitle: Instale y configure los sistemas de almacenamiento ASA A1K, ASA A70 y ASA A90 
+---
+= Inicio rápido para los sistemas de almacenamiento ASA R2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para ponerse en funcionamiento con su sistema ASA R2, instale los componentes de hardware, configure el clúster, configure el acceso a datos desde los hosts al sistema de almacenamiento y aprovisione el almacenamiento.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Una"] Instale y configure el hardware
+[role="quick-margin-para"]
+link:../install-setup/install-setup-workflow.html["Instalar y configurar"] Su sistema ASA R2 e implantarlo como pareja de alta disponibilidad en su entorno de ONTAP.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"] Configure su clúster
+[role="quick-margin-para"]
+Use System Manager para guiarle a través de un proceso rápido y fácil para link:../install-setup/initialize-ontap-cluster.html["Configure su clúster de ONTAP"].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"] Configure el acceso a los datos
+[role="quick-margin-para"]
+link:../install-setup/set-up-data-access.html["Conecte su sistema R2 de ASA a sus clientes SAN"].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"] Aprovisione su almacenamiento
+[role="quick-margin-para"]
+link:../manage-data/provision-san-storage.html["Aprovisionar almacenamiento"] Empezar a servir datos a sus clientes SAN.
+
+.El futuro
+Ahora puede usar System Manager para proteger sus datos por link:../data-protection/create-snapshots.html["creación de snapshots"].

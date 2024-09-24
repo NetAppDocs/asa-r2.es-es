@@ -1,0 +1,152 @@
+---
+sidebar: sidebar 
+permalink: manage-data/data-cloning.html 
+keywords: data cloning, clone data, cloning data, luns, namespaces, clone storage units, clone, cloning, clone consistency groups 
+summary: Clone las unidades de almacenamiento y los grupos de consistencia en la versión R2 de ASA para crear copias de datos y utilizarlas fuera del entorno de producción para diversos fines. 
+searchtitle: Clonado de datos mediante el Administrador del sistema de ONTAP | ASA R2 
+---
+= Clone datos en sistemas de almacenamiento R2 de ASA
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+La clonado de datos crea copias de unidades de almacenamiento y grupos de coherencia en su sistema ASA R2 mediante System Manager de ONTAP, que se pueden usar para el desarrollo de aplicaciones, pruebas, backups, migración de datos u otras funciones administrativas.
+
+
+
+== Clonar unidades de almacenamiento
+
+Cuando se clona una unidad de almacenamiento, se crea una nueva unidad de almacenamiento en el sistema ASA R2, que es una copia editable de un momento específico de la unidad de almacenamiento que clonó.
+
+.Pasos
+. En System Manager, seleccione *Almacenamiento*.
+. Pase el ratón por el nombre de la unidad de almacenamiento que desea clonar.
+. Seleccione image:icon_kabob.gif["tres puntos verticales azules"]; y, a continuación, seleccione *Clonar*.
+. Acepte el nombre predeterminado para la nueva unidad de almacenamiento que se creará como clon o introduzca uno nuevo.
+. Seleccione el sistema operativo del host.
++
+De forma predeterminada, se crea una nueva copia de Snapshot para el clon.
+
+. Si desea utilizar una instantánea existente, crear un nuevo grupo de hosts o agregar un nuevo host, seleccione *Más opciones*.
++
+[cols="2"]
+|===
+| Opción | Pasos 
+
+
+ a| 
+Usar una instantánea existente
+ a| 
+.. En *Instantánea para clonar*, selecciona *Usar una instantánea existente*.
+.. Seleccione la copia de Snapshot que desea usar para el clon.
+
+
+
+
+ a| 
+Cree un nuevo grupo de hosts
+ a| 
+.. En *Asignación de host*, selecciona *Nuevo grupo de hosts*.
+.. Introduzca un nombre para el nuevo grupo de hosts y, a continuación, seleccione los iniciadores de host que se incluirán en el grupo.
+
+
+
+
+ a| 
+Añada un nuevo host
+ a| 
+.. En *Asignación de host*, selecciona *Nuevos hosts*.
+.. Introduzca el nombre A para el nuevo host y seleccione *FC* o *iSCSi*.
+.. Seleccione los iniciadores de host de la lista de iniciadores existentes o seleccione *Añadir* para añadir iniciadores nuevos para el host.
+
+
+|===
+. Seleccione *Clonar*.
+
+
+.El futuro
+Ha creado una nueva unidad de almacenamiento idéntica a la unidad de almacenamiento clonada. Ya está listo para utilizar la nueva unidad de almacenamiento según sea necesario.
+
+
+
+== Clonar grupos de consistencia
+
+Cuando se clona un grupo de consistencia, se crea un nuevo grupo de consistencia que es idéntico en estructura, unidades de almacenamiento y datos al grupo de consistencia que se clona. Utilice un clon de grupo de consistencia para realizar la prueba de las aplicaciones o migrar datos. Suponga que, por ejemplo, necesita migrar una carga de trabajo de producción fuera de un grupo de consistencia. Puede clonar el grupo de consistencia para crear una copia de la carga de trabajo de producción a fin de mantener como backup hasta que se complete la migración.
+
+El clon se crea a partir de una copia de Snapshot del grupo de coherencia que se va a clonar. La snapshot utilizada para el clon se toma en el momento específico en que el proceso de clonación se inicia de forma predeterminada. Puede modificar el comportamiento predeterminado para utilizar una instantánea preexistente.
+
+Las asignaciones de unidades de almacenamiento se copian como parte del proceso de clonación. Las políticas de Snapshot no se copian como parte del proceso de clonación.
+
+Puede crear clones a partir de grupos de consistencia almacenados localmente en el sistema ASA R2 o desde grupos de coherencia que se hayan replicado a ubicaciones remotas.
+
+[role="tabbed-block"]
+====
+.Clone mediante instantánea local
+--
+.Pasos
+. En System Manager, seleccione *Protección > Grupos de consistencia*.
+. Pase el ratón sobre el grupo de consistencia que desea clonar.
+. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione y, a continuación, seleccione *Clonar*.
+. Introduzca un nombre para el clon del grupo de consistencia o acepte el nombre predeterminado.
+. Seleccione el sistema operativo del host.
+. Si desea disociar el clon del grupo de consistencia de origen y asignar espacio en disco, seleccione *Dividir clon*.
+. Si desea utilizar una instantánea existente, crear un nuevo grupo de hosts o agregar un nuevo host para el clon, seleccione *Más opciones*.
++
+[cols="2"]
+|===
+| Opción | Pasos 
+
+
+ a| 
+Usar una instantánea existente
+ a| 
+.. En *Instantánea para clonar*, selecciona *Usar una instantánea existente*.
+.. Seleccione la copia de Snapshot que desea usar para el clon.
+
+
+
+
+ a| 
+Cree un nuevo grupo de hosts
+ a| 
+.. En *Asignación de host*, selecciona *Nuevo grupo de hosts*.
+.. Introduzca un nombre para el nuevo grupo de hosts y, a continuación, seleccione los iniciadores de host que se incluirán en el grupo.
+
+
+
+
+ a| 
+Añada un nuevo host
+ a| 
+.. En *Asignación de host*, selecciona *Nuevos hosts*.
+.. Introduzca el nombre del nuevo host y seleccione *FC* o *iSCSi*.
+.. Seleccione los iniciadores de host de la lista de iniciadores existentes o seleccione *Add initiator* para añadir iniciadores nuevos para el host.
+
+
+|===
+. Seleccione *Clonar*.
+
+
+--
+.Clone mediante instantánea remota
+--
+.Pasos
+. En System Manager, seleccione *Protección > Replicación*.
+. Pasa el cursor sobre la *Fuente* que deseas clonar.
+. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione y, a continuación, seleccione *Clonar*.
+. Seleccione el clúster de origen y la máquina virtual de almacenamiento; a continuación, introduzca un nombre para el nuevo grupo de consistencia o acepte el nombre predeterminado.
+. Seleccione la instantánea que desea clonar y luego seleccione *Clonar*.
+
+
+.El futuro
+Clonó un grupo de consistencia desde la ubicación remota. El nuevo grupo de coherencia está disponible en el sistema ASA R2 en local para utilizarlo según sea necesario.
+
+--
+====
+.El futuro
+Para proteger los datos, debe link:../data-protection/create-snapshots.html#step-2-create-a-snapshot["crear snapshots"]hacerlo del grupo de consistencia clonado.

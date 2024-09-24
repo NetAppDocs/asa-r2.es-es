@@ -1,0 +1,34 @@
+---
+section: administer
+title: Administración y supervisión
+entries:
+- title: Gestione el acceso de clientes a las máquinas virtuales de almacenamiento
+  url: "/administer/manage-client-vm-access.html"
+- title: Gestione las redes de clúster
+  url: "/administer/manage-cluster-networking.html"
+- title: Supervise el uso y aumente la capacidad
+  entries:
+  - title: Supervise el rendimiento del almacenamiento
+    url: "/monitor/monitor-performance.html"
+  - title: Supervisar el uso del almacenamiento
+    url: "/monitor/monitor-storage.html"
+  - title: Aumente la capacidad de almacenamiento
+    url: "/administer/increase-storage-capacity.html"
+- title: Actualizar el firmware
+  url: "/administer/update-firmware.html"
+- title: Ver información
+  url: "/monitor/view-insights.html"
+- title: Ver los eventos y los trabajos del clúster
+  url: "/monitor/view-events-jobs.html"
+- title: Gestione los nodos
+  entries:
+  - title: Reinicie, tome la toma de control y devuelva los nodos
+    url: "/administer/reboot-take-over-give-back-nodes.html"
+  - title: Cambie el nombre de los nodos
+    url: "/administer/rename-nodes.html"
+- title: Administrar cuentas de usuario y roles
+  url: "/administer/user-accounts-roles.html"
+- title: Gestionar certificados de seguridad
+  url: "/administer/manage-certificates.html"
+- title: Verifique la conectividad de host
+  url: "/administer/verify-host-connectivity.html"

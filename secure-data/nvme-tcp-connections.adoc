@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: secure-data/nvme-tcp-connections.html 
+keywords: asa r2, secure data, data security, encrypt, data at rest, data-at-rest, encryption 
+summary: Mejore la seguridad de sus datos configurando NVMe/TCP over TLS para cifrar todos los datos enviados a través de la red entre su host NVMe/TCP y ONTAP. 
+---
+= Proteja las conexiones NVMe en sus sistemas de almacenamiento ASA R2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si utiliza el protocolo NVMe, puede configurar la autenticación en banda para mejorar la seguridad de sus datos. La autenticación en banda permite una autenticación bidireccional y unidireccional segura entre sus hosts NVMe y su sistema ASA R2. La autenticación en banda está disponible para todos los hosts NVMe. Si utiliza el protocolo NVMe/TCP, puede mejorar aún más la seguridad de datos configurando la seguridad de la capa de transporte (TLS) para cifrar todos los datos enviados a través de la red entre los hosts NVMe/TCP y el sistema ASA R2.
+
+.Pasos
+. Seleccione *HOSTS*; luego seleccione *NVMe*.
+. Seleccione image:icon_add_blue_bg.png["Cuadrado azul con un signo más seguido de la palabra Añadir en letras blancas"] .
+. Introduzca el nombre de host y, a continuación, seleccione el sistema operativo del host.
+. Introduzca la descripción de un host y, a continuación, seleccione la máquina virtual de almacenamiento para conectarse al host.
+. image:icon_dropdown_arrow.gif["flecha azul hacia abajo"]Seleccione junto al nombre de host.
+. Seleccione *Autenticación en banda*.
+. Si está utilizando el protocolo NVMe/TCP, seleccione *Requerir seguridad de la capa de transporte (TLS)*.
+. Seleccione *Agregar*.
+
+
+.Resultado
+La seguridad de sus datos se mejora con la autenticación en banda y/o TLS.

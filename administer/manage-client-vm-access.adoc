@@ -1,0 +1,110 @@
+---
+sidebar: sidebar 
+permalink: administer/manage-client-vm-access.html 
+keywords: asa r2, client access, host access, virtual machines, storage virtual machines, create, ipspaces, subnets, lifs, network interface 
+summary: Cree una LIF para acceder a los datos de las unidades de almacenamiento en su ASA R2. Utilice subredes para simplificar la creación de LIF y los espacios IP para proporcionar administración y enrutamiento seguros. 
+searchtitle: Gestione el acceso de los clientes al almacenamiento mediante ONTAP System Manager | ASA R2 
+---
+= Gestione el acceso de clientes a las máquinas virtuales de almacenamiento en los sistemas de almacenamiento R2 de ASA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Las unidades de almacenamiento de un sistema ASA R2 se encuentran dentro de las máquinas virtuales de almacenamiento (VM). Los equipos virtuales de almacenamiento se utilizan para suministrar datos a sus clientes SAN. Use System Manager de ONTAP para crear una LIF (interfaz de red) para los clientes de SAN con el fin de conectarse a una máquina virtual de almacenamiento y acceder a los datos de las unidades de almacenamiento. Opcionalmente, puede utilizar subredes para simplificar la creación de LIF y los espacios IP para proporcionar a las máquinas virtuales de almacenamiento su propio almacenamiento, administración y enrutamiento seguros.
+
+
+
+== Cree espacios IP
+
+Un espacio IP es un espacio de direcciones IP distinto en el que residen las máquinas virtuales de almacenamiento. Cuando se crean espacios IP, se permite que las máquinas virtuales de almacenamiento tengan su propio almacenamiento, administración y enrutamiento seguros. También puede habilitar a los clientes en dominios de red independientes de forma administrativa para que utilicen direcciones IP superpuestas del mismo rango de subredes de direcciones IP.
+
+Debe crear un espacio IP para poder crear una subred.
+
+.Pasos
+. Selecciona *Red > Descripción general*.
+. En *IPspaces*, seleccione image:icon_add_blue_bg.png["rectángulo azul que contiene un signo más seguido de la palabra add en letras blancas"].
+. Introduzca un nombre para el espacio IP o acepte el nombre predeterminado.
++
+Un nombre de espacio IP no puede ser “all” porque “all” es un nombre reservado por el sistema.
+
+. Seleccione *Guardar*.
+
+
+.El futuro
+Ahora que ha creado un espacio IP, puede utilizarlo para crear una subred.
+
+
+
+== Crear subredes
+
+Una subred le permite asignar bloques específicos de direcciones IPv4 o IPv6 que deben usarse al crear una LIF (interfaz de red) . Una subred simplifica la creación de LIF al permitirle especificar el nombre de subred en lugar de una dirección IP y una máscara de red específicas para cada LIF.
+
+.Antes de empezar
+* Para realizar esta tarea, debe ser un administrador de clústeres.
+* El link:../administer/manage-cluster-networking.html#add-a-broadcast-domain["dominio de retransmisión"]espacio IP y en el que desea agregar la subred debe existir.
+
+
+.Pasos
+. Selecciona *Red > Descripción general*.
+. Seleccione *subredes*; luego seleccione image:icon_add_blue_bg.png["rectángulo azul que contiene un signo más seguido de la palabra add en letras blancas"].
+. Introduzca el nombre de la subred.
++
+Todos los nombres de subred deben ser únicos en un espacio IP.
+
+. Introduzca la dirección IP de subred y la máscara de subred.
+. Especifique el rango de direcciones IP para la subred.
++
+Cuando especifique el rango de direcciones IP para la subred, no superponga las direcciones IP con otras subredes. Se pueden producir problemas de red cuando las direcciones IP de subred se superponen y diferentes subredes o hosts intentan utilizar la misma dirección IP.
+
+. Seleccione el dominio de retransmisión de la subred.
+. Seleccione *Agregar*.
+
+
+.El futuro
+Ha creado una subred que ahora puede usar para simplificar la creación de sus LIF.
+
+
+
+== Crear una LIF (interfaz de red)
+
+Una LIF (interfaz de red) es una dirección IP asociada a un puerto físico o lógico. Cree LIF en los puertos que desee utilizar para acceder a los datos. Los equipos virtuales de almacenamiento sirven datos a los clientes a través de una o más LIF. Si hay un fallo de un componente, un LIF puede conmutar al respaldo o migrarse a un puerto físico diferente, de modo que la comunicación de la red no se interrumpa.
+
+Cuando se crea una LIF de datos de IP, puede atender tanto el tráfico iSCSI como NVMe/TCP de forma predeterminada. Es necesario crear LIF de datos independientes para el tráfico FC y NVMe/FC.
+
+.Antes de empezar
+* Para realizar esta tarea, debe ser un administrador de clústeres.
+* El puerto de red físico o lógico subyacente debe haberse configurado en el `up` estado administrativo.
+* Si tiene pensado utilizar un nombre de subred para asignar la dirección IP y el valor de máscara de red para una LIF, la subred ya debe existir.
+* Una LIF que gestiona tráfico dentro del clúster entre nodos no debe estar en la misma subred que una LIF que gestiona el tráfico de gestión o una LIF que gestiona el tráfico de datos.
+
+
+.Pasos
+. Selecciona *Red > Descripción general*.
+. Seleccione *Interfaces de red*; luego seleccione image:icon_add_blue_bg.png["rectángulo azul con un signo más seguido de la palabra añadir en letras blancas"].
+. Seleccione el tipo de interfaz y el protocolo y, a continuación, seleccione la máquina virtual de almacenamiento.
+. Escriba un nombre para la LIF o acepte el nombre predeterminado.
+. Seleccione el nodo de inicio de la interfaz de red y, a continuación, introduzca la dirección IP y la máscara de subred.
+. Seleccione *Guardar*.
+
+
+.Resultado
+Ha creado una LIF para el acceso a los datos.
+
+
+
+== Modificar una LIF (interfaces de red)
+
+Las LIF se pueden deshabilitar o cambiar su nombre según sea necesario. También puede cambiar la dirección IP de LIF y la máscara de subred.
+
+.Pasos
+. Seleccione *Red > Descripción general* y, a continuación, seleccione *Interfaces de red*.
+. Coloque el cursor sobre la interfaz de red que desea editar y, a continuación, image:icon_kabob.gif["tres puntos verticales azules"]seleccione .
+. Seleccione *Editar*.
+. Puede deshabilitar la interfaz de red, cambiar el nombre de la interfaz de red, cambiar la dirección IP o cambiar la máscara de subred.
+. Seleccione *Guardar*.
+
+
+.Resultado
+Se ha modificado su LIF.

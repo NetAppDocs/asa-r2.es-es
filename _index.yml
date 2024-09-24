@@ -1,0 +1,47 @@
+---
+indexpage:
+  title: Documentación de ASA r2
+  summary: Los sistemas R2 de NetApp ASA ofrecen una solución de hardware y software
+    unificada que crea una experiencia simplificada específica para las necesidades
+    de los clientes de SAN exclusivamente.
+  keywords: asa r2, ontap, documentation, asa a1k, asa a70, asa a90
+  lead: Los nuevos sistemas NetApp ASA R2 (ASA A1K, ASA A70 y ASA A90) ofrecen una
+    solución de hardware y software unificada que crea una experiencia simplificada
+    específica de las necesidades de clientes exclusivos de SAN.
+  tiles:
+  - title: Manos a la obra
+    links:
+    - title: Leer más
+      url: "/get-started/learn-about.html"
+    - title: Inicio rápido
+      url: "/get-started/quick-start.html"
+  - title: Gestione los datos
+    links:
+    - title: Aprovisione el almacenamiento SAN
+      url: "/manage-data/provision-san-storage.html"
+    - title: Clone datos
+      url: "/manage-data/data-cloning.html"
+    - title: Modificar unidades de almacenamiento
+      url: "/manage-data/modify-storage-units.html"
+  - title: Proteja y asegure sus datos
+    links:
+    - title: Crear snapshots
+      url: "/data-protection/create-snapshots.html"
+    - title: Configurar la replicación de snapshots
+      url: "/data-protection/snapshot-replication.html"
+    - title: Cifrado de datos en reposo
+      url: "/secure-data/encrypt-data-at-rest.html"
+  - title: Más recursos de ASA R2
+    links:
+    - title: Especificaciones técnicas de ASA
+      url: https://www.netapp.com/data-storage/all-flash-san-storage-array/
+    - title: Referencia de comandos del ONTAP
+      url: https://docs.netapp.com/us-en/ontap-cli/
+    - title: Referencia de API de REST de ONTAP
+      url: https://docs.netapp.com/us-en/ontap-restapi/index.html
+    - title: Referencia de ONTAP EMS
+      url: https://docs.netapp.com/us-en/ontap-ems/index.html
+  - title: Otros recursos de ONTAP
+    links:
+    - title: Documentación para otros sistemas ONTAP
+      url: https://docs.netapp.com/us-en/ontap-family/

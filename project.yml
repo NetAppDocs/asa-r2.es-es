@@ -1,0 +1,26 @@
+---
+settings:
+  name: ASA r2
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: es-es,us-en,ja-jp,ko-kr,zh-cn,zh-tw,de-de,fr-fr,it-it
+sidebar:
+  entries:
+  - title: Documentos de ASA R2
+    url: "/index.html"
+  - section: release-notes
+  - section: get-started
+  - section: manage-data
+  - section: administer
+  - title: Realizar el mantenimiento del hardware
+    url: "/maintain-hardware.html"
+  - section: learn-more
+  - section: get-help
+  - title: Avisos legales
+    url: "/legal-notices.html"
+product-family:
+  name: ONTAP
+  repo: ontap-family

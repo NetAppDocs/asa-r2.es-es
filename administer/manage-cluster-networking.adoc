@@ -1,0 +1,94 @@
+---
+sidebar: sidebar 
+permalink: administer/manage-cluster-networking.html 
+keywords: add a broadcast domain, broadcast domains, reassign ports, create a vlan, create vlans 
+summary: Utilice System Manager de ONTAP para realizar administración básica de redes de almacenamiento en el sistema ASA R2. 
+---
+= Gestione las redes de clúster en sistemas de almacenamiento R2 de ASA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible usar System Manager de ONTAP para realizar administración básica de red de almacenamiento en el sistema ASA R2. Por ejemplo, puede agregar un dominio de retransmisión o reasignar puertos a un dominio de retransmisión diferente.
+
+
+
+== Añada un dominio de retransmisión
+
+Utilice dominios de retransmisión para simplificar la gestión de la red de clúster agrupando los puertos de red que pertenecen a la misma red de capa 2. Las máquinas virtuales de almacenamiento (VM) pueden usar los puertos del grupo para el tráfico de datos o de gestión.
+
+El dominio de retransmisión “default” y el dominio de retransmisión “Cluster” se crean durante la configuración del clúster. El dominio de difusión “predeterminado” contiene puertos que están en el espacio IP “predeterminado”. Estos puertos se utilizan principalmente para servir datos. Los puertos de gestión de clústeres y gestión de nodos también están en este dominio de retransmisión. El dominio de difusión “Cluster” contiene puertos que están en el espacio IP “Cluster”. Estos puertos se utilizan para la comunicación del clúster e incluyen todos los puertos de clúster de todos los nodos del clúster.
+
+Puede crear dominios de retransmisión adicionales después de inicializar el clúster. Cuando se crea un dominio de retransmisión, se crea automáticamente un grupo de conmutación por error que contiene los mismos puertos.
+
+.Acerca de esta tarea
+La unidad de transmisión máxima (MTU) de los puertos agregados a un dominio de retransmisión se actualiza al valor MTU establecido en el dominio de retransmisión.
+
+.Pasos
+. En System Manager, seleccione *Red > Descripción general*.
+. En Dominios *Broadcast*, seleccione image:icon_add_blue_bg.png["rectángulo azul que contiene un signo más seguido de la palabra add en letras blancas"].
+. Escriba un nombre para el dominio de retransmisión o acepte el nombre predeterminado.
++
+Todos los nombres de dominio de retransmisión deben ser únicos en un espacio IP.
+
+. Seleccione el espacio IP del dominio de retransmisión.
++
+Si no especifica un nombre de espacio IP, el dominio de difusión se crea en el espacio IP “predeterminado”.
+
+. Introduzca la unidad de transmisión máxima (MTU).
++
+MTU es el paquete de datos más grande que se puede aceptar en su dominio de retransmisión.
+
+. Seleccione los puertos deseados y luego seleccione *Guardar*.
+
+
+.Resultado
+Ha añadido un nuevo dominio de retransmisión.
+
+
+
+== Reasigne los puertos a un dominio de retransmisión diferente
+
+Los puertos solo pueden pertenecer a un dominio de retransmisión. Si desea cambiar el dominio de retransmisión al que pertenece un puerto, deberá reasignar el puerto del dominio de retransmisión existente a un nuevo dominio de retransmisión.
+
+.Pasos
+. En System Manager, seleccione *Red > Descripción general*.
+. En *Dominios de difusión*, seleccione image:icon_kabob.gif["tres puntos verticales azules"] junto al nombre de dominio; luego seleccione *Editar*.
+. Anule la selección de los puertos Ethernet que desea reasignar a otro dominio.
+. Seleccione el dominio de difusión al que desea reasignar el puerto y, a continuación, seleccione *Reasignar*.
+. Seleccione *Guardar*.
+
+
+.Resultado
+Ha reasignado los puertos a un dominio de retransmisión diferente.
+
+
+
+== Cree una VLAN
+
+Una VLAN consta de puertos de switch agrupados en un dominio de retransmisión. Las VLAN le permiten aumentar la seguridad, aislar problemas y limitar las rutas disponibles dentro de su infraestructura de red IP.
+
+.Antes de empezar
+Los switches implementados en la red deben cumplir los estándares IEEE 802.1Q o tener una implementación de VLAN específica por proveedor.
+
+.Acerca de esta tarea
+* No se puede crear una VLAN en un puerto de grupo de interfaces que no contenga puertos miembro.
+* Cuando se configura una VLAN por primera vez en un puerto, el puerto podría estar inactivo, lo que podría dar lugar a una desconexión temporal de la red. Las adiciones posteriores de VLAN al mismo puerto no afectan al estado del puerto.
+* No debe crear una VLAN en una interfaz de red con el mismo identificador que la VLAN nativa del switch. Por ejemplo, si la interfaz de red e0b se encuentra en una VLAN 10 nativa, no se debe crear una VLAN e0b-10 en esa interfaz.
+
+
+.Pasos
+. En el Administrador del sistema, seleccione *Red > Puertos Ethernet* y, a continuación, seleccione image:icon_vlan.png["un signo más azul seguido de la palabra vlan"].
+. Seleccione el nodo y el dominio de retransmisión para la VLAN.
+. Seleccione el puerto para la VLAN.
++
+La VLAN no se puede conectar a un puerto que aloje una LIF de clúster ni a los puertos asignados al espacio IP del clúster.
+
+. Introduzca un ID de VLAN.
+. Seleccione *Guardar*.
+
+
+.Resultado
+Creó una VLAN para aumentar la seguridad, aislar problemas y limitar las rutas disponibles dentro de la infraestructura de red IP.

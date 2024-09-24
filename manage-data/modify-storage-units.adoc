@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: manage-data/modify-storage-units.html 
+keywords: increase storage units, resize luns, resize namespaces, san, nvme,  increase lun size, increase namespace, increase, modify, edit, luns, namespaces, modify quality of service, qos, host mapping, mapping host 
+summary: Responder a los cambios en el rendimiento y los datos de su sistema de almacenamiento editando unidades de almacenamiento para aumentar la capacidad, actualizar las políticas de calidad de servicio o cambiar las asignaciones de hosts. 
+---
+= Modifique las unidades de almacenamiento en los sistemas de almacenamiento R2 de ASA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para optimizar el rendimiento en el sistema ASA R2, es posible que deba modificar las unidades de almacenamiento para aumentar la capacidad, actualizar las políticas de calidad de servicio o cambiar los hosts que se asignan a las unidades. Por ejemplo, si se añade una nueva carga de trabajo de una aplicación crítica a una unidad de almacenamiento existente, es posible que deba cambiar la política de calidad de servicio (QoS) aplicada a la unidad de almacenamiento para respaldar el nivel de rendimiento necesario para la nueva aplicación.
+
+.Aumente la capacidad
+Aumente el tamaño de una unidad de almacenamiento antes de que alcance su capacidad completa para evitar una pérdida de acceso a los datos que puede producirse si la unidad de almacenamiento se queda sin espacio editable. La capacidad de una unidad de almacenamiento se puede aumentar a 128 TB, que es el tamaño máximo permitido por ONTAP.
+
+.Modificar las asignaciones de hosts
+Modifique los hosts que están asignados a una unidad de almacenamiento para ayudar a equilibrar las cargas de trabajo o a reconfigurar los recursos del sistema.
+
+.Modifique la política de calidad de servicio
+Las políticas de calidad de servicio garantizan que el rendimiento de las cargas de trabajo críticas no se ve degradado por cargas de trabajo de la competencia. Puede utilizar políticas de calidad de servicio para establecer un _limit_ de rendimiento de QoS y un _guarantee_ de rendimiento de QoS.
+
+* Límite de rendimiento de calidad de servicio
++
+El rendimiento _limit_ de calidad de servicio restringe el impacto de una carga de trabajo en los recursos del sistema al limitar el rendimiento de la carga de trabajo a un número máximo de IOPS o MBps, o IOPS y MBps.
+
+* Garantía de rendimiento de calidad de servicio
++
+El rendimiento _guarantee_ de QoS garantiza que las cargas de trabajo críticas cumplan los objetivos de rendimiento mínimos, sin importar la demanda de cargas de trabajo de la competencia, garantizando que el rendimiento de la carga de trabajo crucial no caiga por debajo de un número mínimo de IOPS o MB/s, ni IOPS y MBps.
+
+
+
+.Pasos
+. En System Manager, seleccione *Almacenamiento*.
+. Pase el ratón sobre el nombre de la unidad de almacenamiento que desea editar.
+. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Editar*.
+. Actualice los parámetros de la unidad de almacenamiento según sea necesario para aumentar la capacidad, cambiar la política de calidad de servicio y actualizar la asignación del host.
+
+
+.El futuro
+Si aumentó el tamaño de la unidad de almacenamiento, debe volver a analizar la unidad de almacenamiento en el host para que el host reconozca el cambio de tamaño.

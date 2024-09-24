@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: administer/rename-nodes.html 
+keywords: rename, node, renaming, asa r2 
+summary: Es posible que deba cambiar el nombre de un nodo para alinearlo con las convenciones de nomenclatura de la organización o por otros motivos administrativos. 
+---
+= Cambie el nombre de un nodo en un sistema de almacenamiento ASA R2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede usar ONTAP System Manager para cambiar el nombre de un nodo en el sistema ASA R2. Es posible que deba cambiar el nombre de un nodo para alinearlo con las convenciones de nomenclatura de la organización o por otros motivos administrativos.
+
+.Pasos
+. En System Manager, seleccione *Clúster > Descripción general*.
+. Seleccione image:icon_kabob.gif["tres puntos verticales azules"] junto al nodo al que desea cambiar el nombre y, a continuación, seleccione *Cambiar nombre*.
+. Introduzca el nuevo nombre para el nodo y, a continuación, seleccione *Renombrar*.
+
+
+.Resultado
+Se aplica el nuevo nombre al nodo.

@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: data-protection/protect-kubernetes.html 
+keywords: snapshot replication, asa r2, protect data, data protection, replication, replicate data, remote cluster, destination cluster, source cluster, replication relationship, asynchronous replication, synchronous replication 
+summary: Utiliza Astra Control para migrar aplicaciones y datos de un clúster de Kubernetes a otro, replicar aplicaciones en sistemas remotos y clonar aplicaciones. 
+---
+= Proteja sus aplicaciones de Kubernetes en los sistemas de almacenamiento R2 de ASA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilice Astra Control Center para proteger sus aplicaciones de Kubernetes. Astra Control Center le permite migrar aplicaciones y datos de un clúster de Kubernetes a otro, replicar aplicaciones en un sistema remoto mediante la tecnología NetApp SnapMirror y clonar aplicaciones de la configuración provisional a la producción.
+
+.Si quiere más información
+link:https://docs.netapp.com/us-en/astra-control-service/use/protect-apps.html["Obtén más información sobre la protección de aplicaciones de Kubernetes mediante Astra Control"^].

@@ -1,0 +1,237 @@
+---
+sidebar: sidebar 
+permalink: learn-more/cli-support.html 
+keywords: asa r2, cli, asa r2, asa a1k, asa 70, asa 90 
+summary: 'Algunos comandos de ONTAP no se admiten en sistemas ASA R2 (ASA A1K, ASA 70, ASA 90).' 
+---
+= Compatibilidad con la interfaz de línea de comandos de ONTAP para los sistemas de almacenamiento R2 de ASA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En lugar de agregados tradicionales, que poseen un conjunto específico de discos disponibles en un sistema de almacenamiento, los sistemas ASA R2 utilizan una _storage availability zone_. Una zona de disponibilidad de almacenamiento es un conjunto común de almacenamiento que tiene acceso a todos los discos disponibles en el sistema de almacenamiento. La zona de disponibilidad de almacenamiento está visible para ambos nodos de un par de alta disponibilidad ASA R2. Cuando se crea una unidad de almacenamiento (LUN o espacio de nombres NVMe), ONTAP crea automáticamente un volumen que contiene una máquina virtual de almacenamiento (VM) en la zona de disponibilidad de almacenamiento para alojar la unidad de almacenamiento.
+
+Debido a este método simplificado de gestión del almacenamiento, `storage aggregate` los comandos no son compatibles con los sistemas ASA R2. La compatibilidad con ciertos `lun` `volume` comandos y parámetros de AND también está limitada.
+
+ASA R2 no admite los siguientes comandos y conjuntos de comandos:
+
+.Comandos <code>lun</code> no admitidos
+[%collapsible]
+====
+* `lun copy`
+* `lun geometry`
+* `lun import`
+* `lun mapping add-reportng-nodes`
+* `lun mapping-remove-reporting-nodes`
+* `lun maxsize`
+* `lun move`
+* `lun move-in-volume`
++
+Este comando se reemplaza con lun rename/vserver nvme namespace rename.
+
+* `lun transition`
+
+
+====
+.Comandos y parámetros <code>volume</code> no admitidos
+[%collapsible]
+====
+* `volume autosize`
+* `volume create`
+* `volume delete`
+* `volume expand`
+* `volume modify`
++
+Este comando no está disponible cuando se usa junto con los siguientes parámetros:
+
++
+** `-anti-ransomware-state`
+** `-autosize`
+** `-autosize-mode`
+** `-autosize-shrik-threshold-percent`
+** `-autosize-reset`
+** `-group`
+** `-is-cloud-write-enabled`
+** `-is-space-enforcement-logical`
+** `-max-autosize`
+** `-min-autosize`
+** `-offline`
+** `-online`
+** `-percent-snapshot-space`
+** `-qos*`
+** `-size`
+** `-snapshot-policy`
+** `-space-guarantee`
+** `-space-mgmt-try-first`
+** `-state`
+** `-tiering-policy`
+** `-tiering-minimum-cooling-days`
+** `-user`
+** `-unix-permisions`
+** `-vserver-dr-protection`
+
+
+* `volume make-vsroot`
+* `volume mount`
+* `volume move`
+* `volume offline`
+* `volume rehost`
+* `volume rename`
+* `volume restrict`
+* `volume transition-prepare-to-downgrade`
+* `volume unmount`
+
+
+====
+.Comandos <code>volume clone</code> no compatibles
+[%collapsible]
+====
+* `volume clone create`
+* `volume clone split`
+
+
+====
+.Comandos <code>volume SnapLock </code> no compatibles
+[%collapsible]
+====
+* `volume snaplock modify`
+
+
+====
+.Comandos Snapshot de volumen <code>volume no compatibles </code>
+[%collapsible]
+====
+* `volume snapshot`
+* `volume snapshot autodelete modify`
+* `volume snapshot policy modify`
+
+
+====
+.Conjuntos de comandos <code>volume</code> no admitidos
+[%collapsible]
+====
+* `volume activity-tracking`
+* `volume analytics`
+* `volume conversion`
+* `volume file`
+* `volume flexcache`
+* `volume flexgroup`
+* `volume inode-upgrade`
+* `volume object-store`
+* `volume qtree`
+* `volume quota`
+* `volume reallocation`
+* `volume rebalance`
+* `volume recovery-queue`
+* `volume schedule-style`
+
+
+====
+.Comandos <code>storage</code> no compatibles
+[%collapsible]
+====
+* `storage failover show-takeover`
+* `storage failover show-giveback`
+* `storage aggregate relocation`
+* `storage disk assign`
+* `storage disk partition`
+* `storage disk reassign`
+
+
+====
+.Si quiere más información
+Consulte la link:https://docs.netapp.com/us-en/ontap-cli/["Referencia de comandos del ONTAP"]para obtener una lista completa de comandos admitidos
+
+
+
+== Configure un clúster de ONTAP ASA R2 mediante la interfaz de línea de comandos
+
+Se recomienda que usted link:../install-setup/initialize-ontap-cluster.html["Utilice System Manager para configurar su clúster de ONTAP ASA R2"]. System Manager ofrece un flujo de trabajo guiado rápido y sencillo para poner el clúster en funcionamiento. Sin embargo, si está acostumbrado a trabajar con comandos de la ONTAP, opcionalmente se puede utilizar la interfaz de línea de comandos de la ONTAP para la configuración del clúster. La configuración del clúster mediante CLI no ofrece opciones ni ventajas adicionales a la configuración del clúster con System Manager.
+
+Durante la configuración del clúster, se crea la máquina virtual de almacenamiento de datos (VM) predeterminada, se crea una unidad de almacenamiento inicial y se detectan las LIF de datos automáticamente. Opcionalmente, puede habilitar el Sistema de nombres de dominio (DNS) para resolver nombres de host, configurar el clúster para que utilice el Protocolo de hora de red (NTS) para la sincronización de tiempo y habilitar el cifrado de datos en reposo.
+
+.Antes de empezar
+Recopile la siguiente información:
+
+* Dirección IP de gestión del clúster
++
+La dirección IP de administración del clúster es una dirección IPv4 exclusiva para la interfaz de gestión de clústeres que usa el administrador del clúster para acceder a la máquina virtual de almacenamiento de administrador y gestionar el clúster. Puede pedirle esta dirección IP al administrador responsable de la asignación de direcciones IP en la organización.
+
+* Máscara de subred de red
++
+Durante la configuración del clúster, ONTAP recomienda un conjunto de interfaces de red adecuadas para la configuración. Puede ajustar la recomendación si es necesario.
+
+* Dirección IP de puerta de enlace de red
+* Dirección IP del nodo asociado
+* Nombres de dominio DNS
+* Direcciones IP del servidor de nombres DNS
+* Direcciones IP del servidor NTP
+* Máscara de subred de datos
+
+
+.Pasos
+. Encienda ambos nodos del par de alta disponibilidad.
+. Muestre los nodos detectados en la red local:
++
+[source, cli]
+----
+system node show-discovered -is-in-cluster false
+----
+. Inicie el asistente de configuración del clúster:
++
+[source, cli]
+----
+cluster setup
+----
+. Reconozca la declaración de AutoSupport.
+. Introduzca los valores para el puerto de la interfaz de gestión de nodos, la dirección IP, la máscara de red y la pasarela predeterminada.
+. Presione *Enter* para continuar con la configuración usando la interfaz de línea de comandos; luego ingrese *create* para crear un nuevo clúster.
+. Acepte los valores predeterminados del sistema o introduzca sus propios valores.
+. Después de completar la configuración en el primer nodo, inicie sesión en el clúster.
+. Compruebe que el clúster esté activo y que el primer nodo esté en buen estado:
++
+[source, cli]
+----
+system node show-discovered
+----
+. Añada el segundo nodo al clúster:
++
+[source, cli]
+----
+cluster add-node -cluster-ip <partner_node_ip_address>
+----
+. De manera opcional, sincronice la hora del sistema en todo el clúster
++
+[cols="1h, 1"]
+|===
+
+
+| Sincronice sin autenticación simétrica  a| 
+[source, cli]
+----
+cluster time-service ntp server create -server <server_name>
+----
+
+
+| Sincronice con autenticación simétrica  a| 
+[source, cli]
+----
+cluster time-service ntp server create -server <server_ip_address> -key-id <key_id>
+----
+|===
++
+.. Compruebe que el clúster esté asociado con un servidor NTP:
++
+[source, cli]
+----
+Cluster time-service ntp show
+----
+
+
+. Opcionalmente, descargue y ejecute link:https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Config Advisor de ActiveIQ"] para confirmar la configuración.
+
+
+.El futuro
+Está preparado para link:../install-setup/set-up-data-access.html["configure el acceso a los datos"] pasar de sus clientes SAN a su sistema.

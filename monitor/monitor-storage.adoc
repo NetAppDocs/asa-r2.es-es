@@ -1,0 +1,60 @@
+---
+sidebar: sidebar 
+permalink: monitor/monitor-storage.html 
+keywords: monitor, storage, cluster, utilization, usage 
+summary: Supervise la utilización de su almacenamiento para asegurarse de que tiene la capacidad de almacenamiento que necesita para satisfacer las cargas de trabajo actuales y futuras. 
+searchtitle: Supervise el uso del espacio con el administrador del sistema de ONTAP | ASA R2 
+---
+= Supervise el uso del clúster y de la unidad de almacenamiento en los sistemas de almacenamiento R2 de ASA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilice System Manager de ONTAP para supervisar la utilización del almacenamiento y garantizar que dispone de la capacidad de almacenamiento necesaria para satisfacer las cargas de trabajo actuales y futuras.
+
+
+
+== Supervise el uso del clúster
+
+Supervise regularmente la cantidad de almacenamiento que consume el clúster para garantizar que, si es necesario, esté preparado para expandir la capacidad del clúster antes de quedarse sin espacio.
+
+.Pasos
+. En System Manager, seleccione *Panel*.
+. En *Capacidad*, vea la cantidad de espacio físico utilizado y la cantidad de espacio disponible en su clúster.
++
+La proporción de reducción de datos representa la cantidad de espacio ahorrado gracias a la eficiencia del almacenamiento.
+
+
+
+.El futuro
+Si su clúster se está quedando sin espacio o si no tiene capacidad para satisfacer una demanda futura, debe planificar la link:../administer/increase-storage-capacity.html["añadir unidades nuevas"] puesta en marcha de su sistema ASA R2 para aumentar la capacidad de almacenamiento.
+
+
+
+== Supervisar el uso de la unidad de almacenamiento
+
+Supervisar la cantidad de almacenamiento consumido por una unidad de almacenamiento para aumentar de forma proactiva el tamaño de la unidad de almacenamiento en función de las necesidades de su negocio.
+
+.Pasos
+. En System Manager, seleccione *Almacenamiento*.
+. Seleccione la unidad de almacenamiento que desea supervisar; luego seleccione *Descripción general*.
+. En *Almacenamiento*, vea lo siguiente:
++
+** Tamaño de la unidad de almacenamiento
+** Cantidad de espacio utilizado
+** De reducción de datos
++
+La relación de reducción de datos representa la cantidad de espacio ahorrado gracias a la eficiencia del almacenamiento
+
+** Instantánea utilizada
++
+Snapshot utilizada representa la cantidad de almacenamiento que usan las instantáneas.
+
+
+
+
+
+.El futuro
+Si la unidad de almacenamiento se está acercando a su capacidad, debe link:../manage-data/modify-storage-units.html["modifique la unidad de almacenamiento"]aumentar su tamaño.

@@ -1,0 +1,37 @@
+---
+sidebar: sidebar 
+permalink: learn-more/software-support-limitations.html 
+keywords: asa r2, asa a1k, asa 70, asa 90, unsupported features 
+summary: Aunque los sistemas ASA R2 ofrecen una amplia gama de compatibilidad para las soluciones SAN, ciertas funciones de software ONTAP no son compatibles. 
+---
+= Compatibilidad del software ONTAP y limitaciones para los sistemas de almacenamiento R2 de ASA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Aunque los sistemas ASA R2 ofrecen una amplia gama de compatibilidad para las soluciones SAN, ciertas funciones de software ONTAP no son compatibles.
+
+.Los sistemas ASA R2 no son compatibles con lo siguiente:
+* Recuperación tras fallos de LIF de iSCSI
+* FabricPool
+* Aprovisionamiento grueso de LUN
+* MetroCluster
+* Protocolos de objetos
+* ONTAP S3 SnapMirror y API S3
+* SnapMirror al cloud
+* De SnapMirror a sistemas R2 que no sean de ASA
+* Asignación de LUN selectiva (SLM)
+
+
+.Los sistemas ASA R2 ofrecen lo siguiente:
+* SnapLock
+* Cifrado de doble capa
+
+
+.Si quiere más información
+* Consulte la link:https://hwu.netapp.com/["NetApp Hardware Universe"^] para obtener más información acerca de las limitaciones y la compatibilidad del hardware de ASA R2.
+* link:../secure-data/ransomware-protection.html["Aprenda a bloquear instantáneas"] En su sistema ASA R2.
+* link:../secure-data/encrypt-data-at-rest.html["Aprenda a aplicar el cifrado de doble capa"] A los datos de su sistema ASA R2.
+

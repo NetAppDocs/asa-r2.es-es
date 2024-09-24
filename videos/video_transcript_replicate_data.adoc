@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: videos/video_transcript_replicate_data.html 
+keywords: frontmatter, front matter 
+summary: Vea vídeos breves que muestran cómo utilizar System Manager de ONTAP para realizar tareas comunes de forma rápida y sencilla en sus sistemas de almacenamiento R2 de ASA. 
+---
+= Replique datos en un clúster remoto de un sistema de almacenamiento R2 de ASA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se proporciona la siguiente transcripción para el video `Replicate data to a remote cluster from an ASA r2 storage system`.
+
+link:videos-common-tasks.html#video_transcript_return_replicate_data["Volver a la página"]
+
+Puede usar System Manager de ONTAP para proteger los datos mediante la programación de snapshots de sus unidades de almacenamiento o grupos de coherencia y la replicación en una ubicación remota.
+
+En este ejemplo programaremos instantáneas para las unidades de almacenamiento existentes.
+
+En el menú Administrador del sistema, seleccione *Almacenamiento*.
+
+Seleccione la unidad de almacenamiento que desea proteger y, a continuación, seleccione *Proteger*.
+
+Opcionalmente, puede crear una instantánea a petición seleccionando *Añadir una instantánea ahora*.
+
+En *Protección remota*, selecciona *Replicar a un clúster remoto*.
+
+Seleccione la máquina virtual de almacenamiento y la política de replicación para la replicación. De forma predeterminada, la transferencia de datos inicial comenzará inmediatamente.
+
+Seleccione *Guardar*.
+
+Si la unidad de almacenamiento no está en un grupo de consistencia, debe crear uno. Introduzca un nombre para el nuevo grupo de consistencia y seleccione *Crear*.
+
+Ya ha replicado de forma rápida y fácil su grupo de consistencia en un clúster remoto.

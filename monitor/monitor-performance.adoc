@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: monitor/monitor-performance.html 
+keywords: monitor, cluster, performance, storage units, latency, iops, throughput 
+summary: Supervise el rendimiento de su clúster y unidades de almacenamiento para determinar cómo la latencia, las IOPS y el rendimiento afectan a sus aplicaciones empresariales cruciales. 
+searchtitle: Supervise el rendimiento del clúster mediante ONTAP System Manager| ASA R2 
+---
+= Supervise el rendimiento de los clústeres y de la unidad de almacenamiento en los sistemas de almacenamiento R2 de ASA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilice System Manager de ONTAP para supervisar el rendimiento general de su clúster y el rendimiento de unidades de almacenamiento específicas para determinar cómo la latencia, las IOPS y el rendimiento afectan a sus aplicaciones vitales para el negocio. El rendimiento se puede supervisar en varios períodos de tiempo que van de una hora a un año.
+
+Por ejemplo, supongamos que una aplicación crítica está experimentando alta latencia y bajo rendimiento. Cuando se observa el rendimiento del clúster de los últimos cinco días laborables, se observa una disminución del rendimiento a la misma hora cada día. Se utiliza esta información para determinar que la aplicación crucial está compitiendo por los recursos del clúster cuando un proceso no crítico comienza a ejecutarse en segundo plano. A continuación, puede modificar la política de calidad de servicio para limitar el impacto de la carga de trabajo no crítica en los recursos del sistema y garantizar que la carga de trabajo crítica cumpla con los objetivos de rendimiento mínimos.
+
+
+
+== Supervise el rendimiento del clúster
+
+Use las métricas de rendimiento del clúster para determinar si necesita cambiar cargas de trabajo para minimizar la latencia y maximizar las IOPS y el rendimiento para sus aplicaciones críticas.
+
+.Pasos
+. En System Manager, seleccione *Panel*.
+. En *Rendimiento*, vea la latencia, IOPS y rendimiento del clúster por hora, día, semana, mes o año.
+. image:icon_download.png["flecha azul hacia abajo"]Seleccione para descargar los datos de rendimiento.
+
+
+.El futuro
+Use las métricas de rendimiento del clúster para analizar si necesita modificar las políticas de calidad de servicio o realizar otros ajustes en las cargas de trabajo de la aplicación para maximizar el rendimiento general del clúster.
+
+
+
+== Supervise el rendimiento de la unidad de almacenamiento
+
+Utilice métricas de rendimiento de unidad de almacenamiento para determinar el impacto de aplicaciones específicas en la latencia, las operaciones de IOPS y el rendimiento.
+
+.Pasos
+. En System Manager, seleccione *Almacenamiento*.
+. Seleccione la unidad de almacenamiento que desea supervisar; luego seleccione *Descripción general*.
+. En *Rendimiento*, vea la latencia, IOPS y rendimiento de la unidad de almacenamiento por hora, día, semana, mes o año.
+. image:icon_download.png["flecha azul hacia abajo"]Seleccione para descargar los datos de rendimiento.
+
+
+.El futuro
+Utilice las métricas de rendimiento de su unidad de almacenamiento para analizar si necesita modificar las políticas de calidad de servicio asignadas a sus unidades de almacenamiento para reducir la latencia y maximizar las IOPS y el rendimiento.

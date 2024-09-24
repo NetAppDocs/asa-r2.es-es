@@ -1,0 +1,187 @@
+---
+sidebar: sidebar 
+permalink: data-protection/snapshot-replication.html 
+keywords: snapshot replication, asa r2, protect data, data protection, replication, replicate data, remote cluster, destination cluster, source cluster, replication relationship, asynchronous replication, synchronous replication 
+summary: Utilice System Manager de ONTAP para copiar datos en una ubicación remota para las tareas de backup y recuperación ante desastres. La configuración requiere la creación de una política y una relación de replicación. 
+searchtitle: Replicar snapshots en un clúster remoto mediante el Administrador del sistema de ONTAP| ASA R2 
+---
+= Replique snapshots en un clúster remoto de los sistemas de almacenamiento R2 de ASA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La replicación de Snapshot es un proceso en el que los grupos de coherencia del sistema ASA R2 se copian a una ubicación geográficamente remota. Tras la replicación inicial, los cambios en los grupos de consistencia se copian en la ubicación remota basada en una política de replicación. Los grupos de consistencia replicados pueden usarse para recuperación ante desastres o migración de datos.
+
+
+NOTE: La replicación de snapshots desde un sistema de almacenamiento R2 de ASA se admite únicamente en otro sistema de almacenamiento R2 de ASA. No puede replicar snapshots de un sistema ASA R2 en un sistema ASA, AFF o FAS actual.
+
+Para configurar la replicación de Snapshot, necesita establecer una relación de replicación entre su sistema ASA R2 y la ubicación remota. La relación de replicación se rige por una política de replicación. Se crea una política predeterminada para replicar todas las copias de Snapshot durante la configuración del clúster. Puede utilizar la política predeterminada o, opcionalmente, crear una nueva.
+
+
+
+== Paso 1: Crear una relación de paridad entre clústeres
+
+Para poder proteger los datos replicándolos en un clúster remoto, tiene que crear una relación de paridad de clústeres entre el clúster local y el remoto.
+
+.Pasos
+. En el clúster local, en System Manager, seleccione *Clúster > Configuración*.
+. En *Intercluster Settings* junto a *Cluster peers*, seleccione image:icon_kabob.gif["tres puntos verticales azules"]y luego seleccione *Add a cluster peer*.
+. Selecciona *Lauch remote cluster*; esto genera una frase de contraseña que usarás para autenticarte con el cluster remoto.
+. Después de generar la frase de acceso para el clúster remoto, péguela en *Passphrase* en el clúster local.
+. Seleccione image:icon_add.gif["signo más azul seguido de la palabra añadir en letras azules"]; y, a continuación, introduzca la dirección IP de la interfaz de red de interconexión de clústeres.
+. Seleccione *Iniciar interconexión de clústeres*.
+
+
+.El futuro
+Ha establecido una relación entre iguales para el clúster R2 de ASA local con un clúster remoto. Ahora puede crear una relación de replicación.
+
+
+
+== Paso 2: Opcionalmente, cree una política de replicación
+
+La política de replicación de Snapshot define cuándo se replican las actualizaciones realizadas en el clúster de ASA R2 en el sitio remoto.
+
+.Pasos
+. En System Manager, seleccione *Protección > Políticas*; a continuación, seleccione *Políticas de replicación*.
+. Seleccione image:icon_add_blue_bg.png["rectángulo azul que contiene un signo más seguido de la palabra add en letras blancas"].
+. Escriba un nombre para la política de replicación o acepte el nombre predeterminado y, a continuación, introduzca una descripción.
+. Seleccione el *Policy Scope*.
++
+Si desea aplicar la política de replicación a todo el clúster, seleccione *Cluster*. Si desea que la política de replicación se aplique solo a las unidades de almacenamiento de una VM de almacenamiento específica, seleccione *Storage VM*.
+
+. Seleccione el *Tipo de política*.
++
+[cols="2,6a"]
+|===
+| Opción | Pasos 
+
+
+| Copie datos en el sitio remoto una vez que se hayan escrito en el origen.  a| 
+.. Selecciona *Asíncrono*.
+.. En *Transferir instantáneas desde el origen*, acepte el programa de transferencia predeterminado o seleccione uno diferente.
+.. Seleccione esta opción para transferir todas las instantáneas o para crear reglas para determinar qué instantáneas desea transferir.
+.. Opcionalmente, habilitar la compresión de red.
+
+
+
+
+| Escribir datos en los sitios de origen y remotos simultáneamente.  a| 
+.. Selecciona *Síncrono*.
+
+
+|===
+. Seleccione *Guardar*.
+
+
+.El futuro
+Ha creado una política de replicación y ahora está listo para crear una relación de replicación entre su sistema ASA R2 y la ubicación remota.
+
+.Si quiere más información
+Más información sobre link:../administer/manage-client-vm-access.html["Equipos virtuales de almacenamiento para el acceso de clientes"].
+
+
+
+== Paso 3: Crear una relación de replicación
+
+Una relación de replicación de Snapshot establece una conexión entre el sistema ASA R2 y una ubicación remota para que pueda replicar grupos de coherencia en un clúster remoto. Los grupos de consistencia replicados pueden usarse para recuperación ante desastres o para migración de datos.
+
+Para obtener protección contra ataques de ransomware, cuando se configura la relación de replicación, puede seleccionar bloquear las copias de Snapshot de destino. Las instantáneas bloqueadas no se pueden eliminar accidentalmente ni de forma malintencionada. Puede utilizar snapshots bloqueados para recuperar datos si una unidad de almacenamiento se ve afectada por un ataque de ransomware.
+
+.Antes de empezar
+Si desea bloquear las snapshots de destino, debe link:../secure-data/ransomware-protection.html#initialize-the-snaplock-compliance-clock["Inicialice el reloj de cumplimiento de normativas de instantáneas"]antes de crear la relación de replicación.
+
+Crear una relación de replicación con o sin snapshots de destino bloqueadas.
+
+[role="tabbed-block"]
+====
+.Con instantáneas bloqueadas
+--
+.Pasos
+. En System Manager, seleccione *Protección > Grupos de consistencia*.
+. Seleccione un grupo de consistencia.
+. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Proteger*.
+. En *Protección remota*, selecciona *Replicar a un clúster remoto*.
+. Seleccione la *Política de replicación*.
++
+Debe seleccionar una política de replicación _vault_.
+
+. Selecciona *Ajustes de destino*.
+. Seleccione *Bloquear instantáneas de destino para evitar su eliminación*
+. Introduzca el período de retención de datos máximo y mínimo.
+. Para retrasar el inicio de la transferencia de datos, anule la selección de *Iniciar transferencia inmediatamente*.
++
+De forma predeterminada, la transferencia de datos inicial comienza inmediatamente.
+
+. Opcionalmente, para anular el horario de transferencia predeterminado, seleccione *Configuración de destino* y, a continuación, seleccione *Anular horario de transferencia*.
++
+Su horario de transferencia debe ser de un mínimo de 30 minutos para ser admitido.
+
+. Seleccione *Guardar*.
+
+
+--
+.Sin instantáneas bloqueadas
+--
+.Pasos
+. En System Manager, seleccione *Protección > Replicación*.
+. Seleccione esta opción para crear la relación de replicación con el destino local o el origen local.
++
+[cols="2,2"]
+|===
+| Opción | Pasos 
+
+
+| Destinos locales  a| 
+.. Seleccione *Destinos locales* y, a continuación, seleccione image:icon_replicate_blue_bg.png["rectángulo con fondo azul y la palabra se replican en letras blancas"].
+.. Busque y seleccione el grupo de coherencia de origen.
++
+El grupo de consistencia _source_ hace referencia al grupo de coherencia en el clúster local que desea replicar.
+
+
+
+
+
+| Fuentes locales  a| 
+.. Seleccione *Fuentes locales* y, a continuación, seleccione image:icon_replicate_blue_bg.png["rectángulo con fondo azul y la palabra se replican en letras blancas"] .
+.. Busque y seleccione el grupo de coherencia de origen.
++
+El grupo de consistencia _source_ hace referencia al grupo de coherencia en el clúster local que desea replicar.
+
+.. En *Destino de replicación*, seleccione el clúster en el que desea replicar y, a continuación, seleccione la VM de almacenamiento.
+
+
+|===
+. Seleccione una política de replicación.
+. Para retrasar el inicio de la transferencia de datos, seleccione *Ajustes de destino*; luego anule la selección de *Iniciar transferencia inmediatamente*.
++
+De forma predeterminada, la transferencia de datos inicial comienza inmediatamente.
+
+. Opcionalmente, para anular el horario de transferencia predeterminado, seleccione *Configuración de destino* y, a continuación, seleccione *Anular horario de transferencia*.
++
+Su horario de transferencia debe ser de un mínimo de 30 minutos para ser admitido.
+
+. Seleccione *Guardar*.
+
+
+--
+====
+.El futuro
+Ahora que ha creado una política y una relación de replicación, la transferencia de datos inicial comienza según se define en la política de replicación. Opcionalmente, puede probar la conmutación por error de replicación para verificar que se puede producir una conmutación por error correcta si el sistema ASA R2 se desconecta.
+
+
+
+== Paso 4: Pruebe la conmutación por error de replicación
+
+Opcionalmente, compruebe que puede servir datos con éxito desde unidades de almacenamiento replicadas en un clúster remoto si el clúster de origen está sin conexión.
+
+.Pasos
+. En System Manager, seleccione *Protección > Replicación*.
+. Pase el ratón sobre la relación de replicación que desea probar y, a continuación, image:icon_kabob.gif["tres puntos verticales azules"]seleccione .
+. Seleccione *Test failover*.
+. Ingrese la información de failover y luego seleccione *Test failover*.
+
+
+.El futuro
+Ahora que sus datos están protegidos con la replicación de snapshots para la recuperación ante desastres, debe link:../secure-data/encrypt-data-at-rest.html["cifre sus datos en reposo"] permitir que no se puedan leer si un disco de su sistema ASA R2 se reasigna, devuelve, se pierde o es robado.

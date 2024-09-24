@@ -1,0 +1,40 @@
+---
+section: manage-data
+title: Use ONTAP para gestionar sus datos
+entries:
+- title: Vídeos para tareas comunes
+  url: "/videos/videos-common-tasks.html"
+- title: Gestione su almacenamiento
+  entries:
+  - title: Aprovisionar almacenamiento
+    url: "/manage-data/provision-san-storage.html"
+  - title: Clone datos
+    url: "/manage-data/data-cloning.html"
+  - title: Modificar unidades de almacenamiento
+    url: "/manage-data/modify-storage-units.html"
+  - title: Eliminar unidades de almacenamiento
+    url: "/manage-data/delete-storage-units.html"
+  - title: Límites de almacenamiento
+    url: "/manage-data/storage-limits.html"
+- title: Proteja sus datos
+  entries:
+  - title: Crear snapshots
+    url: "/data-protection/create-snapshots.html"
+  - title: Configurar la replicación de snapshots
+    url: "/data-protection/snapshot-replication.html"
+  - title: Protege Kubernetes
+    url: "/data-protection/protect-kubernetes.html"
+  - title: Restaure los datos
+    url: "/data-protection/restore-data.html"
+  - title: Gestionar grupos de coherencia
+    url: "/data-protection/manage-consistency-groups.html"
+  - title: Gestione las políticas y los programas de protección
+    url: "/data-protection/policies-schedules.html"
+- title: Proteja sus datos
+  entries:
+  - title: Cifrado de datos en reposo
+    url: "/secure-data/encrypt-data-at-rest.html"
+  - title: Protéjase contra ataques de ransomware
+    url: "/secure-data/ransomware-protection.html"
+  - title: Conexiones NVMe seguras
+    url: "/secure-data/nvme-tcp-connections.html"

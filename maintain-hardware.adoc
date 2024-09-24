@@ -1,0 +1,14 @@
+---
+sidebar: sidebar 
+permalink: maintain-hardware.html 
+keywords: asa r2, asa a1k, asa 70, asa 90, maintain, hardware 
+summary: Descubra cómo realizar procedimientos de mantenimiento en su sistema ASA R2. 
+---
+= Mantenga su sistema de almacenamiento R2 de ASA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vaya al https://docs.netapp.com/us-en/ontap-systems/asa-r2-landing-maintain/index.html["ASA R2 mantiene la documentación"^] para obtener más información sobre cómo realizar procedimientos de mantenimiento en los componentes del sistema ASA R2.

@@ -1,0 +1,69 @@
+---
+sidebar: sidebar 
+permalink: monitor/view-events-jobs.html 
+keywords: view cluster events, view cluster jobs, event log, system alerts, jobs, audit logs, asa r2, event notifications, email notifications 
+summary: Utilice System Manager de ONTAP para ver una lista de errores o alertas que se han producido en el sistema junto con las acciones correctivas recomendadas. 
+---
+= Vea los eventos y las tareas del clúster en los sistemas de almacenamiento R2 de ASA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilice System Manager de ONTAP para ver una lista de errores o alertas que se han producido en el sistema junto con las acciones correctivas recomendadas. También es posible ver los registros de auditoría del sistema y una lista de los trabajos activos, completados o con errores.
+
+.Pasos
+. En System Manager, seleccione *Eventos y trabajos*.
+. Ver los eventos y los trabajos del clúster.
++
+[cols="2,4a"]
+|===
+| Para ver esto... | Realice lo siguiente... 
+
+
+| Eventos del clúster  a| 
+Selecciona *Eventos*; luego selecciona *Registro de eventos*.
+
+
+
+| Sugerencias de Active IQ  a| 
+Selecciona *Eventos*; luego selecciona *Sugerencias de Active IQ*.
+
+
+
+| Alertas del sistema  a| 
+.. Selecciona *Alertas del sistema*.
+.. Seleccione la alerta del sistema cuya acción desea realizar.
+.. Confirme o suprima la alerta.
+
+
+
+
+| Trabajos del clúster  a| 
+Seleccione *Jobs*.
+
+
+
+| Registros de auditoría  a| 
+Seleccione *Registros de auditoría*.
+
+|===
+
+
+
+
+== Envíe notificaciones por correo electrónico de eventos del clúster y registros de auditoría
+
+Configure su sistema para enviar una notificación a direcciones de correo electrónico específicas cuando haya un evento del clúster o una entrada del registro de auditoría.
+
+.Pasos
+. En System Manager, seleccione *Cluster > Settings*.
+. Junto a *Gestión de notificaciones* selecciona image:icon_kabob.gif["tres puntos verticales azules"].
+. Para configurar un destino de evento, selecciona *Ver destinos de evento*; luego selecciona *Destinos de evento*. Para configurar un destino de registro de auditoría, seleccione *Ver destinos de auditoría* y, a continuación, seleccione *Destinos de registro de auditoría*.
+. Seleccione image:icon_add_blue_bg.png["rectángulo azul con signo más seguido de la palabra añadir en letras blancas"].
+. Ingrese la información de destino y luego seleccione *Agregar*.
+
+
+.Resultado
+La dirección de correo electrónico que añadió ahora recibirá las notificaciones por correo electrónico especificadas para los eventos del clúster y los registros de auditoría.

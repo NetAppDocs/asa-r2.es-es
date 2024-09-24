@@ -1,0 +1,129 @@
+---
+sidebar: sidebar 
+permalink: administer/manage-certificates.html 
+keywords: asa r2, security, certificates, digital, certificate signing request, signing, request, trusted, authority, trusted certificate authority, client, server, local certificate, authorities, add, renew, delete, generate 
+summary: Utilice certificados de seguridad digital para verificar la identidad de los servidores remotos. 
+---
+= Gestione certificados de seguridad en sistemas de almacenamiento R2 de ASA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilice certificados de seguridad digital para verificar la identidad de los servidores remotos.
+
+El protocolo de estado de certificados en línea (OCSP) valida el estado de las solicitudes de certificados digitales de los servicios de ONTAP mediante conexiones SSL y de seguridad de la capa de transporte (TLS).
+
+
+
+== Genere una solicitud de firma de certificación
+
+Genere una solicitud de firma de certificación (CSR) para crear una clave privada que se pueda utilizar para generar un certificado público.
+
+.Pasos
+. En System Manager, seleccione *Cluster > Settings*.
+. En *Seguridad*, junto a *Certificados*, selecciona image:icon_arrow.gif["flecha azul apuntando a la derecha"]; y luego selecciona image:icon_generate_csr.png["rectángulo azul que contiene un signo más seguido de las palabras generar csr"].
+. Introduzca el nombre común del asunto y, a continuación, seleccione el país.
+. Si desea cambiar los valores predeterminados de GSR, seleccionar el uso de clave ampliada o agregar nombres alternativos de asunto, seleccione image:icon_more_options.png["dos flechas orientadas diagonalmente en direcciones opuestas seguidas por las palabras más opciones"]; y, a continuación, realice las actualizaciones deseadas.
+. Seleccione *generar*.
+
+
+.Resultado
+Ha generado una CSR en la que se puede utilizar para generar un certificado público.
+
+
+
+== Agregue una autoridad de certificación de confianza
+
+ONTAP proporciona un conjunto predeterminado de certificados raíz de confianza para aplicaciones que utilizan Seguridad de la capa de transporte (TLS). Puede agregar autoridades de certificación de confianza adicionales según sea necesario.
+
+.Pasos
+. Seleccione *Cluster > Settings*.
+. En *Seguridad*, junto a *Certificados*, selecciona image:icon_arrow.gif["flecha azul apuntando a la derecha"].
+. Seleccione *Autoridades de certificación de confianza*.
+. Introduzca o importe los detalles del certificado y, a continuación, seleccione image:icon_add_blue_bg.png["rectángulo azul que contiene un signo más seguido de la palabra add en letras blancas"].
+
+
+.Resultado
+Añadió una nueva entidad de certificación de confianza al sistema ASA R2.
+
+
+
+== Renueve o elimine una entidad de certificación de confianza
+
+Las autoridades certificadoras de confianza deben renovarse anualmente. Si no desea renovar un certificado caducado, debe eliminarlo.
+
+.Pasos
+. Seleccione *Cluster > Settings*.
+. En *Seguridad*, junto a *Certificados*, selecciona image:icon_arrow.gif["flecha azul apuntando a la derecha"].
+. Seleccione *Autoridades de certificación de confianza*.
+. Seleccione la autoridad de certificación de confianza que desea renovar o eliminar.
+. Renueve o elimine la entidad de certificación.
++
+[cols="2"]
+|===
+| Para renovar la autoridad de certificación, haga lo siguiente... | Para eliminar la autoridad del certificado, haga lo siguiente... 
+
+
+ a| 
+.. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Renovar*.
+.. Ingrese o importe la información del certificado; luego seleccione *Renovar*.
+
+ a| 
+.. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Eliminar*.
+.. Confirme que desea eliminar y, a continuación, seleccione * Eliminar *.
+
+
+|===
+
+
+.Resultado
+Renovó o eliminó una entidad de certificación de confianza existente en el sistema ASA R2.
+
+
+
+== Agregue un certificado de cliente/servidor o autoridades de certificación locales
+
+Agregue un certificado de cliente/servidor o autoridades de certificación locales para habilitar servicios web seguros.
+
+.Pasos
+. En System Manager, seleccione *Cluster > Settings*.
+. En *Seguridad*, junto a *Certificados*, selecciona image:icon_arrow.gif["flecha azul apuntando a la derecha"].
+. Seleccione *Certificados de cliente/servidor* o *Autoridades de certificación locales*.
+. Agregue la información del certificado y, a continuación, seleccione image:icon_add_blue_bg.png["rectángulo azul que contiene el signo más azul seguido de la palabra add"].
+
+
+.Resultado
+Ha agregado un nuevo certificado de cliente/servidor o autoridades locales al sistema ASA R2.
+
+
+
+== Renovar o eliminar un certificado de cliente/servidor o autoridades de certificación locales
+
+Los certificados de cliente/servidor y las autoridades de certificación locales deben renovarse anualmente. Si no desea renovar un certificado caducado o autoridades de certificación locales, debe eliminarlos.
+
+.Pasos
+. Seleccione *Cluster > Settings*.
+. En *Seguridad*, junto a Certificados, seleccione image:icon_arrow.gif["flecha azul apuntando a la derecha"].
+. Seleccione *Certificados de cliente/servidor* o *Autoridades de certificación locales*.
+. Seleccione el certificado que desea renovar o eliminar.
+. Renueve o elimine la entidad de certificación.
++
+[cols="2"]
+|===
+| Para renovar la autoridad de certificación, haga lo siguiente... | Para eliminar la autoridad del certificado, haga lo siguiente... 
+
+
+ a| 
+.. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Renovar*.
+.. Ingrese o importe la información del certificado; luego seleccione *Renovar*.
+
+ a| 
+image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Eliminar*.
+
+|===
+
+
+.Resultado
+Ha renovado o eliminado un certificado de cliente/servidor o una autoridad de certificación local existente en el sistema ASA R2.

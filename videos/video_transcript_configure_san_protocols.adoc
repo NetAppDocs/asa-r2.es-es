@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: videos/video_transcript_configure_san_protocols.html 
+keywords: frontmatter, front matter 
+summary: Vea vídeos breves que muestran cómo utilizar System Manager de ONTAP para realizar tareas comunes de forma rápida y sencilla en sus sistemas de almacenamiento R2 de ASA. 
+---
+= Configure los protocolos SAN en su sistema ASA R2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se proporciona la siguiente transcripción para el video `Configure SAN protocols on your ASA r2 storage system`.
+
+link:videos-common-tasks.html#video_transcript_return_configure_san_protocols["Volver a la página"]
+
+Puede utilizar System Manager de ONTAP para configurar de forma rápida y sencilla sus protocolos SAN. En este ejemplo, configuraremos las direcciones IP para las interfaces de red iSCSI.
+
+Desde el panel de control de System Manager, seleccione *Configurar protocolos*.
+
+En *IP*, selecciona *Configurar interfaces IP* y luego selecciona *Añadir subred*.
+
+Escriba un nombre para la subred y, a continuación, introduzca las direcciones IP de la subred.
+
+Introduzca la máscara de subred y, opcionalmente, introduzca una puerta de enlace; a continuación, seleccione *Agregar*.
+
+Selecciona la subred que acabas de crear y, a continuación, selecciona *Guardar*.
+
+Sólo tiene configurada fácil y rápidamente la dirección IP para las interfaces de red iSCSI.

@@ -1,0 +1,119 @@
+---
+sidebar: sidebar 
+permalink: administer/user-accounts-roles.html 
+keywords:  
+summary:  
+---
+= Gestione cuentas de usuario y roles en sistemas de almacenamiento R2 de ASA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Use System Manager para configurar el acceso a la controladora de dominio de Active Directory, la autenticación LDAP y SAML para sus cuentas de usuario. Cree roles de cuenta de usuario para definir funciones específicas que los usuarios asignados a los roles pueden realizar en el clúster.
+
+
+
+== Configure el acceso del controlador de dominio de Active Directory
+
+Configurar el acceso de la controladora de dominio de Active Directory (AD) al clúster o a la máquina virtual de almacenamiento para poder habilitar el acceso de la cuenta de AD.
+
+.Pasos
+. En System Manager, seleccione *Cluster > Settings*.
+. En la sección *Seguridad*, en *Active Directory*, selecciona *Configurar*.
+
+
+.El futuro
+Ahora puede habilitar el acceso a la cuenta de AD en su sistema ASA R2.
+
+
+
+== Configurar LDAP
+
+Configure un servidor de protocolo ligero de acceso a directorios (LDAP) para mantener de forma centralizada la información de usuario para la autenticación.
+
+.Antes de empezar
+Debe haber generado una solicitud de firma de certificación y añadido un certificado digital de servidor firmado por CA.
+
+.Pasos
+. En System Manager, seleccione *Cluster > Settings*.
+. En la sección *Seguridad*, junto a *LDAP*, selecciona image:icon_gear_white_bg.png["contorno de un engranaje mecánico azul"].
+. Introduzca el servidor LDAP necesario y la información de enlace; a continuación, seleccione *Guardar*.
+
+
+.El futuro
+Ahora puede usar LDAP para información y autenticación de usuario.
+
+
+
+== Configurar la autenticación SAML
+
+La autenticación del lenguaje de marcado de aserción de seguridad (SAML) permite a los usuarios autenticarse mediante un proveedor de identidad (IdP) seguro en lugar de los proveedores de servicios directos, como Active Directory y LDAP.
+
+.Antes de empezar
+* Se debe configurar el IDP que se planea usar para la autenticación remota.
++
+Consulte la documentación de IdP para la configuración.
+
+* Debe tener el URI del IDP.
+
+
+.Pasos
+. En System Manager, seleccione *Cluster > Settings*.
+. En *Seguridad*, junto a *Autenticación SAML*, selecciona image:icon_gear_white_bg.png["contorno azul de un engranaje mecánico"] .
+. Seleccione *Habilitar autenticación SAML*.
+. Introduzca la URL del IdP y la dirección IP del sistema host; a continuación, seleccione *Guardar*.
++
+Una ventana de confirmación muestra la información de metadatos, que se ha copiado automáticamente en el portapapeles.
+
+. Vaya al sistema IdP que especificó y, a continuación, copie los metadatos desde el portapapeles para actualizar los metadatos del sistema.
+. Vuelva a la ventana de confirmación en System Manager; luego seleccione *He configurado el IdP con el URI del host o metadatos*.
+. Seleccione *Logout* para habilitar la autenticación basada en SAML.
++
+El sistema IDP mostrará una pantalla de autenticación.
+
+
+
+.El futuro
+Ahora puede usar la autenticación SAML para las cuentas de usuario.
+
+
+
+== Crear roles de cuenta de usuario
+
+Los roles para los administradores del clúster y los administradores de máquinas virtuales de almacenamiento se crean automáticamente cuando se inicializa el clúster. Cree roles de cuenta de usuario adicionales para definir funciones específicas que los usuarios asignados a los roles pueden realizar en el clúster.
+
+.Pasos
+. En System Manager, seleccione *Cluster > Settings*.
+. En la sección *Seguridad*, junto a *Usuarios y roles*, selecciona image:icon_arrow.gif["flecha azul apuntando a la derecha"].
+. En *Roles*, seleccione image:icon_add_blue_bg.png["rectángulo azul que contiene un signo más seguido de la palabra add en letras blancas"].
+. Seleccione los atributos de rol.
++
+Para agregar varios atributos, seleccione image:icon_add.gif["signo más seguido de la palabra añadir en letras azules"].
+
+. Seleccione *Guardar*.
+
+
+.Resultado
+Se creará una nueva cuenta de usuario que estará disponible para usar en su sistema ASA R2.
+
+
+
+== Cree una cuenta de administrador
+
+Cree una cuenta de usuario de administrador para permitir al usuario de la cuenta realizar acciones específicas en el clúster en función del rol asignado a la cuenta. Para mejorar la seguridad de las cuentas, configure la autenticación multifactor (MFA) al crear la cuenta.
+
+.Pasos
+. En System Manager, seleccione *Cluster > Settings*.
+. En la sección *Seguridad*, junto a *Usuarios y roles*, selecciona image:icon_arrow.gif["flecha azul apuntando a la derecha"].
+. En *Usuarios*, seleccione image:icon_add_blue_bg.png["rectángulo azul que contiene un signo más seguido de la palabra add en letras blancas"].
+. Introduzca un nombre de usuario y, a continuación, seleccione un rol para asignarlo al usuario.
+. Seleccione el método de inicio de sesión de usuario y el método de autenticación.
+. Para habilitar MFA, seleccione image:icon_add.gif["signo más seguido de la palabra añadir en letras azules"]; y, a continuación, seleccione un método de inicio de sesión secundario y un método de autenticación
+. Introduzca una contraseña para el usuario.
+. Seleccione *Guardar*.
+
+
+.Resultado
+Se creará una nueva cuenta de administrador y estará disponible para usar en el clúster de ASA R2.

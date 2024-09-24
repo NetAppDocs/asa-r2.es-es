@@ -1,0 +1,77 @@
+---
+sidebar: sidebar 
+permalink: release-notes/whats-new-9160.html 
+keywords:  
+summary:  
+---
+= Novedades de ONTAP 9.16,0 para los sistemas ASA R2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Descubra las nuevas funcionalidades disponibles en ONTAP 9.16,10 para los sistemas ASA R2.
+
+
+
+== Plataformas
+
+[cols="2,4"]
+|===
+| Actualizar | Descripción 
+
+
+| Nuevas plataformas  a| 
+Están disponibles los siguientes sistemas R2 de NetApp ASA. Estas plataformas ofrecen una solución de hardware y software unificada que crea una experiencia simplificada específica para las necesidades de los clientes de SAN solo.
+
+* ASA A1K
+* ASA A70
+* ASA A90
+
+
+|===
+
+
+== System Manager
+
+[cols="2,4"]
+|===
+| Actualizar | Descripción 
+
+
+| link:../get-started/learn-about.html["Soporte optimizado para clientes de SAN únicamente"] | System Manager se ha optimizado para ofrecer compatibilidad con la funcionalidad SAN esencial, al tiempo que elimina la visibilidad de las características y funciones que no se admiten en los entornos SAN. 
+|===
+
+
+== Gestión del almacenamiento
+
+[cols="2,4"]
+|===
+| Actualizar | Descripción 
+
+
+| link:../manage-data/provision-san-storage.html["Gestión de almacenamiento simplificada"]  a| 
+Los sistemas R2 de ASA presentan el uso de unidades de almacenamiento con grupos de consistencia para simplificar la gestión del almacenamiento.
+
+* A _storage unit_ hace que el espacio de almacenamiento esté disponible para los hosts SAN para realizar operaciones de datos. Una unidad de almacenamiento hace referencia a un LUN para hosts SCSI o un espacio de nombres NVMe para los hosts NVMe.
+* _Un grupo de consistencia_ es una colección de unidades de almacenamiento que se gestionan como una sola unidad.
+
+
+|===
+
+
+== Seguridad de datos
+
+[cols="2,4"]
+|===
+| Actualizar | Descripción 
+
+
+| link:../secure-data/encrypt-data-at-rest.html["Gestor de claves incorporado y cifrado de doble capa"]  a| 
+Los sistemas R2 de ASA admiten un gestor de claves incorporado y cifrado de doble capa (hardware y software).
+
+|===
