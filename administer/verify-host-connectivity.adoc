@@ -16,7 +16,13 @@ Si existe un problema con las operaciones de datos del host, puede usar ONTAP Sy
 .Pasos
 . En System Manager, seleccione *Host*.
 +
-El estado de conectividad de host se indica junto al nombre del grupo de hosts de la siguiente manera: * *OK*: Indica que todos los iniciadores están conectados a ambos nodos. * *Parcialmente conectado*: Indica que algunos de los iniciadores no están conectados ambos nodos. * *Ninguno conectado*: Indica que no hay iniciadores conectados.
+El estado de conectividad de host se indica junto al nombre del grupo de hosts de la siguiente manera:
+
++
+** *OK*: Indica que todos los iniciadores están conectados a ambos nodos.
+** *Parcialmente conectado*: Indica que algunos de los iniciadores no están conectados ambos nodos.
+** *Ninguno conectado*: Indica que no hay iniciadores conectados.
+
 
 
 

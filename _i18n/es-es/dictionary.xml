@@ -256,7 +256,6 @@
   <block id="cd5ce84f06573fa36efd7de37fc1e5ba" category="summary">Si existe un problema con las operaciones de datos del host, puede usar ONTAP System Manager para verificar que la conexión del host al sistema de almacenamiento ASA R2 esté activa.</block>
   <block id="29aef3c4098e0c02a759b7ceeffd7bf5" category="doc">Verifique la conectividad de host en el sistema de almacenamiento R2 de ASA</block>
   <block id="2066e94a3e5e94a8e4ebdca7307614e8" category="list-text">En System Manager, seleccione *Host*.</block>
-  <block id="d6a0ea19a115b4b6c1b0c1db29d0f8c8" category="paragraph">El estado de conectividad de host se indica junto al nombre del grupo de hosts de la siguiente manera: * *OK*: Indica que todos los iniciadores están conectados a ambos nodos. * *Parcialmente conectado*: Indica que algunos de los iniciadores no están conectados ambos nodos. * *Ninguno conectado*: Indica que no hay iniciadores conectados.</block>
   <block id="7d19a1e7e72002fdb422d749fd4507db" category="paragraph">Realice actualizaciones en el host para corregir los problemas de conectividad. ONTAP volverá a comprobar el estado de la conexión cada quince minutos.</block>
   <block id="69cb7ab40e4d5787db8003ef13bf1939" category="summary">Crear una copia Snapshot para realizar una copia de seguridad de los datos en su sistema ASA R2. Es posible crear Snapshot manuales o utilizar un grupo de coherencia para programar Snapshot automáticas.</block>
   <block id="a72d39c43f1da3c8e4c29dc1a6cf6185" category="searchtitle">Crear snapshots para realizar un backup de sus datos con ONTAP System Manager | ASA R2</block>
@@ -1586,4 +1585,8 @@
   <block id="580170da57ca90dca0f62ce9faf29c6e" category="sidebar">Conexiones NVMe seguras</block>
   <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="sidebar">Notas de la versión</block>
   <block id="4eae1c6da6a9edad5e5228cf8cfe3cdb" category="sidebar">Novedades de ONTAP 9.16.0</block>
+  <block id="0a57cb4625de2148aa1f3fe6815e78eb" category="paragraph">El estado de conectividad de host se indica junto al nombre del grupo de hosts de la siguiente manera:</block>
+  <block id="5b13dc2b1f3390e14daacb1f2f882717" category="list-text">*OK*: Indica que todos los iniciadores están conectados a ambos nodos.</block>
+  <block id="c2520bb5c23501e13bc7e06dde3ae9fd" category="list-text">*Parcialmente conectado*: Indica que algunos de los iniciadores no están conectados ambos nodos.</block>
+  <block id="031e3ca05bd720350a450cc6267211e2" category="list-text">*Ninguno conectado*: Indica que no hay iniciadores conectados.</block>
 </blocks>
