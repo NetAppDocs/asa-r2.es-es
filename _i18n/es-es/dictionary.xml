@@ -1406,7 +1406,6 @@
   <block id="1a09338f7e8c6093f1d857fedaa4f9ab" category="list-text">Revise las recomendaciones.</block>
   <block id="e175dd30709c0589a580475db0f0f8fb" category="paragraph">Realice las acciones necesarias para implementar las prácticas recomendadas y optimizar la seguridad y el rendimiento del clúster.</block>
   <block id="826af48aa0c4b34379a1a65ba5721ebe" category="doc">Novedades de ONTAP 9.16,0 para los sistemas ASA R2</block>
-  <block id="e887ad295f9758b43d9c2af5b2fbd1b9" category="paragraph">Descubra las nuevas funcionalidades disponibles en ONTAP 9.16,10 para los sistemas ASA R2.</block>
   <block id="ed49a36c4fd547e5e2ace11bef4f21cf" category="section-title">Plataformas</block>
   <block id="06933067aafd48425d67bcb01bba5cb6" category="cell">Actualizar</block>
   <block id="b5a7adde1af5c87d7fd797b6245c2a39" category="cell">Descripción</block>
@@ -1529,8 +1528,6 @@
   <block id="adfd33fbce17f21dd8572d1c07677009" category="sidebar">Cifrado de datos en reposo</block>
   <block id="d8f87ca27811771e6005ec1e8989bb8c" category="sidebar">Más recursos de ASA R2</block>
   <block id="ff529c4d04327f7d20ae4d7b457bcd18" category="sidebar">Especificaciones técnicas de ASA</block>
-  <block id="8162203e3ec38c896e5f6d688115d731" category="sidebar">Referencia de API de REST de ONTAP</block>
-  <block id="27c7ca02055622739ea07ba1243d7683" category="sidebar">Referencia de ONTAP EMS</block>
   <block id="69913262552614dd6dfbb8b0ef47e2e7" category="sidebar">Otros recursos de ONTAP</block>
   <block id="ed93db7141f383118e5c6b577cb5fb60" category="sidebar">Documentación para otros sistemas ONTAP</block>
   <block id="dee4aa6b5a1005459bfb48609b6d209e" category="sidebar">Documentos de ASA R2</block>
@@ -1589,4 +1586,5 @@
   <block id="5b13dc2b1f3390e14daacb1f2f882717" category="list-text">*OK*: Indica que todos los iniciadores están conectados a ambos nodos.</block>
   <block id="c2520bb5c23501e13bc7e06dde3ae9fd" category="list-text">*Parcialmente conectado*: Indica que algunos de los iniciadores no están conectados ambos nodos.</block>
   <block id="031e3ca05bd720350a450cc6267211e2" category="list-text">*Ninguno conectado*: Indica que no hay iniciadores conectados.</block>
+  <block id="d28f4031342956661d79f1274d2a395c" category="paragraph">Descubra las nuevas funcionalidades disponibles en ONTAP 9.16,0 para los sistemas ASA R2.</block>
 </blocks>
