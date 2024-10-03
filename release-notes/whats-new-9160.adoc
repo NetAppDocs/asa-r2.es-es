@@ -25,8 +25,8 @@ Descubra las nuevas funcionalidades disponibles en ONTAP 9.16,0 para los sistema
 | Actualizar | Descripción 
 
 
-| Nuevas plataformas  a| 
-Están disponibles los siguientes sistemas R2 de NetApp ASA. Estas plataformas ofrecen una solución de hardware y software unificada que crea una experiencia simplificada específica para las necesidades de los clientes de SAN solo.
+| Plataformas  a| 
+Están disponibles los siguientes sistemas NetApp ASA R2. Estas plataformas ofrecen una solución de hardware y software unificada que crea una experiencia simplificada específica para las necesidades de los clientes de SAN solo.
 
 * ASA A1K
 * ASA A70

@@ -556,7 +556,6 @@
   <block id="c4bd20e96bacd4ca7f4f874cb8a77b00" category="summary">Los sistemas ASA R2 (ASA A1K, ASA A70 y ASA A90) ofrecen una solución unificada de hardware y software que crea una experiencia simplificada para clientes de solo SAN.</block>
   <block id="0ef2f5aecf77f5521c5e2b69fdb889af" category="searchtitle">Obtenga más información sobre los sistemas de almacenamiento A1K, ASA A70 y ASA A90 de ASA</block>
   <block id="e995d56efd9e31d97825dd79be4d1383" category="doc">Obtenga información sobre los sistemas de almacenamiento R2 de ASA</block>
-  <block id="0ab1a7883d0399cbaf77a2e38633a6ea" category="paragraph">Los nuevos sistemas NetApp ASA R2 (ASA A1K, ASA A70 y ASA A90) ofrecen una solución de hardware y software unificada que crea una experiencia simplificada específica de las necesidades de clientes exclusivos de SAN.</block>
   <block id="4fdeef14779674f92738c7750c976920" category="paragraph">Los sistemas R2 de ASA son compatibles con todos los protocolos SAN (iSCSI, FC, NVMe/FC, NVMe/TCP) en una puesta en marcha de par de alta disponibilidad único. Los protocolos SCSI (iSCSI y FC) utilizan una arquitectura activo-activo simétrica para la multivía, de modo que todas las rutas entre los hosts y el almacenamiento estén activas/optimizadas. Los protocolos NVMe admiten rutas directas entre los hosts y el almacenamiento.</block>
   <block id="4c09e6dc15402ad1dfdd0de9dde9ced3" category="paragraph">En un sistema ASA R2, se han optimizado el software ONTAP y System Manager para proporcionar compatibilidad con las funciones SAN esenciales mientras se quitan características y funciones que no se admiten en los entornos SAN.</block>
   <block id="8ba78ca0516a69b587aca58206efc01f" category="paragraph">Los sistemas R2 de ASA introducen el uso de unidades de almacenamiento con grupos de coherencia:</block>
@@ -1402,8 +1401,6 @@
   <block id="ed49a36c4fd547e5e2ace11bef4f21cf" category="section-title">Plataformas</block>
   <block id="06933067aafd48425d67bcb01bba5cb6" category="cell">Actualizar</block>
   <block id="b5a7adde1af5c87d7fd797b6245c2a39" category="cell">Descripción</block>
-  <block id="2c84ef2816336594d59d5962b19f3047" category="cell">Nuevas plataformas</block>
-  <block id="13d09074058b667f0fc1cfa7487fab45" category="paragraph">Están disponibles los siguientes sistemas R2 de NetApp ASA. Estas plataformas ofrecen una solución de hardware y software unificada que crea una experiencia simplificada específica para las necesidades de los clientes de SAN solo.</block>
   <block id="26ed02718973e705cd69ee6e109400e0" category="section-title">System Manager</block>
   <block id="43216e15c49bb3bc0da538a8d830f901" category="inline-link-macro">Soporte optimizado para clientes de SAN únicamente</block>
   <block id="60dc71f158c44e4e34a36dec8e3210a5" category="cell"><block ref="60dc71f158c44e4e34a36dec8e3210a5" category="inline-link-macro-rx"></block></block>
@@ -1586,4 +1583,6 @@
   <block id="c43d68b5b8370d3423bfb0b13dfe0abe" category="inline-link">Documentación de mantenimiento de ASA R2</block>
   <block id="f2abf1f4083409f0d65b59ffbcd13341" category="paragraph">Vaya al<block ref="6805eee0c680715323289cabd48eb628" category="inline-link-rx"></block> para obtener más información sobre cómo realizar procedimientos de mantenimiento en los componentes del sistema ASA R2.</block>
   <block id="77ae7cb145355765cca98cef84bef3eb" category="paragraph">Por ejemplo, supongamos que una aplicación crítica está experimentando alta latencia y bajo rendimiento. Al ver el rendimiento del clúster de los últimos cinco días laborables, observa una disminución del rendimiento en el mismo momento cada día. Se utiliza esta información para determinar que la aplicación crucial está compitiendo por los recursos del clúster cuando un proceso no crítico comienza a ejecutarse en segundo plano. A continuación, puede modificar la política de calidad de servicio para limitar el impacto de la carga de trabajo no crítica en los recursos del sistema y garantizar que la carga de trabajo crítica cumpla con los objetivos de rendimiento mínimos.</block>
+  <block id="9df0af6622b120b0338c4289d4d6b9e4" category="paragraph">Los sistemas NetApp ASA R2 (ASA A1K, ASA A70 y ASA A90) ofrecen una solución de hardware y software unificada que crea una experiencia simplificada específica de las necesidades de clientes exclusivos de SAN.</block>
+  <block id="02a5548e7c0c7ed0e4a93d5e2d37ebc2" category="paragraph">Están disponibles los siguientes sistemas NetApp ASA R2. Estas plataformas ofrecen una solución de hardware y software unificada que crea una experiencia simplificada específica para las necesidades de los clientes de SAN solo.</block>
 </blocks>
