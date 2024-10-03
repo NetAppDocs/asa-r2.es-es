@@ -60,7 +60,7 @@ a continuación, seleccione image:icon_dropdown_arrow.gif["flecha azul apuntando
 
 
 .El futuro
-Ahora que sus datos están protegidos con copias snapshot, debe link:../secure-data/encrypt-data-at-rest.html["configurar la replicación de snapshots"]copiar sus grupos de coherencia a una ubicación geográficamente remota a efectos de backup y recuperación ante desastres.
+Ahora que los datos están protegidos con copias snapshot, debe link:../secure-data/encrypt-data-at-rest.html["configurar la replicación de snapshots"]copiar sus grupos de coherencia en una ubicación geográficamente remota a efectos de backup y recuperación ante desastres.
 
 
 
@@ -147,7 +147,7 @@ Si necesita continuar con la protección de datos para la unidad de almacenamien
 Si ya no es necesario administrar los miembros de un grupo de consistencia como una sola unidad, puede eliminar el grupo de consistencia. Después de eliminar un grupo de consistencia, las unidades de almacenamiento anteriormente en el grupo siguen activas en el clúster.
 
 .Antes de empezar
-Si el grupo de consistencia que desea eliminar se encuentra en una relación de replicación, debe romper la relación antes de eliminar el grupo de consistencia. Después de eliminar un grupo de consistencia de replicación anterior, las unidades de almacenamiento que estaban en el grupo de consistencia permanecen activas en el clúster y las copias replicadas permanecen en el clúster remoto.
+Si el grupo de consistencia que desea eliminar se encuentra en una relación de replicación, debe romper la relación antes de eliminar el grupo de consistencia. Después de eliminar un grupo de consistencia de replicación, las unidades de almacenamiento que estaban en el grupo de consistencia permanecen activas en el clúster y las copias replicadas permanecen en el clúster remoto.
 
 .Pasos
 . En System Manager, seleccione *Protección > Grupos de consistencia*.

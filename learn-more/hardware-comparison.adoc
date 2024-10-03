@@ -80,4 +80,4 @@ Los clústeres nuevos contienen automáticamente una SVM de datos predeterminada
 La creación de una unidad de almacenamiento (LUN o espacio de nombres) crea automáticamente un volumen desde la zona de disponibilidad de almacenamiento. El resultado es un espacio de nombres común y simplificado. Al eliminar una unidad de almacenamiento, se elimina automáticamente el volumen asociado.
 
 .Cambios en el aprovisionamiento ligero y grueso
-Las unidades de almacenamiento de están siempre aprovisionadas con thin provisioning en los sistemas de almacenamiento R2 de ASA. No se admite el aprovisionamiento grueso.
+Las unidades de almacenamiento se aprovisionan siempre con Thin Provisioning en los sistemas de almacenamiento R2 de ASA. No se admite el aprovisionamiento grueso.

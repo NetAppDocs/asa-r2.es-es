@@ -31,7 +31,7 @@ Después de configurar el clúster, debe probar su conectividad AutoSupport para
 
 
 .El futuro
-Ha verificado que el soporte técnico puede recibir mensajes de AutoSupport de su sistema ASA R2 y dispondrá de los datos necesarios para ayudarle en caso de que experimente un problema.
+Ha confirmado que el soporte técnico puede recibir mensajes de AutoSupport de su sistema ASA R2, garantizando que disponen de los datos necesarios para ayudarle en caso de cualquier problema.
 
 
 

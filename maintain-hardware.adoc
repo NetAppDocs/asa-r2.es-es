@@ -11,4 +11,4 @@ summary: Descubra cómo realizar procedimientos de mantenimiento en su sistema A
 
 
 [role="lead"]
-Vaya al https://docs.netapp.com/us-en/ontap-systems/asa-r2-landing-maintain/index.html["ASA R2 mantiene la documentación"^] para obtener más información sobre cómo realizar procedimientos de mantenimiento en los componentes del sistema ASA R2.
+Vaya al https://docs.netapp.com/us-en/ontap-systems/asa-r2-landing-maintain/index.html["Documentación de mantenimiento de ASA R2"^] para obtener más información sobre cómo realizar procedimientos de mantenimiento en los componentes del sistema ASA R2.
