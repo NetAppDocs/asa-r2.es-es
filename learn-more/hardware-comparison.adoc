@@ -81,3 +81,6 @@ La creación de una unidad de almacenamiento (LUN o espacio de nombres) crea aut
 
 .Cambios en el aprovisionamiento ligero y grueso
 Las unidades de almacenamiento se aprovisionan siempre con Thin Provisioning en los sistemas de almacenamiento R2 de ASA. No se admite el aprovisionamiento grueso.
+
+.Cambios en la compresión de datos
+La eficiencia del almacenamiento sensible a la temperatura no se aplica en los sistemas ASA R2. En los sistemas ASA R2, la compresión no se basa en los datos _hot_ (a los que se accede con frecuencia) ni en los datos _cold_ (a los que se accede con poca frecuencia). La compresión se inicia sin esperar a que los datos vuelvan inactivos.
