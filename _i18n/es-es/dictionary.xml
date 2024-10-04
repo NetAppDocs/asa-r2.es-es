@@ -518,7 +518,6 @@
   <block id="8e3b3443f7322d7c7fc2e9b691e9b154" category="paragraph">Debe ser un administrador de clústeres para gestionar AutoSupport.</block>
   <block id="a1a978a0ef405a79f3b2c5f89d50b536" category="section-title">Probar la conectividad AutoSupport</block>
   <block id="d62c03a6357eefd7638471c82a6859be" category="paragraph">Después de configurar el clúster, debe probar su conectividad AutoSupport para verificar que el soporte técnico recibirá mensajes generados por AutoSupport.</block>
-  <block id="71ba518a68888a9623c97c1553396f78" category="list-text">En el administrador del sistema, selecciona *Cluster &gt;Settings*.</block>
   <block id="ab7f391aba14be442463b48ba048fc7d" category="list-text">Junto a *AutoSupport* selecciona <block ref="c2bfb9c080f7666b2b95fa7dd1fddf25" category="inline-image-macro-rx" type="image"></block>; y luego selecciona *Probar conectividad*.</block>
   <block id="02b1e4285506fc0cffd29844e8121e1a" category="list-text">Ingrese un asunto para el mensaje AutoSupport y luego seleccione *Enviar mensaje AutoSupport de prueba*.</block>
   <block id="825777dd1ed1433192f80c9ec3cc95ab" category="section-title">Agregar destinatarios de AutoSupport</block>
@@ -1451,15 +1450,12 @@
   <block id="f82f9abf9d39b3ea7e9931fe0ec02989" category="summary">Use copias Snapshot a prueba de manipulaciones para proteger los datos. Las copias Snapshot a prueba de manipulaciones no se pueden eliminar y se pueden usar para recuperar los datos comprometidos por un ataque de ransomware.</block>
   <block id="17d54966a51825ee64011655de8e99f5" category="doc">Protéjase contra ataques de ransomware en sistemas de almacenamiento ASA R2</block>
   <block id="bb09a1295cce99402c216baed3c2b937" category="paragraph">Para obtener una mejor protección contra ataques de ransomware, replica snapshots en un clúster remoto y, a continuación, bloquea las snapshots de destino para que estén a prueba de manipulaciones. Las instantáneas bloqueadas no se pueden eliminar accidentalmente ni de forma malintencionada. Puede utilizar snapshots bloqueados para recuperar datos si una unidad de almacenamiento se ve afectada por un ataque de ransomware.</block>
-  <block id="049905961ea2e1141d23d71eb662076b" category="section-title">Inicialice el reloj de SnapLock Compliance</block>
-  <block id="045a584abdee8ddf49e1db3987711d93" category="paragraph">Para poder crear copias Snapshot a prueba de manipulaciones, debe inicializar el reloj de SnapLock Compliance en los clústeres locales y de destino.</block>
   <block id="7e59070af3e4cd3a421461f7774f3c87" category="list-text">Seleccione *Cluster &gt; Overview*.</block>
   <block id="045e8ceb02be472a9bc3e54ba6f1d811" category="list-text">En la sección *Nodos*, selecciona *Inicializar reloj SnapLock Compliance*.</block>
   <block id="2012a4286c3a1864d4fa11ba1cb42b1c" category="list-text">Compruebe que se ha inicializado el reloj de conformidad.</block>
   <block id="2bc6e7414d5cb75e3addfdeb234222a1" category="inline-image-macro">tres columnas azules sobre fondo blanco</block>
   <block id="ff632b6925cddc0c770d38368ff3755e" category="list-text">En la sección *Nodos*, seleccione <block ref="db89dee19aae8a41518f426597d8cb6e" category="inline-image-macro-rx" type="image"></block>; y luego seleccione *Reloj SnapLock Compliance*.</block>
   <block id="c19a0c09a1a9acec430b36accfdb5ac8" category="inline-link-macro">crear una relación de replicación con snapshots bloqueadas</block>
-  <block id="791bf7d3faa5342db177ff00f2bcca3f" category="paragraph">Después de inicializar el reloj de SnapLock Compliance en los clústeres locales y de destino, está listo para <block ref="9e34609081a00054138ac6c8cbbd66f1" category="inline-link-macro-rx"></block>.</block>
   <block id="25abedf12d26e4bc8960557833ebe68d" category="summary">Vea vídeos breves que muestran cómo utilizar System Manager de ONTAP para realizar tareas comunes de forma rápida y sencilla en sus sistemas de almacenamiento R2 de ASA.</block>
   <block id="9e9e90703a7077203260b19a3af9704a" category="doc">Configure los protocolos SAN en su sistema ASA R2</block>
   <block id="21d3b12a5a9f6ff0d25b8b5e5e00b7ff" category="paragraph">Se proporciona la siguiente transcripción para el video<block ref="1ef61309a2d73f2fc4d83b527ce1790e" prefix=" " category="inline-code"></block>.</block>
@@ -1587,4 +1583,8 @@
   <block id="02a5548e7c0c7ed0e4a93d5e2d37ebc2" category="paragraph">Están disponibles los siguientes sistemas NetApp ASA R2. Estas plataformas ofrecen una solución de hardware y software unificada que crea una experiencia simplificada específica para las necesidades de los clientes de SAN solo.</block>
   <block id="514854c9f2116902eea3ece0f40e8154" category="paragraph-title">Cambios en la compresión de datos</block>
   <block id="097c1368589d519db55e5ac8f141a847" category="paragraph">La eficiencia del almacenamiento sensible a la temperatura no se aplica en los sistemas ASA R2. En los sistemas ASA R2, la compresión no se basa en los datos _hot_ (a los que se accede con frecuencia) ni en los datos _cold_ (a los que se accede con poca frecuencia). La compresión se inicia sin esperar a que los datos vuelvan inactivos.</block>
+  <block id="e9dac8f777563b18c14aec6d0406e876" category="list-text">En el Administrador del sistema, selecciona *Clúster &gt; Configuración*.</block>
+  <block id="b16351f807fbda6965666255eef268dd" category="section-title">Inicialice el reloj de SnapLock Compliance</block>
+  <block id="6f7e58f2fc20167d69dc971955e6bb11" category="paragraph">Para poder crear copias Snapshot a prueba de manipulaciones, debe inicializar el reloj de SnapLock Compliance en los clústeres locales y de destino.</block>
+  <block id="71c1cda56d6fad5ca8b28cabd1f98042" category="paragraph">Después de inicializar el reloj de SnapLock Compliance en los clústeres locales y de destino, está listo para <block ref="9e34609081a00054138ac6c8cbbd66f1" category="inline-link-macro-rx"></block>.</block>
 </blocks>
