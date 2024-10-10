@@ -32,6 +32,6 @@ Los sistemas R2 de ASA no admiten la combinación de clústeres con los sistemas
 
 .Si quiere más información
 * Obtenga más información sobre la compatibilidad con los sistemas ASA R2 y las limitaciones en la link:https://hwu.netapp.com/["NetApp Hardware Universe"^].
-* Más información sobre link:../learn-more/hardware-comparison.html["Los nuevos sistemas R2 de ASA en comparación con los sistemas ASA"].
+* Más información sobre link:../learn-more/hardware-comparison.html["Los sistemas ASA R2 en comparación con los sistemas ASA"].
 * Obtenga más información sobre el link:https://www.netapp.com/pdf.html?item=/media/85736-ds-4254-asa.pdf["ASA de NetApp"].
 
