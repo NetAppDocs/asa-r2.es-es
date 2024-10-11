@@ -15,7 +15,7 @@ searchtitle: Replicar snapshots en un clúster remoto mediante el Administrador 
 La replicación de Snapshot es un proceso en el que los grupos de coherencia del sistema ASA R2 se copian a una ubicación geográficamente remota. Tras la replicación inicial, los cambios en los grupos de consistencia se copian en la ubicación remota basada en una política de replicación. Los grupos de consistencia replicados pueden usarse para recuperación ante desastres o migración de datos.
 
 
-NOTE: La replicación de snapshots desde un sistema de almacenamiento R2 de ASA se admite únicamente en otro sistema de almacenamiento R2 de ASA. No puede replicar snapshots de un sistema ASA R2 en un sistema ASA, AFF o FAS actual.
+NOTE: La replicación de Snapshot para un sistema de almacenamiento R2 de ASA solo es compatible con y desde otro sistema de almacenamiento R2 de ASA. No puede replicar snapshots de un sistema ASA R2 en un sistema ASA, AFF o FAS actual ni de un sistema ASA, AFF o FAS actual en un sistema ASA R2.
 
 Para configurar la replicación de Snapshot, necesita establecer una relación de replicación entre su sistema ASA R2 y la ubicación remota. La relación de replicación se rige por una política de replicación. Se crea una política predeterminada para replicar todas las copias de Snapshot durante la configuración del clúster. Puede utilizar la política predeterminada o, opcionalmente, crear una nueva.
 
