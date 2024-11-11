@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: release-notes/changes-to-limits-defaults.html 
+keywords: release notes, changes, updates, defaults, limits, asa r2, asa a1k, asa 70, asa 90 
+summary: Obtenga más información sobre los cambios en los límites y valores predeterminados que afectan a los sistemas ASA R2. 
+---
+= Cambios en los límites y valores predeterminados de ONTAP que afectan a los sistemas ASA R2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Obtenga más información sobre los cambios en los límites y valores predeterminados que afectan a los sistemas ASA R2. NetApp se esfuerza por ayudar a sus clientes a comprender los cambios de límite y predeterminados más importantes en cada versión de ONTAP.
+
+
+
+== Cambios en los límites de ONTAP
+
+[cols="2,4,4"]
+|===
+| Función | Cambio de límite | Cambiado en la versión... 
+
+
+| Unidades de almacenamiento | El número máximo de unidades de almacenamiento ha aumentado de 2500 TB por par de alta disponibilidad a 10.000 TB por par de alta disponibilidad. | ONTAP 9.16.1 
+|===

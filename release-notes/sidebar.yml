@@ -4,3 +4,7 @@ title: Notas de la versión
 entries:
 - title: Novedades de ONTAP 9.16.0
   url: "/release-notes/whats-new-9160.html"
+- title: Novedades de ONTAP 9.16.1
+  url: "/release-notes/whats-new-9161.html"
+- title: Cambios en los valores predeterminados y límites de ONTAP
+  url: "/release-notes/changes-to-limits-defaults.html"

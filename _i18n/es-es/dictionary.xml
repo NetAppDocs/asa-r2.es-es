@@ -277,7 +277,6 @@
   <block id="e7c7a96626caf7f10a69abd91e0c9657" category="section-title">Paso 2: Crear una instantánea</block>
   <block id="5ad8d455ea57e1690a8dd08af1513587" category="paragraph">Una copia Snapshot es una copia local de solo lectura de los datos que se puede utilizar para restaurar unidades de almacenamiento a momentos específicos.</block>
   <block id="a55eea56b3b5ac156631717b66974529" category="inline-link-macro">política y programación de snapshot</block>
-  <block id="aa2f9feb235086807c06e316a374c42b" category="paragraph">Las instantáneas se pueden crear bajo demanda o se pueden crear automáticamente en intervalos regulares basados en un <block ref="174ad3d131cf18990fcf462c1e80dea1" category="inline-link-macro-rx"></block>. La programación y la política de Snapshot especifica cuándo se crearán las snapshots, cuántas copias se retendrán, cómo se nombrarán y cómo se etiquetarán para la replicación. Por ejemplo, un sistema puede crear una copia Snapshot cada día a las 12:10 a. m., conservar las dos copias más recientes, llamarlas «diaria» (se agrega con una marca de tiempo) y etiquetarlas como «diaria» para replicación.</block>
   <block id="778e49c36a4b37504a26fe297bcd89cd" category="paragraph-title">Tipos de Snapshot</block>
   <block id="d6acd69ed4935a0b24bcc6574f0a4d59" category="paragraph">Se puede crear una snapshot bajo demanda de una sola unidad de almacenamiento o de un grupo de coherencia. Es posible crear Snapshot automatizadas de un grupo de coherencia que contenga varias unidades de almacenamiento. No es posible crear copias Snapshot automatizadas de una sola unidad de almacenamiento.</block>
   <block id="92cd7e74f8f496ce11ec549a066c7294" category="list-text">Snapshots bajo demanda</block>
@@ -1590,4 +1589,25 @@
   <block id="420a0f9e5b6b25901e8477f2031c4f09" category="admonition">La replicación de Snapshot para un sistema de almacenamiento R2 de ASA solo es compatible con y desde otro sistema de almacenamiento R2 de ASA. No puede replicar snapshots de un sistema ASA R2 en un sistema ASA, AFF o FAS actual ni de un sistema ASA, AFF o FAS actual en un sistema ASA R2.</block>
   <block id="3f808654ebfed6aae875b71a402ac91b" category="inline-link-macro">Aviso para ONTAP 9.16.1</block>
   <block id="ccde34ed9a96a11b25c1db2a8c9acb87" category="paragraph"><block ref="ccde34ed9a96a11b25c1db2a8c9acb87" category="inline-link-macro-rx"></block></block>
+  <block id="82f8a3cbf0a93791bbbfc70a1b650bcf" category="paragraph">Las instantáneas se pueden crear bajo demanda o se pueden crear automáticamente en intervalos regulares basados en un <block ref="83bfa2dc5e6407223dca634141b43309" category="inline-link-macro-rx"></block>. La programación y la política de Snapshot especifica cuándo se crearán las snapshots, cuántas copias se retendrán, cómo se nombrarán y cómo se etiquetarán para la replicación. Por ejemplo, un sistema puede crear una copia Snapshot cada día a las 12:10 a. m., conservar las dos copias más recientes, llamarlas «diaria» (se agrega con una marca de tiempo) y etiquetarlas como «diaria» para replicación.</block>
+  <block id="45572a9b40e369d2ef8629844808cced" category="summary">Obtenga más información sobre los cambios en los límites y valores predeterminados que afectan a los sistemas ASA R2.</block>
+  <block id="1103c7c9b683247c76b5f25f9cd64b74" category="doc">Cambios en los límites y valores predeterminados de ONTAP que afectan a los sistemas ASA R2</block>
+  <block id="1daa1b3cc6e7b6b7a591ba10582085a8" category="paragraph">Obtenga más información sobre los cambios en los límites y valores predeterminados que afectan a los sistemas ASA R2. NetApp se esfuerza por ayudar a sus clientes a comprender los cambios de límite y predeterminados más importantes en cada versión de ONTAP.</block>
+  <block id="d579ca395df40cbbb953cb531ce23a3d" category="section-title">Cambios en los límites de ONTAP</block>
+  <block id="21021ea0e52be8e9c599f4dff41e5be0" category="cell">Función</block>
+  <block id="4d209cddba5e4e3f517cda6d0180e867" category="cell">Cambio de límite</block>
+  <block id="b0aeee779af528e83de1fcb141fbbca7" category="cell">Cambiado en la versión...</block>
+  <block id="d705195acc2d17086d7e28da066d6c23" category="cell">Unidades de almacenamiento</block>
+  <block id="6f758206269a4d26aaaac9a25afe7fe5" category="cell">El número máximo de unidades de almacenamiento ha aumentado de 2500 TB por par de alta disponibilidad a 10.000 TB por par de alta disponibilidad.</block>
+  <block id="31272abf1c9209ab4acd0bf10f129338" category="cell">ONTAP 9.16.1</block>
+  <block id="456488f81b27ee2e1475e6d76ffad2ca" category="summary">Descubra las nuevas funcionalidades disponibles en ONTAP 9.16,1 para los sistemas ASA R2.</block>
+  <block id="02b0c0371a6864d344959c06c5237165" category="doc">Novedades de ONTAP 9.16,1 para los sistemas ASA R2</block>
+  <block id="fd18465573ec21a6218982055981f6b1" category="section-title">Eficiencia del almacenamiento</block>
+  <block id="3a405933969f80a6182b8257c15c10ff" category="cell">De forma predeterminada, la desasignación del espacio NVMe está habilitada</block>
+  <block id="7ec849e005dbd9c153a3b9fc38bf47df" category="paragraph">La desasignación de espacio (también denominada «perforación» y «UNMAP») está habilitada para los espacios de nombres de NVMe de forma predeterminada. La desasignación de espacio permite que un host desasigne bloques no utilizados de espacios de nombres para reclamar espacio.</block>
+  <block id="9228b29536da5aa86ee6865642b7a754" category="paragraph">Esto mejora considerablemente la eficiencia del almacenamiento general, especialmente en sistemas de archivos con una alta rotación de datos.</block>
+  <block id="459e6c3f59570324cab3a799ce9f4d6f" category="inline-link-macro">Migrar las claves de cifrado de datos de ONTAP entre gestores de claves</block>
+  <block id="ba905aa152bc67dfe7369966e1f7b161" category="paragraph">Si necesita cambiar del gestor de claves incorporado a un gestor de claves externo o viceversa, consulte <block ref="ddc33c992daebda8b45882e4c40e07d4" category="inline-link-macro-rx"></block>.</block>
+  <block id="319ffa33cfb4e70c9e521494969d662a" category="sidebar">Novedades de ONTAP 9.16.1</block>
+  <block id="0b6845dd2391304844b6f9578fd8c865" category="sidebar">Cambios en los valores predeterminados y límites de ONTAP</block>
 </blocks>
