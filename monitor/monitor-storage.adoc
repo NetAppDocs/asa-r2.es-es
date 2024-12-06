@@ -24,7 +24,7 @@ Supervise regularmente la cantidad de almacenamiento que consume el clúster par
 . En System Manager, seleccione *Panel*.
 . En *Capacidad*, vea la cantidad de espacio físico utilizado y la cantidad de espacio disponible en su clúster.
 +
-La proporción de reducción de datos representa la cantidad de espacio ahorrado gracias a la eficiencia del almacenamiento.
+La relación de reducción de datos representa la cantidad de espacio ahorrado gracias a la eficiencia del almacenamiento.
 
 
 

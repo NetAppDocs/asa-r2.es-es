@@ -14,7 +14,7 @@ searchtitle: Obtenga más información sobre los sistemas de almacenamiento A1K,
 [role="lead"]
 Los sistemas NetApp ASA R2 (ASA A1K, ASA A70 y ASA A90) ofrecen una solución de hardware y software unificada que crea una experiencia simplificada específica de las necesidades de clientes exclusivos de SAN.
 
-Los sistemas R2 de ASA son compatibles con todos los protocolos SAN (iSCSI, FC, NVMe/FC, NVMe/TCP) en una puesta en marcha de par de alta disponibilidad único. Los protocolos SCSI (iSCSI y FC) utilizan una arquitectura activo-activo simétrica para la multivía, de modo que todas las rutas entre los hosts y el almacenamiento estén activas/optimizadas. Los protocolos NVMe admiten rutas directas entre los hosts y el almacenamiento.
+Los sistemas R2 de ASA son compatibles con todos los protocolos SAN (iSCSI, FC, NVMe/FC, NVMe/TCP) en una puesta en marcha de par de alta disponibilidad único. Los protocolos SCSI (iSCSI y FC) utilizan una arquitectura activo-activo simétrica para la multivía, de modo que todas las rutas entre los hosts y el almacenamiento estén activas/optimizadas. Los protocolos iSCSI y NVMe/TCP admiten rutas directas entre los hosts y el almacenamiento.
 
 En un sistema ASA R2, se han optimizado el software ONTAP y System Manager para proporcionar compatibilidad con las funciones SAN esenciales mientras se quitan características y funciones que no se admiten en los entornos SAN.
 

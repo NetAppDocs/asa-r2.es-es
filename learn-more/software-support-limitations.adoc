@@ -20,8 +20,8 @@ Aunque los sistemas ASA R2 ofrecen una amplia gama de compatibilidad para las so
 * MetroCluster
 * Protocolos de objetos
 * ONTAP S3 SnapMirror y API S3
-* SnapMirror al cloud
-* De SnapMirror a sistemas R2 que no sean de ASA
+* SnapMirror (asíncrono y síncrono) al cloud
+* SnapMirror (asíncrono y síncrono) a sistemas R2 no ASA
 * Asignación de LUN selectiva (SLM)
 
 
