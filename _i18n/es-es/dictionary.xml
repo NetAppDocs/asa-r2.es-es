@@ -1610,4 +1610,5 @@
   <block id="d32b93d0cc0df3a57e074a2dd7f55bac" category="list-text">SnapMirror (asíncrono y síncrono) al cloud</block>
   <block id="db501755a13db6bc1da40b7fa29e25f1" category="list-text">SnapMirror (asíncrono y síncrono) a sistemas R2 no ASA</block>
   <block id="b0af3c84875edd616110edf2dac64154" category="paragraph">La relación de reducción de datos representa la cantidad de espacio ahorrado gracias a la eficiencia del almacenamiento.</block>
+  <block id="f31e58176a4fc5fa75f3c5160b712278" category="admonition">SnapMirror (asíncrono y síncrono) solo es compatible desde los sistemas ASA R2 hasta los sistemas ASA R2. Los sistemas ASA R2 no admiten SnapMirror ni los sistemas AFF o FAS.</block>
 </blocks>
