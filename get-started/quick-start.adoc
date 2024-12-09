@@ -5,7 +5,7 @@ keywords: asa r2, asa a1k, asa a70, asa a90, get started, getting started, quick
 summary: 'Para comenzar a usar un sistema ASA R2 (ASA A1K, ASA A70, ASA A90), instalar el hardware, configurar el clúster, configurar el acceso a los datos y aprovisionar el almacenamiento.' 
 searchtitle: Instale y configure los sistemas de almacenamiento ASA A1K, ASA A70 y ASA A90 
 ---
-= Inicio rápido para los sistemas de almacenamiento ASA R2
+= Inicio rápido para los sistemas de almacenamiento R2 de ASA
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
