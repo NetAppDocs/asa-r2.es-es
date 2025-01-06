@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: install-setup/set-up-san-host.html 
+keywords: san, host, configuration, fc, iscsi, nvme, zoning, fabric, network 
+summary: Los sistemas ASA R2 siguen las mismas recomendaciones y directrices para la configuración de host SAN que los demás sistemas ONTAP. 
+---
+= Configuración host SAN con sistemas ASA R2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los sistemas ASA R2 siguen las mismas recomendaciones y directrices para la configuración de host SAN que los demás sistemas ONTAP.
+
+Se recomienda utilizar dos o más switches para conectar el sistema de almacenamiento a uno o varios hosts de SAN. En las configuraciones iSCSI, la topología de red que conecta los hosts, los switches y el sistema de almacenamiento se denomina _network_. Para las configuraciones FC y FC-NVMe, esta misma topología de red se conoce como _fabric_.
+
+Se recomiendan configuraciones de multired u estructura (aquellas que utilicen dos o más switches) porque proporcionan redundancia tanto en la capa del switch como en la de almacenamiento. Esta redundancia hace que su sistema de almacenamiento sea más tolerante a fallos y proporciona soporte para operaciones no disruptivas.
+
+La siguiente ilustración es un ejemplo de una configuración de FC con varios hosts utilizando dos estructuras para acceder a un único par de alta disponibilidad. Los números de puerto de destino FC (0C, 0d, 1a, 1b) también son ejemplos. Los números de puerto reales varían en función del modelo de la plataforma y de si utiliza adaptadores de expansión.
+
+image::multi-fabric-san-configuration.png[Dos estructuras FC que conectan varios hosts a un único par de alta disponibilidad]
+
+Más información sobre link:https://docs.netapp.com/us-en/ontap/san-config/configure-iscsi-san-hosts-ha-pairs-reference.html["CONFIGURACIÓN DE SAN para hosts iSCSI"^]. Más información sobre link:https://docs.netapp.com/us-en/ontap/san-config/configure-fc-nvme-hosts-ha-pairs-reference.html["CONFIGURACIÓN SAN para hosts FC y FC/NVMe"^].
+
+
+
+== Recomendación de división en zonas para los hosts FC
+
+Debe configurar los hosts FC para que utilicen la división en zonas. Los sistemas ASA R2 siguen las mismas recomendaciones y directrices para la división en zonas del host FC que el resto de los sistemas ONTAP.
+
+Una zona es una agrupación lógica de uno o más puertos dentro de una estructura. Para que los dispositivos puedan descubrirse entre sí, establecer sesiones entre sí y comunicarse, ambos puertos deben tener una membresía de zona común.
+
+Más información sobre link:https://docs.netapp.com/us-en/ontap/san-config/fibre-channel-fcoe-zoning-concept.html["División en zonas de FC/FC-NVMe"^].

@@ -24,5 +24,7 @@ entries:
   entries:
   - title: Configure el clúster
     url: "/install-setup/initialize-ontap-cluster.html"
+  - title: Configure la configuración de host SAN
+    url: "/install-setup/set-up-san-host.html"
   - title: Configure el acceso a los datos
     url: "/install-setup/set-up-data-access.html"
