@@ -37,11 +37,11 @@ Las herramientas de ONTAP para VMware vSphere son un conjunto de herramientas qu
 
 Los sistemas ASA R2 son compatibles con link:https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/concepts/ontap-tools-overview.html["Herramientas de ONTAP para VMware vSphere 10,3"]y versiones posteriores.
 
-Aprenda a link:https://review.docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10_otv103-releasebranch/deploy/ontap-tools-deployment.html["Ponga en marcha herramientas de ONTAP para VMware"^]usarlo y luego para hacer lo siguiente:
+Aprenda a link:https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/deploy/ontap-tools-deployment.html["Ponga en marcha herramientas de ONTAP para VMware"^]usarlo y luego para hacer lo siguiente:
 
-* link:https://review.docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10_otv103-releasebranch/configure/add-vcenter.html["Añada instancias de vCenter Server"^]
-* link:https://review.docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10_otv103-releasebranch/configure/configure-esx-server-multipath-and-timeout-settings.html["Configure los ajustes del host ESXi"^]
-* link:https://review.docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10_otv103-releasebranch/configure/discover-storage-systems-and-hosts.html["Descubra su sistema de almacenamiento R2 y los hosts de ASA"^]
+* link:https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/add-vcenter.html["Añada instancias de vCenter Server"^]
+* link:https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/configure-esx-server-multipath-and-timeout-settings.html["Configure los ajustes del host ESXi"^]
+* link:https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/discover-storage-systems-and-hosts.html["Descubra su sistema de almacenamiento R2 y los hosts de ASA"^]
 
 
 .El futuro
