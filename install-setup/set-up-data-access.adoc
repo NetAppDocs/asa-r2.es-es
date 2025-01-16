@@ -11,7 +11,7 @@ summary:
 
 
 [role="lead"]
-Para configurar el acceso a los datos, debe asegurarse de que los parámetros y los ajustes específicos del cliente SAN que sean críticos para el funcionamiento correcto con ONTAP se hayan configurado correctamente. Si utiliza VMware, debe migrar las máquinas virtuales.
+Para configurar el acceso a los datos, debe asegurarse de que los parámetros críticos y los ajustes del cliente SAN para un funcionamiento adecuado con ONTAP se hayan configurado correctamente. Si proporciona almacenamiento para su entorno VMware, debe instalar OTV 10,3 solo para la gestión de su almacenamiento ASA R2.
 
 
 
@@ -26,6 +26,23 @@ Consulte la documentación del host SAN de ONTAP para link:https://docs.netapp.c
 == Migrar los equipos virtuales de VMware
 
 Si necesita migrar la carga de trabajo de sus máquinas virtuales desde un sistema de almacenamiento de ASA a un sistema de almacenamiento R2 de ASA, NetApp recomienda utilizar link:https://www.vmware.com/products/cloud-infrastructure/vsphere/vmotion["VSphere vMotion de VMware"^] para realizar una migración activa y sin interrupciones de los datos.
+
+
+
+== Configure su sistema R2 de ASA como proveedor de almacenamiento en su entorno VMware
+
+Puede utilizar las herramientas de ONTAP para VMware para habilitar fácilmente su sistema ASA R2 como proveedor de almacenamiento en su entorno VMware.
+
+Las herramientas de ONTAP para VMware vSphere son un conjunto de herramientas que funcionan junto con VMware vCenter Server Virtual Appliance (vcsa) para facilitar la gestión de máquinas virtuales en hosts VMware ESXi.
+
+Los sistemas ASA R2 son compatibles con link:https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/concepts/ontap-tools-overview.html["Herramientas de ONTAP para VMware vSphere 10,3"]y versiones posteriores.
+
+Aprenda a link:https://review.docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10_otv103-releasebranch/deploy/ontap-tools-deployment.html["Ponga en marcha herramientas de ONTAP para VMware"^]usarlo y luego para hacer lo siguiente:
+
+* link:https://review.docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10_otv103-releasebranch/configure/add-vcenter.html["Añada instancias de vCenter Server"^]
+* link:https://review.docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10_otv103-releasebranch/configure/configure-esx-server-multipath-and-timeout-settings.html["Configure los ajustes del host ESXi"^]
+* link:https://review.docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10_otv103-releasebranch/configure/discover-storage-systems-and-hosts.html["Descubra su sistema de almacenamiento R2 y los hosts de ASA"^]
+
 
 .El futuro
 Está preparado para link:../manage-data/provision-san-storage.html["aprovisionar almacenamiento"]habilitar los hosts SAN para leer y escribir datos en unidades de almacenamiento.
