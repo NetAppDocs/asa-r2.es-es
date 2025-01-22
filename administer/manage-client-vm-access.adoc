@@ -73,6 +73,8 @@ Una LIF (interfaz de red) es una dirección IP asociada a un puerto físico o l�
 
 Cuando se crea una LIF de datos de IP, puede atender tanto el tráfico iSCSI como NVMe/TCP de forma predeterminada. Es necesario crear LIF de datos independientes para el tráfico FC y NVMe/FC.
 
+Si desea habilitar la conmutación automática al respaldo de LIF de iSCSI, debe crear una LIF solo para iSCSI. Cuando se habilita la conmutación por error automática de LIF iSCSI, si se produce un fallo de almacenamiento, el LIF de iSCSI se migra automáticamente desde su nodo o puerto principal al nodo o al puerto que pertenecen al partner de alta disponibilidad y, posteriormente, una vez finalizada la recuperación tras fallos. O bien, si el puerto de un LIF iSCSI deja de estar en buen estado, el LIF se migra automáticamente a un puerto en buen estado de su nodo de inicio actual y vuelve a su puerto original cuando el estado del puerto vuelve a estar en buen estado.
+
 .Antes de empezar
 * Para realizar esta tarea, debe ser un administrador de clústeres.
 * El puerto de red físico o lógico subyacente debe haberse configurado en el `up` estado administrativo.
@@ -84,6 +86,9 @@ Cuando se crea una LIF de datos de IP, puede atender tanto el tráfico iSCSI com
 . Selecciona *Red > Descripción general*.
 . Seleccione *Interfaces de red*; luego seleccione image:icon_add_blue_bg.png["rectángulo azul con un signo más seguido de la palabra añadir en letras blancas"].
 . Seleccione el tipo de interfaz y el protocolo y, a continuación, seleccione la máquina virtual de almacenamiento.
++
+Para crear una LIF de protocolo único, seleccione un solo protocolo. Por ejemplo, para crear un LIF solo iSCSI, seleccione *iSCSi*.
+
 . Escriba un nombre para la LIF o acepte el nombre predeterminado.
 . Seleccione el nodo de inicio de la interfaz de red y, a continuación, introduzca la dirección IP y la máscara de subred.
 . Seleccione *Guardar*.

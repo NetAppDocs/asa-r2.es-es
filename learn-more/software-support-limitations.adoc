@@ -14,7 +14,13 @@ summary: Aunque los sistemas ASA R2 ofrecen una amplia gama de compatibilidad pa
 Aunque los sistemas ASA R2 ofrecen una amplia gama de compatibilidad para las soluciones SAN, ciertas funciones de software ONTAP no son compatibles.
 
 .Los sistemas ASA R2 no son compatibles con lo siguiente:
-* Recuperación tras fallos de LIF de iSCSI
+* Conmutación por error automática de LIF de iSCSI predeterminada
++
+En los sistemas ASA R2, el LIF de red predeterminado se comparte entre hosts NVMe y SCSI, por lo que no admite la conmutación al respaldo automática. Para habilitar la conmutación automática al respaldo de LIF iSCSI, debe link:../administer/manage-client-vm-access.html#create-a-lif-network-interface["Cree una LIF solo para iSCSI"]. La conmutación automática por error está activada en LIFS sólo iSCSI de forma predeterminada.
+
++
+Cuando se habilita la conmutación por error automática de LIF iSCSI, si se produce un fallo de almacenamiento, el LIF de iSCSI se migra automáticamente desde su nodo o puerto principal al nodo o al puerto que pertenecen al partner de alta disponibilidad y, posteriormente, una vez finalizada la recuperación tras fallos. O bien, si el puerto de un LIF iSCSI deja de estar en buen estado, el LIF se migra automáticamente a un puerto en buen estado de su nodo de inicio actual y vuelve a su puerto original cuando el estado del puerto vuelve a estar en buen estado.
+
 * FabricPool
 * Aprovisionamiento grueso de LUN
 * MetroCluster
@@ -27,11 +33,15 @@ Aunque los sistemas ASA R2 ofrecen una amplia gama de compatibilidad para las so
 
 .Los sistemas ASA R2 ofrecen lo siguiente:
 * SnapLock
++
+link:../secure-data/ransomware-protection.html["Aprenda a bloquear instantáneas"] En su sistema ASA R2.
+
 * Cifrado de doble capa
++
+link:../secure-data/encrypt-data-at-rest.html["Aprenda a aplicar el cifrado de doble capa"] A los datos de su sistema ASA R2.
+
 
 
 .Si quiere más información
 * Consulte la link:https://hwu.netapp.com/["NetApp Hardware Universe"^] para obtener más información acerca de las limitaciones y la compatibilidad del hardware de ASA R2.
-* link:../secure-data/ransomware-protection.html["Aprenda a bloquear instantáneas"] En su sistema ASA R2.
-* link:../secure-data/encrypt-data-at-rest.html["Aprenda a aplicar el cifrado de doble capa"] A los datos de su sistema ASA R2.
 
