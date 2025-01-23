@@ -25,7 +25,7 @@ Descubra las nuevas funcionalidades disponibles en ONTAP 9.16,1 para los sistema
 | Actualizar | Descripción 
 
 
-| link:data-protection/manage-consistency-groups.html["Soporte para grupos de coherencia jerárquicos"] | Los grupos de consistencia jerárquicos le permiten crear un grupo de consistencia primario que contiene varios grupos de consistencia secundarios. De esta forma se simplifica la protección y la gestión de datos para estructuras de datos complejas. 
+| link:../data-protection/manage-consistency-groups.html["Soporte para grupos de coherencia jerárquicos"] | Los grupos de consistencia jerárquicos le permiten crear un grupo de consistencia primario que contiene varios grupos de consistencia secundarios. De esta forma se simplifica la protección y la gestión de datos para estructuras de datos complejas. 
 |===
 
 

@@ -1754,7 +1754,6 @@
   <block id="f35462670e9b95d1e4a8748ba6872f91" category="admonition">Si ejecuta ONTAP 9.16.1 con más de 2 nodos en un clúster, no puede revertir a ONTAP 9.16.0.</block>
   <block id="7e7397a7b79323762c61941fc0e6b5f9" category="section-title">Protección de datos</block>
   <block id="52b359b5c00e0db3bdd91a9f5c05cf7a" category="inline-link-macro">Soporte para grupos de coherencia jerárquicos</block>
-  <block id="410817362abc44b1b70bdc2f9f49fece" category="cell"><block ref="410817362abc44b1b70bdc2f9f49fece" category="inline-link-macro-rx"></block></block>
   <block id="aada91e6d0de9250c4de431c33ad5116" category="cell">Los grupos de consistencia jerárquicos le permiten crear un grupo de consistencia primario que contiene varios grupos de consistencia secundarios. De esta forma se simplifica la protección y la gestión de datos para estructuras de datos complejas.</block>
   <block id="6feaf968503604ce3e0d0b4eefca6c57" category="cell">Soporte para reequilibrio automático de unidades de almacenamiento</block>
   <block id="ec84fb814253e6779e1876e18f7db731" category="cell">ONTAP reequilibrará de forma automática las unidades de almacenamiento en sus zonas de disponibilidad de almacenamiento con el fin de optimizar el rendimiento y la utilización de la capacidad.</block>
@@ -1763,4 +1762,5 @@
   <block id="fb3dca1c5682d0eef255de24a00af0f3" category="sidebar">Añada nodos</block>
   <block id="3214e36fd00eb6d4da6f5d9b64f41cb1" category="sidebar">Gestión de unidades de almacenamiento</block>
   <block id="611bc8bee4d5b03a55be78ab0ca75f66" category="sidebar">Mueva las unidades de almacenamiento</block>
+  <block id="ffb5ca95f1d59040ebadb90640b1970b" category="cell"><block ref="ffb5ca95f1d59040ebadb90640b1970b" category="inline-link-macro-rx"></block></block>
 </blocks>
