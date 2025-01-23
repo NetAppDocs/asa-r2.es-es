@@ -5,9 +5,9 @@ indexpage:
     unificada que crea una experiencia simplificada específica para las necesidades
     de los clientes de SAN exclusivamente.
   keywords: asa r2, ontap, documentation, asa a1k, asa a70, asa a90
-  lead: Los sistemas NetApp ASA R2 (ASA A1K, ASA A70 y ASA A90) ofrecen una solución
-    de hardware y software unificada que crea una experiencia simplificada específica
-    de las necesidades de clientes exclusivos de SAN.
+  lead: Los sistemas NetApp ASA R2 (ASA A1K, A90, A70) ofrecen una solución de hardware
+    y software unificada que permite crear una experiencia simplificada específica
+    para las necesidades de los clientes de SAN.
   tiles:
   - title: Manos a la obra
     links:

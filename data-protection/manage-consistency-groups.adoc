@@ -13,6 +13,10 @@ summary: Use grupos de coherencia para realizar varias acciones a varias unidade
 [role="lead"]
 Un grupo de consistencia es una colección de unidades de almacenamiento que se administran como una sola unidad. Utilice grupos de coherencia para simplificar la gestión del almacenamiento. Por ejemplo, suponga que tiene una base de datos que consta de 10 unidades de almacenamiento en un grupo de coherencia y necesita realizar un backup de toda la base de datos. En lugar de realizar un backup de cada unidad de almacenamiento, puede hacer backups de toda la base de datos simplemente añadiendo la protección de datos Snapshot al grupo de coherencia. Realizar un backup de las unidades de almacenamiento como un grupo de coherencia en lugar de hacerlo individualmente también proporciona un backup coherente de todas las unidades, mientras que realizar un backup individual puede provocar incoherencias.
 
+A partir de ONTAP 9.16.1, se puede usar System Manager para crear grupos de consistencia jerárquicos en el sistema ASA R2. En una estructura jerárquica, uno o varios grupos de consistencia se configuran como secundarios en un grupo de consistencia primario.
+
+Los grupos de coherencia jerárquicos le permiten aplicar políticas Snapshot individuales a cada grupo de coherencia secundario y replicar las snapshots de todos los grupos de coherencia secundarios en un clúster remoto como una sola unidad mediante la replicación del elemento primario. De esta forma se simplifica la protección y la gestión de datos para estructuras de datos complejas. Por ejemplo, suponga que crea un grupo de consistencia primario llamado `SVM1_app` que contiene dos grupos de consistencia secundarios: `SVM1app_data` Para los datos de la aplicación y `SVM1app_logs` para los registros de la aplicación. Se realizan Snapshots de `SVM1app_data` cada 15 minutos y se realizan Snapshots de `SVM1app_logs` cada hora. El grupo de coherencia primario `SVM1_app,` tiene una política SnapMirror que replica las copias Snapshot de `SVM1app_data` tanto como `SVM1app_logs` en un clúster remoto cada 24 horas. El grupo de coherencia primario `SVM1_app` se administra como una unidad única y los grupos de coherencia secundarios se gestionan como unidades independientes.
+
 
 
 == Añade protección de datos de snapshot a un grupo de coherencia
@@ -139,6 +143,107 @@ La unidad de almacenamiento ya no es miembro del grupo de coherencia.
 
 .El futuro
 Si necesita continuar con la protección de datos para la unidad de almacenamiento, agregue la unidad de almacenamiento a otro grupo de consistencia.
+
+
+
+== Convertir un grupo de consistencia existente en un grupo de consistencia primario
+
+Las unidades de almacenamiento no pueden asociarse directamente con un grupo de coherencia primario. Si convierte un grupo de consistencia existente a un grupo de consistencia primario, se crea un nuevo grupo de consistencia secundario y las unidades de almacenamiento que pertenecen al grupo de consistencia convertido se mueven al nuevo grupo de consistencia secundario.
+
+.Pasos
+. En System Manager, seleccione *Protección > Grupos de consistencia*.
+. Pase el ratón por el grupo de consistencia que desea convertir en un grupo de consistencia primario.
+. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Promocionar al grupo de consistencia primario*.
+. Introduzca un nombre para el grupo de consistencia primario o acepte el nombre predeterminado y, a continuación, seleccione el tipo de componente del grupo de consistencia.
+. Selecciona *Promocionar*.
+
+
+.El futuro
+Puede crear grupos de consistencia secundarios adicionales en el grupo de consistencia primario. También  se puede link:../secure-data/encrypt-data-at-rest.html["configurar la replicación de snapshots"]copiar el grupo de coherencia primario en una ubicación geográficamente remota para backup y recuperación ante desastres.
+
+
+
+== Cree un grupo de consistencia secundario
+
+La creación de grupos de consistencia secundarios le permite aplicar políticas de snapshots individuales a cada secundario al mismo tiempo que aplica una política de replicación a todos los grupos de coherencia secundarios en el nivel principal.
+
+Puede crear un grupo de consistencia secundario a partir de un grupo de consistencia nuevo o existente.
+
+[role="tabbed-block"]
+====
+.Desde un nuevo grupo de consistencia
+--
+.Pasos
+. En System Manager, seleccione *Protección > Grupos de consistencia*.
+. Pase el ratón por el grupo de consistencia primario al que desea añadir un grupo de consistencia secundario.
+. Seleccione image:icon_kabob.gif["tres puntos verticales azules"]; y, a continuación, seleccione *Agregar un nuevo grupo de consistencia hijo*.
+. Introduzca un nombre para el grupo de consistencia secundario o acepte el nombre predeterminado y, a continuación, seleccione el tipo de componente del grupo de consistencia.
+. Seleccione esta opción para agregar unidades de almacenamiento existentes al grupo de consistencia hijo o para crear nuevas unidades de almacenamiento.
++
+Si crea nuevas unidades de almacenamiento, introduzca la cantidad de unidades que desea crear y la capacidad por unidad; a continuación, introduzca la información del host.
+
++
+Si se crea más de una unidad de almacenamiento, cada unidad se crea con la misma capacidad y el mismo sistema operativo host. Para asignar una capacidad diferente a cada unidad, selecciona *Añadir una capacidad diferente*.
+
+. Seleccione *Agregar*.
+
+
+--
+.Desde un grupo de consistencia existente
+--
+.Pasos
+. En System Manager, seleccione *Protección > Grupos de consistencia*.
+. Seleccione el grupo de consistencia existente que desea convertir en un grupo de consistencia secundario.
+. Seleccione image:icon_kabob.gif["tres puntos verticales azules"]; y, a continuación, seleccione *Mover bajo grupo de consistencia diferente*.
++
+Si el grupo de consistencia que desea utilizar como secundario de otro grupo de consistencia, debe desvincularlo del grupo de consistencia primario existente para poder moverlo a un nuevo grupo de consistencia primario.
+
+. Introduzca un nombre nuevo para el grupo de consistencia secundario o acepte el nombre predeterminado y, a continuación, seleccione el tipo de componente del grupo de consistencia.
+. Seleccione el grupo de consistencia existente que desea que sea el grupo de consistencia primario o seleccione para crear un nuevo grupo de consistencia primario.
++
+Si selecciona crear un nuevo grupo de consistencia primario, introduzca un nombre para el grupo de consistencia primario o acepte el nombre predeterminado y, a continuación, seleccione el tipo de componente de aplicación de consistencia.
+
+. Selecciona *Mover*.
+
+
+--
+====
+.El futuro
+Después de crear un grupo de consistencia secundario, puede link:policies-schedules.html#apply-a-snapshot-policy-to-a-consistency-group["aplique políticas de protección de snapshots individuales"] acceder a cada grupo de consistencia secundario. También link:snapshot-replication.html["configure una política de replicación"] puede en el grupo de coherencia primario para replicar las snapshots de todos los grupos de coherencia secundarios en un clúster remoto como una sola unidad.
+
+
+
+== Degrade un grupo de consistencia primario a un grupo de consistencia único
+
+Cuando _degrada_ un grupo de consistencia primario a un solo grupo de consistencia, las unidades de almacenamiento de los grupos de consistencia secundarios asociados se agregan al grupo de consistencia primario. Los grupos de consistencia secundarios se eliminan y el elemento principal se gestiona como un solo grupo de consistencia.
+
+.Pasos
+. En System Manager, seleccione *Protección > Grupos de consistencia*.
+. Pase el ratón por el grupo de consistencia primario que desea degradar.
+. Seleccione image:icon_kabob.gif["tres puntos verticales azules"]; y, a continuación, seleccione *Descender a un único grupo de consistencia*.
+. Selecciona *Descender*
+
+
+.El futuro
+link:policies-schedules.html#apply-a-snapshot-policy-to-a-consistency-group["Añada una política de Snapshot"] al grupo de coherencia degradado para proteger las unidades de almacenamiento que se gestionaron anteriormente por los grupos de coherencia secundarios.
+
+
+
+== Desvincular un grupo de consistencia secundario de un grupo de consistencia primario
+
+Cuando se desvincula un grupo de consistencia secundario de un grupo de consistencia primario, el grupo de consistencia secundario se elimina del grupo de consistencia primario y se gestiona como un único grupo de consistencia. La política de replicación aplicada al elemento principal ya no se aplica al grupo de consistencia secundario desconectado.
+
+.Pasos
+. En System Manager, seleccione *Protección > Grupos de consistencia*.
+. Seleccione el grupo de consistencia primario.
+. Seleccione el grupo de consistencia secundario que desea desvincular.
+. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Desasociar de padre*.
+. Introduzca un nuevo nombre para el grupo de consistencia que desea desvincular o acepte el nombre predeterminado; a continuación, seleccione el tipo de aplicación del grupo de consistencia.
+. Seleccione *Detach*.
+
+
+.El futuro
+link:snapshot-replication.html["Configure una política de replicación"] para replicar las snapshots del grupo de consistencia secundario desconectado en un clúster remoto como un grupo de coherencia único.
 
 
 

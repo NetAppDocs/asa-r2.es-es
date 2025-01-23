@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: administer/add-nodes.html 
+keywords: rename, node, renaming, asa r2 
+summary: Es posible que deba cambiar el nombre de un nodo para alinearlo con las convenciones de nomenclatura de la organización o por otros motivos administrativos. 
+---
+= Añada nodos ASA R2 a un clúster ONTAP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A partir de ONTAP 9.16.1, los sistemas de almacenamiento R2 de ASA admiten hasta 12 nodos por clúster. Después de conectar y encender los nodos nuevos de una pareja de alta disponibilidad, debe unirlos al clúster.
+
+.Antes de empezar
+Recopile la siguiente información:
+
+* La dirección IP del nodo
+* La dirección IP de la interfaz de red de interconexión de clústeres
+* La máscara de subred de red de interconexión de clústeres
+* La puerta de enlace de red entre clústeres
+* Si desea configurar el gestor de claves incorporado (OKM), necesita la clave de acceso de OKM.
+
+
+.Pasos
+. En System Manager, seleccione *Clúster > Descripción general*.
+. Seleccione image:icon_kabob.gif["tres puntos verticales azules"] junto al nodo que desea unir al clúster y, a continuación, seleccione *Añadir nodo*
+. Introduzca la dirección IP para cada nodo.
+. Introduzca la dirección IP de la interfaz de red entre clústeres, la máscara de subred y la pasarela.
+. Si desea configurar el gestor de claves incorporado (OKM), introduzca la clave de acceso de OKM.
++
+*Configurar el gestor de claves integrado para el cifrado* se selecciona de forma predeterminada.
+
+. Seleccione *Agregar*.
+
+
+.Resultado
+El nuevo par de alta disponibilidad se une al clúster.
+
+.El futuro
+Después de agregar la pareja de alta disponibilidad nueva al clúster, puede link:../install-setup/set-up-data-access.html["Active el acceso a los datos desde sus hosts SAN"]utilizar los nodos nuevos.

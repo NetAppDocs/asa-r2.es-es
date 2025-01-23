@@ -1,9 +1,9 @@
 ---
 sidebar: sidebar 
 permalink: get-started/learn-about.html 
-keywords: asa r2, asa a1k, asa 70, asa 90 
-summary: 'Los sistemas ASA R2 (ASA A1K, ASA A70 y ASA A90) ofrecen una solución unificada de hardware y software que crea una experiencia simplificada para clientes de solo SAN.' 
-searchtitle: 'Obtenga más información sobre los sistemas de almacenamiento R2 de ASA: A1K, A90 y A70' 
+keywords: asa r2, asa a1k, asa a90, asa a70, learn more, learn about, get started 
+summary: 'Los sistemas R2 de ASA (ASA A1K, A90, A70) ofrecen una solución unificada de hardware y software para una experiencia simplificada para clientes solo de SAN.' 
+searchtitle: Obtenga información sobre los sistemas A1K, A90 y A70 de ASA 
 ---
 = Obtenga información sobre los sistemas de almacenamiento R2 de ASA
 :allow-uri-read: 
@@ -14,7 +14,7 @@ searchtitle: 'Obtenga más información sobre los sistemas de almacenamiento R2 
 [role="lead"]
 Los sistemas NetApp ASA R2 (ASA A1K, ASA A70 y ASA A90) ofrecen una solución de hardware y software unificada que crea una experiencia simplificada específica de las necesidades de clientes exclusivos de SAN.
 
-Los sistemas R2 de ASA son compatibles con todos los protocolos SAN (iSCSI, FC, NVMe/FC, NVMe/TCP) en una puesta en marcha de par de alta disponibilidad único. Los protocolos SCSI (iSCSI y FC) utilizan una arquitectura activo-activo simétrica para la multivía, de modo que todas las rutas entre los hosts y el almacenamiento estén activas/optimizadas. Los protocolos iSCSI y NVMe/TCP admiten rutas directas entre los hosts y el almacenamiento.
+Los sistemas R2 de ASA son compatibles con todos los protocolos SAN (iSCSI, FC, NVMe/FC, NVMe/TCP). Los protocolos iSCSI, FC y NVMe/FC admiten una arquitectura activo-activo simétrica para la multivía, de modo que todas las rutas entre los hosts y el almacenamiento estén activas/optimizadas. Los protocolos iSCSI y NVMe/TCP admiten rutas directas entre los hosts y el almacenamiento.
 
 En un sistema ASA R2, se han optimizado el software ONTAP y System Manager para proporcionar compatibilidad con las funciones SAN esenciales mientras se quitan características y funciones que no se admiten en los entornos SAN.
 

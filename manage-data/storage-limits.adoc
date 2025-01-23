@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: manage-data/storage-limits.html 
-keywords: storage limits, cluster limits, maximum lun size, supported protocols, asa r2, asa a1k, asa a70, asa a90 
+keywords: storage limits, cluster limits, maximum lun size, maximum, nodes per cluster, storage unit size, supported protocols, asa r2, asa a1k, asa a90, asa a70 
 summary: Las configuraciones de ASA R2 admiten un máximo de 2 nodos por clúster que ejecutan los protocolos FC, iSCSI, NVMe/FC o NVMe/TCP. 
 ---
 = Límites de almacenamiento de ASA R2
@@ -19,7 +19,7 @@ Los sistemas ASA R2 ofrecen lo siguiente:
 |===
 
 
-| N.o máx. De nodos por clúster | 2 
+| N.o máx. De nodos por clúster | 12 
 
 
 | Tamaño máximo de la unidad de almacenamiento | 128TB 

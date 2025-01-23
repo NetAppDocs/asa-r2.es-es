@@ -150,3 +150,19 @@ Clonó un grupo de consistencia desde la ubicación remota. El nuevo grupo de co
 ====
 .El futuro
 Para proteger los datos, debe link:../data-protection/create-snapshots.html#step-2-create-a-snapshot["crear snapshots"]hacerlo del grupo de consistencia clonado.
+
+
+
+== Divida el clon del grupo de consistencia
+
+Cuando se divide un clon de un grupo de consistencia, se disocia el clon del grupo de consistencia de origen y se asigna espacio en disco al clon. El clon se convierte en un grupo de consistencia independiente que se puede usar independientemente del grupo de consistencia de origen.
+
+.Pasos
+. En System Manager, seleccione *Protección > Grupos de consistencia*.
+. Pase el ratón por el clon del grupo de consistencia que desea dividir.
+. Seleccione *Split clone*.
+. Selecciona *Split*.
+
+
+.Resultado
+El clon se separa del grupo de consistencia de origen y se asigna el espacio en disco para el clon.

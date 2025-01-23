@@ -22,6 +22,8 @@ Un grupo de consistencia es una colección de unidades de almacenamiento que se 
 
 Cree un grupo de consistencia mediante nuevas unidades de almacenamiento o cree un grupo de consistencia mediante unidades de almacenamiento existentes.
 
+Cuando crea un grupo de coherencia mediante nuevas unidades de almacenamiento, puede asignar una capacidad diferente a cada unidad de almacenamiento, cambiar el nivel de servicio de rendimiento predeterminado y crear hasta cinco grupos de coherencia secundarios. Al crear un grupo de consistencia mediante unidades de almacenamiento existentes, puede agregar unidades de almacenamiento que ya estén en uso.
+
 [role="tabbed-block"]
 ====
 .Utilice nuevas unidades de almacenamiento
@@ -31,14 +33,43 @@ Cree un grupo de consistencia mediante nuevas unidades de almacenamiento o cree 
 . Seleccione image:icon_add_blue_bg.png["rectángulo azul que contiene un signo más seguido de la palabra add en letras blancas"]; y, a continuación, seleccione *Utilizando nuevas unidades de almacenamiento*.
 . Introduzca un nombre para la nueva unidad de almacenamiento, el número de unidades y la capacidad por unidad.
 +
-Si se crea más de una unidad, cada unidad se crea con la misma capacidad y el mismo sistema operativo host. Para asignar una capacidad diferente a cada unidad, selecciona *Más opciones* y luego selecciona *Añadir una capacidad diferente*.
+Si crea más de una unidad, cada unidad se crea con la misma capacidad y el mismo sistema operativo host de forma predeterminada. Opcionalmente, puede asignar una capacidad diferente a cada unidad.
 
-. Seleccione el sistema operativo del host y la asignación del host.
-. Seleccione *Agregar*.
+. Si desea hacer alguna de las siguientes acciones, seleccione *Más opciones* y complete los pasos requeridos.
++
+[cols="2, 4a"]
+|===
+| Opción | Pasos 
+
+
+ a| 
+Asigne una capacidad diferente a cada unidad de almacenamiento
+ a| 
+Selecciona *Añadir una capacidad diferente*.
+
+
+
+ a| 
+Cambie el nivel de servicio de rendimiento predeterminado
+ a| 
+En *Nivel de servicio de rendimiento*, seleccione un nivel de servicio diferente.
+
+
+
+ a| 
+Cree un grupo de consistencia secundario
+ a| 
+Seleccione *Agregar grupo de consistencia secundario*.
+
+.. Seleccione el sistema operativo del host y la asignación del host.
+.. Seleccione *Agregar*.
 
 
 .El futuro
 Creó un grupo de consistencia que contiene las unidades de almacenamiento que desea proteger. Ya está listo para crear una instantánea.
+
+|===
+
 
 --
 .Utilice las unidades de almacenamiento existentes

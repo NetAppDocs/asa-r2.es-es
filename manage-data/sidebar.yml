@@ -10,10 +10,14 @@ entries:
     url: "/manage-data/provision-san-storage.html"
   - title: Clone datos
     url: "/manage-data/data-cloning.html"
-  - title: Modificar unidades de almacenamiento
-    url: "/manage-data/modify-storage-units.html"
-  - title: Eliminar unidades de almacenamiento
-    url: "/manage-data/delete-storage-units.html"
+  - title: Gestión de unidades de almacenamiento
+    entries:
+    - title: Modificar unidades de almacenamiento
+      url: "/manage-data/modify-storage-units.html"
+    - title: Mueva las unidades de almacenamiento
+      url: "/manage-data/move-storage-units.html"
+    - title: Eliminar unidades de almacenamiento
+      url: "/manage-data/delete-storage-units.html"
   - title: Límites de almacenamiento
     url: "/manage-data/storage-limits.html"
 - title: Proteja sus datos

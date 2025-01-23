@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: learn-more/cli-support.html 
-keywords: asa r2, cli, asa r2, asa a1k, asa 70, asa 90 
+keywords: asa r2, asa r2, asa a1k, asa a90, a70, cli 
 summary: 'Algunos comandos de ONTAP no se admiten en sistemas ASA R2 (ASA A1K, ASA 70, ASA 90).' 
 ---
 = Compatibilidad con la interfaz de línea de comandos de ONTAP para los sistemas de almacenamiento R2 de ASA

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: install-setup/power-on-hardware.html 
-keywords: asa r2, aff a1k, aff a70, aff a90, aff c80, asa a1k, asa a70, asa a90, asa c80, power on 
+keywords: asa r2, aff a1k, aff a70, aff a90, aff c80, asa a1k, asa a90, asa a70, power on 
 summary: Encienda cada bandeja NS224 para asignar un ID de bandeja exclusivo, encienda las controladoras ASA R2 y proteja los cables de alimentación. 
 ---
 = Encienda el sistema de almacenamiento R2 de ASA

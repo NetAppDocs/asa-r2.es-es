@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: install-setup/deploy-hardware.html 
-keywords: asa r2, install hardware, deploy hardware, aff a1k, aff a70, aff a90, aff c80, asa a1k, asa a70, asa a90, asa c80 
+keywords: asa r2, install hardware, deploy hardware, aff a1k, aff a70, aff a90, aff c80, asa a1k, asa a90, asa a70 
 summary: Descubra cómo instalar los kits de guías para el sistema de almacenamiento y las bandejas de almacenamiento R2 de ASA, y cómo proteger el hardware de ASA R2 en el armario o el rack de telecomunicaciones. 
 ---
 = Instale su sistema de almacenamiento R2 de ASA

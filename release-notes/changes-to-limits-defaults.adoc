@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: release-notes/changes-to-limits-defaults.html 
-keywords: release notes, changes, updates, defaults, limits, asa r2, asa a1k, asa 70, asa 90 
+keywords: release notes, changes, updates, defaults, limits, asa r2, asa a1k, asa a90, asa a70 
 summary: Obtenga más información sobre los cambios en los límites y valores predeterminados que afectan a los sistemas ASA R2. 
 ---
 = Cambios en los límites y valores predeterminados de ONTAP que afectan a los sistemas ASA R2
@@ -23,6 +23,14 @@ Obtenga más información sobre los cambios en los límites y valores predetermi
 [cols="2,4,4"]
 |===
 | Función | Cambio de límite | Cambiado en la versión... 
+
+
+| Nodos por clúster  a| 
+El número máximo de nodos por clúster ha aumentado de 2 a 12.
+
+
+NOTE: Si ejecuta ONTAP 9.16.1 con más de 2 nodos en un clúster, no puede revertir a ONTAP 9.16.0.
+| ONTAP 9.16.1 
 
 
 | Unidades de almacenamiento | El número máximo de unidades de almacenamiento ha aumentado de 2500 TB por par de alta disponibilidad a 10.000 TB por par de alta disponibilidad. | ONTAP 9.16.1 

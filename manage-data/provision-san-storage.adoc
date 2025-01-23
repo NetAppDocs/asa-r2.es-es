@@ -37,7 +37,7 @@ Si se crea más de una unidad de almacenamiento, cada unidad se crea con la mism
 *Asignación de host* se refiere al grupo host al que se asignará la nueva unidad de almacenamiento. Si existe un grupo de hosts preexistente para el tipo de host seleccionado para la nueva unidad de almacenamiento, el grupo de hosts existente se selecciona automáticamente para la asignación de host. Puede aceptar el grupo de hosts que se selecciona automáticamente para la asignación de host o puede seleccionar un grupo de hosts diferente.
 
 +
-Si no existe un grupo de hosts preexistente para los hosts que se ejecutan en el sistema operativo especificado, ONTAP crea automáticamente un nuevo grupo de hosts.
+Si no existe ningún grupo de hosts preexistente para los hosts que se ejecutan en el sistema operativo especificado, ONTAP crea automáticamente un nuevo grupo de hosts.
 
 . Si desea hacer alguna de las siguientes acciones, seleccione *Más opciones* y complete los pasos requeridos.
 +
@@ -51,7 +51,7 @@ Cambie la política de calidad de servicio (QoS) predeterminada
 
 Si la política de calidad de servicio predeterminada no se configuró anteriormente en la máquina virtual de almacenamiento (VM) donde se está creando la unidad de almacenamiento, esta opción no está disponible.
  a| 
-.. En *Almacenamiento y optimización*, junto a *Calidad de servicio (QoS)*, selecciona image:icon_dropdown_arrow.gif["icono de flecha azul apuntando hacia abajo"] .
+.. En *Almacenamiento y optimización*, junto a *Calidad de servicio (QoS)*, selecciona image:icon_dropdown_arrow.gif["icono de flecha azul apuntando hacia abajo"].
 .. Seleccione una política de calidad de servicio existente.
 
 
@@ -76,6 +76,17 @@ Establecer un rendimiento mínimo e IOPS para una unidad de almacenamiento, gara
 
 
 .. Seleccione *Agregar*.
+
+
+
+
+ a| 
+Cambie el nivel de servicio de rendimiento predeterminado.
+
+Los sistemas R2 de ASA ofrecen dos niveles de rendimiento. El nivel de rendimiento predeterminado es *Extreme*, que es el nivel más alto disponible. Puede reducir el nivel de rendimiento a *Rendimiento*.
+ a| 
+.. En *Almacenamiento y optimización*, junto al *Nivel de servicio de rendimiento*, selecciona image:icon_dropdown_arrow.gif["icono de flecha azul apuntando hacia abajo"].
+.. Selecciona *Rendimiento*.
 
 
 
