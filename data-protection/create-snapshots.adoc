@@ -61,15 +61,13 @@ Cree un grupo de consistencia secundario
  a| 
 Seleccione *Agregar grupo de consistencia secundario*.
 
-.. Seleccione el sistema operativo del host y la asignación del host.
-.. Seleccione *Agregar*.
+|===
+. Seleccione el sistema operativo del host y la asignación del host.
+. Seleccione *Agregar*.
 
 
 .El futuro
 Creó un grupo de consistencia que contiene las unidades de almacenamiento que desea proteger. Ya está listo para crear una instantánea.
-
-|===
-
 
 --
 .Utilice las unidades de almacenamiento existentes
