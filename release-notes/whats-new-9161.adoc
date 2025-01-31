@@ -29,6 +29,17 @@ Descubra las nuevas funcionalidades disponibles en ONTAP 9.16,1 para los sistema
 |===
 
 
+== Compatibilidad con protocolos
+
+[cols="2,4"]
+|===
+| Actualizar | Descripción 
+
+
+| link:../get-started/learn-about.html["Compatibilidad de NVMe para multivía activo-activo simétrico"] | NVMe/FC y NVMe/TCP ahora admiten arquitectura activo-activo simétrica para la multivía, de modo que todas las rutas entre los hosts y el almacenamiento estén activas/optimizadas. 
+|===
+
+
 == Eficiencia del almacenamiento
 
 [cols="2,4"]
