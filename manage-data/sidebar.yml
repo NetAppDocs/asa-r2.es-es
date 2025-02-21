@@ -38,6 +38,8 @@ entries:
   entries:
   - title: Cifrado de datos en reposo
     url: "/secure-data/encrypt-data-at-rest.html"
+  - title: Migración de claves de cifrado de datos entre gestores de claves
+    url: "/secure-data/migrate-encryption-keys-between-key-managers.html"
   - title: Protéjase contra ataques de ransomware
     url: "/secure-data/ransomware-protection.html"
   - title: Conexiones NVMe seguras
