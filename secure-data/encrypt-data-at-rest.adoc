@@ -51,5 +51,3 @@ Además de NSE, también puede habilitar el cifrado del software para añadir ot
 
 .El futuro
 Ahora que ha cifrado sus datos en reposo, si utiliza el protocolo NVMe/TCP, puede hacerlo link:nvme-tcp-connections.html["cifrar todos los datos enviados a través de la red"] entre su host NVMe/TCP y su sistema ASA R2.
-
-Si necesita cambiar del gestor de claves incorporado a un gestor de claves externo o viceversa, consulte link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/migrate-keys-between-key-managers.html["Migrar las claves de cifrado de datos de ONTAP entre gestores de claves"^].
