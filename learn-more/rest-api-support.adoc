@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: learn-more/rest-api-support.html 
-keywords: asa, asa r2, rest, rest api, asa r2 rest api, asa a1k, asa a90, asa a70 
+keywords: asa, asa r2, rest, rest api, asa r2 rest api, asa a1k, asa a90, asa a70, asa a50, asa a30, asa a20 
 summary: La API REST DE ASA R2 se basa en la API REST proporcionada con la personalidad unificada de ONTAP, con una serie de cambios adaptados a las características y funcionalidades únicas de la personalidad de ASA R2. 
 ---
 = Soporte para la API de REST para ASA R2

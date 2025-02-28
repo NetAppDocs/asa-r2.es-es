@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: install-setup/power-on-hardware.html 
-keywords: asa r2, aff a1k, aff a70, aff a90, aff c80, asa a1k, asa a90, asa a70, power on 
-summary: Encienda cada bandeja NS224 para asignar un ID de bandeja exclusivo, encienda las controladoras ASA R2 y proteja los cables de alimentación. 
+keywords: asa r2, aff a1k, aff a70, aff a90, aff c80, asa a1k, asa a90, asa a70, asa a30, asa a20, asa a50, power on 
+summary: Encienda cada bandeja para asignar un ID de bandeja exclusivo, encienda las controladoras ASA R2 y proteja los cables de alimentación. 
 ---
 = Encienda el sistema de almacenamiento R2 de ASA
 :allow-uri-read: 
@@ -17,10 +17,13 @@ Después de instalar el hardware de rack para el sistema de almacenamiento ASA R
 
 == Paso 1: Encienda la bandeja y asigne el ID de bandeja
 
-Cada bandeja NS224 se distingue por un ID de bandeja único. Este ID garantiza que la bandeja sea distinta dentro de la configuración del sistema de almacenamiento. De manera predeterminada, los ID de bandeja se asignan como «00» y «01», pero es posible que deba ajustar estos ID para mantener la singularidad en todo su sistema de almacenamiento.
+Cada bandeja se distingue por un ID de bandeja único. Este ID garantiza que la bandeja sea distinta dentro de la configuración del sistema de almacenamiento.
 
 .Acerca de esta tarea
-* Un ID de bandeja válido tiene un valor de 00 a 99.
+* Un ID de bandeja válido es de 01 a 99.
++
+Si tiene bandejas internas (almacenamiento), que se integran en las controladoras, se les asigna un ID de bandeja fijo de 00.
+
 * Se debe apagar y encender la bandeja (desconecte los dos cables de alimentación, espere la cantidad de tiempo correspondiente y vuelva a conectarlos) para que el ID de bandeja surta efecto.
 
 
@@ -31,7 +34,7 @@ La bandeja se enciende y arranca automáticamente cuando se conecta a la fuente 
 
 . Quite la tapa del extremo izquierdo para acceder al botón de ID de bandeja detrás de la placa frontal.
 +
-image::../media/drw_a900_oie_change_ns224_shelf_id_ieops-836.svg[Cambie el ID de bandeja NS224]
+image::../media/drw_change_ns224_shelf_id_ieops-836.svg[Cambie el ID de bandeja]
 
 +
 [cols="20%,80%"]
@@ -39,28 +42,28 @@ image::../media/drw_a900_oie_change_ns224_shelf_id_ieops-836.svg[Cambie el ID de
 
 
  a| 
-image::../media/legend_icon_01.svg[Número de llamada 1]
+image::../media/icon_round_1.png[Número de llamada 1]
  a| 
 Tapa final de estante
 
 
 
  a| 
-image::../media/legend_icon_02.svg[[Número de referencia 2]
+image::../media/icon_round_2.png[[Número de referencia 2]
  a| 
 Placa frontal de la bandeja
 
 
 
  a| 
-image::../media/legend_icon_03.svg[[Número de referencia 3]
+image::../media/icon_round_3.png[[Número de referencia 3]
  a| 
 Número de ID de la bandeja
 
 
 
  a| 
-image::../media/legend_icon_04.svg[[Número de referencia 4]
+image::../media/icon_round_4.png[[Número de referencia 4]
  a| 
 Botón de ID de bandeja
 
@@ -127,29 +130,64 @@ Una fuente de alimentación se enciende tan pronto como se conecta el cable de a
 Después de encender las bandejas de almacenamiento y asignarles ID únicos, encienda la alimentación de las controladoras de almacenamiento.
 
 .Pasos
-. Conecte el portátil al puerto de la consola de serie. Esto le permitirá supervisar la secuencia de arranque cuando se encienden las controladoras.
+. Conecte el portátil al puerto de la consola de serie. Esto le permitirá supervisar la secuencia de arranque cuando las controladoras estén encendidas.
 +
 .. Configure el puerto de consola serie del portátil a 115.200 baudios con N-8-1.
 +
-
-NOTE: Consulte la ayuda en línea de su portátil para obtener instrucciones sobre cómo configurar el puerto de la consola de serie.
+Consulte la ayuda en línea de su portátil para obtener instrucciones sobre cómo configurar el puerto de la consola de serie.
 
 .. Conecte el cable de consola al portátil y conecte el puerto de consola serie de la controladora mediante el cable de consola que se incluía con el sistema de almacenamiento.
 .. Conecte el portátil al interruptor de la subred de administración.
 +
+[role="tabbed-block"]
+====
+.A1K
+--
 image::../media/drw_a1k_70-90_console_connection_ieops-1702.svg[Conexiones de la consola]
 
-.. Asigne una dirección TCP/IP al equipo portátil, utilizando una que se encuentre en la subred de administración.
+--
+.A70 y A90
+--
+image::../media/drw_a1k_70-90_console_connection_ieops-1702.svg[Conexiones de la consola]
+
+--
+.A20, A30 Y A50
+--
+image::../media/drw_g_isi_console_serial_port_cabling_ieops-1882.svg[Conexiones de la consola]
+
+--
+====
 
 
+
+
+. Asigne una dirección TCP/IP al equipo portátil, utilizando una que se encuentre en la subred de administración.
 . Enchufe los cables de alimentación a las fuentes de alimentación de la controladora y luego conéctelos a fuentes de alimentación de diferentes circuitos.
 +
-image::../media/drw_affa1k_power_source_icon_ieops-1700.svg[Diagrama de conexión de alimentación genérica]
+[role="tabbed-block"]
+====
+.A1K
+--
+image::../media/drw_affa1k_power_source_icon_ieops-1700.svg[Sistema de almacenamiento A1K y diagrama de conexión de alimentación de A70 o A90]
 
+--
+.A70 y A90
+--
+image::../media/drw_affa1k_power_source_icon_ieops-1700.svg[Sistema de almacenamiento A1K y diagrama de conexión de alimentación de A70 o A90]
+
+--
+.A20, A30 Y A50
+--
+image::../media/drw_psu_layout_1_ieops-1886.svg[Diagrama de conexión de alimentación del sistema de almacenamiento de A20, A30 o A50]
+
+--
+====
 +
-** El sistema de almacenamiento comienza a arrancar. El arranque inicial puede tardar hasta ocho minutos.
+** El sistema comienza a iniciarse. El arranque inicial puede tardar hasta ocho minutos.
 ** Los LED parpadean y los ventiladores se inician, lo que indica que las controladoras se están encendiendo.
 ** Los ventiladores pueden ser muy ruidosos cuando se ponen en marcha por primera vez. El ruido del ventilador durante el arranque es normal.
+
+
 
 
 . Asegure los cables de alimentación con el dispositivo de seguridad de cada fuente de alimentación.
