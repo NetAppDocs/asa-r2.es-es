@@ -43,6 +43,9 @@ Los siguientes sistemas NetApp ASA R2 son compatibles a partir de ONTAP 9.16.1. 
 | Actualizar | Descripción 
 
 
+| link:../secure-data/migrate-encryption-keys-between-key-managers.html["Compatibilidad con la migración de claves de cifrado entre gestores de claves"] | Al cambiar del gestor de claves integrado de ONTAP a un gestor de claves externo a nivel de clúster, puede utilizar la interfaz de línea de comandos (CLI) de ONTAP para migrar fácilmente las claves de cifrado de un gestor de claves al otro. 
+
+
 | link:../data-protection/manage-consistency-groups.html["Soporte para grupos de coherencia jerárquicos"] | Los grupos de consistencia jerárquicos le permiten crear un grupo de consistencia primario que contiene varios grupos de consistencia secundarios. De esta forma se simplifica la protección y la gestión de datos para estructuras de datos complejas. 
 |===
 
