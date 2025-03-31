@@ -186,6 +186,7 @@ image::../media/drw_psu_layout_1_ieops-1886.svg[Diagrama de conexión de aliment
 ** El sistema comienza a iniciarse. El arranque inicial puede tardar hasta ocho minutos.
 ** Los LED parpadean y los ventiladores se inician, lo que indica que las controladoras se están encendiendo.
 ** Los ventiladores pueden ser muy ruidosos cuando se ponen en marcha por primera vez. El ruido del ventilador durante el arranque es normal.
+** Para los sistemas de almacenamiento ASAr2 A20, A30 o A50, la pantalla de ID de bandeja en la parte frontal del chasis del sistema no se enciende. El ID de bandeja interna del sistema está fijado en 00.
 
 
 

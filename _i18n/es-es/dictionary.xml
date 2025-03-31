@@ -1903,4 +1903,5 @@
   <block id="c18d7ea3e180dd72f3fc8869a57e6376" category="cell"><block ref="c18d7ea3e180dd72f3fc8869a57e6376" category="inline-link-macro-rx"></block></block>
   <block id="86c79aae612f98a6019861f950eeb1a3" category="cell">Al cambiar del gestor de claves integrado de ONTAP a un gestor de claves externo a nivel de clúster, puede utilizar la interfaz de línea de comandos (CLI) de ONTAP para migrar fácilmente las claves de cifrado de un gestor de claves al otro.</block>
   <block id="f06feed69dbf0f5f7721d9ea53af616f" category="list-text">Detecte la red del clúster</block>
+  <block id="54ece869b1ae7921e7f18bd670ac879c" category="list-text">Para los sistemas de almacenamiento ASAr2 A20, A30 o A50, la pantalla de ID de bandeja en la parte frontal del chasis del sistema no se enciende. El ID de bandeja interna del sistema está fijado en 00.</block>
 </blocks>
