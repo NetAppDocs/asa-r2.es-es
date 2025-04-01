@@ -12,9 +12,9 @@ searchtitle: Compare los sistemas R2 de ASA con otros sistemas ONTAP
 
 
 [role="lead"]
-Los sistemas R2 de ASA ofrecen una solución unificada de hardware y software para entornos SAN basados en plataformas all-flash. Los sistemas ASA R2 varían con respecto a otros sistemas de ONTAP (ASA, AFF y FAS) en la implantación de su capa de almacenamiento, los protocolos compatibles y la personalidad de ONTAP.
+Los sistemas R2 de ASA ofrecen una solución de hardware y software para entornos SAN creados en todas las plataformas flash. Los sistemas ASA R2 varían con respecto a otros sistemas de ONTAP (ASA, AFF y FAS) en la implantación de su capa de almacenamiento, los protocolos compatibles y la personalidad de ONTAP.
 
-En un sistema ASA R2, se ha optimizado el software ONTAP para admitir las funciones SAN esenciales, a la vez que se limita la visibilidad y la disponibilidad de las funciones y funciones que no son de SAN. Por ejemplo, System Manager que se ejecuta en un sistema ASA R2 no muestra opciones para crear directorios iniciales para clientes NAS. Esta versión optimizada de ONTAP se identifica como _ASA R2 Personality_. ONTAP que se ejecuta en todos los demás sistemas ONTAP (ASA, AFF, FAS) se identifica como _Unified ONTAP Personality_. Las diferencias entre las personalidades de la ONTAP se mencionan en la referencia de comandos de ONTAP (páginas de manual), la especificación de la API de REST y los mensajes de EMS donde corresponda.
+En un sistema ASA R2, se ha optimizado el software ONTAP para admitir las funciones SAN esenciales, a la vez que se limita la visibilidad y la disponibilidad de las funciones y funciones que no son de SAN. Por ejemplo, System Manager que se ejecuta en un sistema ASA R2 no muestra opciones para crear directorios iniciales para clientes NAS. Esta versión optimizada de ONTAP se identifica como _ASA R2 Personality_. ONTAP que se ejecuta en sistemas ASA se identifica como _ASA ONTAP Personality_. ONTAP que se ejecuta en sistemas AFF y FAS ONTAP se identifica como _Unified ONTAP Personality_. Las diferencias entre las personalidades de la ONTAP se mencionan en la referencia de comandos de ONTAP (páginas de manual), la especificación de la API de REST y los mensajes de EMS donde corresponda.
 
 Puede verificar la personalidad de su almacenamiento de ONTAP desde System Manager o desde la CLI de ONTAP.
 
