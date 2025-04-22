@@ -71,9 +71,9 @@ Ha creado una subred que ahora puede usar para simplificar la creación de sus L
 
 Una LIF (interfaz de red) es una dirección IP asociada a un puerto físico o lógico. Cree LIF en los puertos que desee utilizar para acceder a los datos. Los equipos virtuales de almacenamiento sirven datos a los clientes a través de una o más LIF. Si hay un fallo de un componente, un LIF puede conmutar al respaldo o migrarse a un puerto físico diferente, de modo que la comunicación de la red no se interrumpa.
 
-Cuando se crea una LIF de datos de IP, puede atender tanto el tráfico iSCSI como NVMe/TCP de forma predeterminada. Es necesario crear LIF de datos independientes para el tráfico FC y NVMe/FC.
+En un sistema ASA R2, puede crear LIF de IP, FC y NVMe/FC. Un LIF de datos de IP puede reparar el tráfico iSCSI y NVMe/TCP de manera predeterminada. Es necesario crear LIF de datos independientes para el tráfico FC y NVMe/FC.
 
-Si desea habilitar la conmutación automática al respaldo de LIF de iSCSI, debe crear una LIF solo para iSCSI. Cuando se habilita la conmutación por error automática de LIF iSCSI, si se produce un fallo de almacenamiento, el LIF de iSCSI se migra automáticamente desde su nodo o puerto principal al nodo o al puerto que pertenecen al partner de alta disponibilidad y, posteriormente, una vez finalizada la recuperación tras fallos. O bien, si el puerto de un LIF iSCSI deja de estar en buen estado, el LIF se migra automáticamente a un puerto en buen estado de su nodo de inicio actual y vuelve a su puerto original cuando el estado del puerto vuelve a estar en buen estado.
+Si desea habilitar la conmutación automática al respaldo de LIF iSCSI, debe crear una LIF de IP para el tráfico de iSCSI solo. Cuando se habilita la conmutación por error automática de LIF iSCSI, si se produce un fallo de almacenamiento, el LIF de iSCSI de IP se migra automáticamente desde su nodo o puerto principal al nodo o al puerto asociados de alta disponibilidad y, posteriormente, una vez finalizada la recuperación tras fallos. O bien, si el puerto de un LIF IP iSCSI falla, la LIF se migra automáticamente a un puerto en buen estado de su nodo inicial actual y vuelve a su puerto original cuando el estado del puerto vuelve a ser bueno.
 
 .Antes de empezar
 * Para realizar esta tarea, debe ser un administrador de clústeres.
@@ -87,7 +87,7 @@ Si desea habilitar la conmutación automática al respaldo de LIF de iSCSI, debe
 . Seleccione *Interfaces de red*; luego seleccione image:icon_add_blue_bg.png["rectángulo azul con un signo más seguido de la palabra añadir en letras blancas"].
 . Seleccione el tipo de interfaz y el protocolo y, a continuación, seleccione la máquina virtual de almacenamiento.
 +
-Para crear una LIF de protocolo único, seleccione un solo protocolo. Por ejemplo, para crear un LIF solo iSCSI, seleccione *iSCSi*.
+Para habilitar la conmutación por error de LIF de iSCSI, seleccione únicamente el protocolo IP.
 
 . Escriba un nombre para la LIF o acepte el nombre predeterminado.
 . Seleccione el nodo de inicio de la interfaz de red y, a continuación, introduzca la dirección IP y la máscara de subred.
