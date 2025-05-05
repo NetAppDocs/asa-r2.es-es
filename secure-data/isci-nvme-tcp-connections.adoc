@@ -43,6 +43,5 @@ X60132A - (controlador Ethernet 4p, 10G/25G)
 
 
 |===
-Información relacionada
-
+.El futuro
 link:https://docs.netapp.com/us-en/ontap/networking/ipsec-configure.html["Configure la seguridad IP para la red ONTAP"]
