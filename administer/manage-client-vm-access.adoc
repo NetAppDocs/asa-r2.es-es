@@ -16,6 +16,28 @@ Las unidades de almacenamiento de un sistema ASA R2 se encuentran dentro de las 
 
 
 
+== Cree una máquina virtual de almacenamiento
+
+Durante la configuración del clúster, se crea la máquina virtual de almacenamiento de datos predeterminada. Todas las unidades de almacenamiento nuevas se crean dentro de la máquina virtual de almacenamiento de datos predeterminada, a menos que cree y seleccione una máquina virtual de almacenamiento diferente. Es posible que desee crear una máquina virtual de almacenamiento adicional para segregar las unidades de almacenamiento para diferentes aplicaciones, departamentos o clientes. Por ejemplo, quizás desee crear una máquina virtual de almacenamiento para el entorno de desarrollo y otra máquina virtual de almacenamiento para el entorno de producción, o bien crear una máquina virtual de almacenamiento para el departamento financiero y otra máquina virtual de almacenamiento para el departamento de marketing.
+
+.Pasos
+. Selecciona *Cluster > Storage VMs*.
+. Seleccione image:icon_add_blue_bg.png["rectángulo azul que contiene un signo más seguido de la palabra add en letras blancas"].
+. Introduzca un nombre para la máquina virtual de almacenamiento o acepte el nombre predeterminado.
+. En *Configurar protocolos*, seleccione los protocolos para la VM de almacenamiento.
++
+Seleccione *IP* para iSCSI y NVMe/TCP. Seleccione *FC* para Fibre Channel o NVMe/FC.
+
+. En *Administración de VM de almacenamiento*, seleccione *Administrar cuenta de administrador*; luego ingrese el nombre de usuario y la contraseña de la cuenta de administrador.
+. Añada una interfaz de red para la máquina virtual de almacenamiento.
+. Seleccione *Guardar*.
+
+
+.El futuro
+Creó una máquina virtual de almacenamiento. Ahora es posible utilizar la máquina virtual de almacenamiento para link:../manage-data/provision-san-storage.html["aprovisionar almacenamiento"].
+
+
+
 == Cree espacios IP
 
 Un espacio IP es un espacio de direcciones IP distinto en el que residen las máquinas virtuales de almacenamiento. Cuando se crean espacios IP, se permite que las máquinas virtuales de almacenamiento tengan su propio almacenamiento, administración y enrutamiento seguros. También puede habilitar a los clientes en dominios de red independientes de forma administrativa para que utilicen direcciones IP superpuestas del mismo rango de subredes de direcciones IP.
@@ -96,6 +118,26 @@ Para habilitar la conmutación por error de LIF de iSCSI, seleccione únicamente
 
 .Resultado
 Ha creado una LIF para el acceso a los datos.
+
+.El futuro
+Si creó una LIF de IP para iSCSI, puede utilizar la interfaz de línea de comandos (CLI) de ONTAP para habilitar la conmutación automática al respaldo de LIF de iSCSI.
+
+
+
+=== Activar recuperación tras fallos automática de LIF iSCSI
+
+Si hay LIF de iSCSI en la SVM que no están habilitados para la conmutación automática al respaldo de LIF, los LIF creados recientemente no se habilitarán para la conmutación automática por error de LIF. Si la recuperación tras fallos automática de LIF no está habilitada y existe un evento de recuperación tras fallos, los LIF de iSCSI no migrarán.
+
+Debe utilizar la interfaz de línea de comandos (CLI) de ONTAP para habilitar la conmutación automática al respaldo de LIF de iSCSI.
+
+.Paso
+. Habilitar conmutación automática por error de LIF iSCSI:
++
+[source, cli]
+----
+network interface modify -vserver <SVM_name> -lif <iscsi_lif> -failover-policy sfo-partner-only -auto-revert true
+----
+
 
 
 
