@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: install-setup/power-on-hardware.html 
-keywords: asa r2, aff a1k, aff a70, aff a90, aff c80, asa a1k, asa a90, asa a70, asa a30, asa a20, asa a50, power on 
+keywords: asa r2, aff a1k, aff a70, aff a90, aff c80, asa a1k, asa a90, asa a70, asa a30, asa a20, asa a50, asa c30, power on 
 summary: Encienda cada bandeja para asignar un ID de bandeja exclusivo, encienda las controladoras ASA R2 y proteja los cables de alimentación. 
 ---
 = Encienda el sistema de almacenamiento R2 de ASA
@@ -156,6 +156,11 @@ image::../media/drw_a1k_70-90_console_connection_ieops-1702.svg[Conexiones de la
 image::../media/drw_g_isi_console_serial_port_cabling_ieops-1882.svg[Conexiones de la consola]
 
 --
+.C30
+--
+image::../media/drw_g_isi_console_serial_port_cabling_ieops-1882.svg[Conexiones de la consola]
+
+--
 ====
 
 
@@ -181,12 +186,17 @@ image::../media/drw_affa1k_power_source_icon_ieops-1700.svg[Sistema de almacenam
 image::../media/drw_psu_layout_1_ieops-1886.svg[Diagrama de conexión de alimentación del sistema de almacenamiento de A20, A30 o A50]
 
 --
+.C30
+--
+image::../media/drw_psu_layout_1_ieops-1886.svg[Diagrama de conexión de alimentación del sistema de almacenamiento de A20, A30 o A50]
+
+--
 ====
 +
 ** El sistema inicia el proceso de arranque. La secuencia de inicio inicial puede tardar hasta ocho minutos.
 ** Durante el proceso de arranque, observará que los LED parpadean y los ventiladores se activan, lo que indica que los controladores se están encendiendo.
 ** Tenga en cuenta que los ventiladores pueden emitir un alto nivel de ruido cuando se ponen en marcha por primera vez. El ruido del ventilador durante el arranque es normal.
-** Para los sistemas de almacenamiento ASA A20, ASA A30 y ASA A50, el ID de bandeja en la parte frontal del chasis del sistema no se ilumina.
+** Para los sistemas de almacenamiento ASA A20, A30, A50 y ASA C30, la pantalla de identificación del estante en la parte frontal del chasis del sistema no se ilumina.
 
 
 

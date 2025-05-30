@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: install-setup/cable-hardware.html 
-keywords: asa r2, aff a1k, aff a70, aff a90, aff c80, asa a1k, asa a90, asa a70, asa a30, asa a20, asa a50 cable controllers 
+keywords: asa r2, aff a1k, aff a70, aff a90, aff c80, asa a1k, asa a90, asa a70, asa a30, asa a20, asa a50, asa C30 cable controllers 
 summary: Descubra cómo conectar los cables de la controladora ASA R2 a su red y cablear las controladoras a las bandejas. 
 ---
 = Conecte el hardware del sistema de almacenamiento ASA R2
@@ -17,7 +17,15 @@ Después de instalar el hardware de rack para el sistema de almacenamiento ASA R
 Póngase en contacto con el administrador de red para obtener información sobre cómo conectar el sistema de almacenamiento a los switches de red.
 
 .Acerca de esta tarea
-* Estos procedimientos muestran configuraciones comunes. El cableado específico depende de los componentes solicitados del sistema de almacenamiento. Para obtener información detallada sobre la configuración, consulte link:https://hwu.netapp.com["NetApp Hardware Universe"^].
+* Estos procedimientos muestran configuraciones comunes. El cableado específico depende de los componentes solicitados del sistema de almacenamiento. Para obtener información completa sobre la configuración y la prioridad de las ranuras, consulte link:https://hwu.netapp.com["NetApp Hardware Universe"^].
+* Los procedimientos de cableado de red clúster/alta disponibilidad y host muestran configuraciones comunes.
++
+Si no ve su configuración en los procedimientos de cableado, vaya a link:https://hwu.netapp.com["NetApp Hardware Universe"^] para obtener información completa sobre la configuración y la prioridad de las ranuras para cablear correctamente su sistema de almacenamiento.
+
+* Si tiene un sistema de almacenamiento ASA A1K, ASA A70 o ASA A90, las ranuras de E/S están numeradas del 1 al 11.
++
+image::../media/drw_a1K_back_slots_labeled_ieops-2162.svg[Numeración de ranuras en un controlador ASA A1K ASA A70 y ASA A90]
+
 * Los gráficos de cableado tienen iconos de flecha que muestran la orientación correcta (hacia arriba o hacia abajo) de la lengüeta extraíble del conector de cable al insertar un conector en un puerto.
 +
 Al insertar el conector, debería sentir que hace clic en su lugar; si no cree que hace clic, quítelo, vuelva a convertirlo y vuelva a intentarlo.
@@ -229,7 +237,7 @@ image::../media/drw_isi_a20_switchless_2p_25gbe_cabling_ieops-2018.svg[diagrama 
 
 Conecte las controladoras a los switches de red de clúster para crear las conexiones de clúster ONTAP.
 
-.AFF A30 o AFF A50 con dos módulos de I/O de 40/100 GbE con 2 puertos
+.ASA A30 o ASA A50 con dos módulos de I/O de 40/100 GbE con 2 puertos
 [%collapsible]
 =====
 .Pasos
@@ -239,10 +247,10 @@ Conecte las controladoras a los switches de red de clúster para crear las conex
 NOTE: El tráfico de interconexión del clúster y el tráfico de alta disponibilidad comparten los mismos puertos físicos (en los módulos de I/O en las ranuras 2 y 4). Los puertos son 40/100 GbE.
 
 +
-.. Conecte el cable De la controladora A al puerto E4A al switch de red de clúster A.
-.. Conecte el cable de la controladora A al puerto E2A al switch de red de clúster B.
-.. Conecte el cable del puerto B E4A al switch de red de clúster A.
-.. Conecte el cable del controlador B del puerto E2A al switch de red de clúster B.
+.. Conecte el puerto e4a del controlador A al conmutador de red del clúster A.
+.. Conecte el puerto e2a del controlador A al conmutador de red del clúster B.
+.. Conecte el puerto e4a del controlador B al conmutador de red del clúster A.
+.. Conecte el puerto e2a del controlador B al conmutador de red del clúster B.
 +
 
 NOTE: Los puertos E2B y e4b de los módulos de I/O no se utilizan y están disponibles para la conectividad de red del host.
@@ -261,7 +269,7 @@ image::../media/drw_isi_a30-50_switched_2p_100gbe_2card_cabling_ieops-2013.svg[d
 
 
 =====
-.AFF A30 o AFF A50 con un módulo de I/O de 40/100 GbE de 2 puertos
+.ASA A30 o ASA A50 con un módulo de I/O de 40/100 GbE de 2 puertos
 [%collapsible]
 =====
 .Pasos
@@ -271,10 +279,10 @@ image::../media/drw_isi_a30-50_switched_2p_100gbe_2card_cabling_ieops-2013.svg[d
 NOTE: El tráfico de interconexión del clúster y el tráfico de alta disponibilidad comparten los mismos puertos físicos (en el módulo de I/O de la ranura 4). Los puertos son 40/100 GbE.
 
 +
-.. Conecte el cable De la controladora A al puerto E4A al switch de red de clúster A.
-.. Conecte el cable de la controladora A al puerto e4b al switch de red de clúster B.
-.. Conecte el cable del puerto B E4A al switch de red de clúster A.
-.. Conecte el cable del controlador B del puerto e4b al switch de red de clúster B.
+.. Conecte el puerto e4a del controlador A al conmutador de red del clúster A.
+.. Conecte el puerto e4b del controlador A al conmutador de red del clúster B.
+.. Conecte el puerto e4a del controlador B al conmutador de red del clúster A.
+.. Conecte el puerto e4b del controlador B al conmutador de red del clúster B.
 +
 *40/100 GbE Cluster/cables de interconexión HA*
 
@@ -289,7 +297,7 @@ image::../media/drw_isi_a30-50_2p_100gbe_1card_switched_cabling_ieops-1926.svg[C
 
 
 =====
-.AFF A20 con un módulo I/O de 10/25 GbE con 2 puertos
+.ASA A20 con un módulo I/O de 10/25 GbE con 2 puertos
 [%collapsible]
 =====
 . Conecte los cables de las controladoras a los switches de red de clúster:
@@ -298,18 +306,147 @@ image::../media/drw_isi_a30-50_2p_100gbe_1card_switched_cabling_ieops-1926.svg[C
 NOTE: El tráfico de interconexión del clúster y el tráfico de alta disponibilidad comparten los mismos puertos físicos (en el módulo de I/O de la ranura 4). Los puertos son 10/25 GbE.
 
 +
-.. Conecte el cable De la controladora A al puerto E4A al switch de red de clúster A.
-.. Conecte el cable de la controladora A al puerto e4b al switch de red de clúster B.
-.. Conecte el cable del puerto B E4A al switch de red de clúster A.
-.. Conecte el cable del controlador B del puerto e4b al switch de red de clúster B.
+.. Conecte el puerto e4a del controlador A al conmutador de red del clúster A.
+.. Conecte el puerto e4b del controlador A al conmutador de red del clúster B.
+.. Conecte el puerto e4a del controlador B al conmutador de red del clúster A.
+.. Conecte el puerto e4b del controlador B al conmutador de red del clúster B.
 +
 *10/25 GbE Cluster/cables de interconexión HA*
 
 +
-image:../media/oie_cable_sfp_gbe_copper.png["Conector de cobre SFP GbE, width=100px"]
+image::../media/oie_cable_sfp_gbe_copper.png[Conector de cobre SFP GbE]
 
 +
-image:../media/drw_isi_a20_switched_2p_25gbe_cabling_ieops-2019.svg["a20 diagrama de cableado de clúster conmutado con un módulo de 25gbe io"]
+image::../media/drw_isi_a20_switched_2p_25gbe_cabling_ieops-2019.svg[a20 diagrama de cableado de clúster conmutado con un módulo de 25gbe io]
+
+
+
+
+
+=====
+--
+.C30
+--
+Cree las conexiones del clúster de ONTAP. En el caso de clústeres sin switch, conecte las controladoras entre sí. En el caso de los clústeres con switches, conecte las controladoras a los switches de red de clúster.
+
+* Cableado de clúster sin conmutación*
+
+Conecte las controladoras entre sí para crear las conexiones del clúster de ONTAP.
+
+.ASA C30 con dos módulos de E/S de 2 puertos 40/100 GbE
+[%collapsible]
+=====
+.Pasos
+. Conectar las conexiones de interconexión de clúster/alta disponibilidad:
++
+
+NOTE: El tráfico de interconexión del clúster y el tráfico de alta disponibilidad comparten los mismos puertos físicos (en los módulos de I/O en las ranuras 2 y 4). Los puertos son 40/100 GbE.
+
++
+.. Conecte la controladora A, el puerto E2A al puerto E2A de la controladora B.
+.. Conecte la controladora A, el puerto E4A al puerto E4A de la controladora B.
++
+
+NOTE: Los puertos E2B y e4b de los módulos de I/O no se utilizan y están disponibles para la conectividad de red del host.
+
++
+*100 GbE Cluster/cables de interconexión HA*
+
++
+image::../media/oie_cable100_gbe_qsfp28.png[Cable de alta disponibilidad de 100 GbE del clúster]
+
++
+image::../media/drw_isi_a30-50_switchless_2p_100gbe_2card_cabling_ieops-2011.svg[diagrama de cableado de clúster sin switch de a30 y a50 mediante dos módulos de 100gbe io]
+
+
+
+
+
+=====
+.ASA C30 con un módulo I/O de 40/100 GbE con 2 puertos
+[%collapsible]
+=====
+.Pasos
+. Conectar las conexiones de interconexión de clúster/alta disponibilidad:
++
+
+NOTE: El tráfico de interconexión del clúster y el tráfico de alta disponibilidad comparten los mismos puertos físicos (en el módulo de I/O de la ranura 4). Los puertos son 40/100 GbE.
+
++
+.. Conecte la controladora A, el puerto E4A al puerto E4A de la controladora B.
+.. Conecte la controladora A, el puerto e4b al puerto e4b de la controladora B.
++
+*100 GbE Cluster/cables de interconexión HA*
+
++
+image::../media/oie_cable100_gbe_qsfp28.png[Cable de alta disponibilidad de 100 GbE del clúster]
+
++
+image::../media/drw_isi_a30-50_switchless_2p_100gbe_1card_cabling_ieops-1925.svg[diagrama de cableado de clúster sin switches de c30 usando un módulo de 100gbe io]
+
+
+
+
+
+=====
+* Cableado conmutado del clúster*
+
+Conecte las controladoras a los switches de red de clúster para crear las conexiones de clúster ONTAP.
+
+.ASA C30 con dos módulos de E/S de 2 puertos 40/100 GbE
+[%collapsible]
+=====
+.Pasos
+. Conectar las conexiones de interconexión de clúster/alta disponibilidad:
++
+
+NOTE: El tráfico de interconexión del clúster y el tráfico de alta disponibilidad comparten los mismos puertos físicos (en los módulos de I/O en las ranuras 2 y 4). Los puertos son 40/100 GbE.
+
++
+.. Conecte el puerto e4a del controlador A al conmutador de red del clúster A.
+.. Conecte el puerto e2a del controlador A al conmutador de red del clúster B.
+.. Conecte el puerto e4a del controlador B al conmutador de red del clúster A.
+.. Conecte el puerto e2a del controlador B al conmutador de red del clúster B.
++
+
+NOTE: Los puertos E2B y e4b de los módulos de I/O no se utilizan y están disponibles para la conectividad de red del host.
+
++
+*40/100 GbE Cluster/cables de interconexión HA*
+
++
+image::../media/oie_cable100_gbe_qsfp28.png[Cable de alta disponibilidad de 40/100 GbE del clúster]
+
++
+image::../media/drw_isi_a30-50_switched_2p_100gbe_2card_cabling_ieops-2013.svg[Diagrama de cableado de clúster conmutado C30 con dos módulos E/S de 100 GbE]
+
+
+
+
+
+=====
+.ASA C30 con un módulo I/O de 40/100 GbE con 2 puertos
+[%collapsible]
+=====
+.Pasos
+. Conecte los controladores a los conmutadores de red del clúster:
++
+
+NOTE: El tráfico de interconexión del clúster y el tráfico de alta disponibilidad comparten los mismos puertos físicos (en el módulo de I/O de la ranura 4). Los puertos son 40/100 GbE.
+
++
+.. Conecte el puerto e4a del controlador A al conmutador de red del clúster A.
+.. Conecte el puerto e4b del controlador A al conmutador de red del clúster B.
+.. Conecte el puerto e4a del controlador B al conmutador de red del clúster A.
+.. Conecte el puerto e4b del controlador B al conmutador de red del clúster B.
++
+*40/100 GbE Cluster/cables de interconexión HA*
+
++
+image::../media/oie_cable100_gbe_qsfp28.png[Cable de alta disponibilidad de 40/100 GbE del clúster]
+
++
+image::../media/drw_isi_a30-50_2p_100gbe_1card_switched_cabling_ieops-1926.svg[Cablear las conexiones del clúster a la red del clúster]
 
 
 
@@ -402,7 +539,7 @@ Conecte los puertos del módulo Ethernet o los puertos del módulo Fibre Channel
 
 * Cableado de host Ethernet*
 
-.ASA A30 y ASA A50: Dos módulos I/O de 40/100 GbE con 2 puertos
+.ASA A30 y ASA A50 con dos módulos de I/O de 40/100 GbE con 2 puertos
 [%collapsible]
 =====
 En cada controladora, conecte los puertos E2B y e4b a los switches de red host Ethernet.
@@ -417,7 +554,7 @@ image::../media/oie_cable_sfp_gbe_copper.png[Cable de 40/100 GB]
 image::../media/drw_isi_a30-50_host_2p_40-100gbe_2card_cabling_ieops-2014.svg[Cable a switches de red host ethernet 40/100GbE]
 
 =====
-.ASA A20, A30 y A50: Un módulo I/O de 10/25 GbE con 4 puertos
+.ASA A20, A30 y A50 con un módulo de E/S 10/25 GbE de 4 puertos
 [%collapsible]
 =====
 En cada controladora, conecte los puertos E2A, E2B, E2C y e2d a los switches de red host Ethernet.
@@ -431,7 +568,7 @@ image::../media/drw_isi_a30-50_host_2p_40-100gbe_1card_cabling_ieops-1923.svg[Ca
 =====
 *Cableado de host FC*
 
-.ASA A20, A30 y A50: Un módulo de I/O FC de 64 Gb/s con 4 puertos
+.ASA A20, A30 y A50 con un módulo de E/S FC de 4 puertos y 64 Gb/s
 [%collapsible]
 =====
 En cada controladora, conecte los puertos 1a, 1b, 1c y 1d a los switches de red host FC.
@@ -441,6 +578,68 @@ En cada controladora, conecte los puertos 1a, 1b, 1c y 1d a los switches de red 
 image:../media/oie_cable_sfp_gbe_copper.png["Cable fc de 64 GB, ancho = 100px cm"]
 
 image::../media/drw_isi_a30-50_4p_64gb_fc_1card_cabling_ieops-1924.svg[Cable a switches de red host de 64GB fc]
+
+=====
+--
+.C30
+--
+Conecte los puertos del módulo Ethernet o los puertos del módulo Fibre Channel (FC) a la red host.
+
+* Cableado de host Ethernet*
+
+.ASA C30 con dos módulos de E/S de 2 puertos 40/100 GbE
+[%collapsible]
+=====
+.Pasos
+. En cada controladora, conecte los puertos E2B y e4b a los switches de red host Ethernet.
++
+
+NOTE: Los puertos en los módulos de I/O de la ranura 2 y 4 son de 40/100 GbE (la conectividad de host es de 40/100 GbE).
+
++
+* Cables de 40/100 GbE*
+
++
+image::../media/oie_cable_sfp_gbe_copper.png[Cable de 40/100 GB]
+
++
+image::../media/drw_isi_a30-50_host_2p_40-100gbe_2card_cabling_ieops-2014.svg[Cable a switches de red host ethernet 40/100GbE]
+
+
+
+=====
+.ASA C30 con un módulo I/O de 10/25 GbE con 4 puertos
+[%collapsible]
+=====
+.Pasos
+. En cada controladora, conecte los puertos E2A, E2B, E2C y e2d a los switches de red host Ethernet.
++
+* Cables de 10/25 GbE*
+
++
+image:../media/oie_cable_sfp_gbe_copper.png["Conector de cobre SFP GbE, width=100px"]
+
++
+image::../media/drw_isi_a30-50_host_2p_40-100gbe_1card_cabling_ieops-1923.svg[Cable a switches de red host ethernet 40/100GbE]
+
+
+
+=====
+.ASA C30 con un módulo de E/S FC de 4 puertos y 64 Gb/s
+[%collapsible]
+=====
+.Pasos
+. En cada controladora, conecte los puertos 1a, 1b, 1c y 1d a los switches de red host FC.
++
+*64 Gb/s cables FC*
+
++
+image:../media/oie_cable_sfp_gbe_copper.png["Cable fc de 64 GB, ancho = 100px cm"]
+
++
+image::../media/drw_isi_a30-50_4p_64gb_fc_1card_cabling_ieops-1924.svg[Cable a switches de red host de 64GB fc]
+
+
 
 =====
 --
@@ -497,6 +696,20 @@ image::../media/drw_isi_g_wrench_cabling_ieops-1928.svg[Conéctese a su red de g
 IMPORTANT: No enchufe los cables de alimentación todavía.
 
 --
+.C30
+--
+Conecte los puertos de gestión (llave inglesa) de cada controladora a los switches de red de gestión.
+
+* 1000BASE-T CABLES RJ-45*
+
+image::../media/oie_cable_rj45.png[Cables RJ-45]
+
+image::../media/drw_isi_g_wrench_cabling_ieops-1928.svg[Conéctese a su red de gestión]
+
+
+IMPORTANT: No enchufe los cables de alimentación todavía.
+
+--
 ====
 
 
@@ -504,12 +717,20 @@ IMPORTANT: No enchufe los cables de alimentación todavía.
 
 Los siguientes procedimientos de cableado muestran cómo conectar las controladoras a una bandeja de almacenamiento.
 
-Para conocer la cantidad máxima de bandejas compatibles con el sistema de almacenamiento y todas las opciones de cableado, consulte link:https://hwu.netapp.com["NetApp Hardware Universe"^].
+Para conocer el número máximo de bandejas compatibles con el sistema de almacenamiento y todas las opciones de cableado, como ópticas y conectadas por switch, consulte link:https://hwu.netapp.com["NetApp Hardware Universe"^].
 
 [role="tabbed-block"]
 ====
 .A1K
 --
+Los sistemas de almacenamiento AFF A1K admiten estanterías NS224 con el módulo NSM100 o NSM100B. Las principales diferencias entre los módulos son:
+
+* Los módulos de estante NSM100 utilizan puertos integrados e0a y e0b.
+* Los módulos de estante NSM100B utilizan los puertos e1a y e1b en la ranura 1.
+
+
+El siguiente ejemplo de cableado muestra los módulos NSM100 en los estantes NS224 cuando se hace referencia a los puertos del módulo de estante.
+
 Elija una de las siguientes opciones de cableado que coincidan con su configuración.
 
 .Opción 1: Una bandeja de almacenamiento NS224
@@ -532,7 +753,7 @@ image:../media/drw_a1k_1shelf_cabling_a_ieops-1703.svg["Controladora A e11a y e1
 .. Conecte el puerto e11a al puerto NSM B e0a.
 .. Conecte el puerto e11b al puerto NSM A e0b.
 +
-image:../media/drw_a1k_1shelf_cabling_b_ieops-1704.svg["Conecte el cable de los puertos e11a y e11b de la controladora B a una sola bandeja NS224"]
+image:../media/drw_a1k_1shelf_cabling_b_ieops-1704.svg["Conecte los puertos e11a y e11b del controlador B a un solo estante NS224"]
 
 
 
@@ -573,6 +794,14 @@ image:../media/drw_a1k_2shelf_cabling_b_ieops-1706.svg["Conexiones de controlado
 --
 .A70 y A90
 --
+Los sistemas de almacenamiento AFF A70 y 90 admiten estanterías NS224 con el módulo NSM100 o NSM100B. Las principales diferencias entre los módulos son:
+
+* Los módulos de estante NSM100 utilizan puertos integrados e0a y e0b.
+* Los módulos de estante NSM100B utilizan los puertos e1a y e1b en la ranura 1.
+
+
+El siguiente ejemplo de cableado muestra los módulos NSM100 en los estantes NS224 cuando se hace referencia a los puertos del módulo de estante.
+
 Elija una de las siguientes opciones de cableado que coincidan con su configuración.
 
 .Opción 1: Una bandeja de almacenamiento NS224
@@ -636,7 +865,51 @@ image:../media/drw_a70-90_2shelf_cabling_b_ieops-1734.svg["Conexiones de control
 --
 .A20, A30 Y A50
 --
-Conecte cada controladora a su módulo NSM100B correspondiente en la bandeja NS224 mediante los cables de almacenamiento proporcionados con el sistema de almacenamiento; los cuales pueden incluir el siguiente tipo de cables:
+El procedimiento de cableado de la estantería NS224 muestra módulos NSM100B en lugar de módulos NSM100. El cableado es el mismo independientemente del tipo de módulo NSM utilizado; solo varían los nombres de los puertos:
+
+* Los módulos NSM100B utilizan los puertos e1a y e1b en un módulo de E/S en la ranura 1.
+* Los módulos NSM100 utilizan puertos integrados (integrados) e0a y e0b.
+
+
+Conecte cada controlador a cada módulo NSM en el estante NS224 utilizando los cables de almacenamiento que vienen con su sistema de almacenamiento, que pueden ser del siguiente tipo de cable:
+
+*100 GbE QSFP28 cables de cobre*
+
+image::../media/oie_cable100_gbe_qsfp28.png[Cable de cobre QSFP28 de 100 GbE]
+
+El gráfico muestra el cableado de la controladora A en azul y el cableado de la controladora B en amarillo.
+
+.Pasos
+. Conecte la controladora A a la bandeja:
++
+.. Conecte el puerto e3a de la controladora A al puerto NSM A e1a.
+.. Conecte la controladora A al puerto E3b al puerto NSM B e1b.
++
+image:../media/drw_isi_g_1_ns224_controller_a_cabling_ieops-1945.svg["La controladora A dispone de los puertos E3A y E3b cableados a una bandeja NS224"]
+
+
+
+. Conecte la controladora B a la bandeja:
++
+.. Conecte el puerto e3a de la controladora B al puerto NSM B e1a.
+.. Conecte el puerto e3b de la controladora B al puerto NSM A e1b.
++
+image:../media/drw_isi_g_1_ns224_controller_b_cabling_ieops-1946.svg["Controladora B con los puertos E3A y E3b cableados a una bandeja NS224"]
+
+
+
+
+
+--
+.C30
+--
+El procedimiento de cableado de la estantería NS224 muestra módulos NSM100B en lugar de módulos NSM100. El cableado es el mismo independientemente del tipo de módulo NSM utilizado; solo varían los nombres de los puertos:
+
+* Los módulos NSM100B utilizan los puertos e1a y e1b en un módulo de E/S en la ranura 1.
+* Los módulos NSM100 utilizan puertos integrados (integrados) e0a y e0b.
+
+
+Conecte cada controlador a cada módulo NSM en el estante NS224 utilizando los cables de almacenamiento que vienen con su sistema de almacenamiento, que pueden ser del siguiente tipo de cable:
 
 *100 GbE QSFP28 cables de cobre*
 
