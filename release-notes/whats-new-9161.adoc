@@ -31,6 +31,7 @@ Los siguientes sistemas NetApp ASA R2 son compatibles a partir de ONTAP 9.16.1. 
 * ASA A50
 * ASA A30
 * ASA A20
+* ASA C30
 
 
 |===

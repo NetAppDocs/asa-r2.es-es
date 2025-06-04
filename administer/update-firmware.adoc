@@ -21,9 +21,9 @@ Las actualizaciones recomendadas para el firmware de almacenamiento, el firmware
 
 .Pasos
 . En System Manager, seleccione *Cluster > Settings*.
-. Junto a *Actualización automática* seleccione image:icon_kabob.gif["tres puntos verticales azules"]y luego seleccione *Activar*.
-. Lea y acepte el contrato de licencia para usuario final.
-. Acepte las opciones predeterminadas para actualizar automáticamente los archivos del firmware y del sistema. Opcionalmente, seleccione para mostrar notificaciones o para descartar automáticamente las actualizaciones recomendadas.
+. En *Actualizaciones de software*, seleccione *Habilitar*.
+. Lea el CLUF.
+. Acepta la opción predeterminada de *Mostrar notificación* de actualizaciones recomendadas. Opcionalmente, selecciona *Actualizar automáticamente* o *Descartar automáticamente* las actualizaciones recomendadas.
 . Seleccione esta opción para confirmar que las modificaciones de la actualización se aplicarán a todas las actualizaciones actuales y futuras.
 . Seleccione *Guardar*.
 
@@ -39,7 +39,7 @@ Desactive las actualizaciones automáticas si desea tener la flexibilidad de ver
 
 .Pasos
 . En System Manager, seleccione *Cluster > Settings*.
-. Junto a *Actualización automática* seleccione image:icon_kabob.gif["tres puntos verticales azules"]y luego seleccione *Desactivar*.
+. En *Actualizaciones de software*, seleccione *Desactivar*.
 
 
 .Resultado
@@ -53,7 +53,7 @@ Vea una lista de las actualizaciones de archivos del sistema y firmware que se h
 
 .Pasos
 . En System Manager, seleccione *Cluster > Settings*.
-. Junto a *Actualización automática* selecciona image:icon_kabob.gif["tres puntos verticales azules"]y luego selecciona *Ver todas las actualizaciones automáticas*.
+. Junto a *Actualizaciones de software* seleccione image:icon_arrow.gif["flecha azul apuntando a la derecha"] , luego seleccione *Ver todas las actualizaciones automáticas*.
 
 
 
@@ -64,7 +64,7 @@ Puede seleccionar que las actualizaciones recomendadas del firmware de almacenam
 
 .Pasos
 . En System Manager, seleccione *Cluster > Settings*.
-. Junto a *Actualización automática* selecciona image:icon_kabob.gif["tres puntos verticales azules"]y luego selecciona *Editar actualizaciones automáticas*.
+. Junto a *Actualizaciones de software* seleccione image:icon_arrow.gif["flecha azul apuntando a la derecha"] , luego seleccione *Todas las demás actualizaciones*.
 . Actualice las selecciones para actualizaciones automáticas.
 . Seleccione *Guardar*.
 
@@ -80,8 +80,9 @@ Si desea la flexibilidad de ver las actualizaciones recomendadas antes de que se
 
 .Pasos
 . Descargue el archivo de actualización de firmware en un servidor o cliente local.
-. En System Manager, seleccione *Clúster > Descripción general* y, a continuación, seleccione *Actualizar*.
-. Seleccione *Actualización de firmware*; seleccione image:icon_update_firmware.png["rectángulo azul que contiene un signo más seguido de las palabras actualizar firmware en letras blancas"].
+. En el Administrador del sistema, seleccione *Clúster > Descripción general* y, a continuación, seleccione *Todas las demás actualizaciones*.
+. En *Actualizaciones manuales*, seleccione *Agregar archivos de firmware*; luego seleccione *Descargar desde el servidor* o *Cargar desde el cliente local*.
+. Instalar el archivo de actualización de firmware.
 
 
 .Resultado
