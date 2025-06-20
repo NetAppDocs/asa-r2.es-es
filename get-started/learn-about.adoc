@@ -37,7 +37,7 @@ Los sistemas R2 de ASA introducen el uso de unidades de almacenamiento con grupo
 
 Los sistemas R2 de ASA utilizan unidades de almacenamiento y grupos de consistencia para simplificar la administración del almacenamiento y la protección de datos. Por ejemplo, suponga que tiene una base de datos que consta de 10 unidades de almacenamiento en un grupo de coherencia y necesita realizar un backup de toda la base de datos. En lugar de realizar un backup de cada unidad de almacenamiento de forma individual, puede proteger toda la base de datos mediante un backup del grupo de coherencia.
 
-Para ayudar a proteger sus datos contra ataques maliciosos como el robo o ransomware, los sistemas ASA R2 admiten un administrador de claves integrado, cifrado de doble capa, copias Snapshot a prueba de manipulaciones, autenticación multifactor y verificación multiadministrador.
+Para proteger sus datos contra ataques maliciosos, como robo o ransomware, los sistemas ASA r2 incorporan un administrador de claves, cifrado de doble capa, autenticación multifactor y verificación multiadministrador. Los sistemas ASA r2 secundarios también admiten instantáneas a prueba de manipulaciones.
 
 Los sistemas R2 de ASA no admiten la combinación de clústeres con los sistemas ASA, AFF o FAS actuales.
 
