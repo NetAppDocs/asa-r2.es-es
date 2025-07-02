@@ -26,9 +26,42 @@ ASA R2 no admite los siguientes comandos y conjuntos de comandos:
 * `lun move`
 * `lun move-in-volume`
 +
-Este comando se reemplaza con lun rename/vserver nvme namespace rename.
+
+NOTE: El  `lun move-in-volume` El comando se reemplaza con el  `lun rename` y el  `vserver nvme namespace rename` comandos.
 
 * `lun transition`
+
+
+====
+.Comandos <code>storage</code> no compatibles
+[%collapsible]
+====
+* `storage failover show-takeover`
+* `storage failover show-giveback`
+* `storage aggregate relocation`
+* `storage disk assign`
+* `storage disk partition`
+* `storage disk reassign`
+
+
+====
+.Conjuntos de comandos <code>volume</code> no admitidos
+[%collapsible]
+====
+* `volume activity-tracking`
+* `volume analytics`
+* `volume conversion`
+* `volume file`
+* `volume flexcache`
+* `volume flexgroup`
+* `volume inode-upgrade`
+* `volume object-store`
+* `volume qtree`
+* `volume quota`
+* `volume reallocation`
+* `volume rebalance`
+* `volume recovery-queue`
+* `volume schedule-style`
 
 
 ====
@@ -41,7 +74,7 @@ Este comando se reemplaza con lun rename/vserver nvme namespace rename.
 * `volume expand`
 * `volume modify`
 +
-Este comando no está disponible cuando se usa junto con los siguientes parámetros:
+El  `volume modify` El comando no está disponible cuando se utiliza junto con los siguientes parámetros:
 
 +
 ** `-anti-ransomware-state`
@@ -103,38 +136,6 @@ Este comando no está disponible cuando se usa junto con los siguientes parámet
 * `volume snapshot`
 * `volume snapshot autodelete modify`
 * `volume snapshot policy modify`
-
-
-====
-.Conjuntos de comandos <code>volume</code> no admitidos
-[%collapsible]
-====
-* `volume activity-tracking`
-* `volume analytics`
-* `volume conversion`
-* `volume file`
-* `volume flexcache`
-* `volume flexgroup`
-* `volume inode-upgrade`
-* `volume object-store`
-* `volume qtree`
-* `volume quota`
-* `volume reallocation`
-* `volume rebalance`
-* `volume recovery-queue`
-* `volume schedule-style`
-
-
-====
-.Comandos <code>storage</code> no compatibles
-[%collapsible]
-====
-* `storage failover show-takeover`
-* `storage failover show-giveback`
-* `storage aggregate relocation`
-* `storage disk assign`
-* `storage disk partition`
-* `storage disk reassign`
 
 
 ====
