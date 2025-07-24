@@ -108,9 +108,6 @@ Si desea habilitar la conmutación automática al respaldo de LIF iSCSI, debe cr
 . Selecciona *Red > Descripción general*.
 . Seleccione *Interfaces de red*; luego seleccione image:icon_add_blue_bg.png["rectángulo azul con un signo más seguido de la palabra añadir en letras blancas"].
 . Seleccione el tipo de interfaz y el protocolo y, a continuación, seleccione la máquina virtual de almacenamiento.
-+
-Para habilitar la conmutación por error de LIF de iSCSI, seleccione únicamente el protocolo IP.
-
 . Escriba un nombre para la LIF o acepte el nombre predeterminado.
 . Seleccione el nodo de inicio de la interfaz de red y, a continuación, introduzca la dirección IP y la máscara de subred.
 . Seleccione *Guardar*.
@@ -120,22 +117,81 @@ Para habilitar la conmutación por error de LIF de iSCSI, seleccione únicamente
 Ha creado una LIF para el acceso a los datos.
 
 .El futuro
-Si creó una LIF de IP para iSCSI, puede utilizar la interfaz de línea de comandos (CLI) de ONTAP para habilitar la conmutación automática al respaldo de LIF de iSCSI.
+Puede utilizar la interfaz de línea de comandos (CLI) de ONTAP para crear un LIF solo iSCSI con conmutación por error automática.
 
 
 
-=== Activar recuperación tras fallos automática de LIF iSCSI
+=== Cree una política de servicio LIF solo para iSCSI personalizada
 
-Si hay LIF de iSCSI en la SVM que no están habilitados para la conmutación automática al respaldo de LIF, los LIF creados recientemente no se habilitarán para la conmutación automática por error de LIF. Si la recuperación tras fallos automática de LIF no está habilitada y existe un evento de recuperación tras fallos, los LIF de iSCSI no migrarán.
+Si desea crear LIF solo iSCSI con conmutación por error automática de LIF, primero debe crear una política de servicio LIF solo iSCSI personalizada.
 
-Debe utilizar la interfaz de línea de comandos (CLI) de ONTAP para habilitar la conmutación automática al respaldo de LIF de iSCSI.
+Debe utilizar la interfaz de línea de comandos (CLI) de ONTAP para crear la política de servicio personalizada.
 
 .Paso
-. Habilitar conmutación automática por error de LIF iSCSI:
+. Configure el nivel de privilegio en Advanced:
 +
 [source, cli]
 ----
-network interface modify -vserver <SVM_name> -lif <iscsi_lif> -failover-policy sfo-partner-only -auto-revert true
+set -privilege advanced
+----
+. Cree una política de servicio LIF solo iSCSI personalizada:
++
+[source, cli]
+----
+network interface service-policy create -vserver <SVM_name> -policy <service_policy_name> -services data-core,data-iscsi
+----
+. Verifique que se haya creado la política de servicio:
++
+[source, cli]
+----
+network interface service-policy show -policy <service_policy_name>
+----
+. Devolver el nivel de privilegio a administrador:
++
+[source, cli]
+----
+set -privilege admin
+----
+
+
+
+
+=== Cree LIF solo iSCSI con conmutación por error automática de LIF
+
+Si hay LIF de iSCSI en la SVM que no están habilitados para la conmutación automática al respaldo de LIF, los LIF creados recientemente no se habilitarán para la conmutación automática por error de LIF. Si la recuperación tras fallos automática de LIF no está habilitada y existe un evento de recuperación tras fallos, los LIF de iSCSI no migrarán.
+
+.Antes de empezar
+Debe haber creado una política de servicio LIF solo iSCSI personalizada.
+
+.Pasos
+. Cree LIF solo iSCSI con conmutación por error automática de LIF:
++
+[source, cli]
+----
+network interface create -vserver <SVM_name> -lif <iscsi_lif_name> -service-policy <service_policy_name> -home-node <home_node> -home-port <port_name> -address <ip_address> -netmask <netmask> -failover-policy sfo-partner-only -status-admin up
+----
++
+** Se recomienda crear dos LIF iSCSI en cada nodo, uno para la estructura A y otro para la estructura B. Esto proporciona redundancia y equilibrio de carga para el tráfico iSCSI. En el siguiente ejemplo, se crean cuatro LIF iSCSI: dos en cada nodo y uno para cada estructura.
++
+[listing]
+----
+network interface create -vserver svm1 -lif iscsi-lif-01a -service-policy custom-data-iscsi -home-node node1 -home-port e2b -address <node01-iscsi-a–ip> -netmask 255.255.255.0 -failover-policy sfo-partner-only -status-admin up
+
+network interface create -vserver svm1 -lif iscsi-lif-01b -service-policy custom-data-iscsi -home-node node1 -home-port e4b -address <node01-iscsi-b–ip> -netmask 255.255.255.0 -failover-policy sfo-partner-only -status-admin up
+
+network interface create -vserver svm1 -lif iscsi-lif-02a -service-policy custom-data-iscsi -home-node node2 -home-port e2b -address <node02-iscsi-a–ip> -netmask 255.255.255.0 -failover-policy sfo-partner-only -status-admin up
+
+network interface create -vserver svm1 -lif iscsi-lif-02b -service-policy custom-data-iscsi -home-node node2 -home-port e4b -address <node02-iscsi-b–ip> -netmask 255.255.255.0 -failover-policy sfo-partner-only -status-admin up
+----
+** Si está utilizando VLAN, ajuste el  `home-port` parámetro para incluir la información del puerto VLAN para la estructura iSCSI respectiva, por ejemplo,  `-home-port e2b-<iSCSI-A-VLAN>` para la estructura iSCSI A y  `-home-port e4b-<iSCSI-B-VLAN>` .
+** Si está utilizando grupos de interfaces (ifgroups) con VLAN, ajuste el  `home-port` parámetro para incluir el puerto VLAN apropiado, por ejemplo,  `-home-port a0a-<iSCSI-A-VLAN>` para la estructura iSCSI A y  `-home-port a0a-<iSCSI-B-VLAN>` para la estructura iSCSI B donde  `a0a` es el ifgroup y a0a-<iSCSI-A-VLAN> y a0a-<iSCSI-B-VLAN> son los respectivos puertos VLAN para la estructura iSCSI A y la estructura iSCSI B.
+
+
+. Verifique que se crearon los LIF iSCSI:
++
+[source, cli]
+----
+network interface show -lif iscsi*
 ----
 
 

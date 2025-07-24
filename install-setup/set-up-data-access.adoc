@@ -29,6 +29,18 @@ Si necesita migrar la carga de trabajo de sus máquinas virtuales desde un siste
 
 
 
+== Migrar datos desde un sistema de almacenamiento de terceros
+
+A partir de ONTAP 9.17.1, puede usar la Importación de LUN Externa (FLI) para migrar datos desde un LUN en un sistema de almacenamiento externo a un sistema ASA r2. Usar FLI para la migración de datos puede ayudarle a mitigar el riesgo de pérdida de datos y tiempo de inactividad durante el proceso.
+
+FLI admite migraciones en línea y fuera de línea. En una migración en línea, el sistema cliente permanece en línea mientras se copian los datos del sistema de almacenamiento externo al sistema de almacenamiento ONTAP . Las migraciones en línea son compatibles con los sistemas operativos Windows, Linux y ESXi. En una migración fuera de línea, el sistema cliente se desconecta, los datos del LUN se copian del sistema de almacenamiento externo al sistema de almacenamiento ONTAP y, a continuación, el sistema cliente vuelve a estar en línea.
+
+* Aprenda a realizar una link:https://docs.netapp.com/us-en/ontap-fli/san-migration//concept_fli_offline_workflow.html["Migración sin conexión de FLI"^] .
+* Aprenda a realizar una link:https://docs.netapp.com/us-en/ontap-fli/san-migration//concept_fli_online_workflow.html["Migraciones en línea de FLI"^] .
+
+
+
+
 == Configure su sistema R2 de ASA como proveedor de almacenamiento en su entorno VMware
 
 Puede utilizar las herramientas de ONTAP para VMware para habilitar fácilmente su sistema ASA R2 como proveedor de almacenamiento en su entorno VMware.

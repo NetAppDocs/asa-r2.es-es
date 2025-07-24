@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: secure-data/pause-resume-anti-ransomware-protection.html 
+keywords: asa r2, secure data, data security, anti-ransomware, autonomous ransomware protection, arp, arp/ai, pause, resume, suspend 
+summary: Si está planeando un evento de carga de trabajo inusual, puede suspender temporalmente el análisis de ARP/AI para evitar detecciones de falsos positivos de ataques de ransomware. 
+---
+= Pause o reanude la protección autónoma contra ransomware con IA en sus sistemas de almacenamiento ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A partir de ONTAP 9.17.1, puede usar la Protección Autónoma contra Ransomware con Inteligencia Artificial (ARP/IA) para proteger los datos de su sistema ASA r2. Si planea un evento inusual en su carga de trabajo, puede suspender temporalmente el análisis de ARP/IA para evitar detecciones de falsos positivos de ataques de ransomware. Una vez finalizado el evento, puede reanudar el análisis de ARP/IA.
+
+
+
+== Pausa ARP/AI
+
+Antes de comenzar un evento de carga de trabajo inusual, es posible que deba suspender temporalmente el análisis ARP/AI para evitar detecciones de falsos positivos de ataques de ransomware.
+
+.Pasos
+. En System Manager, seleccione *Almacenamiento*.
+. Seleccione las unidades de almacenamiento para las que desea pausar ARP/AI.
+. Seleccione *Pausar anti-ransomware*.
+
+
+.Resultado
+El análisis de ARP/AI se pausa para las unidades de almacenamiento seleccionadas y no se le informa ninguna actividad sospechosa en el Administrador del sistema hasta que reanude ARP/AI.
+
+
+
+== Reanudar ARP/AI
+
+Si pausa ARP/AI durante una carga de trabajo inusual, una vez completada la carga de trabajo, debe reanudarla para proteger sus datos contra ataques de ransomware.
+
+.Pasos
+. En System Manager, seleccione *Almacenamiento*.
+. Seleccione las unidades de almacenamiento para las que desea reanudar ARP/AI.
+. Seleccione *Reanudar anti-ransomware*.
+
+
+.Resultado
+Se reanuda el análisis de posibles ataques de ransomware y se le informa sobre cualquier actividad sospechosa en el Administrador del sistema.

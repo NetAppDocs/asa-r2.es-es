@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: data-protection/snapmirror-active-sync-planned-failover.html 
+keywords: snapmirror active sync, planned failover, disaster recovery, business continuity, data replication, ONTAP, secondary site, continuous availability 
+summary: Aprenda cómo realizar una conmutación por error planificada de las relaciones de sincronización activa de SnapMirror para garantizar la continuidad del negocio y la recuperación ante desastres. 
+---
+= Realizar una conmutación por error planificada de clústeres ASA r2 en una relación de sincronización activa de SnapMirror
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La sincronización activa de SnapMirror ofrece disponibilidad continua para aplicaciones críticas para el negocio mediante la creación de una copia de sus datos en un sitio secundario y la conmutación por error automática y transparente de sus aplicaciones host en caso de desastre. Es posible que necesite realizar una conmutación por error planificada de su relación de sincronización activa de SnapMirror para probar el proceso de conmutación por error o para realizar tareas de mantenimiento en el sitio principal.
+
+.Antes de empezar
+* La relación de sincronización activa de SnapMirror debe estar sincronizada.
+* No se puede iniciar una conmutación por error planificada cuando hay en proceso una operación no disruptiva, como el traslado de una unidad de almacenamiento.
+* ONTAP Mediator o ONTAP Cloud Mediator debe estar configurado, conectado y en quórum.
+
+
+.Pasos
+. Seleccione *Protección > Replicación*.
+. Seleccione la relación de sincronización activa de SnapMirror que desea conmutar por error.
+. Seleccionar image:icon_kabob.gif["tres puntos verticales azules"] ; luego seleccione *Conmutación por error*.
+
+
+.Lo siguiente
+Utilice el  `snapmirror failover show` comando en la interfaz de línea de comandos (CLI) de ONTAP para monitorear el estado de la conmutación por error.

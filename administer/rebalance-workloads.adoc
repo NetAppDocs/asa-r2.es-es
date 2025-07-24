@@ -1,0 +1,106 @@
+---
+sidebar: sidebar 
+permalink: administer/rebalance-workloads.html 
+keywords: rename, node, renaming, asa r2 
+summary: A partir de ONTAP 9.17.1, ONTAP reequilibra automáticamente las cargas de trabajo entre los nodos en un par de alta disponibilidad del sistema ASA r2 para lograr un rendimiento óptimo. 
+---
+= Reequilibrar las cargas de trabajo entre nodos en los sistemas de almacenamiento ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A partir de ONTAP 9.17.1, ONTAP reequilibra automáticamente las cargas de trabajo entre los nodos de un par de alta disponibilidad (HA) del sistema ASA r2 para optimizar el rendimiento. Por ejemplo, si la utilización en un nodo aumenta al 70 % mientras que la de su socio de alta disponibilidad (HA) es solo del 30 %, ONTAP desplaza automáticamente las cargas de trabajo para que la utilización de cada nodo sea más homogénea. Dado que los nodos del par de alta disponibilidad comparten la misma zona de disponibilidad de almacenamiento, el reequilibrio de la carga de trabajo es una operación sin copias que no afecta al rendimiento.
+
+
+
+== Modificar el período de evaluación predeterminado para el reequilibrio automático de la carga de trabajo
+
+El reequilibrio automático de la carga de trabajo se habilita de forma predeterminada 14 días después de actualizar a ONTAP 9.17.1 o de inicializar un nuevo clúster de ONTAP 9.17.1 ASA r2. Puede usar la interfaz de línea de comandos (CLI) de ONTAP para aumentar o disminuir el período de evaluación predeterminado según sus necesidades operativas.
+
+.Pasos
+. Verifique el número de días restantes en el período de evaluación:
++
+[source, cli]
+----
+placement rebalance config show -fields evaluation-window
+----
+. Cambiar el período de evaluación del reequilibrio:
++
+[source, cli]
+----
+placement rebalance config modify -evaluation-window <number_of_evaluation_days>
+----
++
+El siguiente ejemplo establece el período de evaluación restante en 10 días.
+
++
+[listing]
+----
+placement rebalance config modify -evaluation-window 10
+----
+
+
+
+
+== Modificar la configuración de reequilibrio automático de la carga de trabajo
+
+El reequilibrio automático de la carga de trabajo se habilita de forma predeterminada 14 días después de actualizar a ONTAP 9.17.1 o inicializar un nuevo clúster de ONTAP 9.17.1 ASA r2. Puede cambiar la configuración predeterminada para deshabilitar el reequilibrio automático de la carga de trabajo o para configurarlo en un estado de aviso que marque las cargas de trabajo desequilibradas sin moverlas automáticamente.
+
+.Paso
+. Verifique el modo de reequilibrio configurado actualmente en sus nodos:
++
+[source, cli]
+----
+placement rebalance config show -fields mode
+----
+. Modificar la configuración de reequilibrio automático de la carga de trabajo:
++
+[source, cli]
+----
+placement rebalance config modify -mode <disabled|advisory|automated>
+----
+. Verifique que el modo de reequilibrio esté modificado:
++
+[source, cli]
+----
+placement rebalance config show -fields mode
+----
+
+
+
+
+== Activar manualmente el reequilibrio de la carga de trabajo
+
+Si ha desactivado el reequilibrio automático de la carga de trabajo, aún puede activarlo manualmente. Esto resulta útil si desea reequilibrar las cargas de trabajo tras un período de ajustes manuales o si ha configurado el modo de reequilibrio en *advisory* y desea tomar medidas según los indicadores de la carga de trabajo.
+
+.Pasos
+. Verifique el modo de reequilibrio configurado actualmente en sus nodos:
++
+[source, cli]
+----
+placement rebalance config show -fields mode
+----
+. Si el modo de reequilibrio no está configurado en *advisory*, configúrelo en *advisory*:
++
+[source, cli]
+----
+placement rebalance config modify -mode advisory
+----
+. Activar manualmente un reequilibrio de carga de trabajo:
++
+[source, cli]
+----
+balanced-placement rebalance execute
+----
+. Ver el estado de la operación de reequilibrio:
++
+[source, cli]
+----
+placement rebalance config show-evaluation
+----
+
+
+.El futuro
+Si desea establecer el modo de reequilibrio en *automatizado* o *deshabilitado*, puede hacerlo utilizando el  `placement rebalance config modify` dominio.

@@ -11,9 +11,9 @@ summary: 'Ciertos comandos ONTAP no son compatibles con los sistemas ASA r2 (ASA
 
 
 [role="lead"]
-En lugar de agregados tradicionales, que poseen un conjunto específico de discos disponibles en un sistema de almacenamiento, los sistemas ASA R2 utilizan una _storage availability zone_. Una zona de disponibilidad de almacenamiento es un conjunto común de almacenamiento que tiene acceso a todos los discos disponibles en el sistema de almacenamiento. La zona de disponibilidad de almacenamiento está visible para ambos nodos de un par de alta disponibilidad ASA R2. Cuando se crea una unidad de almacenamiento (LUN o espacio de nombres NVMe), ONTAP crea automáticamente un volumen que contiene una máquina virtual de almacenamiento (VM) en la zona de disponibilidad de almacenamiento para alojar la unidad de almacenamiento.
+En lugar de agregados, la capa de almacenamiento de los sistemas ASA r2 utiliza zonas de disponibilidad de almacenamiento. Una zona de disponibilidad de almacenamiento es un conjunto común de almacenamiento disponible para un único par de alta disponibilidad (HA). Ambos nodos del par de HA tienen acceso a todos los discos disponibles en su zona de disponibilidad de almacenamiento compartida. Al crear una unidad de almacenamiento (LUN o espacio de nombres NVMe), ONTAP crea automáticamente un volumen en la zona de disponibilidad de almacenamiento correspondiente para alojarla.
 
-Debido a este método simplificado de gestión del almacenamiento, `storage aggregate` los comandos no son compatibles con los sistemas ASA R2. La compatibilidad con ciertos `lun` `volume` comandos y parámetros de AND también está limitada.
+Debido a este enfoque simplificado para la gestión del almacenamiento,  `storage aggregate` Los comandos no son compatibles con los sistemas ASA r2. Compatibilidad con ciertos  `lun` ,  `storage` y  `volume` Los comandos y parámetros también son limitados.
 
 ASA R2 no admite los siguientes comandos y conjuntos de comandos:
 

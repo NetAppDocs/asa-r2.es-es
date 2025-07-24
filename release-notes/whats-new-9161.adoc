@@ -69,7 +69,7 @@ Los siguientes sistemas NetApp ASA R2 son compatibles a partir de ONTAP 9.16.1. 
 | Actualizar | Descripción 
 
 
-| Soporte para reequilibrio automático de unidades de almacenamiento | ONTAP reequilibrará de forma automática las unidades de almacenamiento en sus zonas de disponibilidad de almacenamiento con el fin de optimizar el rendimiento y la utilización de la capacidad. 
+| link:../learn-more/hardware-comparison.html["Soporte para reequilibrio automático de unidades de almacenamiento"] | ONTAP reequilibrará de forma automática las unidades de almacenamiento en sus zonas de disponibilidad de almacenamiento con el fin de optimizar el rendimiento y la utilización de la capacidad. 
 
 
 | De forma predeterminada, la desasignación del espacio NVMe está habilitada  a| 

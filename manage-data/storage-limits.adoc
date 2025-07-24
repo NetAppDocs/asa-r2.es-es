@@ -19,10 +19,16 @@ Los sistemas ASA R2 ofrecen lo siguiente:
 |===
 
 
-| N.o máx. De nodos por clúster | 12 
+| Número máximo de nodos por clúster | 12 
+
+
+| Número máximo de unidades de almacenamiento por clúster | 30.000 
 
 
 | Tamaño máximo de la unidad de almacenamiento | 128TB 
+
+
+| Tamaño máximo de zona de disponibilidad de almacenamiento | 2 PB 
 |===
 .Si quiere más información
 Para obtener una lista completa de los límites de almacenamiento más actuales de ASA R2, consulte link:https://hwu.netapp.com/["NetApp Hardware Universe"^].

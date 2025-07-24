@@ -1,0 +1,54 @@
+---
+sidebar: sidebar 
+permalink: release-notes/whats-new-9171.html 
+keywords: 'what"s new, release notes, 9.17.1, asa r2, asa a1k, asa a90, asa a70, asa a50, asa a30, asa a20' 
+summary: Conozca las nuevas capacidades disponibles en ONTAP 9.17.1 para sistemas ASA r2. 
+---
+= Novedades de ONTAP 9.17.1 para sistemas ASA r2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Conozca las nuevas capacidades disponibles en ONTAP 9.17.1 para sistemas ASA r2.
+
+
+
+== Migración de datos SAN
+
+[cols="2,4"]
+|===
+| Actualizar | Descripción 
+
+
+| link:../install-setup/set-up-data-access.html#migrate-data-from-a-third-party-storage-system["Soporte para la migración de datos desde un sistema de almacenamiento de terceros"] | La migración de datos SAN mediante Importación de LUN Externa (FLI) es compatible con los sistemas ASA r2. FLI permite migrar datos desde un LUN en un sistema de almacenamiento externo a un sistema ASA r2. 
+|===
+
+
+== Protección de datos
+
+[cols="2,4"]
+|===
+| Actualizar | Descripción 
+
+
+| link:../secure-data/enable-anti-ransomware-protection.html["Soporte para la protección autónoma contra ransomware con inteligencia artificial (ARP/IA)"] | ARP/AI se puede habilitar en unidades de almacenamiento ASA r2. ARP/AI ofrece protección adicional de datos al detectar y reportar posibles ataques de ransomware sin periodo de aprendizaje. 
+
+
+| link:../data-protection/snapmirror-active-sync.html["Sincronización activa de SnapMirror"] | SnapMirror Active Sync añade compatibilidad con cargas de trabajo de VMware con acceso a host NVMe/TCP y NVMe/FC para clústeres ONTAP de dos nodos. La compatibilidad de cargas de trabajo de VMware con NVMe/TCP depende de la resolución del error de VMware ID: TR1049746. 
+|===
+
+
+== Eficiencia del almacenamiento
+
+[cols="2,4"]
+|===
+| Actualizar | Descripción 
+
+
+| link:../learn-more/hardware-comparison.html["Soporte para equilibrio automático de carga de trabajo"] | Las cargas de trabajo se equilibran automáticamente entre los nodos de un par de alta disponibilidad para optimizar el rendimiento y la utilización de recursos. 
+|===

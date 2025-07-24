@@ -4,7 +4,7 @@ permalink: secure-data/ransomware-protection.html
 keywords: asa r2, secure data, data security, ransomware, ransomware attacks, protection 
 summary: Use copias Snapshot a prueba de manipulaciones para proteger los datos. Las copias Snapshot a prueba de manipulaciones no se pueden eliminar y se pueden usar para recuperar los datos comprometidos por un ataque de ransomware. 
 ---
-= Protéjase contra ataques de ransomware en sistemas de almacenamiento ASA R2
+= Cree instantáneas a prueba de manipulaciones para protegerse contra ataques de ransomware en los sistemas de almacenamiento ASA r2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

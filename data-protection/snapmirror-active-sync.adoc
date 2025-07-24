@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: data-protection/snapmirror-active-sync.html 
+keywords: asa r2, data protection, business continuity, snapmirror active sync, zero rpo, zero rto, disaster recovery, symmetric active/active, workflow 
+summary: 'Utilice la sincronización activa de SnapMirror para proteger las aplicaciones de host que requieren un objetivo de punto de recuperación cero (RPO) y un objetivo de tiempo de recuperación cero (RTO) contra interrupciones debido a una interrupción inesperada o un desastre en el sitio.' 
+---
+= Flujo de trabajo de configuración de sincronización activa de SnapMirror
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La protección de datos de sincronización activa de ONTAP SnapMirror permite que los servicios empresariales sigan funcionando incluso ante un fallo total del sitio, permitiendo que las aplicaciones conmuten por error de forma transparente mediante una copia secundaria. Con la sincronización activa de SnapMirror , no se requiere intervención manual ni scripts personalizados para activar una conmutación por error.
+
+Si bien los procedimientos del Administrador del sistema para configurar la sincronización activa de SnapMirror son diferentes en los sistemas ASA r2 que en los sistemas NetApp FAS, AFF y ASA que ejecutan la personalidad unificada de ONTAP , los requisitos, la arquitectura y el funcionamiento de la sincronización activa de SnapMirror son los mismos.
+
+link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html["Obtenga más información sobre la sincronización activa de SnapMirror"^] .
+
+En sistemas ASA r2, la sincronización activa de SnapMirror admite configuraciones simétricas activo/activo. En una configuración simétrica activo/activo, ambos sitios pueden acceder al almacenamiento local para E/S activas.
+
+Obtenga más información sobre link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/architecture-concept.html#symmetric-activeactive["configuraciones simétricas activas/activas"^] .
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Una"] Prepárese para configurar la sincronización activa de SnapMirror .
+[role="quick-margin-para"]
+A link:snapmirror-active-sync-prepare.html["Prepárese para configurar la sincronización activa de SnapMirror"] En su sistema ASA r2, debe revisar los requisitos previos de configuración, confirmar la compatibilidad con los sistemas operativos host y tener en cuenta los límites de objetos que podrían afectar la configuración específica.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"] Confirme la configuración de su clúster.
+[role="quick-margin-para"]
+Antes de configurar la sincronización activa de SnapMirror , debe link:snapmirror-active-sync-confirm-cluster-configuration.html["Confirme que sus clústeres ASA r2 estén en las relaciones de emparejamiento adecuadas y cumplan con otros requisitos de configuración."] .
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"] Instalar ONTAP Mediator.
+[role="quick-margin-para"]
+Puede usar ONTAP Mediator u ONTAP Cloud Mediator para supervisar el estado de su clúster y garantizar la continuidad del negocio. Si usa ONTAP Mediator, debe link:install-ontap-mediator.html["instalarlo"] En su host. Si usa ONTAP Cloud Mediator, puede omitir este paso.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"] Configure ONTAP Mediator o ONTAP Cloud Mediator utilizando certificados autofirmados.
+[role="quick-margin-para"]
+Usted debe link:configure-ontap-mediator.html["configurar el mediador de ONTAP o el mediador de nube de ONTAP"] antes de poder comenzar a usarlo con SnapMirror Active Sync para la monitorización del clúster.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"] Configurar la sincronización activa de SnapMirror .
+[role="quick-margin-para"]
+link:configure-snapmirror-active-sync.html["Configurar la sincronización activa de SnapMirror"] para crear una copia de sus datos en un sitio secundario y permitir que sus aplicaciones host conmuten por error de manera automática y transparente en caso de un desastre.

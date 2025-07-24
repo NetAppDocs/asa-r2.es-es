@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: administer/revert-ontap.html 
+keywords: update, revert, ontap, asa r2 
+summary: ONTAP actualiza automáticamente el firmware en sistemas ASA R2. Puede usar System Manager para deshabilitar las actualizaciones automáticas y ver las actualizaciones antes de instalarlas. 
+---
+= Revertir ONTAP en sistemas de almacenamiento ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Las reversiones del software ONTAP para sistemas ASA r2 siguen el mismo proceso que las reversiones para otros sistemas ONTAP .
+
+Revertir un clúster de ONTAP es disruptivo. Debe desconectar el clúster mientras dure la reversión. No debe revertir un clúster de producción sin la asistencia del soporte técnico. Puede revertir un clúster nuevo o de prueba sin asistencia. Si la reversión de un sistema nuevo o de prueba falla o se completa correctamente, pero no está satisfecho con el rendimiento del clúster en su entorno de producción, debe contactar con el soporte técnico para obtener ayuda.
+
+link:https://docs.netapp.com/us-en/ontap/revert/task_reverting_an_ontap_cluster.html["Revertir un clúster ONTAP"] .
+
+
+
+== Revertir requisitos para sistemas ASA r2
+
+Ciertas configuraciones de clúster ASA r2 requieren que realice acciones específicas antes de comenzar una reversión del software ONTAP .
+
+
+
+=== Reversión desde ONTAP 9.17.1
+
+Si está volviendo de ONTAP 9.17.1 en un sistema ASA r2, debe realizar las siguientes acciones antes de comenzar la reversión:
+
+[cols="2"]
+|===
+| Si tienes... | Antes de revertir deberías... 
+
+
+| Grupos de consistencia jerárquica en una relación de sincronización activa de SnapMirror | Eliminar la relación de sincronización activa de SnapMirror 
+
+
+| Relaciones de importación activas | Eliminar las relaciones de importación activas 
+
+
+| Protección anti-ransomware habilitada | Desactivar la protección anti-ransomware 
+|===

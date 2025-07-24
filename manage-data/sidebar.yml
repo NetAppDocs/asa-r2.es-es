@@ -10,6 +10,12 @@ entries:
     url: "/manage-data/provision-san-storage.html"
   - title: Clone datos
     url: "/manage-data/data-cloning.html"
+  - title: Administrar grupos de hosts
+    entries:
+    - title: Cree grupos de hosts
+      url: "/manage-data/create-host-groups.html"
+    - title: Eliminar grupos de host
+      url: "/manage-data/delete-host-groups.html"
   - title: Gestión de unidades de almacenamiento
     entries:
     - title: Modificar unidades de almacenamiento
@@ -24,8 +30,32 @@ entries:
   entries:
   - title: Crear snapshots
     url: "/data-protection/create-snapshots.html"
+  - title: Crear una relación de pares SVM
+    url: "/data-protection/create-svm-peer-relationship.html"
   - title: Configurar la replicación de snapshots
     url: "/data-protection/snapshot-replication.html"
+  - title: Configurar la sincronización activa de SnapMirror
+    entries:
+    - title: Flujo de trabajo
+      url: "/data-protection/snapmirror-active-sync.html"
+    - title: Prepárese para configurar la sincronización activa de SnapMirror
+      url: "/data-protection/snapmirror-active-sync-prepare.html"
+    - title: Confirme la configuración de su clúster
+      url: "/data-protection/snapmirror-active-sync-confirm-cluster-configuration.html"
+    - title: Instalar ONTAP Mediator
+      url: "/data-protection/install-ontap-mediator.html"
+    - title: Configurar el mediador de ONTAP
+      url: "/data-protection/configure-ontap-mediator.html"
+    - title: Configurar la sincronización activa de SnapMirror
+      url: "/data-protection/configure-snapmirror-active-sync.html"
+  - title: Administrar la sincronización activa de SnapMirror
+    entries:
+    - title: Realice una conmutación por error planificada con la sincronización activa
+        de SnapMirror
+      url: "/data-protection/snapmirror-active-sync-planned-failover.html"
+    - title: Restablecer la sincronización activa de SnapMirror después de una conmutación
+        por error no planificada
+      url: "/data-protection/snapmirror-active-sync-unplanned-failover.html"
   - title: Protege Kubernetes
     url: "/data-protection/protect-kubernetes.html"
   - title: Restaure los datos
@@ -41,7 +71,17 @@ entries:
   - title: Migración de claves de cifrado de datos entre gestores de claves
     url: "/secure-data/migrate-encryption-keys-between-key-managers.html"
   - title: Protéjase contra ataques de ransomware
-    url: "/secure-data/ransomware-protection.html"
+    entries:
+    - title: Crear instantáneas a prueba de manipulaciones
+      url: "/secure-data/ransomware-protection.html"
+    - title: Habilitar ARP/AI
+      url: "/secure-data/enable-anti-ransomware-protection.html"
+    - title: Modificar los períodos de retención de instantáneas de ARP/AI
+      url: "/secure-data/modify-arp-snapshot-retention-period.html"
+    - title: Responder a las alertas de ARP/AI
+      url: "/secure-data/respond-anti-ransomware-protection-alerts.html"
+    - title: Pausar o reanudar ARP/AI
+      url: "/secure-data/pause-resume-anti-ransomware-protection.html"
   - title: Conexiones NVMe seguras
     url: "/secure-data/nvme-tcp-connections.html"
   - title: Conexiones IP seguras

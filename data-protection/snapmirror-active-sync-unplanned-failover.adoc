@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: data-protection/snapmirror-active-sync-unplanned-failover.html 
+keywords: asa r2, secure data, data security, anti-ransomware, autonomous ransomware protection, arp, arp/ai, alerts, respond, warnings, security 
+summary: Aprenda cómo restablecer las relaciones de sincronización activa de SnapMirror después de una conmutación por error no planificada de sus clústeres ASA r2. 
+---
+= Restablezca la relación de sincronización activa de SnapMirror después de una conmutación por error no planificada de sus clústeres ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Una conmutación por error automática no planificada (AUFO) se produce cuando el clúster principal está inactivo o aislado. El mediador detecta cuándo se produce una conmutación por error y ejecuta una conmutación por error automática no planificada al clúster secundario. El clúster secundario se convierte en el principal y comienza a atender a los clientes.
+
+.Antes de empezar
+* La relación de sincronización activa de SnapMirror debe estar sincronizada.
+* No se puede iniciar una conmutación por error planificada cuando hay en proceso una operación no disruptiva, como el traslado de una unidad de almacenamiento.
+* El mediador de ONTAP debe estar configurado, conectado y en quórum.
+
+
+.Pasos
+. Seleccione *Protección > Replicación*.
+. Seleccione la relación de sincronización activa de SnapMirror que necesita restablecer.
+. Espere hasta que el estado de la relación muestre *InSync*.
+. Seleccionar image:icon_kabob.gif["tres puntos verticales azules"] ; luego seleccione *Conmutación por error* para reanudar las operaciones en el clúster primario original.
+
+
+.Lo siguiente
+Para evitar la pérdida de rutas de E/S a sus hosts, debe volver a escanear las rutas del host después de reanudar las operaciones en el clúster principal.

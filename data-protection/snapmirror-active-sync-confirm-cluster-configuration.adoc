@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: data-protection/snapmirror-active-sync-confirm-cluster-configuration.html 
+keywords: asa r2, data protection, business continuity, snapmirror active sync, cluster configuration 
+summary: Vea advertencias de posibles ataques de ransomware y tome medidas en el Administrador del sistema. 
+---
+= Confirme la configuración de su clúster ASA r2 antes de configurar la sincronización activa de SnapMirror
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La sincronización activa de SnapMirror se basa en clústeres emparejados para proteger sus datos en caso de conmutación por error. Antes de configurar la sincronización activa de SnapMirror , debe confirmar que sus clústeres ASA r2 tengan una relación de emparejamiento compatible y cumplan con los demás requisitos de configuración.
+
+.Pasos
+. Confirme que existe una relación de peering de clúster entre los clústeres.
++
+
+NOTE: La sincronización activa de SnapMirror requiere el espacio IP predeterminado para las relaciones entre pares del clúster. No se admite un espacio IP personalizado.
+
++
+link:snapshot-replication.html#step-1-create-a-cluster-peer-relationship["Crear una relación de pares de clúster"] .
+
+. Confirme que exista una relación de pares entre las máquinas virtuales de almacenamiento (VM) en cada clúster.
++
+link:create-svm-peer-relationship.html["Crear una relación de pares de máquinas virtuales de almacenamiento entre clústeres"^] .
+
+. Confirme que se cree al menos un LIF en cada nodo del clúster.
++
+link:../administer/manage-client-vm-access.html#create-a-lif-network-interface["Crear un LIF"]
+
+. Confirme que las unidades de almacenamiento necesarias estén creadas y asignadas a grupos de host.
++
+link:../manage-data/provision-san-storage.html#create-storage-units["Crear una unidad de almacenamiento"] y link:../manage-data/provision-san-storage.html#map-the-storage-unit-to-a-host["Asignar la unidad de almacenamiento a un grupo de hosts"] .
+
+. Vuelva a escanear el host de la aplicación para descubrir nuevas unidades de almacenamiento.
+
+
+.El futuro
+Después de haber confirmado la configuración de su clúster, estará listo para link:install-ontap-mediator.html["instalar ONTAP Mediator"] .

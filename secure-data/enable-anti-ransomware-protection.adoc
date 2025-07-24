@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: secure-data/enable-anti-ransomware-protection.html 
+keywords: asa r2, secure data, data security, anti-ransomware, autonomous ransomware protection, arp, arp/ai, enable 
+summary: Habilite ARP/AI para detectar posibles amenazas de ransomware, tomar medidas automáticamente para proteger sus datos y mostrar un mensaje de advertencia en el Administrador del sistema para alertarlo sobre actividad sospechosa. 
+---
+= Habilite la protección autónoma contra ransomware con IA en sus sistemas de almacenamiento ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A partir de ONTAP 9.17.1, puede usar la Protección Autónoma contra Ransomware con Inteligencia Artificial (ARP/IA) para proteger los datos de su sistema ASA r2. ARP/IA detecta rápidamente posibles amenazas de ransomware, crea automáticamente una instantánea de ARP para proteger sus datos y muestra un mensaje de advertencia en el Administrador del Sistema para alertarle sobre actividad sospechosa.
+
+A partir de ONTAP 9.17.1, ARP mejora la ciberresiliencia mediante la adopción de un modelo de aprendizaje automático para el análisis antiransomware que detecta formas de ransomware en constante evolución con una precisión del 98 % en entornos SAN. El modelo de aprendizaje automático de ARP se entrena previamente con un gran conjunto de datos de archivos, tanto antes como después de un ataque simulado de ransomware. Este entrenamiento, que requiere muchos recursos, se realiza fuera de ONTAP, y el modelo preentrenado resultante se incluye en ONTAP. Este modelo no es accesible ni modificable a través de la CLI ni de la API. Por lo tanto, ARP/IA se activa inmediatamente después de la habilitación; no hay... link:https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html#learning-and-active-modes["período de aprendizaje"^] .
+
+
+NOTE: Ningún sistema de detección o prevención de ransomware puede garantizar completamente la seguridad contra un ataque de ransomware. Si bien es posible que un ataque pase desapercibido, ARP/IA actúa como una importante capa adicional de defensa si el software antivirus no detecta una intrusión.
+
+.Acerca de esta tarea
+El soporte ARP/AI está incluido en el link:https://kb.netapp.com/onprem/ontap/os/ONTAP_9.10.1_and_later_licensing_overview["Licencia ONTAP One"] .
+
+Después de haber habilitado ARP/AI, debe link:../administer/update-firmware.html#enable-automatic-updates["Habilite las actualizaciones automáticas para sus archivos de seguridad"] para recibir automáticamente nuevas actualizaciones de seguridad.
+
+
+
+== Habilitar ARP/AI en todas las unidades de almacenamiento en una SVM
+
+Puede habilitar ARP/AI en todas las unidades de almacenamiento creadas en una máquina virtual de almacenamiento (SVM) de forma predeterminada. Esto significa que cualquier nueva unidad de almacenamiento creada en la SVM tendrá ARP/AI habilitado automáticamente. También puede aplicar ARP/AI a las unidades de almacenamiento existentes en la SVM.
+
+.Pasos
+. En el Administrador del sistema, seleccione *Clúster > Máquinas virtuales de almacenamiento*.
+. Seleccione la máquina virtual de almacenamiento en la que desea habilitar ARP/AI.
+. En la sección *Seguridad*, junto a *Anti-ransomware*, seleccione image:icon_kabob.gif["tres puntos verticales azules"] ; luego seleccione *Editar configuración anti-ransomware*.
+. Seleccione *Habilitar anti-ransomware*.
++
+Esto habilita ARP/AI en todas las unidades de almacenamiento futuras creadas en la máquina virtual de almacenamiento seleccionada de forma predeterminada.
+
+. Para aplicar ARP a las unidades de almacenamiento existentes en la máquina virtual de almacenamiento seleccionada, seleccione *Aplicar este cambio a todas las unidades de almacenamiento existentes aplicables en esta máquina virtual de almacenamiento*.
+. Seleccione *Guardar*.
+
+
+.Resultado
+Todas las nuevas unidades de almacenamiento que cree en SVM están protegidas contra ataques de ransomware de manera predeterminada y la actividad sospechosa se le informa en el Administrador del sistema.
+
+
+
+== Habilitar ARP/AI en unidades de almacenamiento específicas en una SVM
+
+Si no desea que ARP/AI esté habilitado en todas las unidades de almacenamiento en una SVM, puede seleccionar las unidades específicas que desea habilitar.
+
+.Pasos
+. En System Manager, seleccione *Almacenamiento*.
+. Seleccione las unidades de almacenamiento para las que desea habilitar ARP/AI.
+. Seleccionar image:icon_kabob.gif["tres puntos verticales azules"] ; luego seleccione *Habilitar anti-ransomware*.
+. Seleccione *Habilitar*.
+
+
+.Resultado
+Las unidades de almacenamiento que usted seleccionó están protegidas contra ataques de ransomware y cualquier actividad sospechosa se le informa en el Administrador del sistema.

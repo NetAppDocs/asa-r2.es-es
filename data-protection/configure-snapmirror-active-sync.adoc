@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: data-protection/configure-snapmirror-active-sync.html 
+keywords: asa r2, secure data, data security, anti-ransomware, autonomous ransomware protection, arp, arp/ai, alerts, respond, warnings, security 
+summary: Aprenda a configurar la sincronización activa de SnapMirror para garantizar la continuidad del negocio creando una copia de datos secundaria y habilitando la conmutación por error automática en caso de desastre. 
+---
+= Configurar la sincronización activa de SnapMirror en sistemas ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Configure la sincronización activa de SnapMirror para crear una copia de sus datos en un sitio secundario y permitir que sus aplicaciones host conmuten por error de manera automática y transparente en caso de un desastre.
+
+En sistemas ASA r2, la sincronización activa de SnapMirror admite configuraciones simétricas activo/activo. En una configuración simétrica activo/activo, ambos sitios pueden acceder al almacenamiento local para E/S activas.
+
+
+NOTE: Si utiliza el protocolo iSCSI o FC y utiliza herramientas ONTAP para VMware Sphere, puede opcionalmente link:https://docs.netapp.com/us-en/netapp-solutions/vmware/vmware-vmsc-with-smas.html["Utilice ONTAP Tools para VMware para configurar la sincronización activa de SnapMirror"^] .
+
+.Antes de empezar
+link:create-snapshots.html#step-1-optionally-create-a-consistency-group["Crear un grupo de consistencia"] En el sitio principal con nuevas unidades de almacenamiento. Si desea crear una configuración simétrica no uniforme, cree también un grupo de consistencia en el sitio secundario con nuevas unidades de almacenamiento.
+
+Obtenga más información sobre  https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/#key-concepts["no uniforme"] configuraciones simétricas activas/activas.
+
+.Pasos
+. En System Manager, seleccione *Protección > Grupos de consistencia*.
+. Coloque el cursor sobre el nombre del grupo de consistencia que desea proteger con la sincronización activa de SnapMirror .
+. Seleccionar image:icon_kabob.gif["tres puntos verticales azules"] y luego seleccione *Proteger*.
+. En *Protección remota*, selecciona *Replicar a un clúster remoto*.
+. Seleccione un par de clúster existente o elija *Agregar uno nuevo*.
+. Seleccione la máquina virtual de almacenamiento.
+. Para la política de replicación, seleccione *AutomatedFailOverDuplex*.
+. Si está creando una configuración activa/activa simétrica no uniforme, seleccione *Configuración de destino*; luego ingrese el nombre del nuevo grupo de consistencia de destino que cree antes de comenzar este procedimiento.
+. Seleccione *Guardar*.
+
+
+.Resultado
+La sincronización activa de SnapMirror está configurada para proteger sus datos para que pueda continuar con las operaciones con un objetivo de punto de recuperación (RPO) cero y un objetivo de tiempo de recuperación (RTO) cero en caso de un desastre.

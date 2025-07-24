@@ -2,6 +2,14 @@
 section: administer
 title: Administración y supervisión
 entries:
+- title: Actualizar y revertir ONTAP
+  entries:
+  - title: Actualice ONTAP
+    url: "/administer/upgrade-ontap.html"
+  - title: Revertir ONTAP
+    url: "/administer/revert-ontap.html"
+  - title: Actualizar el firmware
+    url: "/administer/update-firmware.html"
 - title: Gestione el acceso de clientes a las máquinas virtuales de almacenamiento
   url: "/administer/manage-client-vm-access.html"
 - title: Gestione las redes de clúster
@@ -14,10 +22,6 @@ entries:
     url: "/monitor/monitor-storage.html"
   - title: Aumente la capacidad de almacenamiento
     url: "/administer/increase-storage-capacity.html"
-- title: Actualice ONTAP
-  url: "/administer/upgrade-ontap.html"
-- title: Actualizar el firmware
-  url: "/administer/update-firmware.html"
 - title: Ver información
   url: "/monitor/view-insights.html"
 - title: Ver los eventos y los trabajos del clúster
@@ -30,6 +34,8 @@ entries:
     url: "/administer/reboot-take-over-give-back-nodes.html"
   - title: Cambie el nombre de los nodos
     url: "/administer/rename-nodes.html"
+  - title: Reequilibrar las cargas de trabajo entre nodos
+    url: "/administer/rebalance-workloads.html"
 - title: Administrar cuentas de usuario y roles
   url: "/administer/user-accounts-roles.html"
 - title: Gestionar certificados de seguridad
