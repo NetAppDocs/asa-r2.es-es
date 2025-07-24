@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: data-protection/configure-snapmirror-active-sync.html 
-keywords: asa r2, secure data, data security, anti-ransomware, autonomous ransomware protection, arp, arp/ai, alerts, respond, warnings, security 
+keywords: asa r2, data protection, protect data, configure, snapmirror active sync, ,disaster recovery, symmetric active/active 
 summary: Aprenda a configurar la sincronización activa de SnapMirror para garantizar la continuidad del negocio creando una copia de datos secundaria y habilitando la conmutación por error automática en caso de desastre. 
 ---
 = Configurar la sincronización activa de SnapMirror en sistemas ASA r2
@@ -36,4 +36,4 @@ Obtenga más información sobre  https://docs.netapp.com/us-en/ontap/snapmirror-
 
 
 .Resultado
-La sincronización activa de SnapMirror está configurada para proteger sus datos para que pueda continuar con las operaciones con un objetivo de punto de recuperación (RPO) cero y un objetivo de tiempo de recuperación (RTO) cero en caso de un desastre.
+La sincronización activa de SnapMirror está configurada para proteger sus datos para que pueda continuar con las operaciones con un objetivo de punto de recuperación (RPO) cercano a cero y un objetivo de tiempo de recuperación (RTO) cercano a cero en caso de un desastre.

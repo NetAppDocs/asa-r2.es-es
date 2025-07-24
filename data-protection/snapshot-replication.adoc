@@ -26,7 +26,7 @@ Para configurar la replicación de Snapshot, necesita establecer una relación d
 Para poder proteger los datos replicándolos en un clúster remoto, tiene que crear una relación de paridad de clústeres entre el clúster local y el remoto.
 
 .Antes de empezar
-Los requisitos previos para el peering de clústeres son los mismos para los sistemas ASA r2 que para otros sistemas ONTAP . link:https://docs.netapp.com/us-en/ontap/peering/prerequisites-cluster-peering-reference.html["Revise los requisitos previos para el peering de clústeres"] .
+Los requisitos previos para el peering de clústeres son los mismos para los sistemas ASA r2 que para otros sistemas ONTAP . link:https://docs.netapp.com/us-en/ontap/peering/prerequisites-cluster-peering-reference.html["Revise los requisitos previos para el peering de clústeres"^] .
 
 .Pasos
 . En el clúster local, en System Manager, seleccione *Clúster > Configuración*.

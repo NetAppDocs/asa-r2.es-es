@@ -39,7 +39,7 @@ Conozca las nuevas capacidades disponibles en ONTAP 9.17.1 para sistemas ASA r2.
 | link:../secure-data/enable-anti-ransomware-protection.html["Soporte para la protección autónoma contra ransomware con inteligencia artificial (ARP/IA)"] | ARP/AI se puede habilitar en unidades de almacenamiento ASA r2. ARP/AI ofrece protección adicional de datos al detectar y reportar posibles ataques de ransomware sin periodo de aprendizaje. 
 
 
-| link:../data-protection/snapmirror-active-sync.html["Sincronización activa de SnapMirror"] | SnapMirror Active Sync añade compatibilidad con cargas de trabajo de VMware con acceso a host NVMe/TCP y NVMe/FC para clústeres ONTAP de dos nodos. La compatibilidad de cargas de trabajo de VMware con NVMe/TCP depende de la resolución del error de VMware ID: TR1049746. 
+| link:../data-protection/snapmirror-active-sync.html["Compatibilidad de SnapMirror Active Sync con protocolos NVMe"] | SnapMirror Active Sync añade compatibilidad con cargas de trabajo de VMware con acceso a host NVMe/TCP y NVMe/FC para clústeres ONTAP de dos nodos. La compatibilidad de cargas de trabajo de VMware con NVMe/TCP depende de la resolución del error de VMware ID: TR1049746. 
 |===
 
 
