@@ -27,6 +27,12 @@ Consulte la documentación del host SAN de ONTAP para link:https://docs.netapp.c
 
 Si necesita migrar la carga de trabajo de sus máquinas virtuales desde un sistema de almacenamiento de ASA a un sistema de almacenamiento R2 de ASA, NetApp recomienda utilizar link:https://www.vmware.com/products/cloud-infrastructure/vsphere/vmotion["VSphere vMotion de VMware"^] para realizar una migración activa y sin interrupciones de los datos.
 
+.Información relacionada
+* Obtenga más información sobre link:https://docs.netapp.com/us-en/ontap-apps-dbs/vmware/vmware-vsphere-why.html["las ventajas de usar ONTAP para vSphere"^] .
+* Conozca más sobrelink:https://docs.netapp.com/us-en/ontap-apps-dbs/vmware/vmware-srm-overview.html["Recuperación de sitios en vivo de VMware con ONTAP"^] .
+* Conozca más sobrelink:https://docs.netapp.com/us-en/ontap-apps-dbs/vmware/vmware_vmsc_overview.html#continuous-availability-solutions-for-vsphere-environments["Soluciones de disponibilidad continua para entornos vSphere"^] .
+
+
 
 
 == Migrar datos desde un sistema de almacenamiento de terceros
