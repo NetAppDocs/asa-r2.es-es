@@ -56,8 +56,6 @@ entries:
     - title: Restablecer la sincronización activa de SnapMirror después de una conmutación
         por error no planificada
       url: "/data-protection/snapmirror-active-sync-unplanned-failover.html"
-  - title: Protege Kubernetes
-    url: "/data-protection/protect-kubernetes.html"
   - title: Restaure los datos
     url: "/data-protection/restore-data.html"
   - title: Gestionar grupos de coherencia
