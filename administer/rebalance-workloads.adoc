@@ -19,6 +19,9 @@ A partir de ONTAP 9.17.1, ONTAP reequilibra automáticamente las cargas de traba
 
 El reequilibrio automático de la carga de trabajo se habilita de forma predeterminada 14 días después de actualizar a ONTAP 9.17.1 o de inicializar un nuevo clúster de ONTAP 9.17.1 ASA r2. Puede usar la interfaz de línea de comandos (CLI) de ONTAP para aumentar o disminuir el período de evaluación predeterminado según sus necesidades operativas.
 
+
+NOTE: No es posible volver de ONTAP 9.17.1 en su sistema ASA r2 una vez habilitado el reequilibrio automático de la carga de trabajo.
+
 .Pasos
 . Verifique el número de días restantes en el período de evaluación:
 +
