@@ -35,7 +35,7 @@ Los sistemas R2 de ASA introducen el uso de unidades de almacenamiento con grupo
 * _Un grupo de consistencia_ es una colección de unidades de almacenamiento que se gestionan como una sola unidad.
 
 
-Los sistemas R2 de ASA utilizan unidades de almacenamiento y grupos de consistencia para simplificar la administración del almacenamiento y la protección de datos. Por ejemplo, suponga que tiene una base de datos que consta de 10 unidades de almacenamiento en un grupo de coherencia y necesita realizar un backup de toda la base de datos. En lugar de realizar un backup de cada unidad de almacenamiento de forma individual, puede proteger toda la base de datos mediante un backup del grupo de coherencia.
+Los sistemas ASA r2 utilizan unidades de almacenamiento con grupos de consistencia para simplificar la administración del almacenamiento y la protección de datos.  Por ejemplo, supongamos que tiene una base de datos que consta de 10 unidades de almacenamiento en un grupo de consistencia y necesita realizar una copia de seguridad de toda la base de datos.  En lugar de realizar una copia de seguridad de cada unidad de almacenamiento individualmente, puede proteger toda la base de datos realizando una copia de seguridad del grupo de consistencia.
 
 Para proteger sus datos contra ataques maliciosos, como robo o ransomware, los sistemas ASA r2 incorporan un administrador de claves, cifrado de doble capa, autenticación multifactor y verificación multiadministrador. Los sistemas ASA r2 secundarios también admiten instantáneas a prueba de manipulaciones.
 
