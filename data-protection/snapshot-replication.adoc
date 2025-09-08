@@ -15,9 +15,13 @@ searchtitle: Replicar snapshots en un clúster remoto mediante el Administrador 
 La replicación de Snapshot es un proceso en el que los grupos de coherencia del sistema ASA R2 se copian a una ubicación geográficamente remota. Tras la replicación inicial, los cambios en los grupos de consistencia se copian en la ubicación remota basada en una política de replicación. Los grupos de consistencia replicados pueden usarse para recuperación ante desastres o migración de datos.
 
 
-NOTE: La replicación de Snapshot para un sistema de almacenamiento R2 de ASA solo es compatible con y desde otro sistema de almacenamiento R2 de ASA. No puede replicar snapshots de un sistema ASA R2 en un sistema ASA, AFF o FAS actual ni de un sistema ASA, AFF o FAS actual en un sistema ASA R2.
+NOTE: La replicación de instantáneas para un sistema de almacenamiento ASA r2 solo se admite hacia y desde otro sistema de almacenamiento ASA r2.  No se pueden replicar instantáneas de un sistema ASA r2 a un sistema ASA, AFF o FAS , ni de un sistema ASA, AFF o FAS a un sistema ASA r2.
 
 Para configurar la replicación de Snapshot, necesita establecer una relación de replicación entre su sistema ASA R2 y la ubicación remota. La relación de replicación se rige por una política de replicación. Se crea una política predeterminada para replicar todas las copias de Snapshot durante la configuración del clúster. Puede utilizar la política predeterminada o, opcionalmente, crear una nueva.
+
+A partir de ONTAP 9.17.1, puede aplicar políticas de replicación asincrónica a grupos de consistencia en una relación jerárquica.  La replicación asincrónica no es compatible con grupos de consistencia en relaciones jerárquicas en ONTAP 9.16.1.
+
+link:manage-hierarchical-consistency-groups.html["Obtenga más información sobre los grupos de consistencia jerárquicos (padre/hijo)"] .
 
 
 
@@ -42,9 +46,11 @@ Ha establecido una relación entre iguales para el clúster R2 de ASA local con 
 
 
 
-== Paso 2: Opcionalmente, cree una política de replicación
+== Paso 2: Opcionalmente, cree una política de replicación personalizada
 
-La política de replicación de Snapshot define cuándo se replican las actualizaciones realizadas en el clúster de ASA R2 en el sitio remoto.
+La política de replicación define cuándo se replican en el sitio remoto las actualizaciones realizadas en el clúster ASA r2.  ONTAP incluye varias políticas de protección de datos predefinidas que puede utilizar para sus relaciones de replicación.  Si las políticas predefinidas no satisfacen sus necesidades, puede crear una política de replicación personalizada.
+
+Conozca más sobrelink:pre-defined-protection-policies.html["políticas de protección de datos de ONTAP predefinidas"] .
 
 .Pasos
 . En System Manager, seleccione *Protección > Políticas*; a continuación, seleccione *Políticas de replicación*.
@@ -93,7 +99,12 @@ Una relación de replicación de Snapshot establece una conexión entre el siste
 Para obtener protección contra ataques de ransomware, cuando se configura la relación de replicación, puede seleccionar bloquear las copias de Snapshot de destino. Las instantáneas bloqueadas no se pueden eliminar accidentalmente ni de forma malintencionada. Puede utilizar snapshots bloqueados para recuperar datos si una unidad de almacenamiento se ve afectada por un ataque de ransomware.
 
 .Antes de empezar
-Si desea bloquear las snapshots de destino, debe link:../secure-data/ransomware-protection.html#initialize-the-snaplock-compliance-clock["Inicialice el reloj de cumplimiento de normativas de instantáneas"]antes de crear la relación de replicación.
+* link:pre-defined-protection-policies.html["Obtenga más información sobre las políticas de replicación"] .
++
+Cuando crea una relación de replicación, debe seleccionar la política de replicación adecuada para su relación de replicación.  Puede utilizar una política predefinida o crear una política personalizada.
+
+* Si desea bloquear las snapshots de destino, debe link:../secure-data/ransomware-protection.html#initialize-the-snaplock-compliance-clock["Inicialice el reloj de cumplimiento de normativas de instantáneas"]antes de crear la relación de replicación.
+
 
 Crear una relación de replicación con o sin snapshots de destino bloqueadas.
 
@@ -149,9 +160,6 @@ El grupo de consistencia _source_ hace referencia al grupo de coherencia en el c
 | Fuentes locales  a| 
 .. Seleccione *Fuentes locales* y, a continuación, seleccione image:icon_replicate_blue_bg.png["rectángulo con fondo azul y la palabra se replican en letras blancas"] .
 .. Busque y seleccione el grupo de coherencia de origen.
-+
-El grupo de consistencia _source_ hace referencia al grupo de coherencia en el clúster local que desea replicar.
-
 .. En *Destino de replicación*, seleccione el clúster en el que desea replicar y, a continuación, seleccione la VM de almacenamiento.
 
 

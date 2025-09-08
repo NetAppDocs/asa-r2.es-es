@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: data-protection/snapmirror-active-sync-break-relationship.html 
+keywords: asa r2, data protection, business continuity, remove, delete, break, relationship, snapmirror active sync, disaster recovery 
+summary: En determinadas situaciones, es posible que sea necesario romper una relación de replicación asincrónica. 
+---
+= Romper una relación de replicación asincrónica en su sistema ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En determinadas situaciones, es posible que sea necesario romper una relación de replicación asincrónica.  Por ejemplo, si está ejecutando ONTAP 9.16.1 y desea aumentar el tamaño de un grupo de consistencia que está en una relación de replicación asincrónica, debe romper la relación antes de poder modificar el tamaño del grupo de consistencia.
+
+.Pasos
+. En System Manager, seleccione *Protección > Replicación*.
+. Seleccione *Destinos locales* o *Fuentes locales*.
+. Junto a la relación que deseas romper, seleccionaimage:icon_kabob.gif["tres puntos verticales azules"] ; luego seleccione *Interrumpir*.
+. Seleccione *Interrumpir*.
+
+
+.Resultado
+La relación asincrónica entre el grupo de consistencia primario y secundario está rota.

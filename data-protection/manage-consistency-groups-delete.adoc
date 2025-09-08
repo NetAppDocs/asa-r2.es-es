@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: data-protection/manage-consistency-groups-delete.html 
+keywords: consistency groups, snapshots, data protection, protect data, add, remove, delete, storage units, lun, namespace 
+summary: Si ya no necesita administrar los miembros de un grupo de consistencia como una sola unidad, puede eliminar el grupo de consistencia. 
+---
+= Eliminar grupos de consistencia en su sistema ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si ya no necesita administrar los miembros de un grupo de consistencia como una sola unidad, puede eliminar el grupo de consistencia.  Después de eliminar un grupo de consistencia, las unidades de almacenamiento que estaban anteriormente en el grupo permanecen activas en el clúster.  Si el grupo de consistencia estaba en una relación de replicación, las copias replicadas permanecen en el clúster remoto.
+
+.Antes de empezar
+Si está ejecutando ONTAP 9.16.1 y el grupo de consistencia que desea eliminar está en una relación de sincronización activa de SnapMirror , debelink:snapmirror-active-sync-delete-relationship.html["eliminar la relación de sincronización activa de SnapMirror"] antes de eliminar el grupo de consistencia.  No es necesario eliminar esta relación antes de modificar un grupo de consistencia en ONTAP 9.17.1 y versiones posteriores.
+
+.Pasos
+. En System Manager, seleccione *Protección > Grupos de consistencia*.
+. Pase el ratón sobre el grupo de consistencia que desea eliminar.
+. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Eliminar*.
+. Acepte la advertencia, luego seleccione *Eliminar*.
+
+
+.El futuro
+Después de eliminar un grupo de coherencia, las unidades de almacenamiento anteriormente en el grupo de coherencia ya no están protegidas por las Snapshot. Considere la posibilidad de añadir estas unidades de almacenamiento a otro grupo de consistencia para protegerlas contra la pérdida de datos.

@@ -1,0 +1,78 @@
+---
+sidebar: sidebar 
+permalink: data-protection/manage-consistency-groups-add-remove-storage-units.html 
+keywords: consistency groups, snapshots, data protection, protect data, add, remove, delete, storage units, lun, namespace, increase capacity, shrink 
+summary: Aumente o disminuya el tamaño de un grupo de consistencia modificando la cantidad de unidades de almacenamiento en el grupo de consistencia. 
+---
+= Modificar el tamaño de los grupos de consistencia en su sistema ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Aumente o disminuya el tamaño de un grupo de consistencia modificando la cantidad de unidades de almacenamiento en el grupo de consistencia.
+
+
+
+== Añada unidades de almacenamiento a un grupo de consistencia
+
+Expanda la cantidad de almacenamiento gestionado por un grupo de consistencia añadiendo unidades de almacenamiento al grupo de consistencia.
+
+Puede agregar unidades de almacenamiento existentes al grupo de consistencia, o bien crear nuevas unidades de almacenamiento para agregarlas al grupo de coherencia.
+
+.Antes de empezar
+Si está ejecutando ONTAP 9.16.1 y el grupo de consistencia que desea expandir está en una relación de sincronización activa de SnapMirror , debelink:snapmirror-active-sync-delete-relationship.html["eliminar la relación de sincronización activa de SnapMirror"] antes de poder agregar unidades de almacenamiento.  Si está ejecutando ONTAP 9.16.1 y el grupo de consistencia está en una relación de replicación asincrónica, debelink:snapmirror-active-sync-break-relationship.html["romper la relación"] antes de poder expandir el grupo de consistencia.  No es necesario eliminar la relación de sincronización activa de SnapMirror ni romper la relación asincrónica antes de expandir un grupo de consistencia en ONTAP 9.17.1 y versiones posteriores.
+
+[role="tabbed-block"]
+====
+.Agregue unidades de almacenamiento existentes
+--
+.Pasos
+. En System Manager, seleccione *Protección > Grupos de consistencia*.
+. Pase el ratón sobre el grupo de consistencia que desea expandir.
+. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Expandir*.
+. Seleccione *Usando unidades de almacenamiento existentes*.
+. Seleccione las unidades de almacenamiento que desea agregar al grupo de consistencia y, a continuación, seleccione *Expandir*.
+
+
+--
+.Añada nuevas unidades de almacenamiento
+--
+.Pasos
+. En System Manager, seleccione *Protección > Grupos de consistencia*.
+. Pase el ratón sobre el grupo de consistencia que desea expandir.
+. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Expandir*.
+. Seleccione *Utilizando nuevas unidades de almacenamiento*.
+. Introduzca la cantidad de unidades que desea crear y la capacidad por unidad.
++
+Si crea más de una unidad, cada unidad se crea con la misma capacidad y el mismo sistema operativo host. Para asignar una capacidad diferente a cada unidad, selecciona *Añadir una capacidad diferente* para asignar una capacidad diferente a cada unidad.
+
+. Seleccione *Expandir*.
+
+
+.Lo siguiente
+Después de crear una nueva unidad de almacenamiento, debe link:../manage-data/provision-san-storage.html#add-host-initiators["añada iniciadores de host"] y link:../manage-data/provision-san-storage.html#map-the-storage-unit-to-a-host["asigne la unidad de almacenamiento recién creada a un host"]. Cuando se añaden iniciadores de host, los hosts son elegibles para acceder a las unidades de almacenamiento y realizar operaciones de datos. La asignación de una unidad de almacenamiento a un host permite que la unidad de almacenamiento comience a servir datos al host al que se asigna.
+
+--
+====
+.El futuro
+Las copias Snapshot existentes del grupo de coherencia no incluirán las unidades de almacenamiento que se acaban de añadir. Se debe link:create-snapshots.html#step-2-create-a-snapshot["cree una instantánea inmediata"]de su grupo de coherencia para proteger las unidades de almacenamiento recién añadidas hasta que se cree automáticamente la siguiente snapshot programada.
+
+
+
+== Quitar una unidad de almacenamiento de un grupo de consistencia
+
+Es necesario quitar una unidad de almacenamiento de un grupo de consistencia si se desea eliminar la unidad de almacenamiento, si se desea gestionarla como parte de un grupo de consistencia diferente o si ya no necesita proteger los datos que contiene. Al quitar una unidad de almacenamiento de un grupo de consistencia, se interrumpe la relación entre la unidad de almacenamiento y el grupo de consistencia, pero no se elimina la unidad de almacenamiento.
+
+.Pasos
+. En System Manager, seleccione *Protección > Grupos de consistencia*.
+. Haga doble clic en el grupo de coherencia del que desea quitar una unidad de almacenamiento.
+. En la sección *Descripción general*, en *Unidades de almacenamiento*, seleccione la unidad de almacenamiento que desea eliminar; luego seleccione *Eliminar del grupo de consistencia*.
+
+
+.Resultado
+La unidad de almacenamiento ya no es miembro del grupo de coherencia.
+
+.El futuro
+Si necesita continuar con la protección de datos para la unidad de almacenamiento, agregue la unidad de almacenamiento a otro grupo de consistencia.

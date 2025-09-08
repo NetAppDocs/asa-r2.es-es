@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: data-protection/pre-defined-protection-policies.html 
+keywords: snapshot replication, asa r2, protect data, data protection, replication, replicate data, remote cluster, destination cluster, source cluster, replication relationship, asynchronous replication, synchronous replication, policy, pre-defined, default, custom, policies 
+summary: La política de replicación define cuándo se replican en el sitio remoto las actualizaciones realizadas en el clúster ASA r2.  ONTAP incluye varias políticas de protección de datos predefinidas que puede utilizar para sus relaciones de replicación. 
+---
+= Conozca las políticas de protección de datos predefinidas de ONTAP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La política de replicación define cuándo las actualizaciones realizadas en el clúster ASA r2 se replican en el sitio remoto.  ONTAP incluye varias políticas de protección de datos predefinidas que puede utilizar para sus relaciones de replicación.
+
+Si las políticas predefinidas no satisfacen sus necesidades, puedelink:snapshot-replication.html#step-2-optionally-create-a-custom-replication-policy["crear una política de replicación personalizada"] .
+
+Los sistemas ASA r2 admiten las siguientes políticas de protección predefinidas.
+
+[cols="3,4,1"]
+|===
+| Política | Descripción | Tipo de póliza 
+
+
+| Asincrónico | Una política asincrónica y de bóveda unificada de SnapMirror para reflejar el último sistema de archivos activo e instantáneas diarias y semanales con un programa de transferencia por hora. | Asincrónico 
+
+
+| Conmutación por error automatizada dúplex | Política para SnapMirror sincrónico con garantía de RTO cero y replicación de sincronización bidireccional. | Sincronización activa de SnapMirror 
+
+
+| Copia de seguridad predeterminada en la nube | Política de bóveda con regla diaria. | Asincrónico 
+
+
+| Copia de seguridad diaria | Política de bóveda con una regla diaria y un cronograma de transferencia diario. | Asincrónico 
+
+
+| DPDefault | Política asincrónica de SnapMirror para reflejar todas las instantáneas y el último sistema de archivos activo. | Asincrónico 
+
+
+| Espejo de todas las instantáneas | Política asincrónica de SnapMirror para reflejar todas las instantáneas y el último sistema de archivos activo. | Asincrónico 
+
+
+| ReflejarTodasLasInstantáneasDescartarRed | Política asincrónica de SnapMirror para reflejar todas las instantáneas y el último sistema de archivos activo, excluidas las configuraciones de red. | Asincrónico 
+
+
+| Espejo y bóveda | Una política asincrónica y de bóveda unificada de SnapMirror para reflejar el último sistema de archivos activo e instantáneas diarias y semanales. | Asincrónico 
+
+
+| Red de descarte de espejo y bóveda | Una política asincrónica y de bóveda unificada de SnapMirror para reflejar el último sistema de archivos activo e instantáneas diarias y semanales, excluidas las configuraciones de red. | Asincrónico 
+
+
+| MirrorLatest | Política asincrónica de SnapMirror para reflejar el último sistema de archivos activo. | Asincrónico 
+
+
+| Unified7year | Política unificada de SnapMirror con retención de 7 años. | Asincrónico 
+
+
+| XDPDefault | Política de bóveda con reglas diarias y semanales. | Asincrónico 
+|===

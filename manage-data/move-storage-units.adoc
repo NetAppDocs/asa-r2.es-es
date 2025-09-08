@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: manage-data/move-storage-units.html 
 keywords: move lun, lun move, move namespace, move storage unit, asa r2 
-summary: Elimine unidades de almacenamiento para reducir la cantidad de almacenamiento físico que necesita o liberar el espacio necesario para otras aplicaciones host. 
+summary: Si una zona de disponibilidad de almacenamiento se está quedando sin espacio, puede mover las unidades de almacenamiento a otra zona de disponibilidad de almacenamiento para equilibrar la utilización del almacenamiento en todo el clúster. 
 ---
 = Mueva unidades de almacenamiento a los sistemas de almacenamiento R2 de ASA
 :allow-uri-read: 

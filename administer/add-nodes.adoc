@@ -11,7 +11,7 @@ summary: Es posible que deba cambiar el nombre de un nodo para alinearlo con las
 
 
 [role="lead"]
-A partir de ONTAP 9.16.1, los sistemas de almacenamiento R2 de ASA admiten hasta 12 nodos por clúster. Después de conectar y encender los nodos nuevos de una pareja de alta disponibilidad, debe unirlos al clúster.
+A partir de ONTAP 9.16.1, los sistemas de almacenamiento ASA r2 admiten hasta 12 nodos por clúster.  Una vez que se hayan cableado y encendido los nuevos nodos de un par HA, es necesario unirlos al clúster.
 
 .Antes de empezar
 Recopile la siguiente información:

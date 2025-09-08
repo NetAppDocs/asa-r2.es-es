@@ -39,7 +39,7 @@ Los sistemas ASA r2 utilizan unidades de almacenamiento con grupos de consistenc
 
 Para proteger sus datos contra ataques maliciosos, como robo o ransomware, los sistemas ASA r2 incorporan un administrador de claves, cifrado de doble capa, autenticación multifactor y verificación multiadministrador. Los sistemas ASA r2 secundarios también admiten instantáneas a prueba de manipulaciones.
 
-Los sistemas R2 de ASA no admiten la combinación de clústeres con los sistemas ASA, AFF o FAS actuales.
+Los sistemas ASA r2 no admiten la combinación de clústeres con sistemas ASA, AFF o FAS .
 
 .Si quiere más información
 * Obtenga más información sobre la compatibilidad con los sistemas ASA R2 y las limitaciones en la link:https://hwu.netapp.com/["NetApp Hardware Universe"^].

@@ -1,0 +1,82 @@
+---
+sidebar: sidebar 
+permalink: data-protection/manage-consistency-groups-add-remove-snapshots.html 
+keywords: consistency groups, snapshots, data protection, protect data, add, remove, delete, storage units, lun, namespace, increase capacity 
+summary: Cree instantáneas de los grupos de consistencia para proteger los datos en las unidades de almacenamiento que forman parte del grupo de consistencia.  Si ya no necesita proteger los datos en ninguna de las unidades de almacenamiento del grupo de consistencia, puede eliminar la protección de instantáneas. 
+---
+= Proteja los grupos de consistencia en su sistema ASA r2 con instantáneas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cree instantáneas de los grupos de consistencia en su sistema de almacenamiento ASA r2 para proteger los datos en las unidades de almacenamiento que forman parte del grupo de consistencia.  Si ya no necesita proteger los datos en ninguna de las unidades de almacenamiento del grupo de consistencia, puede eliminar la protección de instantáneas del grupo de consistencia.
+
+Si ya no necesita proteger los datos de unidades de almacenamiento específicas en el grupo de consistencia, puede eliminar esas unidades de almacenamiento del grupo de consistencia.
+
+
+
+== Añade protección de datos de snapshot a un grupo de coherencia
+
+Cuando se añade la protección de datos Snapshot a un grupo de coherencia, las Snapshot locales del grupo de coherencia se realizan a intervalos regulares de acuerdo con una programación predefinida.
+
+Puede usar instantáneas link:restore-data.html["restaure los datos"]para que estén perdidas o dañadas.
+
+.Pasos
+. En System Manager, seleccione *Protección > Grupos de consistencia*.
+. Pase el ratón sobre el grupo de coherencia que desea proteger.
+. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Editar*.
+. En *Protección local*, selecciona *Programar instantáneas*.
+. Seleccione una política de Snapshot.
++
+Acepte la política de snapshots predeterminada, seleccione una política existente o cree una nueva.
+
++
+[cols="2,6a"]
+|===
+| Opción | Pasos 
+
+
+| Seleccione una política de Snapshot existente  a| 
+image:icon_dropdown_arrow.gif["flecha azul apuntando hacia abajo"]Seleccione junto a la política predeterminada y, a continuación, seleccione la política existente que desea utilizar.
+
+
+
+| Cree una nueva política de snapshots  a| 
+.. Seleccione image:icon_add.gif["signo más azul seguido de la palabra add"]; y, a continuación, introduzca el nuevo nombre de la política.
+.. Seleccione el ámbito de la política.
+.. En *Programaciones* seleccione image:icon_add.gif["signo más azul seguido de la palabra add"].
+.. Seleccione el nombre que aparece bajo *Nombre de horario*;
++
+a continuación, seleccione image:icon_dropdown_arrow.gif["flecha azul apuntando hacia abajo"].
+
+.. Seleccione la programación de políticas.
+.. En *Máximo de instantáneas*, introduzca el número máximo de instantáneas que desea conservar del grupo de consistencia.
+.. Opcionalmente, en *Etiqueta SnapMirror*, introduzca una etiqueta SnapMirror.
+.. Seleccione *Guardar*.
+
+
+|===
+. Seleccione *Guardar*.
+
+
+.El futuro
+Ahora que los datos están protegidos con copias snapshot, debe link:../secure-data/encrypt-data-at-rest.html["configurar la replicación de snapshots"]copiar sus grupos de coherencia en una ubicación geográficamente remota a efectos de backup y recuperación ante desastres.
+
+
+
+== Quite la protección de datos Snapshot de un grupo de coherencia
+
+Cuando se quita la protección de datos Snapshot de un grupo de coherencia, se deshabilitan las Snapshot para todas las unidades de almacenamiento del grupo de coherencia.
+
+.Pasos
+. En System Manager, seleccione *Protección > Grupos de consistencia*.
+. Pase el ratón sobre el grupo de coherencia que desea dejar de proteger.
+. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Editar*.
+. En *Protección local*, deseleccione Programar instantáneas.
+. Seleccione *Editar*.
+
+
+.Resultado
+No se realizarán Snapshot para ninguna de las unidades de almacenamiento del grupo de consistencia.

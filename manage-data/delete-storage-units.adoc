@@ -14,7 +14,7 @@ summary: Elimine unidades de almacenamiento para reducir la cantidad de almacena
 Elimine una unidad de almacenamiento si ya no necesita mantener los datos contenidos en la unidad. Eliminar unidades de almacenamiento que ya no son necesarias puede ayudar a liberar el espacio necesario para otras aplicaciones host.
 
 .Antes de empezar
-Si la unidad de almacenamiento que desea eliminar se encuentra en un grupo de consistencia que está en una relación de replicación, debe link:../data-protection/manage-consistency-groups.html#remove-a-storage-unit-from-a-consistency-group["retire la unidad de almacenamiento del grupo de consistencia"] antes de eliminarla.
+Si la unidad de almacenamiento que desea eliminar está en un grupo de consistencia que está en relación de replicación, debelink:../data-protection/manage-consistency-groups-add-remove-storage-units.html#remove-a-storage-unit-from-a-consistency-group["retire la unidad de almacenamiento del grupo de consistencia"] Antes de borrarlo.
 
 .Pasos
 . En System Manager, seleccione *Almacenamiento*.

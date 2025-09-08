@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: data-protection/snapmirror-active-sync-delete-relationship.html 
+keywords: asa r2, data protection, business continuity, delete, snapmirror active sync, disaster recovery 
+summary: Si ya no necesita RPO y RTO cercanos a cero para una aplicación comercial, puede eliminar la protección de sincronización activa de SnapMirror eliminando la relación de sincronización activa de SnapMirror asociada. 
+---
+= Eliminar una relación de sincronización activa de SnapMirror en su sistema ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si ya no necesita RPO y RTO cercanos a cero para una aplicación comercial, debe eliminar la protección de sincronización activa de SnapMirror eliminando la relación de sincronización activa de SnapMirror asociada.  Si está ejecutando ONTAP 9.16.1 en un sistema ASA r2, es posible que también deba eliminar la relación de sincronización activa de SnapMirror antes de poder realizar ciertos cambios de geometría en los grupos de consistencia en una relación de sincronización activa de SnapMirror .
+
+
+
+== Paso 1: Finalizar la replicación del host
+
+Si el grupo de hosts del clúster de origen se replica en el clúster de destino y los grupos de consistencia de destino se asignan al grupo de hosts replicado, debe finalizar la replicación de host en el clúster de origen antes de poder eliminar la relación de sincronización activa de SnapMirror .
+
+.Pasos
+. En System Manager, seleccione *Host*.
+. Junto a un host que contiene el grupo de hosts que desea dejar de replicar, seleccioneimage:icon_kabob.gif["tres puntos verticales azules"] y luego seleccione *Editar*.
+. Anule la selección de *Replicar configuración de host* y, a continuación, seleccione *Actualizar*.
+
+
+
+
+== Paso 2: Eliminar la relación de sincronización activa de SnapMirror
+
+Para eliminar la protección de sincronización activa de SnapMirror de un grupo de consistencia, debe eliminar la relación de sincronización activa de SnapMirror .
+
+.Pasos
+. En System Manager, seleccione *Protección > Replicación*.
+. Seleccione *Destinos locales* o *Fuentes locales*.
+. Junto a la relación de sincronización activa de SnapMirror que desea eliminar, seleccioneimage:icon_kabob.gif["tres puntos verticales azules"] ; luego seleccione *Eliminar*.
+. Seleccione *Liberar las instantáneas base del grupo de consistencia de origen*.
+. Seleccione *Eliminar*.
+
+
+.Resultado
+Se elimina la relación de sincronización activa de SnapMirror y se liberan las instantáneas base del grupo de consistencia de origen.  Las unidades de almacenamiento del grupo de consistencia ya no están protegidas por la sincronización activa de SnapMirror .
+
+.El futuro
+link:snapshot-replication.html["Configurar la replicación de snapshots"]para copiar el grupo de consistencia a una ubicación geográficamente remota para realizar copias de seguridad y recuperación ante desastres.

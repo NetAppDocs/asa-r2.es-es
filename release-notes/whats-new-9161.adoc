@@ -26,7 +26,7 @@ Descubra las nuevas funcionalidades disponibles en ONTAP 9.16,1 para los sistema
 
 
 | Plataformas  a| 
-Los siguientes sistemas NetApp ASA R2 son compatibles a partir de ONTAP 9.16.1. Estas plataformas ofrecen una solución de hardware y software unificada que crea una experiencia simplificada específica para las necesidades de los clientes de SAN solo.
+Los siguientes sistemas NetApp ASA r2 son compatibles a partir de ONTAP 9.16.1.  Estas plataformas ofrecen una solución unificada de hardware y software que crea una experiencia simplificada específica para las necesidades de los clientes que solo utilizan SAN.
 
 * ASA A50
 * ASA A30

@@ -4,262 +4,32 @@ permalink: data-protection/manage-consistency-groups.html
 keywords: consistency groups, snapshots, data protection, protect data, add, remove, delete, storage units, lun, namespace, increase capacity 
 summary: Use grupos de coherencia para realizar varias acciones a varias unidades de almacenamiento al mismo tiempo en lugar de realizar acciones individualmente en cada unidad. 
 ---
-= Gestionar grupos de consistencia ONTAP en sistemas de almacenamiento R2 de ASA
+= Obtenga información sobre los grupos de consistencia de ONTAP en los sistemas de almacenamiento ASA r2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Un grupo de consistencia es una colección de unidades de almacenamiento que se administran como una sola unidad. Utilice grupos de coherencia para simplificar la gestión del almacenamiento. Por ejemplo, suponga que tiene una base de datos que consta de 10 unidades de almacenamiento en un grupo de coherencia y necesita realizar un backup de toda la base de datos. En lugar de realizar un backup de cada unidad de almacenamiento, puede hacer backups de toda la base de datos simplemente añadiendo la protección de datos Snapshot al grupo de coherencia. Realizar un backup de las unidades de almacenamiento como un grupo de coherencia en lugar de hacerlo individualmente también proporciona un backup coherente de todas las unidades, mientras que realizar un backup individual puede provocar incoherencias.
+Un grupo de consistencia es una colección de unidades de almacenamiento que se administran como una sola unidad.  Utilice grupos de consistencia para una gestión simplificada del almacenamiento.
 
-A partir de ONTAP 9.16.1, se puede usar System Manager para crear grupos de consistencia jerárquicos en el sistema ASA R2. En una estructura jerárquica, uno o varios grupos de consistencia se configuran como secundarios en un grupo de consistencia primario.
+Por ejemplo, supongamos que tiene una base de datos que consta de 10 unidades de almacenamiento en un grupo de consistencia y necesita realizar una copia de seguridad de toda la base de datos. En lugar de realizar una copia de seguridad de cada unidad de almacenamiento, puede realizar una copia de seguridad de toda la base de datos simplemente agregando protección de datos de instantáneas al grupo de consistencia.  Realizar una copia de seguridad de las unidades de almacenamiento como un grupo de consistencia en lugar de hacerlo individualmente también proporciona una copia de seguridad consistente de todas las unidades, mientras que realizar una copia de seguridad de las unidades individualmente podría crear potencialmente inconsistencias.
+
+A partir de ONTAP 9.16.1, puede usar el Administrador del sistema para crear grupos de consistencia jerárquicos en su sistema ASA r2.  En una estructura jerárquica, uno o más grupos de consistencia se configuran como hijos de un grupo de consistencia padre.
 
 Los grupos de coherencia jerárquicos le permiten aplicar políticas Snapshot individuales a cada grupo de coherencia secundario y replicar las snapshots de todos los grupos de coherencia secundarios en un clúster remoto como una sola unidad mediante la replicación del elemento primario. De esta forma se simplifica la protección y la gestión de datos para estructuras de datos complejas. Por ejemplo, suponga que crea un grupo de consistencia primario llamado `SVM1_app` que contiene dos grupos de consistencia secundarios: `SVM1app_data` Para los datos de la aplicación y `SVM1app_logs` para los registros de la aplicación. Se realizan Snapshots de `SVM1app_data` cada 15 minutos y se realizan Snapshots de `SVM1app_logs` cada hora. El grupo de coherencia primario `SVM1_app,` tiene una política SnapMirror que replica las copias Snapshot de `SVM1app_data` tanto como `SVM1app_logs` en un clúster remoto cada 24 horas. El grupo de coherencia primario `SVM1_app` se administra como una unidad única y los grupos de coherencia secundarios se gestionan como unidades independientes.
 
 
 
-== Añade protección de datos de snapshot a un grupo de coherencia
+== Grupos de consistencia en relaciones de replicación
 
-Cuando se añade la protección de datos Snapshot a un grupo de coherencia, las Snapshot locales del grupo de coherencia se realizan a intervalos regulares de acuerdo con una programación predefinida.
+A partir de ONTAP 9.17.1, puede realizar los siguientes cambios de geometría en los grupos de consistencia en una relación de replicación asincrónica o en una relación de sincronización activa de SnapMirror sin interrumpir ni eliminar la relación.  Cuando se produce un cambio de geometría en el grupo de consistencia principal, el cambio se replica en el grupo de consistencia secundario.
 
-Puede usar instantáneas link:restore-data.html["restaure los datos"]para que estén perdidas o dañadas.
+* link:manage-consistency-groups-add-remove-storage-units.html["Modificar el tamaño de una unidad de almacenamiento"]añadiendo o quitando unidades de almacenamiento.
+* link:manage-hierarchical-consistency-groups.html#promote-an-existing-consistency-group-into-a-parent-consistency-group["Promover un único grupo de consistencia"]a un grupo de consistencia padre.
+* link:manage-hierarchical-consistency-groups.html#demote-a-parent-consistency-group-to-a-single-consistency-group["Degradar un grupo de consistencia principal"]a un solo grupo de consistencia.
+* link:manage-hierarchical-consistency-groups.html#detach-a-child-consistency-group-from-a-parent-consistency-group["Separar un grupo de consistencia secundario"]de un grupo de consistencia padre.
+* link:manage-hierarchical-consistency-groups.html#create-a-child-consistency-group["Cree un grupo de consistencia secundario"]utilizando un grupo de consistencia existente.
 
-.Pasos
-. En System Manager, seleccione *Protección > Grupos de consistencia*.
-. Pase el ratón sobre el grupo de coherencia que desea proteger.
-. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Editar*.
-. En *Protección local*, selecciona *Programar instantáneas*.
-. Seleccione una política de Snapshot.
-+
-Acepte la política de snapshots predeterminada, seleccione una política existente o cree una nueva.
 
-+
-[cols="2,6a"]
-|===
-| Opción | Pasos 
-
-
-| Seleccione una política de Snapshot existente  a| 
-image:icon_dropdown_arrow.gif["flecha azul apuntando hacia abajo"]Seleccione junto a la política predeterminada y, a continuación, seleccione la política existente que desea utilizar.
-
-
-
-| Cree una nueva política de snapshots  a| 
-.. Seleccione image:icon_add.gif["signo más azul seguido de la palabra add"]; y, a continuación, introduzca el nuevo nombre de la política.
-.. Seleccione el ámbito de la política.
-.. En *Programaciones* seleccione image:icon_add.gif["signo más azul seguido de la palabra add"].
-.. Seleccione el nombre que aparece bajo *Nombre de horario*;
-+
-a continuación, seleccione image:icon_dropdown_arrow.gif["flecha azul apuntando hacia abajo"].
-
-.. Seleccione la programación de políticas.
-.. En *Máximo de instantáneas*, introduzca el número máximo de instantáneas que desea conservar del grupo de consistencia.
-.. Opcionalmente, en *Etiqueta SnapMirror*, introduzca una etiqueta SnapMirror.
-.. Seleccione *Guardar*.
-
-
-|===
-. Seleccione *Editar*.
-
-
-.El futuro
-Ahora que los datos están protegidos con copias snapshot, debe link:../secure-data/encrypt-data-at-rest.html["configurar la replicación de snapshots"]copiar sus grupos de coherencia en una ubicación geográficamente remota a efectos de backup y recuperación ante desastres.
-
-
-
-== Quite la protección de datos Snapshot de un grupo de coherencia
-
-Cuando se quita la protección de datos Snapshot de un grupo de coherencia, se deshabilitan las Snapshot para todas las unidades de almacenamiento del grupo de coherencia.
-
-.Pasos
-. En System Manager, seleccione *Protección > Grupos de consistencia*.
-. Pase el ratón sobre el grupo de coherencia que desea dejar de proteger.
-. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Editar*.
-. En *Protección local*, deseleccione Programar instantáneas.
-. Seleccione *Editar*.
-
-
-.Resultado
-No se realizarán Snapshot para ninguna de las unidades de almacenamiento del grupo de consistencia.
-
-
-
-== Añada unidades de almacenamiento a un grupo de consistencia
-
-Expanda la cantidad de almacenamiento gestionado por un grupo de consistencia añadiendo unidades de almacenamiento al grupo de consistencia.
-
-Puede agregar unidades de almacenamiento existentes al grupo de consistencia, o bien crear nuevas unidades de almacenamiento para agregarlas al grupo de coherencia.
-
-[role="tabbed-block"]
-====
-.Agregue unidades de almacenamiento existentes
---
-.Pasos
-. En System Manager, seleccione *Protección > Grupos de consistencia*.
-. Pase el ratón sobre el grupo de consistencia que desea expandir.
-. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Expandir*.
-. Seleccione *Usando unidades de almacenamiento existentes*.
-. Seleccione las unidades de almacenamiento que desea agregar al grupo de consistencia y, a continuación, seleccione *Expandir*.
-
-
---
-.Añada nuevas unidades de almacenamiento
---
-.Pasos
-. En System Manager, seleccione *Protección > Grupos de consistencia*.
-. Pase el ratón sobre el grupo de consistencia que desea expandir.
-. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Expandir*.
-. Seleccione *Utilizando nuevas unidades de almacenamiento*.
-. Introduzca la cantidad de unidades que desea crear y la capacidad por unidad.
-+
-Si crea más de una unidad, cada unidad se crea con la misma capacidad y el mismo sistema operativo host. Para asignar una capacidad diferente a cada unidad, selecciona *Añadir una capacidad diferente* para asignar una capacidad diferente a cada unidad.
-
-. Seleccione *Expandir*.
-
-
-.Lo siguiente
-Después de crear una nueva unidad de almacenamiento, debe link:../manage-data/provision-san-storage.html#add-host-initiators["añada iniciadores de host"] y link:../manage-data/provision-san-storage.html#map-the-storage-unit-to-a-host["asigne la unidad de almacenamiento recién creada a un host"]. Cuando se añaden iniciadores de host, los hosts son elegibles para acceder a las unidades de almacenamiento y realizar operaciones de datos. La asignación de una unidad de almacenamiento a un host permite que la unidad de almacenamiento comience a servir datos al host al que se asigna.
-
---
-====
-.El futuro
-Las copias Snapshot existentes del grupo de coherencia no incluirán las unidades de almacenamiento que se acaban de añadir. Se debe link:create-snapshots.html#step-2-create-a-snapshot["cree una instantánea inmediata"]de su grupo de coherencia para proteger las unidades de almacenamiento recién añadidas hasta que se cree automáticamente la siguiente snapshot programada.
-
-
-
-== Quitar una unidad de almacenamiento de un grupo de consistencia
-
-Es necesario quitar una unidad de almacenamiento de un grupo de consistencia si se desea eliminar la unidad de almacenamiento, si se desea gestionarla como parte de un grupo de consistencia diferente o si ya no necesita proteger los datos que contiene. Al quitar una unidad de almacenamiento de un grupo de consistencia, se interrumpe la relación entre la unidad de almacenamiento y el grupo de consistencia, pero no se elimina la unidad de almacenamiento.
-
-.Pasos
-. En System Manager, seleccione *Protección > Grupos de consistencia*.
-. Haga doble clic en el grupo de coherencia del que desea quitar una unidad de almacenamiento.
-. En la sección *Descripción general*, en *Unidades de almacenamiento*, seleccione la unidad de almacenamiento que desea eliminar; luego seleccione *Eliminar del grupo de consistencia*.
-
-
-.Resultado
-La unidad de almacenamiento ya no es miembro del grupo de coherencia.
-
-.El futuro
-Si necesita continuar con la protección de datos para la unidad de almacenamiento, agregue la unidad de almacenamiento a otro grupo de consistencia.
-
-
-
-== Convertir un grupo de consistencia existente en un grupo de consistencia primario
-
-Las unidades de almacenamiento no pueden asociarse directamente con un grupo de coherencia primario. Si convierte un grupo de consistencia existente a un grupo de consistencia primario, se crea un nuevo grupo de consistencia secundario y las unidades de almacenamiento que pertenecen al grupo de consistencia convertido se mueven al nuevo grupo de consistencia secundario.
-
-.Pasos
-. En System Manager, seleccione *Protección > Grupos de consistencia*.
-. Pase el ratón por el grupo de consistencia que desea convertir en un grupo de consistencia primario.
-. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Promocionar al grupo de consistencia primario*.
-. Introduzca un nombre para el grupo de consistencia primario o acepte el nombre predeterminado y, a continuación, seleccione el tipo de componente del grupo de consistencia.
-. Selecciona *Promocionar*.
-
-
-.El futuro
-Puede crear grupos de consistencia secundarios adicionales en el grupo de consistencia primario. También  se puede link:../secure-data/encrypt-data-at-rest.html["configurar la replicación de snapshots"]copiar el grupo de coherencia primario en una ubicación geográficamente remota para backup y recuperación ante desastres.
-
-
-
-== Cree un grupo de consistencia secundario
-
-La creación de grupos de consistencia secundarios le permite aplicar políticas de snapshots individuales a cada secundario al mismo tiempo que aplica una política de replicación a todos los grupos de coherencia secundarios en el nivel principal.
-
-Puede crear un grupo de consistencia secundario a partir de un grupo de consistencia nuevo o existente.
-
-[role="tabbed-block"]
-====
-.Desde un nuevo grupo de consistencia
---
-.Pasos
-. En System Manager, seleccione *Protección > Grupos de consistencia*.
-. Pase el ratón por el grupo de consistencia primario al que desea añadir un grupo de consistencia secundario.
-. Seleccione image:icon_kabob.gif["tres puntos verticales azules"]; y, a continuación, seleccione *Agregar un nuevo grupo de consistencia hijo*.
-. Introduzca un nombre para el grupo de consistencia secundario o acepte el nombre predeterminado y, a continuación, seleccione el tipo de componente del grupo de consistencia.
-. Seleccione esta opción para agregar unidades de almacenamiento existentes al grupo de consistencia hijo o para crear nuevas unidades de almacenamiento.
-+
-Si crea nuevas unidades de almacenamiento, introduzca la cantidad de unidades que desea crear y la capacidad por unidad; a continuación, introduzca la información del host.
-
-+
-Si se crea más de una unidad de almacenamiento, cada unidad se crea con la misma capacidad y el mismo sistema operativo host. Para asignar una capacidad diferente a cada unidad, selecciona *Añadir una capacidad diferente*.
-
-. Seleccione *Agregar*.
-
-
---
-.Desde un grupo de consistencia existente
---
-.Pasos
-. En System Manager, seleccione *Protección > Grupos de consistencia*.
-. Seleccione el grupo de consistencia existente que desea convertir en un grupo de consistencia secundario.
-. Seleccione image:icon_kabob.gif["tres puntos verticales azules"]; y, a continuación, seleccione *Mover bajo grupo de consistencia diferente*.
-+
-Si el grupo de consistencia que desea utilizar como secundario de otro grupo de consistencia, debe desvincularlo del grupo de consistencia primario existente para poder moverlo a un nuevo grupo de consistencia primario.
-
-. Introduzca un nombre nuevo para el grupo de consistencia secundario o acepte el nombre predeterminado y, a continuación, seleccione el tipo de componente del grupo de consistencia.
-. Seleccione el grupo de consistencia existente que desea que sea el grupo de consistencia primario o seleccione para crear un nuevo grupo de consistencia primario.
-+
-Si selecciona crear un nuevo grupo de consistencia primario, introduzca un nombre para el grupo de consistencia primario o acepte el nombre predeterminado y, a continuación, seleccione el tipo de componente de aplicación de consistencia.
-
-. Selecciona *Mover*.
-
-
---
-====
-.El futuro
-Después de crear un grupo de consistencia secundario, puede link:policies-schedules.html#apply-a-snapshot-policy-to-a-consistency-group["aplique políticas de protección de snapshots individuales"] acceder a cada grupo de consistencia secundario. También link:snapshot-replication.html["configure una política de replicación"] puede en el grupo de coherencia primario para replicar las snapshots de todos los grupos de coherencia secundarios en un clúster remoto como una sola unidad.
-
-
-
-== Degrade un grupo de consistencia primario a un grupo de consistencia único
-
-Cuando _degrada_ un grupo de consistencia primario a un solo grupo de consistencia, las unidades de almacenamiento de los grupos de consistencia secundarios asociados se agregan al grupo de consistencia primario. Los grupos de consistencia secundarios se eliminan y el elemento principal se gestiona como un solo grupo de consistencia.
-
-.Pasos
-. En System Manager, seleccione *Protección > Grupos de consistencia*.
-. Pase el ratón por el grupo de consistencia primario que desea degradar.
-. Seleccione image:icon_kabob.gif["tres puntos verticales azules"]; y, a continuación, seleccione *Descender a un único grupo de consistencia*.
-. Selecciona *Descender*
-
-
-.El futuro
-link:policies-schedules.html#apply-a-snapshot-policy-to-a-consistency-group["Añada una política de Snapshot"] al grupo de coherencia degradado para proteger las unidades de almacenamiento que se gestionaron anteriormente por los grupos de coherencia secundarios.
-
-
-
-== Desvincular un grupo de consistencia secundario de un grupo de consistencia primario
-
-Cuando se desvincula un grupo de consistencia secundario de un grupo de consistencia primario, el grupo de consistencia secundario se elimina del grupo de consistencia primario y se gestiona como un único grupo de consistencia. La política de replicación aplicada al elemento principal ya no se aplica al grupo de consistencia secundario desconectado.
-
-.Pasos
-. En System Manager, seleccione *Protección > Grupos de consistencia*.
-. Seleccione el grupo de consistencia primario.
-. Seleccione el grupo de consistencia secundario que desea desvincular.
-. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Desasociar de padre*.
-. Introduzca un nuevo nombre para el grupo de consistencia que desea desvincular o acepte el nombre predeterminado; a continuación, seleccione el tipo de aplicación del grupo de consistencia.
-. Seleccione *Detach*.
-
-
-.El futuro
-link:snapshot-replication.html["Configure una política de replicación"] para replicar las snapshots del grupo de consistencia secundario desconectado en un clúster remoto como un grupo de coherencia único.
-
-
-
-== Eliminar un grupo de consistencia
-
-Si ya no es necesario administrar los miembros de un grupo de consistencia como una sola unidad, puede eliminar el grupo de consistencia. Después de eliminar un grupo de consistencia, las unidades de almacenamiento anteriormente en el grupo siguen activas en el clúster.
-
-.Antes de empezar
-Si el grupo de consistencia que desea eliminar se encuentra en una relación de replicación, debe romper la relación antes de eliminar el grupo de consistencia. Después de eliminar un grupo de consistencia de replicación, las unidades de almacenamiento que estaban en el grupo de consistencia permanecen activas en el clúster y las copias replicadas permanecen en el clúster remoto.
-
-.Pasos
-. En System Manager, seleccione *Protección > Grupos de consistencia*.
-. Pase el ratón sobre el grupo de consistencia que desea eliminar.
-. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Eliminar*.
-. Acepte la advertencia, luego seleccione *Eliminar*.
-
-
-.El futuro
-Después de eliminar un grupo de coherencia, las unidades de almacenamiento anteriormente en el grupo de coherencia ya no están protegidas por las Snapshot. Considere la posibilidad de añadir estas unidades de almacenamiento a otro grupo de consistencia para protegerlas contra la pérdida de datos.
+En ONTAP 9.16.1, debelink:snapmirror-active-sync-break-relationship.html["romper la relación de replicación asincrónica"] ylink:snapmirror-active-sync-delete-relationship.html["eliminar la relación de sincronización activa de SnapMirror"] antes de realizar cambios de geometría en el grupo de consistencia.
