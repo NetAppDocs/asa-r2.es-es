@@ -201,6 +201,9 @@ network interface show -lif iscsi*
 
 Las LIF se pueden deshabilitar o cambiar su nombre según sea necesario. También puede cambiar la dirección IP de LIF y la máscara de subred.
 
+.Acerca de esta tarea
+ONTAP utiliza el Protocolo de tiempo de red (NTP) para sincronizar la hora en todo el clúster. Después de cambiar las direcciones IP de LIF, es posible que deba actualizar la configuración de NTP para evitar fallas de sincronización. Para obtener más información, consulte el artículo de la base de conocimientos.link:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-Issues/CONTAP-500629["La sincronización NTP falla después del cambio de IP de LIF"] .
+
 .Pasos
 . Seleccione *Red > Descripción general* y, a continuación, seleccione *Interfaces de red*.
 . Coloque el cursor sobre la interfaz de red que desea editar y, a continuación, image:icon_kabob.gif["tres puntos verticales azules"]seleccione .
