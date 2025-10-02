@@ -1630,7 +1630,6 @@
   <block id="3214e36fd00eb6d4da6f5d9b64f41cb1" category="sidebar">Gestión de unidades de almacenamiento</block>
   <block id="611bc8bee4d5b03a55be78ab0ca75f66" category="sidebar">Mueva las unidades de almacenamiento</block>
   <block id="ffb5ca95f1d59040ebadb90640b1970b" category="cell"><block ref="ffb5ca95f1d59040ebadb90640b1970b" category="inline-link-macro-rx"></block></block>
-  <block id="07f2a299db43ab53ccb5d7b05918e3fc" category="paragraph">Los sistemas R2 de ASA son compatibles con todos los protocolos SAN (iSCSI, FC, NVMe/FC, NVMe/TCP). Los protocolos iSCSI, FC, NVMe/FC y NVMe/TCP admiten una arquitectura activo-activo simétrica para la multivía, de modo que todas las rutas entre los hosts y el almacenamiento estén activas/optimizadas. Los protocolos iSCSI y NVMe/TCP admiten rutas directas entre los hosts y el almacenamiento.</block>
   <block id="30388d1a3ab1a01f6930553a577eb80b" category="section-title">Compatibilidad con protocolos</block>
   <block id="de67fc8f6fb798124dcbf65615888af5" category="inline-link-macro">Compatibilidad de NVMe para multivía activo-activo simétrico</block>
   <block id="ac187c37acbb455a3ec9ef006a79fdf8" category="cell"><block ref="ac187c37acbb455a3ec9ef006a79fdf8" category="inline-link-macro-rx"></block></block>
@@ -2508,4 +2507,5 @@
   <block id="36bed646725e085252916c3131fbf1b2" category="sidebar">Administrar grupos de consistencia jerárquica</block>
   <block id="e130096a0ace158c7893eedbd19e7115" category="inline-link-macro">La sincronización NTP falla después del cambio de IP de LIF</block>
   <block id="31fea35e33141cfa7edd94a1254d7007" category="paragraph">ONTAP utiliza el Protocolo de tiempo de red (NTP) para sincronizar la hora en todo el clúster. Después de cambiar las direcciones IP de LIF, es posible que deba actualizar la configuración de NTP para evitar fallas de sincronización. Para obtener más información, consulte el artículo de la base de conocimientos.<block ref="eb416b4e77f6226862164baac134c11c" category="inline-link-macro-rx"></block> .</block>
+  <block id="5971035c0734629ac0d154a4b60ca9e9" category="paragraph">Los sistemas ASA r2 admiten todos los protocolos SAN (iSCSI, FC, NVMe/FC, NVMe/TCP).  Los protocolos iSCSI, FC, NVMe/FC y NVMe/TCP admiten una arquitectura activa-activa simétrica para múltiples rutas, de modo que todas las rutas entre los hosts y el almacenamiento estén activas/optimizadas.  Los protocolos iSCSI y NVMe/TCP admiten la conexión directa entre los hosts y el almacenamiento.  Para los protocolos Fibre Channel y NVMe/FC no se admite la conexión directa.</block>
 </blocks>
