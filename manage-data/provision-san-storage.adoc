@@ -34,10 +34,10 @@ Si se crea más de una unidad de almacenamiento, cada unidad se crea con la mism
 . Introduzca la capacidad de la unidad de almacenamiento y seleccione el sistema operativo del host.
 . Acepte el *mapeo de host* seleccionado automáticamente o seleccione un grupo de host diferente para la unidad de almacenamiento a la que se asignará.
 +
-*Asignación de host* se refiere al grupo host al que se asignará la nueva unidad de almacenamiento. Si existe un grupo de hosts preexistente para el tipo de host seleccionado para la nueva unidad de almacenamiento, el grupo de hosts existente se selecciona automáticamente para la asignación de host. Puede aceptar el grupo de hosts que se selecciona automáticamente para la asignación de host o puede seleccionar un grupo de hosts diferente.
+*Mapeo de host* se refiere al grupo de host al que se asignará la nueva unidad de almacenamiento.  Si hay un grupo de host preexistente para el tipo de host que seleccionó para su nueva unidad de almacenamiento, el grupo de host preexistente se selecciona automáticamente para su asignación de host.  Puede aceptar el grupo de host que se selecciona automáticamente o puede seleccionar un grupo de host diferente.
 
 +
-Si no existe ningún grupo de hosts preexistente para los hosts que se ejecutan en el sistema operativo especificado, ONTAP crea automáticamente un nuevo grupo de hosts.
+Si no hay un grupo de host preexistente para los hosts que se ejecutan en el sistema operativo que especificó, ONTAP crea automáticamente un nuevo grupo de host.
 
 . Si desea hacer alguna de las siguientes acciones, seleccione *Más opciones* y complete los pasos requeridos.
 +
@@ -82,11 +82,12 @@ Establecer un rendimiento mínimo e IOPS para una unidad de almacenamiento, gara
 
  a| 
 Cambie el nivel de servicio de rendimiento predeterminado.
-
-Los sistemas R2 de ASA ofrecen dos niveles de rendimiento. El nivel de rendimiento predeterminado es *Extreme*, que es el nivel más alto disponible. Puede reducir el nivel de rendimiento a *Rendimiento*.
  a| 
 .. En *Almacenamiento y optimización*, junto al *Nivel de servicio de rendimiento*, selecciona image:icon_dropdown_arrow.gif["icono de flecha azul apuntando hacia abajo"].
 .. Selecciona *Rendimiento*.
++
+Los sistemas ASA r2 ofrecen dos niveles de rendimiento.  El nivel de rendimiento predeterminado es *Extremo*, que es el nivel más alto disponible.  Puedes bajar el nivel a *Rendimiento*.
+
 
 
 
