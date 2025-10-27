@@ -147,6 +147,13 @@ image::../media/drw_70-90_switched_cluster_cabling_ieops-1657.svg[Cablear las co
 --
 Cree las conexiones del clúster de ONTAP. En el caso de clústeres sin switch, conecte las controladoras entre sí. En el caso de los clústeres con switches, conecte las controladoras a los switches de red de clúster.
 
+[NOTE]
+====
+Los ejemplos de cableado de clúster/HA muestran configuraciones comunes.
+
+Si no ve su configuración aquí, vaya a link:https://hwu.netapp.com["NetApp Hardware Universe"^] para obtener información completa sobre la configuración y la prioridad de las ranuras para cablear su sistema de almacenamiento.
+
+====
 * Cableado de clúster sin conmutación*
 
 Conecte las controladoras entre sí para crear las conexiones del clúster de ONTAP.
@@ -329,6 +336,13 @@ image::../media/drw_isi_a20_switched_2p_25gbe_cabling_ieops-2019.svg[a20 diagram
 --
 Cree las conexiones del clúster de ONTAP. En el caso de clústeres sin switch, conecte las controladoras entre sí. En el caso de los clústeres con switches, conecte las controladoras a los switches de red de clúster.
 
+[NOTE]
+====
+Los ejemplos de cableado de clúster/HA muestran configuraciones comunes.
+
+Si no ve su configuración aquí, vaya a link:https://hwu.netapp.com["NetApp Hardware Universe"^] para obtener información completa sobre la configuración y la prioridad de las ranuras para cablear su sistema de almacenamiento.
+
+====
 * Cableado de clúster sin conmutación*
 
 Conecte las controladoras entre sí para crear las conexiones del clúster de ONTAP.
@@ -537,6 +551,13 @@ image::../media/drw_70-90_network_cabling2_ieops-1655.svg[Cable a red Ethernet 1
 --
 Conecte los puertos del módulo Ethernet o los puertos del módulo Fibre Channel (FC) a la red host.
 
+[NOTE]
+====
+Los ejemplos de cableado de red host muestran configuraciones comunes.
+
+Si no ve su configuración aquí, vaya a link:https://hwu.netapp.com["NetApp Hardware Universe"^] para obtener información completa sobre la configuración y la prioridad de las ranuras para cablear su sistema de almacenamiento.
+
+====
 * Cableado de host Ethernet*
 
 .ASA A30 y ASA A50 con dos módulos de I/O de 40/100 GbE con 2 puertos
@@ -585,6 +606,13 @@ image::../media/drw_isi_a30-50_4p_64gb_fc_1card_cabling_ieops-1924.svg[Cable a s
 --
 Conecte los puertos del módulo Ethernet o los puertos del módulo Fibre Channel (FC) a la red host.
 
+[NOTE]
+====
+Los ejemplos de cableado de red host muestran configuraciones comunes.
+
+Si no ve su configuración aquí, vaya a link:https://hwu.netapp.com["NetApp Hardware Universe"^] para obtener información completa sobre la configuración y la prioridad de las ranuras para cablear su sistema de almacenamiento.
+
+====
 * Cableado de host Ethernet*
 
 .ASA C30 con dos módulos de E/S de 2 puertos 40/100 GbE
