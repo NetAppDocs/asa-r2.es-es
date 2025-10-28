@@ -11,7 +11,7 @@ summary: A partir de ONTAP 9.17.1, ONTAP reequilibra automáticamente las cargas
 
 
 [role="lead"]
-A partir de ONTAP 9.17.1, ONTAP reequilibra automáticamente las cargas de trabajo entre los nodos de un par de alta disponibilidad (HA) del sistema ASA r2 para optimizar el rendimiento. Por ejemplo, si la utilización en un nodo aumenta al 70 % mientras que la de su socio de alta disponibilidad (HA) es solo del 30 %, ONTAP desplaza automáticamente las cargas de trabajo para que la utilización de cada nodo sea más homogénea. Dado que los nodos del par de alta disponibilidad comparten la misma zona de disponibilidad de almacenamiento, el reequilibrio de la carga de trabajo es una operación sin copias que no afecta al rendimiento.
+A partir de ONTAP 9.17.1, ONTAP reequilibra automáticamente las cargas de trabajo entre los nodos de un par de alta disponibilidad (HA) del sistema ASA r2 para un rendimiento óptimo. Por ejemplo, si la utilización del espacio en un nodo aumenta al 70% mientras que la utilización en su socio HA es solo del 30%, ONTAP cambia automáticamente las cargas de trabajo para que la utilización del espacio de cada nodo coincida más estrechamente. Dado que los nodos del par de alta disponibilidad comparten la misma zona de disponibilidad de almacenamiento, el reequilibrio de la carga de trabajo es una operación sin copia que no afecta al rendimiento.
 
 
 
