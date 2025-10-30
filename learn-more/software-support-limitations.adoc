@@ -26,8 +26,6 @@ Cuando se habilita la conmutación por error automática de LIF iSCSI, si se pro
 * MetroCluster
 * Protocolos de objetos
 * ONTAP S3 SnapMirror y API S3
-* SnapMirror (asíncrono y síncrono) al cloud
-* SnapMirror (asíncrono y síncrono) a sistemas R2 no ASA
 
 
 .Los sistemas ASA R2 ofrecen lo siguiente:
@@ -38,6 +36,20 @@ link:../secure-data/ransomware-protection.html["Aprenda a bloquear instantáneas
 * Cifrado de doble capa
 +
 link:../secure-data/encrypt-data-at-rest.html["Aprenda a aplicar el cifrado de doble capa"] A los datos de su sistema ASA R2.
+
+
+
+
+
+== Compatibilidad con la replicación de SnapMirror
+
+La replicación SnapMirror es compatible con los sistemas ASA r2 con las siguientes limitaciones:
+
+* La replicación síncrona de SnapMirror no es compatible.
+* La sincronización activa de SnapMirror solo es compatible entre dos sistemas ASA r2.
+* La replicación asíncrona de SnapMirror solo es compatible entre dos sistemas ASA r2. La replicación asíncrona de SnapMirror no es compatible entre un sistema ASA r2 y un sistema ASA, AFF o FAS o la nube.
++
+Obtenga más información sobrelink:data-protection/pre-defined-protection-policies.html["Políticas de replicación de SnapMirror compatibles con sistemas ASA r2"] .
 
 
 

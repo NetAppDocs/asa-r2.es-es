@@ -60,27 +60,14 @@ Conozca más sobrelink:pre-defined-protection-policies.html["políticas de prote
 +
 Si desea aplicar la política de replicación a todo el clúster, seleccione *Cluster*. Si desea que la política de replicación se aplique solo a las unidades de almacenamiento de una VM de almacenamiento específica, seleccione *Storage VM*.
 
-. Seleccione el *Tipo de política*.
+. Para el *Tipo de política*, seleccione *Asíncrona*.
 +
-[cols="2,6a"]
-|===
-| Opción | Pasos 
 
+NOTE: Con la política asíncrona, los datos se copian al sitio remoto después de escribirse en la fuente. La replicación síncrona no es compatible con los sistemas ASA r2.
 
-| Copie datos en el sitio remoto una vez que se hayan escrito en el origen.  a| 
-.. Selecciona *Asíncrono*.
-.. En *Transferir instantáneas desde el origen*, acepte el programa de transferencia predeterminado o seleccione uno diferente.
-.. Seleccione esta opción para transferir todas las instantáneas o para crear reglas para determinar qué instantáneas desea transferir.
-.. Opcionalmente, habilitar la compresión de red.
-
-
-
-
-| Escribir datos en los sitios de origen y remotos simultáneamente.  a| 
-.. Selecciona *Síncrono*.
-
-
-|===
+. En *Transferir instantáneas desde el origen*, acepte el programa de transferencia predeterminado o seleccione uno diferente.
+. Seleccione esta opción para transferir todas las instantáneas o para crear reglas para determinar qué instantáneas desea transferir.
+. Opcionalmente, habilitar la compresión de red.
 . Seleccione *Guardar*.
 
 
