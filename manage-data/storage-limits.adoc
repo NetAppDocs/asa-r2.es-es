@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: manage-data/storage-limits.html 
 keywords: storage limits, cluster limits, maximum lun size, maximum, nodes per cluster, storage unit size, supported protocols, asa r2, asa a1k, asa a90, asa a70, asa a50, asa a30, asa a20,asa c30 
-summary: Para obtener un rendimiento, configuración y soporte óptimos, debe conocer sus límites de almacenamiento de ASA R2. 
+summary: Para un rendimiento, configuración y soporte óptimos, debe tener en cuenta los límites de almacenamiento de ASA r2. 
 ---
 = Límites de almacenamiento de ASA R2
 :allow-uri-read: 
@@ -11,16 +11,18 @@ summary: Para obtener un rendimiento, configuración y soporte óptimos, debe co
 
 
 [role="lead"]
-Para obtener un rendimiento, configuración y soporte óptimos, debe conocer sus límites de almacenamiento de ASA R2.
+Para un rendimiento, configuración y soporte óptimos, debe tener en cuenta los límites de almacenamiento de ASA r2.
+
+Para obtener una lista completa de los límites de almacenamiento más actuales de ASA R2, consulte link:https://hwu.netapp.com/["NetApp Hardware Universe"^].
 
 Los sistemas ASA r2 admiten los siguientes límites de almacenamiento:
 
 [cols="3"]
 |===
-| Límite máximo | Por par HA | Por grupo 
+|  | Máximo por par HA | Máximo por grupo 
 
 
-| Grupo de consistencia | 256 | 256 
+| Grupos de consistencia | 256 | 256 
 
 
 | Aplicaciones empresariales | 100 | 350 
@@ -32,7 +34,7 @@ Los sistemas ASA r2 admiten los siguientes límites de almacenamiento:
 | Grupos de replicación | 50 | 50 
 
 
-| Tamaño de la zona de disponibilidad de almacenamiento | 2PB | 2 PB 
+| Tamaño de la zona de disponibilidad de almacenamiento | 2 PB | 2 PB 
 
 
 | Unidades de almacenamiento | 10.000 | 30.000 
@@ -44,13 +46,24 @@ Los sistemas ASA r2 admiten los siguientes límites de almacenamiento:
 | Unidades de almacenamiento por grupo de consistencia | 256 | 256 
 
 
+| máquinas virtuales de almacenamiento  a| 
+* 256 (ONTAP 9.18.1 y posteriores)
+* 32 (ONTAP 9.17.1 y versiones anteriores)
+
+ a| 
+* 256 (ONTAP 9.18.1 y posteriores)
+* 32 (ONTAP 9.17.1 y versiones anteriores)
+
+
+
+
 | Máquinas virtuales | 800 | 1200 
 |===
 
 
 == Límites para las relaciones asincrónicas de SnapMirror
 
-Los siguientes límites se aplican a las unidades de almacenamiento y a los grupos de consistencia en una relación de replicación asincrónica de SnapMirror .
+Los siguientes límites se aplican a las unidades de almacenamiento y a los grupos de consistencia en una relación de replicación asincrónica de SnapMirror . Para obtener una lista completa de los límites de almacenamiento más recientes de ASA r2,link:https://hwu.netapp.com/["NetApp Hardware Universe"^] .
 
 [cols="3"]
 |===
@@ -66,7 +79,9 @@ Los siguientes límites se aplican a las unidades de almacenamiento y a los grup
 
 == Límites para la relación de sincronización activa de SnapMirror
 
-Los siguientes límites se aplican a las unidades de almacenamiento y a los grupos de consistencia en una relación de replicación de sincronización activa de SnapMirror .  La sincronización activa de SnapMirror solo es compatible a partir de ONTAP 9.17.1 en clústeres de 2 nodos.
+Los siguientes límites se aplican a las unidades de almacenamiento y a los grupos de consistencia en una relación de replicación de sincronización activa de SnapMirror . La sincronización activa de SnapMirror es compatible a partir de ONTAP 9.17.1 solo en clústeres de dos nodos.  A partir de ONTAP 9.18.1, la sincronización activa de SnapMirror es compatible con clústeres de cuatro nodos.
+
+Para obtener una lista completa de los límites de almacenamiento más recientes de ASA r2,link:https://hwu.netapp.com/["NetApp Hardware Universe"^] .
 
 [cols="2"]
 |===
@@ -78,5 +93,3 @@ Los siguientes límites se aplican a las unidades de almacenamiento y a los grup
 
 | Unidades de almacenamiento | 400 
 |===
-.Si quiere más información
-Para obtener una lista completa de los límites de almacenamiento más actuales de ASA R2, consulte link:https://hwu.netapp.com/["NetApp Hardware Universe"^].

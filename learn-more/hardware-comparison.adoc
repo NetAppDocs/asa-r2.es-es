@@ -12,9 +12,9 @@ searchtitle: Compare los sistemas R2 de ASA con otros sistemas ONTAP
 
 
 [role="lead"]
-Los sistemas ASA r2 ofrecen una solución de hardware y software para entornos exclusivamente SAN basados en plataformas flash. ASA diferencian de otros sistemas ONTAP (ASA, AFF y FAS) en la implementación de su personalidad ONTAP , la capa de almacenamiento y los protocolos compatibles.
+Los sistemas ASA r2 ofrecen una solución de hardware y software para entornos exclusivamente SAN basados ​​en soluciones totalmente flash. ASA diferencian de otros sistemas ONTAP (ASA, AFF y FAS) en la implementación de su personalidad ONTAP , la capa de almacenamiento y los protocolos compatibles.
 
-Las siguientes plataformas de ASA se clasifican como sistemas ASA R2:
+Los siguientes sistemas se clasifican como sistemas ASA r2:
 
 * ASA A1K
 * ASA A90
@@ -99,8 +99,8 @@ Debido a este enfoque automatizado y simplificado para la administración del al
 
 A continuación, se describen las principales diferencias entre los sistemas de ASA R2 y los sistemas FAS, AFF y ASA, relevantes para la interfaz de línea de comandos (CLI) y la API REST DE ONTAP.
 
-.Creación predeterminada de SVM con servicios de protocolo
-Los clústeres nuevos contienen automáticamente una SVM de datos predeterminada con los protocolos SAN habilitados. Los LIF de datos de IP admiten los protocolos iSCSI y NVMe/TCP y utilizan `default-data-blocks` la política de servicio de forma predeterminada.
+.Creación de máquina virtual de almacenamiento predeterminado con servicios de protocolo
+Los nuevos clústeres contienen automáticamente una máquina virtual (VM) de almacenamiento de datos predeterminada con los protocolos SAN habilitados.  Las LIF de datos IP admiten los protocolos iSCSI y NVMe/TCP y utilizan `default-data-blocks` Política de servicio por defecto.
 
 .Creación de volúmenes automática
 La creación de una unidad de almacenamiento (LUN o espacio de nombres) crea automáticamente un volumen desde la zona de disponibilidad de almacenamiento. El resultado es un espacio de nombres común y simplificado. Al eliminar una unidad de almacenamiento, se elimina automáticamente el volumen asociado.

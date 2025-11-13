@@ -1,0 +1,51 @@
+---
+sidebar: sidebar 
+permalink: data-protection/snapshot-reserve-modify.html 
+keywords: asa r2, snapshot reserve, percentage 
+summary: La reserva de instantáneas es la cantidad de espacio en la unidad de almacenamiento reservada específicamente para instantáneas.  Cuando la reserva de instantáneas está configurada con eliminación automática de instantáneas, las instantáneas más antiguas se eliminan automáticamente cuando el espacio utilizado por las instantáneas supera la reserva de instantáneas. 
+---
+= Modificar la reserva de instantáneas en un sistema de almacenamiento ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La reserva de instantáneas es la cantidad de espacio en la unidad de almacenamiento reservada específicamente para instantáneas.  Por defecto, la reserva de instantáneas está configurada en 0%.  A partir de ONTAP 9.18.1, puede modificar la reserva de instantáneas predeterminada de la unidad de almacenamiento y habilitar la eliminación automática de instantáneas.  La eliminación automática de instantáneas está desactivada por defecto.  Cuando se establece un valor de reserva de instantáneas y se habilita la eliminación automática de instantáneas, las instantáneas más antiguas se eliminan automáticamente cuando el espacio utilizado por las instantáneas supera la reserva de instantáneas.  Esto evita que las instantáneas consuman espacio en su unidad de almacenamiento destinado a datos de usuario.
+
+link:snapshot-reserve.html["Obtenga más información sobre la reserva de instantáneas en los sistemas de almacenamiento ASA r2."].
+
+
+
+== Modificar la reserva de instantáneas en las unidades de almacenamiento
+
+Para establecer diferentes valores de reserva de instantáneas, configure cada unidad de almacenamiento individualmente.  Para utilizar el mismo valor para todas las unidades de almacenamiento, modifique la reserva de instantáneas en la máquina virtual de almacenamiento.
+
+.Pasos
+. En System Manager, seleccione *Almacenamiento*.
+. Pase el cursor sobre el nombre de la unidad de almacenamiento para la que desea configurar la reserva de instantáneas.
+. Seleccionarimage:icon_kabob.gif["tres puntos verticales"] , luego seleccione *Editar*.
+. En *Porcentaje de reserva de instantáneas*, introduzca el valor numérico del porcentaje del espacio de la unidad de almacenamiento que desea asignar a las instantáneas.
+. Verifique que esté seleccionada la opción *Eliminar automáticamente las instantáneas antiguas*.
+. Seleccione *Guardar*.
+
+
+.Resultado
+La reserva de instantáneas está configurada en el porcentaje que usted especificó.  Si la cantidad de espacio consumido por las instantáneas alcanza la reserva, las instantáneas más antiguas se eliminan automáticamente.
+
+
+
+== Modificar la reserva de instantáneas en una máquina virtual de almacenamiento
+
+Para establecer la misma reserva de instantáneas para todas las unidades de almacenamiento en una máquina virtual de almacenamiento, aplique el porcentaje deseado a la máquina virtual de almacenamiento. .  Cuando se aplica la reserva de instantáneas a la máquina virtual de almacenamiento, se aplica a todas las unidades de almacenamiento recién creadas dentro de la máquina virtual de almacenamiento.  No se aplica a las unidades de almacenamiento creadas antes de que usted modificara la configuración.
+
+.Pasos
+. En System Manager, seleccione *Clúster > Máquinas virtuales de almacenamiento*; luego seleccione *Configuración*.
+. En *Políticas*, junto a *Instantáneas*, seleccioneimage:icon_kabob.gif["tres puntos verticales"] ; luego seleccione *Establecer/editar valor predeterminado de reserva de instantáneas*.
+. En *Porcentaje de reserva de instantáneas*, introduzca el valor numérico del porcentaje del espacio de la unidad de almacenamiento que desea asignar a las instantáneas.
+. Verifique que esté seleccionada la opción *Eliminar automáticamente las instantáneas antiguas*.
+. Seleccione *Guardar*.
+
+
+.Resultado
+La reserva de instantáneas para las unidades de almacenamiento recién creadas se establece en el porcentaje que usted especificó.  Si la cantidad de espacio consumido por las instantáneas en esas unidades de almacenamiento alcanza la reserva, las instantáneas más antiguas se eliminan automáticamente.

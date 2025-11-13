@@ -12,7 +12,7 @@ searchtitle: Crear snapshots para realizar un backup de sus datos con ONTAP Syst
 
 
 [role="lead"]
-Para realizar un backup de los datos en su sistema ASA R2, tiene que crear una copia Snapshot. Puede usar System Manager de ONTAP para crear una Snapshot manual de una sola unidad de almacenamiento, o para crear un grupo de coherencia y programar Snapshot automáticas de varias unidades de almacenamiento al mismo tiempo.
+Cree una instantánea para realizar una copia de seguridad de los datos en su sistema ASA r2.  Utilice ONTAP System Manager para crear una instantánea manual de una sola unidad de almacenamiento, o para crear un grupo de consistencia y programar instantáneas automáticas de varias unidades de almacenamiento al mismo tiempo.
 
 
 
@@ -22,7 +22,11 @@ Un grupo de consistencia es una colección de unidades de almacenamiento que se 
 
 Cree un grupo de consistencia mediante nuevas unidades de almacenamiento o cree un grupo de consistencia mediante unidades de almacenamiento existentes.
 
-Cuando crea un grupo de coherencia mediante nuevas unidades de almacenamiento, puede asignar una capacidad diferente a cada unidad de almacenamiento, cambiar el nivel de servicio de rendimiento predeterminado y crear hasta cinco grupos de coherencia secundarios. Al crear un grupo de consistencia mediante unidades de almacenamiento existentes, puede agregar unidades de almacenamiento que ya estén en uso.
+A partir de ONTAP 9.18.1, puede configurar el porcentaje de reserva de instantáneas y habilitar la eliminación automática de instantáneas al crear un grupo de consistencia con nuevas unidades de almacenamiento.  La reserva de instantáneas es la cantidad de espacio en la unidad de almacenamiento reservada específicamente para instantáneas.  Cuando la reserva de instantáneas está configurada con eliminación automática de instantáneas, las instantáneas más antiguas se eliminan automáticamente cuando el espacio utilizado por las instantáneas supera la reserva de instantáneas.  Si la reserva de instantáneas y la eliminación automática de instantáneas están habilitadas en un grupo de coherencia principal, se habilitan en todos los grupos de coherencia secundarios existentes.  Si se agregan nuevos grupos de coherencia secundarios, estos no heredan la configuración de reserva de instantáneas ni la configuración de eliminación de instantáneas del grupo principal.
+
+link:snapshot-reserve.html["Obtenga más información sobre la reserva de instantáneas en los sistemas de almacenamiento ASA r2."].
+
+A partir de ONTAP 9.16.1, cuando cree grupos de consistencia utilizando nuevas unidades de almacenamiento, puede configurar hasta cinco grupos de consistencia secundarios. link:manage-hierarchical-consistency-groups.html["Obtenga más información sobre los grupos de consistencia infantil en los sistemas ASA r2."].
 
 [role="tabbed-block"]
 ====
@@ -54,6 +58,17 @@ Cambie el nivel de servicio de rendimiento predeterminado
  a| 
 En *Nivel de servicio de rendimiento*, seleccione un nivel de servicio diferente.
 
+Los sistemas ASA r2 ofrecen dos niveles de rendimiento.  El nivel de rendimiento predeterminado es *Extremo*, que es el nivel más alto disponible.  Puedes reducir el nivel de rendimiento a *Rendimiento*.
+
+
+
+ a| 
+Modifique la reserva de instantáneas predeterminada y habilite la eliminación automática de instantáneas.
+ a| 
+.. En *Porcentaje de reserva de instantáneas*, introduzca el valor numérico del porcentaje del espacio de la unidad de almacenamiento que desea asignar a las instantáneas.
+.. Seleccione *Eliminar automáticamente las instantáneas antiguas*.
+
+
 
 
  a| 
@@ -67,7 +82,7 @@ Seleccione *Agregar grupo de consistencia secundario*.
 
 
 .El futuro
-Creó un grupo de consistencia que contiene las unidades de almacenamiento que desea proteger. Ya está listo para crear una instantánea.
+Has creado un grupo de coherencia que contiene las unidades de almacenamiento que deseas proteger.  Ahora puedes crear una instantánea.
 
 --
 .Utilice las unidades de almacenamiento existentes
@@ -80,7 +95,7 @@ Creó un grupo de consistencia que contiene las unidades de almacenamiento que d
 
 
 .El futuro
-Creó un grupo de consistencia que contiene las unidades de almacenamiento que desea proteger. Ya está listo para crear una instantánea.
+Has creado un grupo de coherencia que contiene las unidades de almacenamiento que deseas proteger.  Ahora puedes crear una instantánea.
 
 --
 ====
@@ -97,7 +112,7 @@ Se puede crear una snapshot bajo demanda de una sola unidad de almacenamiento o 
 
 * Snapshots bajo demanda
 +
-Se puede crear una copia Snapshot bajo demanda de una unidad de almacenamiento en cualquier momento. No es necesario que la unidad de almacenamiento sea miembro de un grupo de coherencia para estar protegida por una copia Snapshot bajo demanda. Si se crea una snapshot bajo demanda de una unidad de almacenamiento que es miembro de un grupo de coherencia, las otras unidades de almacenamiento del grupo de coherencia no se incluyen en la snapshot bajo demanda. Si crea una snapshot bajo demanda de un grupo de coherencia, todas las unidades de almacenamiento del grupo de coherencia se incluyen en la snapshot.
+Puede crear una instantánea bajo demanda de una unidad de almacenamiento en cualquier momento.  La unidad de almacenamiento no necesita pertenecer a un grupo de consistencia para estar protegida por una instantánea bajo demanda.  Si crea una instantánea a petición de una unidad de almacenamiento que es miembro de un grupo de coherencia, las demás unidades de almacenamiento del grupo de coherencia no se incluirán en la instantánea a petición.  Si crea una instantánea bajo demanda de un grupo de consistencia, todas las unidades de almacenamiento del grupo de consistencia se incluirán en la instantánea.
 
 * Snapshots automatizadas
 +

@@ -25,9 +25,9 @@ Después de haber habilitado ARP/AI, debe link:../administer/update-firmware.htm
 
 
 
-== Habilitar ARP/AI en todas las unidades de almacenamiento en una SVM
+== Habilite ARP/AI en todas las unidades de almacenamiento de una máquina virtual de almacenamiento.
 
-Puede habilitar ARP/AI en todas las unidades de almacenamiento creadas en una máquina virtual de almacenamiento (SVM) de forma predeterminada. Esto significa que cualquier nueva unidad de almacenamiento creada en la SVM tendrá ARP/AI habilitado automáticamente. También puede aplicar ARP/AI a las unidades de almacenamiento existentes en la SVM.
+Puede habilitar ARP/AI en todas las unidades de almacenamiento creadas en una máquina virtual de almacenamiento (VM) de forma predeterminada. Esto significa que cualquier nueva unidad de almacenamiento creada en la máquina virtual de almacenamiento tendrá ARP/AI habilitado automáticamente.  También puede aplicar ARP/AI a las unidades de almacenamiento existentes en la máquina virtual de almacenamiento.
 
 .Pasos
 . En el Administrador del sistema, seleccione *Clúster > Máquinas virtuales de almacenamiento*.
@@ -42,13 +42,13 @@ Esto habilita ARP/AI en todas las unidades de almacenamiento futuras creadas en 
 
 
 .Resultado
-Todas las nuevas unidades de almacenamiento que cree en SVM están protegidas contra ataques de ransomware de manera predeterminada y la actividad sospechosa se le informa en el Administrador del sistema.
+Todas las nuevas unidades de almacenamiento que cree en la máquina virtual de almacenamiento están protegidas de forma predeterminada contra ataques de ransomware, y se le informa de cualquier actividad sospechosa en el Administrador del sistema.
 
 
 
-== Habilitar ARP/AI en unidades de almacenamiento específicas en una SVM
+== Habilite ARP/AI en unidades de almacenamiento específicas de una máquina virtual de almacenamiento.
 
-Si no desea que ARP/AI esté habilitado en todas las unidades de almacenamiento en una SVM, puede seleccionar las unidades específicas que desea habilitar.
+Si no desea que ARP/AI esté habilitado en todas las unidades de almacenamiento de una máquina virtual de almacenamiento, puede seleccionar las unidades específicas que desea habilitar.
 
 .Pasos
 . En System Manager, seleccione *Almacenamiento*.

@@ -138,7 +138,7 @@ set -privilege advanced
 +
 [source, cli]
 ----
-network interface service-policy create -vserver <SVM_name> -policy <service_policy_name> -services data-core,data-iscsi
+network interface service-policy create -vserver <storage_VM_name> -policy <service_policy_name> -services data-core,data-iscsi
 ----
 . Verifique que se haya creado la política de servicio:
 +
@@ -158,7 +158,7 @@ set -privilege admin
 
 === Cree LIF solo iSCSI con conmutación por error automática de LIF
 
-Si hay LIF de iSCSI en la SVM que no están habilitados para la conmutación automática al respaldo de LIF, los LIF creados recientemente no se habilitarán para la conmutación automática por error de LIF. Si la recuperación tras fallos automática de LIF no está habilitada y existe un evento de recuperación tras fallos, los LIF de iSCSI no migrarán.
+Si existen LIF iSCSI en la máquina virtual de almacenamiento que no están habilitadas para la conmutación por error automática de LIF, las LIF que cree recientemente tampoco estarán habilitadas para la conmutación por error automática de LIF.  Si la conmutación por error automática de LIF no está habilitada y se produce un evento de conmutación por error, sus LIF iSCSI no migrarán.
 
 .Antes de empezar
 Debe haber creado una política de servicio LIF solo iSCSI personalizada.
@@ -168,7 +168,7 @@ Debe haber creado una política de servicio LIF solo iSCSI personalizada.
 +
 [source, cli]
 ----
-network interface create -vserver <SVM_name> -lif <iscsi_lif_name> -service-policy <service_policy_name> -home-node <home_node> -home-port <port_name> -address <ip_address> -netmask <netmask> -failover-policy sfo-partner-only -status-admin up
+network interface create -vserver <storage_VM_name> -lif <iscsi_lif_name> -service-policy <service_policy_name> -home-node <home_node> -home-port <port_name> -address <ip_address> -netmask <netmask> -failover-policy sfo-partner-only -status-admin up
 ----
 +
 ** Se recomienda crear dos LIF iSCSI en cada nodo, uno para la estructura A y otro para la estructura B. Esto proporciona redundancia y equilibrio de carga para el tráfico iSCSI. En el siguiente ejemplo, se crean cuatro LIF iSCSI: dos en cada nodo y uno para cada estructura.

@@ -1,0 +1,239 @@
+---
+sidebar: sidebar 
+permalink: manage-data/migrate-svm.html 
+keywords: move svm, migrate svm, asa, asa r2, storage vm, storage virtual machine 
+summary: Si una zona de disponibilidad de almacenamiento se está quedando sin espacio, puede mover las unidades de almacenamiento a otra zona de disponibilidad de almacenamiento para equilibrar la utilización del almacenamiento en todo el clúster. 
+---
+= Migrar una máquina virtual de almacenamiento de un clúster ASA a un clúster ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A partir de ONTAP 9.18.1, puede migrar sin interrupciones una máquina virtual (VM) de almacenamiento desde cualquier clúster ASA a cualquier clúster ASA r2.  La migración de un clúster ASA a un clúster ASA r2 le permite adoptar la arquitectura simplificada y optimizada de los sistemas ASA r2 para entornos exclusivamente SAN.
+
+La migración de máquinas virtuales de almacenamiento entre sistemas de almacenamiento ASA y ASA r2 se admite de la siguiente manera:
+
+[cols="2"]
+|===
+| Desde cualquiera de los siguientes sistemas ASA : | A cualquiera de los siguientes sistemas ASA r2: 
+
+
+ a| 
+* ASA C800
+* ASA C400
+* ASA C250
+* ASA A900
+* ASA A800
+* ASA A400
+* ASA A250
+* ASA A150
+* ASA AFF A800
+* ASA AFF A700
+* ASA AFF A400
+* ASA AFF A250
+* ASA AFF A220
+
+ a| 
+* ASA A1K
+* ASA C30
+* ASA A90
+* ASA A70
+* ASA A50
+* ASA A30
+* ASA A20
+
+
+|===
+
+NOTE: Para obtener la lista más actualizada de sistemas ASA y ASA r2, consultelink:https://hwu.netapp.com/["NetApp Hardware Universe"^] .  Los sistemas ASA r2 aparecen en NetApp Hardware Universe como "ASA Serie A/Serie C (Nuevo)".
+
+Solo se puede migrar una máquina virtual de almacenamiento a un clúster ASA r2 desde un clúster ASA .  No se admite la migración desde ningún otro tipo de sistema ONTAP .
+
+.Antes de empezar
+Todos los nodos del clúster ASA r2 y del clúster ASA deben estar ejecutando ONTAP 9.18.1 o posterior.  Las versiones de parches de ONTAP 9.18.1 en los nodos del clúster pueden variar.
+
+
+
+== Paso 1: Verifique el estado de la máquina virtual de almacenamiento ASA.
+
+Antes de migrar una máquina virtual de almacenamiento desde un sistema ASA , no debe haber espacios de nombres NVMe ni vVols presentes y cada volumen en la máquina virtual de almacenamiento debe contener solo un LUN.  No se admite la migración de espacios de nombres NVMe ni de vVols .  La arquitectura de los sistemas ASA r2 requiere que los volúmenes contengan un único LUN.
+
+.Pasos
+. Verifique que no haya espacios de nombres NVMe presentes en la máquina virtual de almacenamiento:
++
+[source, cli]
+----
+vserver nvme namespace show -vserver <storage_VM>
+----
++
+Si se muestran entradas, los objetos NVMe deben serlink:https://docs.netapp.com/us-en/ontap/nvme/convert-namespace-to-lun-task.html["convertido"^] a LUN o eliminados.  Ver el `vserver nvme namespace delete` y el `vserver nvme subsystem delete` comandos en ellink:https://docs.netapp.com/us-en/ontap/concepts/manual-pages.html["Referencia de comandos del ONTAP"^] Para obtener más información.
+
+. Verifique que no haya vVols presentes en la máquina virtual de almacenamiento:
++
+[source, cli]
+----
+lun show -verser <storage_VM> -class protocol-endpoint,vvol
+----
++
+Si existen vVols , deben copiarse a otra máquina virtual de almacenamiento y luego eliminarse de la máquina virtual de almacenamiento que se va a migrar.  Ver el `lun copy` y `lun delete` comandos en ellink:https://docs.netapp.com/us-en/ontap/concepts/manual-pages.html["Referencia de comandos del ONTAP"^] Para obtener más información.
+
+. Verifique que cada volumen en la máquina virtual de almacenamiento contenga un único LUN:
++
+[source, cli]
+----
+lun show -verser <storage_VM>
+----
++
+Si un volumen contiene más de un LUN, utilice el `volume create` y `lun move` comandos para crear una relación volumen-LUN de 1:1. Ver ellink:https://docs.netapp.com/us-en/ontap/concepts/manual-pages.html["Referencia de comandos del ONTAP"^] Para más información.
+
+
+
+.¿Cuál es el siguiente?
+Ya está listo para crear una relación de pares de clúster entre sus clústeres ASA y ASA r2.
+
+
+
+== Paso 2: Cree una relación de pares de clúster entre sus clústeres ASA y ASA r2.
+
+Antes de poder migrar una máquina virtual de almacenamiento de un clúster ASA a un clúster ASA r2, es necesario crear una relación de pares.  Una relación entre pares define las conexiones de red que permiten a los clústeres ONTAP y a las máquinas virtuales de almacenamiento intercambiar datos de forma segura.
+
+.Antes de empezar
+Debe haber creado LIF intercluster en cada nodo de los clústeres que se están interconectando utilizando uno de los siguientes métodos.
+
+* link:https://docs.netapp.com/us-en/ontap/peering/configure-intercluster-lifs-share-data-ports-task.html["Configure las LIF intercluster en los puertos de datos compartidos."^]
+* link:https://docs.netapp.com/us-en/ontap/peering/configure-intercluster-lifs-use-dedicated-ports-task.html["Configure las LIF intercluster en puertos de datos dedicados."^]
+* link:https://docs.netapp.com/us-en/ontap/peering/configure-intercluster-lifs-use-ports-own-networks-task.html["Configurar LIF entre clústeres en espacios IP personalizados"^]
+
+
+.Pasos
+. En el clúster ASA r2, cree una relación de pares con el clúster ASA y genere una contraseña:
++
+[source, cli]
+----
+cluster peer create -peer-addrs <ASA_cluster_LIF_IPs> -generate-passphrase
+----
++
+El siguiente ejemplo crea una relación de pares de clúster entre el clúster 1 y el clúster 2 y crea una contraseña generada por el sistema:
+
++
+[listing]
+----
+cluster1::> cluster peer create -peer-addrs 10.98.191.193 -generate-passphrase
+Passphrase: UCa+6lRVICXeL/gq1WrK7ShR
+            Peer Cluster Name: cluster2
+            Initial Allowed Vserver Peers: -
+            Expiration Time: 6/7/2017 09:16:10 +5:30
+            Intercluster LIF IP: 10.140.106.185
+Warning: make a note of the passphrase - it cannot be displayed again.
+
+----
+. Copie la frase de contraseña generada.
+. En el clúster ASA , cree una relación de pares con el clúster ASA r2:
++
+[source, cli]
+----
+cluster peer create -peer-addrs <ASA_r2_LIF_IPs>
+----
+. Introduzca la contraseña generada en el clúster ASA r2.
+. Verifique que se haya creado la relación de pares del clúster:
++
+[source, cli]
+----
+cluster peer show
+----
++
+El siguiente ejemplo muestra el resultado esperado para clústeres emparejados correctamente.
+
++
+[listing]
+----
+cluster1::> cluster peer show
+
+Peer Cluster Name   Cluster Serial Number   Availability   Authentication
+-----------------   ---------------------   -------------- --------------
+cluster2             1-80-123456             Available      ok
+----
+
+
+.Resultado
+Los clústeres ASA y ASA r2 están interconectados y los datos de las máquinas virtuales de almacenamiento se pueden transferir de forma segura.
+
+.¿Cuál es el siguiente?
+Ya está listo para preparar su máquina virtual de almacenamiento ASA para la migración.
+
+
+
+== Paso 3: Preparar la migración de la máquina virtual de almacenamiento desde un clúster ASA a un clúster ASA r2.
+
+Antes de migrar una máquina virtual (VM) de almacenamiento de un clúster ASA a un clúster ASA r2, debe ejecutar una comprobación previa de la migración y solucionar cualquier problema necesario.  No se puede realizar la migración hasta que la comprobación previa se supere correctamente.
+
+.Paso
+. Desde su clúster ASA r2, ejecute la comprobación previa de la migración:
++
+[source, cli]
+----
+vserver migrate start -vserver <storage_VM> -source-cluster <asa_cluster> -check-only true
+----
++
+Si necesita solucionar algún problema para preparar su clúster ASA para la migración, se mostrarán el problema y la acción correctiva.  Solucione el problema y repita la comprobación previa hasta que se complete correctamente.
+
+
+
+.¿Cuál es el siguiente?
+Ya está listo para migrar su máquina virtual de almacenamiento desde su clúster ASA a un clúster ASA r2.
+
+
+
+== Paso 4: Migrar una máquina virtual de almacenamiento ASA a un clúster ASA r2
+
+Una vez que haya preparado su clúster ASA y creado la relación de pares de clúster necesaria con el clúster ASA r2, puede comenzar la migración de la máquina virtual de almacenamiento.
+
+Al realizar una migración de máquina virtual de almacenamiento, es una buena práctica dejar un 30 % de margen de CPU tanto en el clúster ASA como en el clúster ASA r2 para permitir que se ejecute la carga de trabajo de la CPU.
+
+.Acerca de esta tarea
+Tras la migración de la máquina virtual de almacenamiento, los clientes se conectan automáticamente al clúster ASA r2 y la máquina virtual de almacenamiento del clúster ASA se elimina automáticamente.  La conmutación automática y la eliminación automática de máquinas virtuales de almacenamiento están habilitadas de forma predeterminada.  Opcionalmente, puede deshabilitarlos ambos y realizar el cambio y la eliminación de la máquina virtual de almacenamiento manualmente.
+
+.Antes de empezar
+* El clúster ASA r2 debe tener suficiente espacio libre para alojar la máquina virtual de almacenamiento migrada.
+* Si la máquina virtual de almacenamiento ASA contiene volúmenes cifrados, el administrador de claves integrado o el administrador de claves externo en el sistema ASA r2 debe configurarse a nivel de clúster.
+* Las siguientes operaciones no pueden ejecutarse en el clúster ASA de origen:
++
+** Operaciones de conmutación por error
+** WAFLIRON
+** Huella dactilar
+** Transferencia de volumen, rehosting, clonación, creación, conversión o análisis
+
+
+
+
+.Pasos
+. Desde el clúster ASA r2, inicie la migración de la máquina virtual de almacenamiento:
++
+[source, cli]
+----
+vserver migrate start -vserver <storage_VM_name> -source-cluster <ASA_cluster>
+----
++
+Para desactivar el cambio automático, utilice el `-auto-cutover false` parámetro.  Para deshabilitar la eliminación automática de la máquina virtual de almacenamiento ASA , utilice el `-auto-source-cleanup false` parámetro.
+
+. Supervisar el estado de la migración
++
+[source, cli]
+----
+vserver migrate show -vserver <storage_VM_name>
+----
++
+Cuando la migración esté completa, el *estado* se mostrará como *migración completada*.
+
+
+
+
+NOTE: Si necesita pausar o cancelar la migración antes de que comience el cambio automático, utilice la siguiente opción: `vserver migrate pause` y el `vserver migrate abort` comandos.  Debes pausar la migración antes de cancelarla.  No se puede cancelar la migración una vez que haya comenzado el cambio.
+
+.Resultado
+La máquina virtual de almacenamiento se migra del clúster ASA al clúster ASA r2.  El nombre y el UUID de la máquina virtual de almacenamiento, el nombre de la LIF de datos, la dirección IP y los nombres de los objetos, como el nombre del volumen, permanecen sin cambios.  Se actualiza el UUID de los objetos migrados en la máquina virtual de almacenamiento.
+
+.¿Cuál es el siguiente?
+Si deshabilitaste la conmutación automática y la eliminación automática de máquinas virtuales de almacenamiento,link:svm-post-migrate-cutover-cleanup.html["Migre manualmente sus clientes ASA a su clúster ASA r2 y elimine la máquina virtual de almacenamiento del clúster ASA."] .

@@ -1,0 +1,68 @@
+---
+sidebar: sidebar 
+permalink: release-notes/whats-new-9181.html 
+keywords: 'what"s new, release notes, 9.18.1, asa r2, asa a1k, asa a90, asa a70, asa a50, asa a30, asa a20' 
+summary: Conozca las nuevas capacidades disponibles en ONTAP 9.18.1 para sistemas ASA r2. 
+---
+= Novedades de ONTAP 9.18.1 para sistemas ASA r2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Conozca las nuevas capacidades disponibles en ONTAP 9.18.1 para sistemas ASA r2.
+
+
+
+== Protección de datos
+
+[cols="2,4"]
+|===
+| Actualizar | Descripción 
+
+
+| link:../data-protection/snapmirror-active-sync.html["Mayor compatibilidad con configuraciones de sincronización activa de SnapMirror"] | Se amplía la compatibilidad con la sincronización activa de SnapMirror de clústeres de dos nodos a clústeres de cuatro nodos. 
+|===
+
+
+== Redes
+
+[cols="2,4"]
+|===
+| Actualizar | Descripción 
+
+
+| link:../secure-data/iscsi-nvme-tcp-connections.html["Descarga de hardware de IPsec Compatibilidad con IPv6"] | La compatibilidad con la descarga de hardware de IPsec se extiende a IPv6. 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#fips-compliance["Algoritmos PQC de OpenSSL"] | ONTAP admite algoritmos criptográficos de computación post-cuántica para SSL.  Estos algoritmos proporcionan protección adicional contra posibles ataques futuros de computación cuántica y están disponibles cuando el modo SSL FIPS está desactivado. 
+|===
+
+
+== Migración de datos SAN
+
+[cols="2,4"]
+|===
+| Actualizar | Descripción 
+
+
+| link:../manage-data/migrate-svm.html["Compatibilidad con la migración de máquinas virtuales de almacenamiento"] | Puede migrar sin interrupciones una máquina virtual (VM) de almacenamiento de un clúster ASA a un clúster ASA r2.  Esto permite que las cargas de trabajo en bloque se trasladen a sistemas ASA r2 preservando la integridad de los datos y garantizando que no haya impacto en las aplicaciones.  El proceso de migración está diseñado para mantener las asignaciones de host y las configuraciones LUN existentes, reduciendo el esfuerzo operativo y el riesgo durante la migración. 
+|===
+
+
+== Eficiencia del almacenamiento
+
+[cols="2,4"]
+|===
+| Actualizar | Descripción 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#san-protocols["Compatibilidad con la descarga de copia NVMe"] | La descarga de copia NVMe permite que un host NVMe descargue las operaciones de copia de su CPU a la CPU del controlador de almacenamiento ONTAP .  El host puede copiar datos de un espacio de nombres NVMe a otro, reservando sus recursos de CPU para las cargas de trabajo de las aplicaciones. 
+
+
+| link:../data-protection/snapshot-reserve-modify.html["Compatibilidad con la modificación de la reserva de instantáneas y la eliminación automática de instantáneas."] | Puede modificar la reserva de instantáneas y habilitar la eliminación automática de instantáneas para limitar la cantidad de espacio utilizado para las instantáneas en sus unidades de almacenamiento ASA r2.  Cuando la reserva de instantáneas está configurada con eliminación automática de instantáneas, las instantáneas más antiguas se eliminan automáticamente cuando el espacio utilizado por las instantáneas supera la reserva de instantáneas.  Esto evita interrupciones en la aplicación al impedir que las instantáneas consuman espacio en su unidad de almacenamiento destinado a datos de usuario. 
+|===

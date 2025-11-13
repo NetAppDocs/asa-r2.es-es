@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: data-protection/snapshot-reserve.html 
+keywords: asa r2, snapshot reserve, percentage 
+summary: La reserva de instantáneas es la cantidad de espacio en la unidad de almacenamiento reservada específicamente para instantáneas.  Cuando la reserva de instantáneas está configurada con eliminación automática de instantáneas, las instantáneas más antiguas se eliminan automáticamente cuando el espacio utilizado por las instantáneas supera la reserva de instantáneas. 
+---
+= Obtenga información sobre la reserva de instantáneas de ONTAP en el almacenamiento ASA r2.
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La reserva de instantáneas es la cantidad de espacio en la unidad de almacenamiento reservada específicamente para instantáneas.  Cuando la reserva de instantáneas está configurada con eliminación automática de instantáneas, las instantáneas más antiguas se eliminan automáticamente cuando el espacio utilizado por las instantáneas supera la reserva de instantáneas.  Esto evita que las instantáneas consuman espacio en su unidad de almacenamiento destinado a datos de usuario.
+
+La reserva instantánea se establece como un porcentaje del tamaño total de la unidad de almacenamiento.  Por ejemplo, si la unidad de almacenamiento es de 50 GB y se configura la reserva de instantáneas en un 10 %, la cantidad de espacio reservado para instantáneas es de 5 GB.  Cuando la cantidad de espacio utilizado por las instantáneas alcanza los 5 GB, las instantáneas más antiguas se eliminan automáticamente para dejar espacio para las nuevas.  Si el tamaño de la unidad de almacenamiento aumenta a 100 GB, entonces la reserva de instantáneas aumenta a 10 GB.  La reserva máxima de instantáneas que puedes configurar es del 200%.  Si su unidad de almacenamiento crece hasta el tamaño máximo de 128 TB, una reserva de instantáneas del 200 % le permite tomar 2 instantáneas completas.
+
+Por defecto, la reserva de instantáneas está configurada en 0% y la eliminación automática de instantáneas no está habilitada.
+
+A partir de ONTAP 9.18.1, puede modificar la reserva de instantáneas predeterminada durante o después de la creación de unidades de almacenamiento y durante la creación de grupos de consistencia.  También puede modificar la reserva de instantáneas predeterminada en las máquinas virtuales (VM) de almacenamiento existentes.  En ONTAP 9.17.1 y versiones anteriores, no se pueden modificar estos ajustes.
+
+La reserva de instantánea se establece en el mismo porcentaje para todas las unidades de almacenamiento en un grupo de consistencia en el momento en que se crea el grupo de consistencia.  La reserva de instantánea debe configurarse individualmente en cualquier unidad de almacenamiento que se agregue posteriormente.

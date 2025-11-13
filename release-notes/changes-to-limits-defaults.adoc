@@ -25,6 +25,12 @@ Obtenga más información sobre los cambios en los límites y valores predetermi
 | Función | Cambio de límite | Cambiado en la versión... 
 
 
+| Máquinas virtuales de almacenamiento por clúster | El número máximo de máquinas virtuales (VM) de almacenamiento admitidas por par HA se incrementa de 32 a 256. | ONTAP 9.18.1 
+
+
+| Sincronización activa de SnapMirror | Se amplía la compatibilidad con la sincronización activa de SnapMirror de clústeres de dos nodos a clústeres de cuatro nodos. | ONTAP 9.18.1 
+
+
 | Nodos por clúster  a| 
 El número máximo de nodos por clúster ha aumentado de 2 a 12.
 

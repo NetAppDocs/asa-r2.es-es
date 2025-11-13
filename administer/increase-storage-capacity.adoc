@@ -17,12 +17,12 @@ Añada unidades a un nodo o bandeja para aumentar la capacidad de almacenamiento
 
 == Utilice NetApp Hardware Universe para preparar la instalación de una unidad nueva
 
-Antes de instalar una unidad nueva en un nodo o bandeja, utilice NetApp Hardware Universe para confirmar que la unidad que desea añadir es compatible con la plataforma ASA R2 y para identificar la ranura correcta para la unidad nueva. Las ranuras correctas para añadir unidades varían según el modelo de plataforma y la versión de ONTAP. En algunos casos, es necesario añadir unidades a ranuras específicas en secuencia.
+Antes de instalar una nueva unidad en un nodo o estante, utilice NetApp Hardware Universe para confirmar que la unidad que desea agregar es compatible con su sistema ASA r2 e identificar la ranura correcta para la nueva unidad.  Las ranuras correctas para agregar unidades varían según el modelo del sistema y la versión de ONTAP .  En algunos casos, es necesario agregar las unidades a ranuras específicas en secuencia.
 
 .Pasos
 . Vaya a la link:https://hwu.netapp.com/["NetApp Hardware Universe"^].
 . En *Productos*, selecciona tus configuraciones de hardware.
-. Seleccione su plataforma ASA R2.
+. Seleccione su sistema ASA r2.
 . Seleccione su versión de ONTAP; luego seleccione *Mostrar resultados*.
 . Debajo del gráfico, selecciona *Haga clic aquí para ver vistas alternativas*; luego elige la vista que coincida con tu configuración.
 . Utilice la vista de su configuración para confirmar que la unidad nueva es compatible y la ranura correcta para la instalación.
@@ -42,7 +42,7 @@ Debe repetir los pasos de este procedimiento con cada unidad.
 
 .Pasos
 . Puesta a tierra apropiadamente usted mismo.
-. Retire con cuidado el bisel de la parte delantera de la plataforma.
+. Retire con cuidado el bisel de la parte frontal del sistema.
 . Inserte la nueva unidad en la ranura correcta.
 +
 .. Con la palanca de leva en posición abierta, utilice ambas manos para insertar la nueva transmisión.

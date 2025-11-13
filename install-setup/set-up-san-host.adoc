@@ -17,7 +17,7 @@ Se recomienda utilizar dos o más switches para conectar el sistema de almacenam
 
 Se recomiendan configuraciones de multired u estructura (aquellas que utilicen dos o más switches) porque proporcionan redundancia tanto en la capa del switch como en la de almacenamiento. Esta redundancia hace que su sistema de almacenamiento sea más tolerante a fallos y proporciona soporte para operaciones no disruptivas.
 
-La siguiente ilustración es un ejemplo de una configuración de FC con varios hosts utilizando dos estructuras para acceder a un único par de alta disponibilidad. Los números de puerto de destino FC (0C, 0d, 1a, 1b) también son ejemplos. Los números de puerto reales varían en función del modelo de la plataforma y de si utiliza adaptadores de expansión.
+La siguiente ilustración es un ejemplo de una configuración FC con múltiples hosts que utilizan dos fabrics para acceder a un único par HA.  Los números de puerto de destino FC (0c, 0d, 1a, 1b) también son ejemplos.  Los números de puerto reales varían según el modelo de su sistema y si está utilizando adaptadores de expansión.
 
 image::multi-fabric-san-configuration.png[Dos estructuras FC que conectan varios hosts a un único par de alta disponibilidad]
 

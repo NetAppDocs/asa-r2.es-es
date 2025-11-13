@@ -17,9 +17,23 @@ Aumente o disminuya el tamaño de un grupo de consistencia modificando la cantid
 
 == Añada unidades de almacenamiento a un grupo de consistencia
 
-Expanda la cantidad de almacenamiento gestionado por un grupo de consistencia añadiendo unidades de almacenamiento al grupo de consistencia.
+Amplíe la cantidad de almacenamiento administrado por un grupo de consistencia agregando unidades de almacenamiento nuevas o existentes al grupo de consistencia.
 
-Puede agregar unidades de almacenamiento existentes al grupo de consistencia, o bien crear nuevas unidades de almacenamiento para agregarlas al grupo de coherencia.
+A partir de ONTAP 9.18.1, puede configurar la reserva de instantáneas y la eliminación automática de instantáneas para limitar la cantidad de espacio utilizado por las instantáneas en sus unidades de almacenamiento.  Cuando se agrega una unidad de almacenamiento a un grupo de consistencia existente, la reserva de instantáneas y la eliminación automática de instantáneas se configuran de la siguiente manera de forma predeterminada.
+
+[cols="3"]
+|===
+| Si añades... | El porcentaje de reserva de instantánea está configurado en... | La eliminación automática de instantáneas es... 
+
+
+| Nuevas unidades de almacenamiento | 0 | Desactivado 
+
+
+| Unidades de almacenamiento existentes | Sin alterar | Sin alterar 
+|===
+Puede modificar la configuración predeterminada de las nuevas unidades de almacenamiento al crearlas.  También puedeslink:snapshot-reserve-modify.html["modificar las unidades de almacenamiento existentes"] para actualizar su configuración actual.
+
+link:snapshot-reserve.html["Obtenga más información sobre la reserva de instantáneas en los sistemas de almacenamiento ASA r2."].
 
 .Antes de empezar
 Si está ejecutando ONTAP 9.16.1 y el grupo de consistencia que desea expandir está en una relación de sincronización activa de SnapMirror , debelink:snapmirror-active-sync-delete-relationship.html["eliminar la relación de sincronización activa de SnapMirror"] antes de poder agregar unidades de almacenamiento.  Si está ejecutando ONTAP 9.16.1 y el grupo de consistencia está en una relación de replicación asincrónica, debelink:snapmirror-active-sync-break-relationship.html["romper la relación"] antes de poder expandir el grupo de consistencia.  No es necesario eliminar la relación de sincronización activa de SnapMirror ni romper la relación asincrónica antes de expandir un grupo de consistencia en ONTAP 9.17.1 y versiones posteriores.
@@ -46,7 +60,7 @@ Si está ejecutando ONTAP 9.16.1 y el grupo de consistencia que desea expandir e
 . Seleccione *Utilizando nuevas unidades de almacenamiento*.
 . Introduzca la cantidad de unidades que desea crear y la capacidad por unidad.
 +
-Si crea más de una unidad, cada unidad se crea con la misma capacidad y el mismo sistema operativo host. Para asignar una capacidad diferente a cada unidad, selecciona *Añadir una capacidad diferente* para asignar una capacidad diferente a cada unidad.
+Si crea más de una unidad, cada unidad se creará con la misma capacidad y el mismo sistema operativo host.  Para asignar una capacidad diferente a cada unidad, seleccione *Agregar una capacidad diferente* para asignar una capacidad diferente a cada unidad.
 
 . Seleccione *Expandir*.
 
@@ -63,7 +77,7 @@ Las copias Snapshot existentes del grupo de coherencia no incluirán las unidade
 
 == Quitar una unidad de almacenamiento de un grupo de consistencia
 
-Es necesario quitar una unidad de almacenamiento de un grupo de consistencia si se desea eliminar la unidad de almacenamiento, si se desea gestionarla como parte de un grupo de consistencia diferente o si ya no necesita proteger los datos que contiene. Al quitar una unidad de almacenamiento de un grupo de consistencia, se interrumpe la relación entre la unidad de almacenamiento y el grupo de consistencia, pero no se elimina la unidad de almacenamiento.
+Elimine una unidad de almacenamiento de un grupo de consistencia para borrarla, administrarla como parte de un grupo de consistencia diferente o dejar de proteger sus datos.  Eliminar una unidad de almacenamiento de un grupo de consistencia rompe la relación entre la unidad de almacenamiento y el grupo de consistencia, pero no elimina la unidad de almacenamiento.
 
 .Pasos
 . En System Manager, seleccione *Protección > Grupos de consistencia*.

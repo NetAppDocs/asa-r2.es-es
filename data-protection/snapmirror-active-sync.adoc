@@ -18,7 +18,7 @@ Si bien los procedimientos del Administrador del sistema para configurar la sinc
 link:../learn-more/hardware-comparison.html#personality-differences["Conozca más sobre las personalidades de ONTAP"] .
 
 
-NOTE: Para los sistemas ASA r2, la sincronización activa de SnapMirror solo se admite en configuraciones de clúster de dos nodos.
+NOTE: A partir de ONTAP 9.18.1, la sincronización activa de SnapMirror es compatible con configuraciones de cuatro nodos.  En ONTAP 9.17.1, la sincronización activa de SnapMirror solo es compatible con configuraciones de dos nodos.
 
 link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html["Obtenga más información sobre la sincronización activa de SnapMirror"^] .
 

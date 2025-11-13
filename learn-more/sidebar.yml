@@ -12,5 +12,5 @@ entries:
     url: "/learn-more/cli-support.html"
   - title: Soporte PARA API REST
     url: "/learn-more/rest-api-support.html"
-  - title: Compatibilidad con funciones comunes de ONTAP
-    url: "/learn-more/additional-supported-ontap-features.html"
+- title: Compatibilidad con funciones comunes de ONTAP
+  url: "/learn-more/additional-supported-ontap-features.html"

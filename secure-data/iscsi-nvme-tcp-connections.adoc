@@ -17,11 +17,37 @@ Para los sistemas ASA R2, IPsec está disponible para hosts iSCSI y NVMe/TCP.
 
 En ciertos sistemas ASA R2, varias de las operaciones criptográficas, como el cifrado y las comprobaciones de integridad, pueden descargarse a una tarjeta de controladora de interfaz de red (NIC) compatible. El rendimiento de las operaciones descargadas en la tarjeta NIC es aproximadamente del 5% o menos. Esto puede mejorar significativamente el rendimiento y el rendimiento del tráfico de red protegido por IPsec.
 
-Se admiten las siguientes tarjetas NIC para la descarga de hardware en los sistemas ASA R2 siguientes:
+A partir de ONTAP 9.18.1, la descarga de hardware de IPsec compatible se extiende al tráfico IPv6.
 
-[cols="2"]
+Las siguientes tarjetas NIC son compatibles con la descarga de hardware en los siguientes sistemas ASA r2 y versiones de ONTAP :
+
+[cols="3"]
 |===
-| Tarjeta NIC compatible | Sistemas ASA r2 
+| Tarjeta NIC compatible | Sistemas ASA r2 | Versión ONTAP 
+
+
+ a| 
+X50135A (controlador Ethernet 2p, 40G/100G)
+ a| 
+* ASA A1K
+* ASA A90
+* ASA A70
+
+ a| 
+ONTAP 9.17.1 y posteriores
+
+
+
+ a| 
+X60135A (controlador Ethernet 2p, 40G/100G)
+ a| 
+* ASA A50
+* ASA A30
+* ASA A20
+
+ a| 
+ONTAP 9.17.1 y posteriores
+
 
 
  a| 
@@ -31,6 +57,8 @@ X50131A - (controlador Ethernet 2P, 40G/100g/200g/400G)
 * ASA A90
 * ASA A70
 
+ a| 
+ONTAP 9.16.1 y posteriores
 
 
 
@@ -41,7 +69,11 @@ X60132A - (controlador Ethernet 4p, 10G/25G)
 * ASA A30
 * ASA A20
 
+ a| 
+ONTAP 9.16.1 y posteriores
 
 |===
+Ver ellink:https://hwu.netapp.com/["NetApp Hardware Universe"^] Para obtener más información sobre los sistemas y tarjetas compatibles.
+
 .El futuro
-link:https://docs.netapp.com/us-en/ontap/networking/ipsec-configure.html["Configure la seguridad IP para la red ONTAP"]
+IPsec se configura en su sistema ASA r2 de la misma manera que en otros sistemas ONTAP . Para obtener más información, consulte link:https://docs.netapp.com/us-en/ontap/networking/ipsec-prepare.html["Prepárese para configurar la seguridad IP para la red ONTAP."^].

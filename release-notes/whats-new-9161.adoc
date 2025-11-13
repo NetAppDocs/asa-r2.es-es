@@ -18,15 +18,15 @@ Descubra las nuevas funcionalidades disponibles en ONTAP 9.16,1 para los sistema
 
 
 
-== Plataformas
+== Sistemas
 
 [cols="2,4"]
 |===
 | Actualizar | Descripción 
 
 
-| Plataformas  a| 
-Los siguientes sistemas NetApp ASA r2 son compatibles a partir de ONTAP 9.16.1.  Estas plataformas ofrecen una solución unificada de hardware y software que crea una experiencia simplificada específica para las necesidades de los clientes que solo utilizan SAN.
+| Sistemas  a| 
+Los siguientes sistemas NetApp ASA r2 son compatibles a partir de ONTAP 9.16.1. Estos sistemas ofrecen una solución unificada de hardware y software que crea una experiencia simplificada específica para las necesidades de los clientes que solo utilizan SAN.
 
 * ASA A50
 * ASA A30
@@ -72,7 +72,7 @@ Los siguientes sistemas NetApp ASA r2 son compatibles a partir de ONTAP 9.16.1. 
 | link:../learn-more/hardware-comparison.html["Soporte para reequilibrio automático de unidades de almacenamiento"] | ONTAP reequilibrará de forma automática las unidades de almacenamiento en sus zonas de disponibilidad de almacenamiento con el fin de optimizar el rendimiento y la utilización de la capacidad. 
 
 
-| De forma predeterminada, la desasignación del espacio NVMe está habilitada  a| 
+| link:../learn-more/additional-supported-ontap-features.html#san-protocols["De forma predeterminada, la desasignación del espacio NVMe está habilitada"]  a| 
 La desasignación de espacio (también denominada «perforación» y «UNMAP») está habilitada para los espacios de nombres de NVMe de forma predeterminada. La desasignación de espacio permite que un host desasigne bloques no utilizados de espacios de nombres para reclamar espacio.
 
 Esto mejora considerablemente la eficiencia del almacenamiento general, especialmente en sistemas de archivos con una alta rotación de datos.
