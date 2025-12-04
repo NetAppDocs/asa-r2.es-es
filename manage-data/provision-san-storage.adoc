@@ -18,15 +18,17 @@ Al aprovisionar almacenamiento, permite que los hosts de SAN lean y escriban dat
 
 == Cree unidades de almacenamiento
 
-En un sistema ASA r2, una unidad de almacenamiento pone a disposición de sus hosts SAN espacio de almacenamiento para operaciones de datos.  Una unidad de almacenamiento se refiere a una LUN para hosts SCSI o a un espacio de nombres NVMe para hosts NVMe.  Si su clúster está configurado para admitir hosts SCSI, se le solicitará que cree un LUN.  Si su clúster está configurado para admitir hosts NVMe, se le solicitará que cree un espacio de nombres NVMe.  Una unidad de almacenamiento ASA r2 tiene una capacidad máxima de 128 TB.
+En un sistema ASA r2, una unidad de almacenamiento pone a disposición de sus hosts SAN espacio de almacenamiento para operaciones de datos. Una unidad de almacenamiento se refiere a una LUN para hosts SCSI o a un espacio de nombres NVMe para hosts NVMe. Si su clúster está configurado para admitir hosts SCSI, se le solicitará que cree un LUN. Si su clúster está configurado para admitir hosts NVMe, se le solicitará que cree un espacio de nombres NVMe.
 
-Consulte los link:https://hwu.netapp.com/["NetApp Hardware Universe"^]límites más actuales del almacenamiento para los sistemas ASA R2.
+Una unidad de almacenamiento ASA r2 tiene una capacidad máxima de 128 TB. Ver ellink:https://hwu.netapp.com/["NetApp Hardware Universe"^] para conocer los límites de almacenamiento más actuales para los sistemas ASA r2.
 
-Los iniciadores de host se añaden y se asignan a la unidad de almacenamiento como parte del proceso de creación de la unidad de almacenamiento. También puede link:provision-san-storage.html#add-host-initiators["añada iniciadores de host"]acceder a link:provision-san-storage.html#map-the-storage-unit-to-a-host["asignar"]las unidades de almacenamiento después de crear las unidades de almacenamiento.
+Usted agrega y asigna iniciadores de host a la unidad de almacenamiento como parte del proceso de creación de la unidad de almacenamiento.  También puedeslink:provision-san-storage.html#add-host-initiators["agregar"] ylink:provision-san-storage.html#map-the-storage-unit-to-a-host["asignar"] iniciadores de host después de crear las unidades de almacenamiento.
 
-A partir de ONTAP 9.18.1, puede modificar la reserva de instantáneas y habilitar la eliminación automática de instantáneas al crear una unidad de almacenamiento.  La reserva de instantáneas es la cantidad de espacio en la unidad de almacenamiento reservada específicamente para instantáneas.  Cuando la reserva de instantáneas está configurada con eliminación automática de instantáneas, las instantáneas más antiguas se eliminan automáticamente cuando el espacio utilizado por las instantáneas supera la reserva de instantáneas.
+A partir de ONTAP 9.18.1, puede modificar la reserva de instantáneas y habilitar la eliminación automática de instantáneas al crear una unidad de almacenamiento. La reserva de instantáneas es la cantidad de espacio en la unidad de almacenamiento reservada específicamente para instantáneas. Cuando la reserva de instantáneas está configurada con eliminación automática de instantáneas, las instantáneas más antiguas se eliminan automáticamente cuando el espacio utilizado por las instantáneas supera la reserva de instantáneas.
 
 link:../data-protection/snapshot-reserve.html["Obtenga más información sobre la reserva de instantáneas en los sistemas ASA r2."].
+
+Las unidades de almacenamiento se aprovisionan de forma ligera de manera predeterminada.  El aprovisionamiento fino permite que la unidad de almacenamiento crezca hasta el tamaño asignado, pero no reserva el espacio por adelantado.  El espacio se asigna dinámicamente a partir del espacio libre disponible según sea necesario.  Esto le permite lograr una mayor eficiencia de almacenamiento al sobreaprovisionar su espacio disponible.  Por ejemplo, supongamos que tiene 1 TB de espacio libre y necesita crear cuatro unidades de almacenamiento de 1 TB.  En lugar de agregar inmediatamente 3 TB de capacidad de almacenamiento adicional a su sistema, puede crear unidades de almacenamiento, monitorear la utilización del espacio y aumentar su capacidad de almacenamiento a medida que las unidades de almacenamiento consumen espacio real. Obtenga más información sobrelink:https://docs.netapp.com/us-en/ontap/concepts/thin-provisioning-concept.html["aprovisionamiento fino"^] .
 
 .Pasos
 . En el Administrador del sistema, seleccione *Almacenamiento* y, a continuación, seleccione image:icon_add_blue_bg.png["icono rectangular con fondo azul y la palabra agregar centrada en letras blancas"].
@@ -35,13 +37,20 @@ link:../data-protection/snapshot-reserve.html["Obtenga más información sobre l
 +
 Si se crea más de una unidad de almacenamiento, cada unidad se crea con la misma capacidad, sistema operativo de host y asignación de hosts.
 
++
+Para optimizar el equilibrio de carga de trabajo en la zona de disponibilidad de almacenamiento, cree una cantidad par de unidades de almacenamiento.
+
 . Introduzca la capacidad de la unidad de almacenamiento y seleccione el sistema operativo del host.
++
+
+CAUTION: Si está creando más de una unidad de almacenamiento, cada unidad se crea con la misma capacidad.  Multiplique la cantidad de unidades de almacenamiento que está creando por la capacidad deseada para asegurarse de tener suficiente espacio utilizable.  Si no dispone de suficiente espacio libre y decide sobreaprovisionar, supervise de cerca la utilización para evitar quedarse sin espacio y perder datos.
+
 . Acepte el *mapeo de host* seleccionado automáticamente o seleccione un grupo de host diferente para la unidad de almacenamiento a la que se asignará.
 +
 *Mapeo de host* se refiere al grupo de host al que se asignará la nueva unidad de almacenamiento.  Si hay un grupo de host preexistente para el tipo de host que seleccionó para su nueva unidad de almacenamiento, el grupo de host preexistente se selecciona automáticamente para su asignación de host.  Puede aceptar el grupo de host que se selecciona automáticamente o puede seleccionar un grupo de host diferente.
 
 +
-Si no hay un grupo de host preexistente para los hosts que se ejecutan en el sistema operativo que especificó, ONTAP crea automáticamente un nuevo grupo de host.
+Si no hay un grupo de host preexistente para los hosts que se ejecutan en el sistema operativo que especificó, ONTAP crea un nuevo grupo de host automáticamente.
 
 . Si desea hacer alguna de las siguientes acciones, seleccione *Más opciones* y complete los pasos requeridos.
 +
@@ -148,7 +157,7 @@ TLS cifra todos los datos enviados a través de la red entre los hosts NVMe/TCP 
 
 .. Seleccione *Agregar iniciador* para agregar más iniciadores.
 +
-El NQN host debe formatearse como <nqn.yyyy-mm> seguido de un nombre de dominio completo. El año debe ser igual o posterior a 1970. La longitud máxima total debe ser 223. Un ejemplo de un iniciador NVMe válido es nqn.2014-08.com.example:string
+Formatee el NQN del host como <nqn.yyyy-mm> seguido de un nombre de dominio completo.  El año debe ser igual o posterior a 1970.  La longitud máxima total debe ser 223.  Un ejemplo de un iniciador NVMe válido es nqn.2014-08.com.example:string
 
 
 
@@ -233,7 +242,7 @@ Los hosts NVMe se añaden al sistema ASA R2 y está listo para asignar los hosts
 
 == Asignar la unidad de almacenamiento a un host
 
-Después de crear las unidades de almacenamiento de ASA R2 y añadir iniciadores de host, debe asignar los hosts a las unidades de almacenamiento para comenzar a servir datos. Las unidades de almacenamiento se asignan a los hosts como parte del proceso de creación de unidades de almacenamiento. También puede asignar unidades de almacenamiento existentes a hosts nuevos o existentes en cualquier momento.
+Después de crear unidades de almacenamiento ASA r2 y agregar iniciadores de host, asigne hosts a unidades de almacenamiento para comenzar a servir datos.  Las unidades de almacenamiento se asignan a los hosts como parte del proceso de creación de la unidad de almacenamiento.  También puede asignar unidades de almacenamiento existentes a hosts nuevos o existentes en cualquier momento.
 
 .Pasos
 . Selecciona *Almacenamiento*.
