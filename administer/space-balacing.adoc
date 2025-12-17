@@ -1,0 +1,64 @@
+---
+sidebar: sidebar 
+permalink: administer/space-balancing.html 
+keywords: capacity, space, rebalancing, balanced, placement, balance, asa r2 
+summary: Es posible que deba cambiar el nombre de un nodo para alinearlo con las convenciones de nomenclatura de la organización o por otros motivos administrativos. 
+---
+= Obtenga información sobre el equilibrio de capacidad de ONTAP en un clúster ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para los sistemas ASA r2, ONTAP utiliza _ubicación equilibrada_ para colocar automáticamente las unidades de almacenamiento recién creadas en la mejor zona de disponibilidad de almacenamiento para lograr un rendimiento óptimo y una utilización equilibrada del almacenamiento.  Si está ejecutando ONTAP 9.17.1 o posterior, el espacio consumido por las unidades de almacenamiento existentes se equilibra mediante el _equilibrio de espacio dinámico_.  Si está ejecutando ONTAP 9.16.1, el espacio consumido por las unidades de almacenamiento existentes se equilibra mediante el _reequilibrio de carga de trabajo basado en copias_.
+
+[cols="2"]
+|===
+| Función | Apoyado en... 
+
+
+| Colocación equilibrada | ONTAP 9.16.1 y posteriores 
+
+
+| Equilibrio dinámico del espacio | ONTAP 9.17.1 y posteriores 
+
+
+| Reequilibrio de la carga de trabajo basado en copias | Solo ONTAP 9.16.1 
+|===
+.Colocación equilibrada
+Con la _ubicación equilibrada_, las unidades de almacenamiento recién creadas se colocan automáticamente dentro de la mejor zona de disponibilidad de almacenamiento para lograr un rendimiento óptimo y una utilización equilibrada del almacenamiento.  La ubicación equilibrada está habilitada de forma predeterminada en ONTAP 9.16.1 y versiones posteriores.
+
+.Equilibrio dinámico del espacio
+Con el _equilibrio dinámico del espacio_, ONTAP monitorea activamente la cantidad de espacio libre en el clúster y mueve automáticamente unidades de almacenamiento dentro de las zonas de disponibilidad de almacenamiento para mantener una utilización equilibrada del espacio.  Se emite automáticamente una advertencia EMS si la utilización de la capacidad de todo el clúster alcanza el 80 % y se emite automáticamente una alerta EMS si alcanza el 90 %.
+
+El equilibrio dinámico del espacio se habilita de forma predeterminada 14 días después de actualizar o instalar ONTAP 9.17.1 o posterior.  Si necesita modificar el período de habilitación predeterminado de 14 días, comuníquese con el soporte de NetApp .  No es posible volver desde ONTAP 9.17.1 una vez habilitado el equilibrio de espacio dinámico.
+
+El equilibrio dinámico del espacio funciona en _modo normal_ o en _modo de espacio bajo_ según el promedio general de espacio libre en todos los nodos del clúster (promedio global).
+
+* *Modo normal*
++
+En el modo normal, ONTAP verifica cada tres minutos para determinar si es necesario un equilibrio de espacio dinámico.  El equilibrio espacial dinámico funciona en modo normal cuando se cumplen las siguientes condiciones:
+
++
+** El promedio mundial de espacio libre es del 10% o más.
+** Al menos un nodo del clúster tiene más espacio libre que el promedio global.
+** Al menos un nodo del clúster tiene un 20% menos de espacio libre que el promedio global.
+
+
+* *Modo de espacio reducido*
++
+En el modo de espacio reducido, ONTAP verifica cada minuto para determinar si es necesario un equilibrio de espacio dinámico.  El equilibrio dinámico del espacio funciona en modo de espacio bajo cuando se cumplen las siguientes condiciones:
+
++
+** El promedio mundial de espacio libre es inferior al 10%.
+** Al menos un nodo del clúster tiene más espacio libre que el promedio global.
+** Al menos un nodo del clúster tiene menos espacio libre que el promedio global.
+
+
+
+
+.Reequilibrio de la carga de trabajo basado en copias
+Con el _reequilibrio de carga de trabajo basado en copias_, si ocurre un desequilibrio en la utilización del almacenamiento dentro de las zonas de disponibilidad de almacenamiento, ONTAP copia automáticamente la unidad de almacenamiento que crea el desequilibrio a una zona de disponibilidad de almacenamiento con mayor espacio libre.  Si no hay suficiente espacio libre en la zona de disponibilidad de almacenamiento de destino, ONTAP no realiza ninguna acción de equilibrio.  El reequilibrio de carga de trabajo basado en copias se aplica solo al sistema ASA r2 que ejecuta ONTAP 9.16.1 y está habilitado de forma predeterminada en esos sistemas.  En ONTAP 9.17.1 y versiones posteriores, se reemplaza con equilibrio de espacio dinámico.
+
+Si necesita modificar la configuración predeterminada para el reequilibrio de carga de trabajo basado en copias, comuníquese con el soporte de NetApp .

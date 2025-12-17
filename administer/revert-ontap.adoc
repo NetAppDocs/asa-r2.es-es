@@ -30,7 +30,7 @@ Ciertas configuraciones de clúster ASA r2 requieren que realice acciones espec�
 Si está volviendo de ONTAP 9.17.1 en un sistema ASA r2, debe realizar las siguientes acciones antes de comenzar la reversión:
 
 
-NOTE: link:rebalance-workloads.html["Reequilibrio automático de la carga de trabajo"]Se habilita de forma predeterminada 14 días después de actualizar a ONTAP 9.17.1 o de inicializar un nuevo clúster ONTAP 9.17.1 ASA r2. No es posible volver de ONTAP 9.17.1 en su sistema ASA r2 una vez habilitado el reequilibrio automático de la carga de trabajo.
+NOTE: link:space-balancing.html["equilibrio dinámico del espacio"]Se habilita de forma predeterminada 14 días después de actualizar a ONTAP 9.17.1 o inicializar un nuevo clúster ONTAP 9.17.1 ASA r2.  No es posible volver de ONTAP 9.17.1 en su sistema ASA r2 una vez habilitado el equilibrio de espacio dinámico.
 
 [cols="2"]
 |===

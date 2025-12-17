@@ -25,7 +25,7 @@ Obtenga más información sobre las funciones comunes de protección de datos co
 
 === servidores de claves externas agrupados
 
-Puede configurar la conectividad a servidores de administración de claves externos en clúster en una máquina virtual de almacenamiento.  Con servidores de claves en clúster, puede designar servidores de claves primarios y secundarios en una máquina virtual de almacenamiento.  Al registrar las claves, ONTAP primero intentará acceder a un servidor de claves primario antes de intentar secuencialmente acceder a los servidores secundarios hasta que la operación se complete correctamente, evitando así la duplicación de claves.
+Puede configurar la conectividad a servidores de administración de claves externos agrupados en una máquina virtual de almacenamiento. Con servidores de claves en clúster, puede designar servidores de claves primarios y secundarios en una máquina virtual de almacenamiento. Al registrar las claves, ONTAP primero intentará acceder a un servidor de claves primario antes de intentar secuencialmente acceder a los servidores secundarios hasta que la operación se complete correctamente, evitando así la duplicación de claves.
 
 link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-cluster-key-server-task.html["Aprenda a configurar servidores de claves externas en clúster."^].
 

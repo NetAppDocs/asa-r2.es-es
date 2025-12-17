@@ -13,7 +13,7 @@ summary: Habilite ARP/AI para detectar posibles amenazas de ransomware, tomar me
 [role="lead"]
 A partir de ONTAP 9.17.1, puede usar la Protección Autónoma contra Ransomware con Inteligencia Artificial (ARP/IA) para proteger los datos de su sistema ASA r2. ARP/IA detecta rápidamente posibles amenazas de ransomware, crea automáticamente una instantánea de ARP para proteger sus datos y muestra un mensaje de advertencia en el Administrador del Sistema para alertarle sobre actividad sospechosa.
 
-A partir de ONTAP 9.17.1, ARP mejora la ciberresiliencia mediante la adopción de un modelo de aprendizaje automático para el análisis antiransomware que detecta formas de ransomware en constante evolución con una precisión del 98 % en entornos SAN. El modelo de aprendizaje automático de ARP se entrena previamente con un gran conjunto de datos de archivos, tanto antes como después de un ataque simulado de ransomware. Este entrenamiento, que requiere muchos recursos, se realiza fuera de ONTAP, y el modelo preentrenado resultante se incluye en ONTAP. Este modelo no es accesible ni modificable a través de la CLI ni de la API. Por lo tanto, ARP/IA se activa inmediatamente después de la habilitación; no hay... link:https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html#learning-and-active-modes["período de aprendizaje"^] .
+A partir de ONTAP 9.17.1, ARP mejora la ciberresiliencia mediante la adopción de un modelo de aprendizaje automático para el análisis antiransomware que detecta formas de ransomware en constante evolución con una precisión del 98 % en entornos SAN. El modelo de aprendizaje automático de ARP se entrena previamente con un gran conjunto de datos de archivos, tanto antes como después de un ataque simulado de ransomware. Este entrenamiento, que requiere muchos recursos, se realiza fuera de ONTAP, y el modelo preentrenado resultante se incluye en ONTAP. Este modelo no es accesible ni modificable.  ARP/AI se activa inmediatamente después de la habilitación; no haylink:https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html#learning-and-active-modes["período de aprendizaje"^] .
 
 
 NOTE: Ningún sistema de detección o prevención de ransomware puede garantizar completamente la seguridad contra un ataque de ransomware. Si bien es posible que un ataque pase desapercibido, ARP/IA actúa como una importante capa adicional de defensa si el software antivirus no detecta una intrusión.
@@ -25,7 +25,7 @@ Después de haber habilitado ARP/AI, debe link:../administer/update-firmware.htm
 
 
 
-== Habilite ARP/AI en todas las unidades de almacenamiento de una máquina virtual de almacenamiento.
+== Habilitar ARP/AI en todas las unidades de almacenamiento en una máquina virtual de almacenamiento
 
 Puede habilitar ARP/AI en todas las unidades de almacenamiento creadas en una máquina virtual de almacenamiento (VM) de forma predeterminada. Esto significa que cualquier nueva unidad de almacenamiento creada en la máquina virtual de almacenamiento tendrá ARP/AI habilitado automáticamente.  También puede aplicar ARP/AI a las unidades de almacenamiento existentes en la máquina virtual de almacenamiento.
 
@@ -46,9 +46,9 @@ Todas las nuevas unidades de almacenamiento que cree en la máquina virtual de a
 
 
 
-== Habilite ARP/AI en unidades de almacenamiento específicas de una máquina virtual de almacenamiento.
+== Habilitar ARP/AI en unidades de almacenamiento específicas en una máquina virtual de almacenamiento
 
-Si no desea que ARP/AI esté habilitado en todas las unidades de almacenamiento de una máquina virtual de almacenamiento, puede seleccionar las unidades específicas que desea habilitar.
+Si no desea que ARP/AI esté habilitado en todas las unidades de almacenamiento en una máquina virtual de almacenamiento, puede seleccionar las unidades específicas que desea habilitar.
 
 .Pasos
 . En System Manager, seleccione *Almacenamiento*.
