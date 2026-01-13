@@ -56,5 +56,5 @@ Conozca las nuevas capacidades disponibles en ONTAP 9.17.1 para sistemas ASA r2.
 | Actualizar | Descripción 
 
 
-| link:../learn-more/hardware-comparison.html["Soporte para equilibrio automático de carga de trabajo"] | Las cargas de trabajo se equilibran automáticamente entre los nodos de un par de alta disponibilidad para optimizar el rendimiento y la utilización de recursos. 
+| link:../administer/space-balancing.html["Soporte para equilibrio automático de carga de trabajo"] | Las cargas de trabajo se equilibran automáticamente entre los nodos de un par de alta disponibilidad para optimizar el rendimiento y la utilización de recursos. 
 |===
