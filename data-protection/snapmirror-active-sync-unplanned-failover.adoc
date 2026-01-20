@@ -17,6 +17,7 @@ Una conmutación por error automática no planificada (AUFO) se produce cuando e
 * La relación de sincronización activa de SnapMirror debe estar sincronizada.
 * No se puede iniciar una conmutación por error planificada cuando hay en proceso una operación no disruptiva, como el traslado de una unidad de almacenamiento.
 * El mediador de ONTAP debe estar configurado, conectado y en quórum.
+* Para recuperar rutas de E/S perdidas o actualizar estados de rutas de E/S en sus hosts, debe realizar un nuevo escaneo del adaptador/almacenamiento en los hosts después de que el clúster de almacenamiento principal reanude su operación.
 
 
 .Pasos
@@ -25,6 +26,3 @@ Una conmutación por error automática no planificada (AUFO) se produce cuando e
 . Espere hasta que el estado de la relación muestre *InSync*.
 . Seleccionar image:icon_kabob.gif["tres puntos verticales azules"] ; luego seleccione *Conmutación por error* para reanudar las operaciones en el clúster primario original.
 
-
-.Lo siguiente
-Para evitar la pérdida de rutas de E/S a sus hosts, debe volver a escanear las rutas del host después de reanudar las operaciones en el clúster principal.

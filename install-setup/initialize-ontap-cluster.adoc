@@ -16,6 +16,8 @@ System Manager de ONTAP le guía a través de un flujo de trabajo rápido y senc
 
 Durante la configuración del clúster, se crea la máquina virtual de almacenamiento de datos predeterminada. De manera opcional, puede habilitar el sistema de nombres de dominio (DNS) para resolver los nombres de host, configurar el clúster para que utilice el protocolo de tiempo de redes (NTP) para la sincronización de hora y habilitar el cifrado de datos en reposo.
 
+En ciertos casos, es posible que necesites link:../learn-more/cli-support.html#set-up-an-ontap-asa-r2-cluster-using-the-cli["Utilice la interfaz de línea de comandos (CLI) de ONTAP para configurar su clúster"]. Debe utilizar la CLI, por ejemplo, si sus protocolos de seguridad no le permiten conectar una computadora portátil a sus conmutadores de administración o si está utilizando un sistema operativo que no sea Windows.
+
 .Antes de empezar
 Recopile la siguiente información:
 
