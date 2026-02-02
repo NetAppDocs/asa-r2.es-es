@@ -43,3 +43,6 @@ Si hay actividad anormal en la unidad de almacenamiento, se muestra un mensaje d
 . Seleccione *Elegir una acción*.
 . Seleccione *Marcar como falso positivo* o seleccione *Marcar como posible ataque de ransomware*.
 
+
+.El futuro
+Si sabes de aumentos repentinos en la actividad de tu unidad de almacenamiento, ya sea un aumento puntual o uno que sea característico de una nueva normalidad, deberías reportarlos como seguros. Reportar manualmente estos aumentos como seguros ayuda a mejorar la precisión de las evaluaciones de amenazas de ARP. Aprende cómo link:https://docs.netapp.com/us-en/ontap/anti-ransomware/manage-parameters-task.html#report-known-surges["informar los aumentos de ARP/AI conocidos"^].

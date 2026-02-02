@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: secure-data/disable-default-anti-ransomware-protection.html 
+keywords: asa r2, secure data, data security, anti-ransomware, autonomous ransomware protection, arp, arp/ai, disable 
+summary: 'Si tienes una licencia de Autonomous Ransomware Protection (ARP) instalada en tu clúster ASA r2, ARP se habilita de forma predeterminada en todas las unidades de almacenamiento existentes y nuevas 12 horas después de actualizar a ONTAP 9.18.1 o de inicializar un nuevo clúster ASA r2 de ONTAP 9.18.1.' 
+---
+= Desactiva la protección autónoma contra ransomware predeterminada en tus sistemas de almacenamiento ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando inicializas un nuevo clúster ASA r2 de ONTAP 9.18.1 o actualizas tu clúster a ONTAP 9.18.1, ARP/AI se habilita automáticamente por defecto en todas las unidades de almacenamiento nuevas después de un periodo de gracia de 12 horas. Si no desactivas ARP/AI durante el periodo de gracia, se habilita en todo el clúster para las unidades de almacenamiento nuevas cuando termina el periodo de gracia.
+
+Las unidades de almacenamiento creadas en ONTAP 9.17.1 deben ser link:enable-anti-ransomware-protection.html["activado manualmente"] para ARP/AI.
+
+.Pasos
+Puedes desactivar la activación por defecto durante o después del periodo de gracia inicial de 12 horas.
+
+[role="tabbed-block"]
+====
+.System Manager
+--
+. Seleccione *Cluster > Settings*.
+. Desactiva ARP:
++
+** Para desactivar durante el periodo de gracia de 12 horas:
++
+... En *Anti-ransomware*, selecciona *No activar* y luego selecciona *Desactivar*.
+
+
+** Para desactivar después del periodo de gracia de 12 horas:
++
+... En *Anti-ransomware*, selecciona image:icon_pencil.gif["Editar"] y luego desmarca *Activar para nuevas unidades de almacenamiento*.
+... Selecciona *Guardar*
+
+
+
+
+
+
+--
+.CLI
+--
+. Verifica el estado de habilitación predeterminado:
++
+[source, cli]
+----
+security anti-ransomware auto-enable show
+----
+. Desactiva la activación por defecto para volúmenes existentes y nuevos:
++
+[source, cli]
+----
+security anti-ransomware auto-enable modify -default-existing-volume-state false -default-new-volume-state false
+----
+
+
+--
+====
