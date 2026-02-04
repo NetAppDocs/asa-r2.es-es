@@ -2768,4 +2768,5 @@
   <block id="b86583f9a9fc89f434a369308432e10e" category="inline-link-macro">informar los aumentos de ARP/AI conocidos</block>
   <block id="114bbec71af5be00be6f74b75bcf02d1" category="paragraph">Si sabes de aumentos repentinos en la actividad de tu unidad de almacenamiento, ya sea un aumento puntual o uno que sea característico de una nueva normalidad, deberías reportarlos como seguros. Reportar manualmente estos aumentos como seguros ayuda a mejorar la precisión de las evaluaciones de amenazas de ARP. Aprende cómo <block ref="8dee558f5c9b6bedf916b9781132862f" category="inline-link-macro-rx"></block>.</block>
   <block id="b27281dcf866cc70bd075c0d39310671" category="sidebar">Desactivar la activación predeterminada de ARP/AI</block>
+  <block id="74c34cd79314b0b0543df58dce891912" category="cell">El soporte para SnapMirror active sync aumenta de clústeres de dos nodos a clústeres de cuatro nodos.</block>
 </blocks>

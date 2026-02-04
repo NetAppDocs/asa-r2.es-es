@@ -65,7 +65,7 @@ Conozca las nuevas capacidades disponibles en ONTAP 9.18.1 para sistemas ASA r2.
 |===
 
 
-== Eficiencia del almacenamiento
+== Gestión del almacenamiento
 
 [cols="2,4"]
 |===
