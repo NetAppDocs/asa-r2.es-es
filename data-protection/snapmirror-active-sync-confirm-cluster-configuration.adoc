@@ -28,7 +28,7 @@ link:create-svm-peer-relationship.html["Crear una relación de pares de máquina
 
 . Confirme que se cree al menos un LIF en cada nodo del clúster.
 +
-link:../administer/manage-client-vm-access.html#create-a-lif-network-interface["Crear un LIF"]
+link:../administer/manage-client-vm-access.html#create-a-lif-network-interface["Crear un LIF"].
 
 . Confirme que las unidades de almacenamiento necesarias estén creadas y asignadas a grupos de host.
 +
