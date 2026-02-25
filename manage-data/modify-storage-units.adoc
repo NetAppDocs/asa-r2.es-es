@@ -11,7 +11,7 @@ summary: Responder a los cambios en el rendimiento y los datos de su sistema de 
 
 
 [role="lead"]
-Para optimizar el rendimiento en el sistema ASA R2, es posible que deba modificar las unidades de almacenamiento para aumentar la capacidad, actualizar las políticas de calidad de servicio o cambiar los hosts que se asignan a las unidades. Por ejemplo, si se añade una nueva carga de trabajo de una aplicación crítica a una unidad de almacenamiento existente, es posible que deba cambiar la política de calidad de servicio (QoS) aplicada a la unidad de almacenamiento para respaldar el nivel de rendimiento necesario para la nueva aplicación.
+Para optimizar el rendimiento en tu sistema ASA r2, puede que necesites modificar tus unidades de almacenamiento para aumentar su capacidad, actualizar las políticas de QoS o cambiar los hosts que están asignados a las unidades. Por ejemplo, si se añade una nueva carga de trabajo de aplicación crítica a una unidad de almacenamiento existente, puede que necesites cambiar la política de Quality of Service (QoS) aplicada a la unidad de almacenamiento para admitir el nivel de rendimiento necesario para la nueva aplicación.
 
 .Aumente la capacidad
 Aumente el tamaño de una unidad de almacenamiento antes de que alcance su capacidad completa para evitar una pérdida de acceso a los datos que puede producirse si la unidad de almacenamiento se queda sin espacio editable. La capacidad de una unidad de almacenamiento se puede aumentar a 128 TB, que es el tamaño máximo permitido por ONTAP.

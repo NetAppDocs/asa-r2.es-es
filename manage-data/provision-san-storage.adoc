@@ -28,7 +28,7 @@ A partir de ONTAP 9.18.1, puede modificar la reserva de instantáneas y habilita
 
 link:../data-protection/snapshot-reserve.html["Obtenga más información sobre la reserva de instantáneas en los sistemas ASA r2."].
 
-Las unidades de almacenamiento se aprovisionan de forma ligera de manera predeterminada.  El aprovisionamiento fino permite que la unidad de almacenamiento crezca hasta el tamaño asignado, pero no reserva el espacio por adelantado.  El espacio se asigna dinámicamente a partir del espacio libre disponible según sea necesario.  Esto le permite lograr una mayor eficiencia de almacenamiento al sobreaprovisionar su espacio disponible.  Por ejemplo, supongamos que tiene 1 TB de espacio libre y necesita crear cuatro unidades de almacenamiento de 1 TB.  En lugar de agregar inmediatamente 3 TB de capacidad de almacenamiento adicional a su sistema, puede crear unidades de almacenamiento, monitorear la utilización del espacio y aumentar su capacidad de almacenamiento a medida que las unidades de almacenamiento consumen espacio real. Obtenga más información sobrelink:https://docs.netapp.com/us-en/ontap/concepts/thin-provisioning-concept.html["aprovisionamiento fino"^] .
+Las unidades de almacenamiento se aprovisionan de forma ligera por defecto. El aprovisionamiento ligero permite que la unidad de almacenamiento crezca hasta el tamaño asignado pero no reserva el espacio por adelantado. El espacio se asigna dinámicamente a partir del espacio libre disponible según sea necesario. Esto te permite lograr una mayor eficiencia de almacenamiento _sobreaprovisionando_ tu espacio disponible. Por ejemplo, supón que tienes 1 TB de espacio libre y necesitas crear cuatro unidades de almacenamiento de 1 TB. En vez de añadir inmediatamente 3 TB de capacidad de almacenamiento adicional a tu sistema, puedes crear las unidades de almacenamiento, monitorear la utilización del espacio y aumentar tu capacidad de almacenamiento a medida que las unidades de almacenamiento consumen espacio real. Más información sobre link:https://docs.netapp.com/us-en/ontap/concepts/thin-provisioning-concept.html["aprovisionamiento fino"^].
 
 .Pasos
 . En el Administrador del sistema, seleccione *Almacenamiento* y, a continuación, seleccione image:icon_add_blue_bg.png["icono rectangular con fondo azul y la palabra agregar centrada en letras blancas"].
@@ -43,14 +43,14 @@ Para optimizar el equilibrio de carga de trabajo en la zona de disponibilidad de
 . Introduzca la capacidad de la unidad de almacenamiento y seleccione el sistema operativo del host.
 +
 
-CAUTION: Si está creando más de una unidad de almacenamiento, cada unidad se crea con la misma capacidad.  Multiplique la cantidad de unidades de almacenamiento que está creando por la capacidad deseada para asegurarse de tener suficiente espacio utilizable.  Si no dispone de suficiente espacio libre y decide sobreaprovisionar, supervise de cerca la utilización para evitar quedarse sin espacio y perder datos.
+CAUTION: Si estás creando más de una unidad de almacenamiento, cada unidad se crea con la misma capacidad. Multiplica el número de unidades de almacenamiento que estás creando por la capacidad deseada para asegurarte de que tienes suficiente espacio utilizable. Si no tienes suficiente espacio libre y decides sobreaprovisionar, monitorea de cerca la utilización para evitar quedarte sin espacio y perder datos.
 
 . Acepte el *mapeo de host* seleccionado automáticamente o seleccione un grupo de host diferente para la unidad de almacenamiento a la que se asignará.
 +
 *Mapeo de host* se refiere al grupo de host al que se asignará la nueva unidad de almacenamiento.  Si hay un grupo de host preexistente para el tipo de host que seleccionó para su nueva unidad de almacenamiento, el grupo de host preexistente se selecciona automáticamente para su asignación de host.  Puede aceptar el grupo de host que se selecciona automáticamente o puede seleccionar un grupo de host diferente.
 
 +
-Si no hay un grupo de host preexistente para los hosts que se ejecutan en el sistema operativo que especificó, ONTAP crea un nuevo grupo de host automáticamente.
+Si no hay un grupo de hosts preexistente para los hosts que se ejecutan en el sistema operativo que especificaste, ONTAP crea un nuevo grupo de hosts automáticamente.
 
 . Si desea hacer alguna de las siguientes acciones, seleccione *Más opciones* y complete los pasos requeridos.
 +

@@ -15,12 +15,8 @@ La protección de datos de sincronización activa de ONTAP SnapMirror permite qu
 
 Si bien los procedimientos del Administrador del sistema para configurar la sincronización activa de SnapMirror son diferentes en los sistemas ASA r2 que en los sistemas NetApp FAS, AFF y ASA que ejecutan la personalidad unificada de ONTAP , los requisitos, la arquitectura y el funcionamiento de la sincronización activa de SnapMirror son los mismos.
 
-link:../learn-more/hardware-comparison.html#personality-differences["Conozca más sobre las personalidades de ONTAP"] .
-
 
 NOTE: A partir de ONTAP 9.18.1, la sincronización activa de SnapMirror es compatible con configuraciones de cuatro nodos.  En ONTAP 9.17.1, la sincronización activa de SnapMirror solo es compatible con configuraciones de dos nodos.
-
-link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html["Obtenga más información sobre la sincronización activa de SnapMirror"^] .
 
 link:https://www.netapp.com/pdf.html?item=/media/138366-sb-3457-san-disaster-recovery-netapp-asa.pdf["Obtenga más información sobre la recuperación ante desastres con SnapMirror Active Sync en su sistema ASA r2"^]
 
@@ -47,3 +43,8 @@ Usted debe link:configure-ontap-mediator.html["configurar el mediador de ONTAP o
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"] Configurar la sincronización activa de SnapMirror .
 [role="quick-margin-para"]
 link:configure-snapmirror-active-sync.html["Configurar la sincronización activa de SnapMirror"] para crear una copia de sus datos en un sitio secundario y permitir que sus aplicaciones host conmuten por error de manera automática y transparente en caso de un desastre.
+
+.Información relacionada
+* link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html["Obtenga más información sobre la sincronización activa de SnapMirror"^] .
+* link:../learn-more/hardware-comparison.html#personality-differences["Conozca más sobre las personalidades de ONTAP"]. *
+
