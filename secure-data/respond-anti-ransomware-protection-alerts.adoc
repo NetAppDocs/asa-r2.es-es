@@ -4,7 +4,7 @@ permalink: secure-data/respond-anti-ransomware-protection-alerts.html
 keywords: asa r2, secure data, data security, anti-ransomware, autonomous ransomware protection, arp, arp/ai, alerts, respond, warnings, security 
 summary: Vea advertencias de posibles ataques de ransomware y tome medidas en el Administrador del sistema. 
 ---
-= Responda a la protección autónoma contra ransomware con alertas de IA en los sistemas de almacenamiento ASA r2
+= Responde a la protección autónoma contra ransomware con alertas de IA en los sistemas de almacenamiento ASA r2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
