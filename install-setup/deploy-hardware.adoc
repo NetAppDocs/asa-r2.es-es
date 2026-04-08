@@ -19,6 +19,9 @@ Después de preparar la instalación del sistema de almacenamiento ASA R2, insta
 * Comprenda que el flujo de aire a través del sistema de almacenamiento entra desde la parte frontal donde se instalan las tapas de la cubierta protectora o de los extremos y sale de la parte posterior donde se encuentran los puertos.
 
 
+
+CAUTION: Lleva siempre una muñequera con toma de tierra conectada a un punto de tierra verificado durante los procedimientos de instalación y mantenimiento. No seguir las precauciones ESD adecuadas puede causar daños permanentes a los nodos controladores, las estanterías de almacenamiento y los switches de red.
+
 .Pasos
 . Instale los kits de rieles para el sistema de almacenamiento y las bandejas de almacenamiento, según sea necesario, siguiendo las instrucciones incluidas en los kits.
 . Instale y proteja su sistema de almacenamiento en el armario o el rack de telecomunicaciones:
