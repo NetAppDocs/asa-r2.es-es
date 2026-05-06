@@ -1,0 +1,239 @@
+---
+sidebar: sidebar 
+permalink: install-setup/cable-hardware-a70-90.html 
+keywords: asa r2, asa a70, asa a90, cable controllers, cabling, cluster cabling, management cabling, host network cabling, shelf cabling 
+summary: Conecta el sistema de almacenamiento ASA A70 o ASA A90 a tu red y a las estanterías de almacenamiento para habilitar la comunicación del clúster, el acceso de gestión y la conectividad de host SAN. 
+---
+= Cablea el hardware de los sistemas de almacenamiento ASA A70 y ASA A90
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Conecta el sistema de almacenamiento ASA A70 o ASA A90 a tu red y a los estantes de almacenamiento para habilitar la comunicación del clúster, el acceso de gestión y la conectividad de host SAN. Este procedimiento incluye el cableado para la interconexión de alta disponibilidad del clúster, la red de gestión, la red de host y las conexiones de los estantes de almacenamiento.
+
+.Antes de empezar
+Póngase en contacto con el administrador de red para obtener información sobre cómo conectar el sistema de almacenamiento a los switches de red.
+
+.Acerca de esta tarea
+* Estos procedimientos muestran configuraciones comunes. El cableado específico depende de los componentes solicitados del sistema de almacenamiento. Para obtener información completa sobre la configuración y la prioridad de las ranuras, consulte link:https://hwu.netapp.com["NetApp Hardware Universe"^].
+* Las ranuras de E/S de los modelos ASA A70 y ASA A90 están numeradas del 1 al 11.
++
+image::../media/drw_a1K_back_slots_labeled_ieops-2162.svg[Numeración de ranuras en un controlador ASA A70 y ASA A90]
+
+* Los gráficos de cableado tienen iconos de flecha que muestran la orientación correcta (hacia arriba o hacia abajo) de la lengüeta extraíble del conector de cable al insertar un conector en un puerto.
++
+Al insertar el conector, debería sentir que hace clic en su lugar; si no cree que hace clic, quítelo, vuelva a convertirlo y vuelva a intentarlo.
+
++
+image:../media/drw_cable_pull_tab_direction_ieops-1699.svg["Dirección de la lengüeta de tracción del cable"]
+
+* Si el cableado va a un conmutador óptico, inserte el transceptor óptico en el puerto del controlador antes de realizar el cableado en el puerto del switch.
+
+
+
+
+== Paso 1: Conecte los cables de las conexiones del clúster/alta disponibilidad
+
+Cablea los controladores para crear las conexiones del clúster ONTAP. Para clústeres sin switches, conecta los controladores entre sí. Para clústeres con switches, conecta los controladores a los switches de red del clúster.
+
+
+NOTE: El tráfico de interconexión de clúster y el tráfico de alta disponibilidad comparten los mismos puertos físicos.
+
+[role="tabbed-block"]
+====
+.Cableado de clúster sin switches
+--
+Usa esta opción de cableado cuando los dos controladores estén conectados directamente entre sí sin usar switches de red en clúster.
+
+Use el cable de interconexión de clúster/alta disponibilidad para conectar los puertos e1a a e1a y los puertos e7a a e7a.
+
+.Pasos
+. Conecte el puerto e1a de la Controladora A al puerto e1a de la Controladora B.
+. Conecta el puerto e7a del controlador A al puerto e7a del controlador B.
++
+* Cables de interconexión Cluster/HA*
+
++
+image::../media/oie_cable_25Gb_Ethernet_SFP28_IEOPS-1069.svg[Cable de alta disponibilidad de clúster]
+
++
+image::../media/drw_70-90_tnsc_cluster_cabling_ieops-1653.svg[Diagrama de cableado de clústeres de dos nodos sin switches]
+
+
+
+--
+.Cableado de clúster conmutado
+--
+Usa esta opción de cableado cuando los controladores se conectan a switches de red de clúster en vez de estar conectados directamente entre sí.
+
+Usa el cable de 100 GbE para conectar los puertos e1a y e7a a los switches de red del clúster.
+
+
+NOTE: Las configuraciones de clúster conmutadas son compatibles con ONTAP 9.16.1 y versiones posteriores.
+
+.Pasos
+. Conecte el puerto e1a de la Controladora A y el puerto e1a de la Controladora B al switch de red de clúster A.
+. Conecte el puerto e7a de la Controladora A y el puerto e7a de la Controladora B al switch de red de clúster B.
++
+*Cable de 100 GbE*
+
++
+image::../media/oie_cable100_gbe_qsfp28.png[cable de 100 GbE]
+
++
+image::../media/drw_70-90_switched_cluster_cabling_ieops-1657.svg[Cablear las conexiones del clúster a la red del clúster]
+
+
+
+--
+====
+
+
+== Paso 2: Conecte los cables de las conexiones de red host
+
+Conecte los puertos del módulo Ethernet a la red host.
+
+A continuación se muestran algunos ejemplos típicos de cableado de red host. Consulta link:https://hwu.netapp.com["NetApp Hardware Universe"^] para tu configuración específica del sistema.
+
+[role="tabbed-block"]
+====
+.red host de 100 GbE
+--
+Conecta los puertos e9a y e9b a tu switch de red de datos Ethernet de 100 GbE.
+
+
+NOTE: Para obtener el máximo rendimiento del sistema para el tráfico de clúster e interconexión de alta disponibilidad, no uses los puertos e1b y e7b para conexiones de red de host. Usa una tarjeta de host independiente para maximizar el rendimiento.
+
+.Pasos
+. Conecta el puerto e9a del controlador A y el puerto e9a del controlador B al switch de red de datos Ethernet.
+. Conecta el puerto e9b del controlador A y el puerto e9b del controlador B al switch de red de datos Ethernet.
++
+*Cable de 100 GbE*
+
++
+image::../media/oie_cable_sfp_gbe_copper.svg[cable Ethernet de 100 GbE]
+
++
+image::../media/drw_70-90_network_cabling1_ieops-1654.svg[Cable a red Ethernet de 100 GbE]
+
+
+
+--
+.red de host 10/25 GbE
+--
+Conecta los puertos del módulo de E/S 10/25 GbE de cada controlador a los switches de red del host.
+
+*cable 10/25 GbE*
+
+image::../media/oie_cable_sfp_gbe_copper.svg[cable 10/25 GbE]
+
+image::../media/drw_70-90_network_cabling2_ieops-1655.svg[Cable a red Ethernet 10/25 GbE]
+
+--
+====
+
+
+== Paso 3: Conecte los cables de las conexiones de red de gestión
+
+Conecte las controladoras a su red de gestión.
+
+Utilice los cables 1000BASE-T RJ-45 para conectar los puertos de gestión (llave) de cada controladora a los switches de red de gestión.
+
+.Pasos
+. Conecta el puerto de gestión (llave inglesa) del controlador A al switch de red de gestión.
+. Conecta el puerto de gestión (llave inglesa) del controlador B al switch de red de gestión.
++
+* 1000BASE-T CABLES RJ-45*
+
++
+image::../media/oie_cable_rj45.svg[Cables RJ-45]
+
++
+image::../media/drw_70-90_management_connection_ieops-1656.svg[Conéctese a su red de gestión]
+
+
+
+
+IMPORTANT: No enchufe los cables de alimentación todavía.
+
+
+
+== Paso 4: Conecte los cables de las conexiones de la bandeja
+
+Los sistemas de almacenamiento ASA A70 y ASA A90 admiten estanterías NS224 con el módulo NSM100 o NSM100B. Las principales diferencias entre los módulos son:
+
+* Los módulos de estante NSM100 utilizan puertos integrados e0a y e0b.
+* Los módulos de estante NSM100B utilizan los puertos e1a y e1b en la ranura 1.
+
+
+Los siguientes ejemplos de cableado muestran módulos NSM100 en los estantes NS224 cuando se refieren a puertos de módulo de estante.
+
+Para conocer el número máximo de bandejas compatibles con el sistema de almacenamiento y todas las opciones de cableado, como ópticas y conectadas por switch, consulte link:https://hwu.netapp.com["NetApp Hardware Universe"^].
+
+[role="tabbed-block"]
+====
+.Un estante de almacenamiento NS224
+--
+Usa esta opción de cableado cuando tienes un único shelf NS224.
+
+Conecte cada controladora a los módulos NSM de la bandeja NS224. Los gráficos muestran el cableado de cada una de las controladoras: El cableado de la controladora A se muestra en azul y el cableado de la controladora B se muestra en amarillo.
+
+*100 GbE QSFP28 cables de cobre*
+
+image::../media/oie_cable100_gbe_qsfp28.svg[Cable de cobre QSFP28 de 100 GbE]
+
+.Pasos
+. Conecte el puerto e11a de la controladora A al puerto NSM A e0a.
+. Conecta el puerto e11b del controlador A al puerto e0b del NSM B.
++
+image:../media/drw_a70-90_1shelf_cabling_a_ieops-1731.svg["Controladora A e11a y e11b a una única bandeja NS224"]
+
+. Conecte el puerto e11a de la controladora B al puerto NSM B e0a.
+. Conecte el puerto e11b de la controladora B al puerto NSM A e0b.
++
+image:../media/drw_a70-90_1shelf_cabling_b_ieops-1732.svg["Controladoras B e11a y e11b a una sola bandeja NS224"]
+
+
+
+--
+.Dos estantes de almacenamiento NS224
+--
+Usa esta opción de cableado cuando tengas dos estanterías NS224.
+
+Conecte cada controladora a los módulos NSM de ambas bandejas NS224. Los gráficos muestran el cableado de cada una de las controladoras: El cableado de la controladora A se muestra en azul y el cableado de la controladora B se muestra en amarillo.
+
+*100 GbE QSFP28 cables de cobre*
+
+image::../media/oie_cable100_gbe_qsfp28.svg[Cable de cobre QSFP28 de 100 GbE]
+
+.Pasos
+. En la controladora A, conecte los siguientes puertos:
++
+.. Conecte el puerto e11a a el puerto e0a de NSM A de la bandeja 1.
+.. Conecte el puerto e11b al puerto e0b NSM B de la bandeja 2.
+.. Conecta el puerto e8a al puerto e0a del NSM A del shelf 2.
+.. Conecta el puerto e8b al puerto e0b del NSM B del shelf 1.
++
+image:../media/drw_a70-90_2shelf_cabling_a_ieops-1733.svg["Conexiones de controladora a bandeja para la controladora A"]
+
+
+
+. En la controladora B, conecte los siguientes puertos:
++
+.. Conecte el puerto e11a al puerto e0a NSM B de la bandeja 1.
+.. Conecte el puerto e11b a el puerto e0b de NSM A de la bandeja 2.
+.. Conecta el puerto e8a al puerto e0a del NSM B del shelf 2.
+.. Conecta el puerto e8b al puerto e0b del NSM A del shelf 1.
++
+image:../media/drw_a70-90_2shelf_cabling_b_ieops-1734.svg["Conexiones de controladora a bandeja para la controladora B"]
+
+
+
+
+
+--
+====
+.El futuro
+Después de conectar las controladoras de almacenamiento a la red y luego conectar las controladoras a las bandejas de almacenamiento, ustedlink:power-on-hardware.html["Encienda el sistema de almacenamiento R2 de ASA"].

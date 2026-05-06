@@ -17,7 +17,17 @@ entries:
   - title: Instale el hardware
     url: "/install-setup/deploy-hardware.html"
   - title: Hardware del cable
-    url: "/install-setup/cable-hardware.html"
+    entries:
+    - title: Visión general del cableado
+      url: "/install-setup/cable-hardware.html"
+    - title: Cable ASA A1K
+      url: "/install-setup/cable-hardware-a1k.html"
+    - title: Cable ASA A70 y A90
+      url: "/install-setup/cable-hardware-a70-90.html"
+    - title: Cable ASA A20, A30 y A50
+      url: "/install-setup/cable-hardware-a20-30-50.html"
+    - title: Cable ASA C30
+      url: "/install-setup/cable-hardware-c30.html"
   - title: Encienda el sistema
     url: "/install-setup/power-on-hardware.html"
 - title: Configure su sistema ASA R2
