@@ -35,9 +35,11 @@ Si su clúster se está quedando sin espacio o si no tiene capacidad para satisf
 
 == Supervise el uso de la zona de disponibilidad del almacenamiento
 
-Cada par de alta disponibilidad de un sistema ASA R2 utiliza un pool de almacenamiento común denominado _storage availability zone_. La zona de disponibilidad de almacenamiento tiene acceso a todos los discos disponibles en el sistema de almacenamiento y está visible para ambos nodos en el par de alta disponibilidad.
+Cada par de HA de un sistema ASA r2 utiliza un pool de almacenamiento común denominado _zona de disponibilidad de almacenamiento_. La zona de disponibilidad de almacenamiento tiene acceso a todos los discos disponibles en el sistema de almacenamiento y es visible para ambos nodos del par de HA. La supervisión del espacio disponible de tus zonas de disponibilidad de almacenamiento te permite disminuir el uso o aumentar la capacidad según sea necesario para que no experimentes cargas de trabajo fallidas debido a un espacio insuficiente.
 
 Si tiene 4 nodos o más en su clúster, puede ver la cantidad de espacio que utiliza la zona de disponibilidad de almacenamiento para cada par de alta disponibilidad. Esta métrica no está disponible para clústeres de 2 nodos.
+
+A partir de ONTAP 9.19.1, se muestra una alerta en System Manager *Insights* si una zona de disponibilidad de almacenamiento en uno de los pares de HA del sistema ASA r2 se acerca a su capacidad. Más información sobre System Manager link:view-insights.html["Perspectivas"].
 
 .Pasos
 . En System Manager, seleccione *Cluster*; luego seleccione *Overview*.
@@ -49,12 +51,12 @@ Se muestra un resumen de la utilización de la zona de disponibilidad de almacen
 En *Overview*, se muestra la capacidad de la zona de disponibilidad de almacenamiento, la cantidad de espacio utilizado y la relación de reducción de datos.
 
 +
-En *Unidades de almacenamiento* se muestra una lista de todas las unidades de almacenamiento en la zona de disponibilidad de almacenamiento.
+En *Unidades de almacenamiento*, se muestra una lista de todas las unidades de almacenamiento de la zona de disponibilidad de almacenamiento.
 
 
 
 .El futuro
-Si su zona de disponibilidad de almacenamiento se está quedando sin espacio, debe planificar link:../manage-data/move-storage-units.html["mueva las unidades de almacenamiento"]otra zona de disponibilidad de almacenamiento para equilibrar la utilización del almacenamiento en todo el clúster.
+Si tu zona de disponibilidad de almacenamiento se está quedando sin espacio, deberías planear link:../manage-data/move-storage-units.html["mueva las unidades de almacenamiento"] a otra zona de disponibilidad de almacenamiento para equilibrar la utilización del almacenamiento en todo el clúster, eliminar snapshots para liberar espacio o agregar discos adicionales a tus nodos para aumentar la capacidad.
 
 
 

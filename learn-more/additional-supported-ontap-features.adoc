@@ -80,6 +80,14 @@ link:https://docs.netapp.com/us-en/ontap/system-admin/configure-saml-authenticat
 
 
 
+=== Descarga de hardware TLS
+
+Puedes descargar el cifrado y descifrado de Transport Layer Security (TLS) de todo tu clúster a las tarjetas Ethernet compatibles. Esto reduce la sobrecarga de la CPU y mejora el rendimiento de los sistemas que usan TLS.
+
+link:https://docs.netapp.com/us-en/ontap/networking/configure_tls_hardware_offload.html["Aprende a configurar la descarga de hardware TLS"^].
+
+
+
 == Redes
 
 Obtenga más información sobre las funciones de red comunes compatibles con los sistemas ASA r2.
@@ -105,6 +113,35 @@ link:https://docs.netapp.com/us-en/ontap/networking/combine_physical_ports_to_cr
 
 
 
+== Rendimiento
+
+Conoce más sobre las funciones de rendimiento comunes compatibles con los sistemas ASA r2.
+
+
+
+=== Modifica la configuración predeterminada que controla los aumentos automáticos del límite de rendimiento de QoS
+
+Los grupos de políticas de QoS adaptables y no adaptables se activan automáticamente para aumentar temporalmente el límite máximo de rendimiento de una carga de trabajo en un 50% durante 1 segundo para responder a demandas elevadas de rendimiento a corto plazo de forma predeterminada. A partir de ONTAP 9.19.1, puedes modificar esta configuración predeterminada. En ONTAP 9.18.1 y versiones anteriores, esta configuración no se puede modificar.
+
+link:https://docs.netapp.com/us-en/ontap/performance-admin/guarantee-throughput-qos-task.html["Obtén más información sobre los techos de rendimiento de QoS"^].
+
+
+
+== Configuración de SAN
+
+Una red de área de almacenamiento (SAN) consiste en una solución de almacenamiento conectada a hosts a través de un protocolo de transporte SAN como iSCSI o FC. Puedes configurar tu SAN para que tu solución de almacenamiento se conecte a tus hosts a través de uno o más switches. Si usas iSCSI, también puedes configurar tu SAN para que tu solución de almacenamiento se conecte directamente a tu host sin usar un switch.
+
+
+
+=== Conexión directa SAN
+
+A partir de ONTAP 9.19.1, no es necesario un switch FC para establecer conexiones entre hosts FC y FC-NVMe y el almacenamiento ONTAP. Los hosts se pueden conectar directamente a los puertos del adaptador FC en los sistemas ASA r2. La capacidad de conexión directa puede ser especialmente valiosa en sitios remotos y entornos híbridos en los que la simplicidad es clave.
+
+* link:https://docs.netapp.com/us-en/ontap/san-config/configure-fc-nvme-hosts-ha-pairs-reference.html#direct-attach-fc-and-fc-nvme-configurations["Obtén más información sobre la conexión directa SAN"^].
+
+
+
+
 == Protocolos SAN
 
 Los sistemas ASA r2 admiten todos los protocolos SAN (iSCSI, FC, NVMe/FC, NVMe/TCP).
@@ -124,6 +161,22 @@ A partir de ONTAP 9.16.1, la desasignación de espacio (también llamada “perf
 
 
 
+
+
+
+== Eficiencia del almacenamiento
+
+La eficiencia del almacenamiento es la medida de la eficacia con la que un sistema de almacenamiento utiliza el espacio disponible optimizando los recursos de almacenamiento, minimizando el espacio desperdiciado y reduciendo la huella física de los datos escritos.
+
+ONTAP proporciona varias tecnologías de eficiencia del almacenamiento que pueden ayudarte a optimizar el uso del almacenamiento y reducir costes.
+
+link:https://docs.netapp.com/us-en/ontap/concepts/storage-efficiency-overview.html["Conoce más sobre las tecnologías de eficiencia del almacenamiento de ONTAP"].
+
+
+
+=== Deduplicación global
+
+A partir de ONTAP 9.19.1, la _deduplicación global_ amplía la link:https://docs.netapp.com/us-en/ontap/concepts/deduplication-concept.html["ahorro de espacio de deduplicación ONTAP existente"^] a nivel de unidad de almacenamiento a toda la zona de disponibilidad de almacenamiento (SAZ). Al eliminar los bloques de datos duplicados en todas las unidades de almacenamiento de la SAZ, se puede mejorar significativamente la eficiencia del almacenamiento y reducir el coste total de propiedad. La deduplicación global no requiere licencia de funciones, está activada por defecto, se integra perfectamente con las tecnologías de eficiencia del almacenamiento existentes y funciona de forma transparente con un impacto mínimo en el rendimiento y sin necesidad de configuración administrativa.
 
 
 

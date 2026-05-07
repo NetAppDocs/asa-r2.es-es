@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: data-protection/prepare-aix-snapmirror-active-sync.html 
+keywords: asa r2, data protection, protect data, configure, snapmirror active sync, ,disaster recovery, symmetric active active, prepare, aix 
+summary: Antes de que puedas activar SnapMirror active sync para tus hosts AIX que ejecutan ONTAP 9.19.1 o posterior, el modo de acceso del host debe estar configurado como local. 
+---
+= Prepara los hosts AIX para la protección de sincronización activa de SnapMirror en sistemas ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A partir de ONTAP 9.19.1, la conmutación por error transparente de aplicaciones para AIX es compatible con SnapMirror active sync en configuraciones activas/activas simétricas. SnapMirror active sync data protection permite que los servicios empresariales sigan funcionando incluso en caso de fallo del sitio, permitiendo que las aplicaciones conmuten por error de forma transparente usando una copia secundaria.
+
+Antes de que puedas activar SnapMirror active sync para tus hosts AIX que ejecutan ONTAP 9.19.1 o posterior, el modo de acceso del host debe estar configurado como local. Seleccionar el modo de acceso no es necesario para otros tipos de host. Más información sobre link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/interoperability-reference.html["interoperabilidad para SnapMirror active sync"^].
+
+.Antes de empezar
+Debes estar ejecutando ONTAP 9.19.1 o posterior. Si estás ejecutando ONTAP 9.18.1 o anterior, se requiere una Feature Policy Variance Request (FPVR) para la compatibilidad del host AIX con SnapMirror active sync.
+
+.Pasos
+. En System Manager, seleccione *Almacenamiento*.
+. Pasa el ratón sobre el nombre de la unidad de almacenamiento AIX que quieres preparar para la protección de sincronización activa de SnapMirror.
+. Selecciona image:icon_kabob.gif["icono de selección de menú"] y luego selecciona *Editar*.
+. En *Información de host*, selecciona *local* para el *Modo de acceso* y luego selecciona *Editar*.
+
+
+.El futuro
+La unidad de almacenamiento para el host AIX está lista para la protección de sincronización activa de SnapMirror.

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: data-protection/configure-snapmirror-active-sync.html 
-keywords: asa r2, data protection, protect data, configure, snapmirror active sync, ,disaster recovery, symmetric active/active 
+keywords: asa r2, data protection, protect data, configure, snapmirror active sync, ,disaster recovery, symmetric active active 
 summary: Aprenda a configurar la sincronización activa de SnapMirror para garantizar la continuidad del negocio creando una copia de datos secundaria y habilitando la conmutación por error automática en caso de desastre. 
 ---
 = Configurar la sincronización activa de SnapMirror en sistemas ASA r2
@@ -17,6 +17,9 @@ En sistemas ASA r2, la sincronización activa de SnapMirror admite configuracion
 
 .Acerca de esta tarea
 Si utiliza el protocolo iSCSI o FC y utiliza herramientas ONTAP para VMware Sphere, puede opcionalmente link:https://docs.netapp.com/us-en/netapp-solutions/vmware/vmware-vmsc-with-smas.html["Utilice ONTAP Tools para VMware para configurar la sincronización activa de SnapMirror"^] .
+
+
+NOTE: A partir de ONTAP 9.19.1 RC, Autonomous Ransomware Protection with Artificial Intelligence (ARP/AI) es compatible con unidades de almacenamiento primarias de lectura/escritura en relaciones SAN de sincronización activa SnapMirror en sistemas ASA r2. ARP/AI se ejecuta en las unidades de almacenamiento primarias activas, crea instantáneas ARP solo primarias y proporciona detección de ransomware basada en aprendizaje automático para esas unidades de almacenamiento. Para activar ARP/AI, consulta link:../secure-data/enable-anti-ransomware-protection.html["Activa la protección autónoma contra el ransomware con IA"].
 
 .Antes de empezar
 link:create-snapshots.html#step-1-optionally-create-a-consistency-group["Crear un grupo de consistencia"] En el sitio principal con nuevas unidades de almacenamiento. Si desea crear una configuración simétrica no uniforme, cree también un grupo de consistencia en el sitio secundario con nuevas unidades de almacenamiento.

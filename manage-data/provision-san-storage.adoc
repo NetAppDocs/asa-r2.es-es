@@ -45,6 +45,9 @@ Para optimizar el equilibrio de carga de trabajo en la zona de disponibilidad de
 
 CAUTION: Si estás creando más de una unidad de almacenamiento, cada unidad se crea con la misma capacidad. Multiplica el número de unidades de almacenamiento que estás creando por la capacidad deseada para asegurarte de que tienes suficiente espacio utilizable. Si no tienes suficiente espacio libre y decides sobreaprovisionar, monitorea de cerca la utilización para evitar quedarte sin espacio y perder datos.
 
++
+A partir de ONTAP 9.19.1, si estás creando un LUN AIX que planeas habilitar para la protección de sincronización activa de SnapMirror, en *Información del host*, selecciona *local* para el *Modo de acceso*. Esto es necesario para habilitar la conmutación por error transparente de aplicaciones.
+
 . Acepte el *mapeo de host* seleccionado automáticamente o seleccione un grupo de host diferente para la unidad de almacenamiento a la que se asignará.
 +
 *Mapeo de host* se refiere al grupo de host al que se asignará la nueva unidad de almacenamiento.  Si hay un grupo de host preexistente para el tipo de host que seleccionó para su nueva unidad de almacenamiento, el grupo de host preexistente se selecciona automáticamente para su asignación de host.  Puede aceptar el grupo de host que se selecciona automáticamente o puede seleccionar un grupo de host diferente.

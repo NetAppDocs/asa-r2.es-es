@@ -57,6 +57,8 @@ entries:
     entries:
     - title: Flujo de trabajo
       url: "/data-protection/snapmirror-active-sync.html"
+    - title: Preparar hosts AIX
+      url: "/data-protection/prepare-aix-snapmirror-active-sync.html"
     - title: Prepárese para configurar la sincronización activa de SnapMirror
       url: "/data-protection/snapmirror-active-sync-prepare.html"
     - title: Confirme la configuración de su clúster
