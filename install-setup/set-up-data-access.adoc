@@ -46,7 +46,7 @@ FLI admite migraciones en línea y fuera de línea. En una migración en línea,
 
 A partir de ONTAP 9.19.1, FLI es compatible con el protocolo iSCSI para la conectividad backend.
 
-* Más información sobre el enlace: https://docs.netapp.com/us-en/ontap-fli/get-started/learn-about-data-migration.html[Migraciones ONTAP FLI^].
+* Más información sobre link:https://docs.netapp.com/us-en/ontap-fli/get-started/learn-about-data-migration.html["Migraciones ONTAP FLI"^].
 
 
 
