@@ -24,6 +24,7 @@ Cuando se habilita la conmutación por error automática de LIF iSCSI, si se pro
 * FabricPool
 * Aprovisionamiento grueso de LUN
 * MetroCluster
+* Cifrado de agregados de NetApp (NAE)
 * Protocolos de objetos
 * ONTAP S3 SnapMirror y API S3
 
@@ -35,7 +36,7 @@ link:../secure-data/ransomware-protection.html["Aprenda a bloquear instantáneas
 
 * Cifrado de doble capa
 +
-link:../secure-data/encrypt-data-at-rest.html["Aprenda a aplicar el cifrado de doble capa"] A los datos de su sistema ASA R2.
+Los sistemas ASA r2 admiten el cifrado por hardware mediante unidades de cifrado automático (SED) y el cifrado por software mediante la tecnología NetApp Volume Encryption (NVE). link:../secure-data/encrypt-data-at-rest.html["Aprenda a aplicar el cifrado de doble capa"] a los datos en tu sistema ASA r2.
 
 
 

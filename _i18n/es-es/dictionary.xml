@@ -852,7 +852,6 @@
   <block id="a75bf2b9e1da63b60510e670e13280f5" category="example-title">Comandos &lt;code&gt;storage&lt;/code&gt; no compatibles</block>
   <block id="96e3e25ced73cbc3087692d33e698dfc" category="list-text"><block ref="c1391c72a0f399cab63e0f906219eba1" prefix="" category="inline-code"></block></block>
   <block id="db03a3b1b5e9221c407a3226384456b7" category="list-text"><block ref="852ce55a153bc728405ba8a2c95bcdf1" prefix="" category="inline-code"></block></block>
-  <block id="cb493146003b5096fb9dbce0cf86abad" category="list-text"><block ref="f0f37fae9d089110c4fb0245013845fb" prefix="" category="inline-code"></block></block>
   <block id="2134111bb81c1ada4be502decedecb30" category="list-text"><block ref="3c698d76925a2f101122edd72990fc94" prefix="" category="inline-code"></block></block>
   <block id="c3c96ea806ac83498c365d5180661ba3" category="list-text"><block ref="9b82d4f814395730025ab1c7b269e56e" prefix="" category="inline-code"></block></block>
   <block id="4dae76cd6e28c01554edf8f2fb2ff842" category="list-text"><block ref="ec9655721b41e06c690354a032042fc1" prefix="" category="inline-code"></block></block>
@@ -950,7 +949,6 @@
   <block id="4428c7556a1eea23721f907d8d23eb21" category="inline-link-macro">Aprenda a bloquear instantáneas</block>
   <block id="19deecdd8b763ce6f48eadb0070d24cd" category="list-text"><block ref="f5c7881d0f64c83ae31bbc947dffd4c1" category="inline-link-macro-rx"></block> En su sistema ASA R2.</block>
   <block id="a45dbe7c067a9974c8fca40e2b212fd6" category="inline-link-macro">Aprenda a aplicar el cifrado de doble capa</block>
-  <block id="bcdcf9cfaaa690edc9d618403dd65057" category="list-text"><block ref="285ab21de69619aa33a3697c0850e834" category="inline-link-macro-rx"></block> A los datos de su sistema ASA R2.</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">Avisos legales</block>
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">Los avisos legales proporcionan acceso a las declaraciones de copyright, marcas comerciales, patentes y mucho más.</block>
   <block id="6016a2b341113bf496b719905398ecd2" category="section-title">Copyright</block>
@@ -1235,7 +1233,6 @@
   <block id="2906636dbf4e4249f5399e9553d745b9" category="paragraph">Al cifrar datos en reposo, no se podrán leer si un medio de almacenamiento se reasigna, devuelve, se pierde o es robado. Puede usar System Manager de ONTAP para cifrar sus datos a nivel de hardware y software para lograr una protección de doble capa.</block>
   <block id="7b51e981529660667d1414c7a37e2172" category="paragraph">El cifrado en almacenamiento de NetApp (NSE) admite el cifrado de hardware mediante unidades de cifrado automático (SED). SEDS cifra los datos a medida que se escriben. Cada SED contiene una clave de cifrado única. Los datos cifrados almacenados en el SED no se pueden leer sin la clave de cifrado del SED. Los nodos que intentan leer desde un SED se deben autenticar para acceder a la clave de cifrado del SED. Los nodos se autentican obteniendo una clave de autenticación de un administrador de claves y, a continuación, presentando la clave de autenticación al SED. Si la clave de autenticación es válida, el SED le dará al nodo su clave de cifrado para acceder a los datos que contiene.</block>
   <block id="97453174e9fea59b5b73518b257f2785" category="paragraph">Use el administrador de claves incorporado o un gestor de claves externo de ASA R2 para servir claves de autenticación a los nodos.</block>
-  <block id="2a1bd1bede081db0130e4d43abfae163" category="paragraph">Además de NSE, también puede habilitar el cifrado del software para añadir otra capa de seguridad a sus datos.</block>
   <block id="c3895fd1cc061addf95194af9659baa6" category="list-text">En el Administrador del sistema, selecciona *Clúster &gt; Configuración*.</block>
   <block id="b59449d4094d1449f93a0de73791997c" category="list-text">En la sección *Seguridad*, en *Cifrado*, selecciona *Configurar*.</block>
   <block id="9bd21eab9d09006d0846084b0f1b970d" category="list-text">Configure el gestor de claves.</block>
@@ -2868,4 +2865,11 @@
   <block id="6be3407e36219b0795158b00b3dff0ca" category="list-text">Más información sobre <block ref="ca933b90c89fa23c09167e20b9cccb24" category="inline-link-macro-rx"></block>.</block>
   <block id="8b046b3216eeb1b646506eacab8f767f" category="paragraph"><block ref="ca9cf0fa026ed1f702f811d5351a5f40" category="inline-link-macro-rx"></block>.</block>
   <block id="44fb59de1e9bca7d7d33dee185838ea7" category="paragraph">A menos que se indique que no son compatibles, todos los demás comandos en el <block ref="585532baa3876b6b8281302459d86312" category="inline-link-macro-rx"></block> son compatibles con los sistemas ASA r2.</block>
+  <block id="a809a3f67f68e189b93c920155d8f362" category="list-text">Cifrado de agregados de NetApp (NAE)</block>
+  <block id="2b115325b25b8f67f05803e840eb1b7c" category="paragraph">Los sistemas ASA r2 admiten el cifrado por hardware mediante unidades de cifrado automático (SED) y el cifrado por software mediante la tecnología NetApp Volume Encryption (NVE). <block ref="285ab21de69619aa33a3697c0850e834" category="inline-link-macro-rx"></block> a los datos en tu sistema ASA r2.</block>
+  <block id="f5c9d4c28f92d0b49036a87f3b949ecc" category="paragraph">Además de NSE, también puedes activar el cifrado por software para añadir otra capa de seguridad a tus datos. Los sistemas ASA r2 utilizan la tecnología NetApp Volume Encryption (NVE) para cifrar los datos a nivel de software. NetApp Aggregate Encryption (NAE) no es compatible con los sistemas ASA r2 porque la capa de almacenamiento en los sistemas ASA r2 utiliza zonas de disponibilidad de almacenamiento en lugar de agregados.</block>
+  <block id="c4b8c29f448328e82ce27062b5fd9c28" category="inline-link-macro">Cifrado de volumen de NetApp</block>
+  <block id="3b02d77db56f5837a4003247043c2394" category="paragraph">Más información sobre <block ref="31c33696bbbaa92dffde7abe3995709d" category="inline-link-macro-rx"></block>.</block>
+  <block id="a77592aaf5c220b3ff9f169a775bd853" category="inline-link-macro">las diferencias entre los sistemas ASA r2 y otros sistemas ONTAP</block>
+  <block id="a3516695dad8c94bdcdc3a67a8d5dd34" category="paragraph">Más información sobre <block ref="539f35f6411ebaaeab190de38a065f4e" category="inline-link-macro-rx"></block>.</block>
 </blocks>
