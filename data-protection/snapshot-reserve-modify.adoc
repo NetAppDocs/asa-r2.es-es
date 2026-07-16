@@ -17,6 +17,7 @@ link:snapshot-reserve.html["Obtenga más información sobre la reserva de instan
 
 
 
+[[modify-snapshot-reserve-on-storage-units]]
 == Modificar la reserva de instantáneas en las unidades de almacenamiento
 
 Para establecer diferentes valores de reserva de instantáneas, configure cada unidad de almacenamiento individualmente.  Para utilizar el mismo valor para todas las unidades de almacenamiento, modifique la reserva de instantáneas en la máquina virtual de almacenamiento.
@@ -35,6 +36,7 @@ La reserva de instantáneas está configurada en el porcentaje que usted especif
 
 
 
+[[modify-snapshot-reserve-on-a-storage-vm]]
 == Modificar la reserva de instantáneas en una máquina virtual de almacenamiento
 
 Para establecer la misma reserva de instantáneas para todas las unidades de almacenamiento en una máquina virtual de almacenamiento, aplique el porcentaje deseado a la máquina virtual de almacenamiento. .  Cuando se aplica la reserva de instantáneas a la máquina virtual de almacenamiento, se aplica a todas las unidades de almacenamiento recién creadas dentro de la máquina virtual de almacenamiento.  No se aplica a las unidades de almacenamiento creadas antes de que usted modificara la configuración.

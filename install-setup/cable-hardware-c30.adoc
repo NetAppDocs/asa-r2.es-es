@@ -30,6 +30,7 @@ image:../media/drw_cable_pull_tab_direction_ieops-1699.svg["Dirección de la len
 
 
 
+[[step-1-cable-the-clusterha-connections]]
 == Paso 1: Conecte los cables de las conexiones del clúster/alta disponibilidad
 
 Cablea los controladores para crear las conexiones del clúster ONTAP. Para clústeres sin switches, conecta los controladores entre sí. Para clústeres con switches, conecta los controladores a los switches de red del clúster.
@@ -144,6 +145,7 @@ image::../media/drw_isi_a30-50_2p_100gbe_1card_switched_cabling_ieops-1926.svg[C
 ====
 
 
+[[step-2-cable-the-host-network-connections]]
 == Paso 2: Conecte los cables de las conexiones de red host
 
 Conecte los puertos del módulo Ethernet o los puertos del módulo Fibre Channel (FC) a la red host.
@@ -193,6 +195,7 @@ image::../media/drw_isi_a30-50_4p_64gb_fc_1card_cabling_ieops-1924.svg[Cable a s
 ====
 
 
+[[step-3-cable-the-management-network-connections]]
 == Paso 3: Conecte los cables de las conexiones de red de gestión
 
 Conecte las controladoras a su red de gestión.
@@ -210,6 +213,7 @@ IMPORTANT: No enchufe los cables de alimentación todavía.
 
 
 
+[[step-4-cable-the-shelf-connections]]
 == Paso 4: Conecte los cables de las conexiones de la bandeja
 
 El procedimiento de cableado de la estantería NS224 muestra módulos NSM100B en lugar de módulos NSM100. El cableado es el mismo independientemente del tipo de módulo NSM utilizado; solo varían los nombres de los puertos:

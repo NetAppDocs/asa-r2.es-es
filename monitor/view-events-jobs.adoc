@@ -53,6 +53,7 @@ Seleccione *Registros de auditoría*.
 
 
 
+[[send-email-notifications-for-cluster-events-and-audit-logs]]
 == Envíe notificaciones por correo electrónico de eventos del clúster y registros de auditoría
 
 Configure su sistema para enviar una notificación a direcciones de correo electrónico específicas cuando haya un evento del clúster o una entrada del registro de auditoría.

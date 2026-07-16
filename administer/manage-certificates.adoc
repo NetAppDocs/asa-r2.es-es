@@ -17,6 +17,7 @@ El protocolo de estado de certificados en línea (OCSP) valida el estado de las 
 
 
 
+[[generate-a-certificate-signing-request]]
 == Genere una solicitud de firma de certificación
 
 Genere una solicitud de firma de certificación (CSR) para crear una clave privada que se pueda utilizar para generar un certificado público.
@@ -34,6 +35,7 @@ Ha generado una CSR en la que se puede utilizar para generar un certificado púb
 
 
 
+[[add-a-trusted-certificate-authority]]
 == Agregue una autoridad de certificación de confianza
 
 ONTAP proporciona un conjunto predeterminado de certificados raíz de confianza para aplicaciones que utilizan Seguridad de la capa de transporte (TLS). Puede agregar autoridades de certificación de confianza adicionales según sea necesario.
@@ -50,6 +52,7 @@ Añadió una nueva entidad de certificación de confianza al sistema ASA R2.
 
 
 
+[[renew-or-delete-a-trusted-certificate-authority]]
 == Renueve o elimine una entidad de certificación de confianza
 
 Las autoridades certificadoras de confianza deben renovarse anualmente. Si no desea renovar un certificado caducado, debe eliminarlo.
@@ -83,6 +86,7 @@ Renovó o eliminó una entidad de certificación de confianza existente en el si
 
 
 
+[[add-a-clientserver-certificate-or-local-certificate-authorities]]
 == Agregue un certificado de cliente/servidor o autoridades de certificación locales
 
 Agregue un certificado de cliente/servidor o autoridades de certificación locales para habilitar servicios web seguros.
@@ -99,6 +103,7 @@ Ha agregado un nuevo certificado de cliente/servidor o autoridades locales al si
 
 
 
+[[renew-or-delete-a-clientserver-certificate-or-local-certificate-authorities]]
 == Renovar o eliminar un certificado de cliente/servidor o autoridades de certificación locales
 
 Los certificados de cliente/servidor y las autoridades de certificación locales deben renovarse anualmente. Si no desea renovar un certificado caducado o autoridades de certificación locales, debe eliminarlos.

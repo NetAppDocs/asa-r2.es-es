@@ -27,6 +27,7 @@ Los siguientes sistemas se clasifican como sistemas ASA r2:
 
 
 
+[[personality-differences]]
 == Diferencias de personalidad
 
 En un sistema ASA R2, se ha optimizado el software ONTAP para admitir las funciones SAN esenciales, a la vez que se limita la visibilidad y la disponibilidad de las funciones y funciones que no son de SAN. Por ejemplo, System Manager que se ejecuta en un sistema ASA R2 no muestra opciones para crear directorios iniciales para clientes NAS. Esta versión optimizada de ONTAP se identifica como _ASA R2 Personality_. ONTAP que se ejecuta en sistemas ASA se identifica como _ASA ONTAP Personality_. ONTAP que se ejecuta en sistemas AFF y FAS ONTAP se identifica como _Unified ONTAP Personality_. Las diferencias entre las personalidades de la ONTAP se mencionan en la referencia de comandos de ONTAP (páginas de manual), la especificación de la API de REST y los mensajes de EMS donde corresponda.
@@ -43,6 +44,7 @@ La personalidad de su sistema de almacenamiento de ONTAP no puede cambiarse.
 
 
 
+[[storage-layer-differences]]
 == Diferencias en la capa de almacenamiento
 
 Los sistemas ASA r2 utilizan una capa de almacenamiento simplificada que es diferente de la capa de almacenamiento utilizada por los sistemas FAS, AFF y ASA .
@@ -57,6 +59,7 @@ Cuando se crea una unidad de almacenamiento (basada en un LUN o en un espacio de
 
 
 
+[[summary-of-asa-r2-system-differences]]
 == Resumen de las diferencias del sistema ASA r2
 
 Los sistemas ASA r2 se diferencian de los sistemas FAS, AFF y ASA en las siguientes formas:

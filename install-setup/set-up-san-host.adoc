@@ -25,6 +25,7 @@ Más información sobre link:https://docs.netapp.com/us-en/ontap/san-config/conf
 
 
 
+[[zoning-recommendation-for-fc-hosts]]
 == Recomendación de división en zonas para los hosts FC
 
 Debe configurar los hosts FC para que utilicen la división en zonas. Los sistemas ASA R2 siguen las mismas recomendaciones y directrices para la división en zonas del host FC que el resto de los sistemas ONTAP.

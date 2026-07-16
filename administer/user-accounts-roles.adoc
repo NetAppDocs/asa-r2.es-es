@@ -15,6 +15,7 @@ Use System Manager para configurar el acceso a la controladora de dominio de Act
 
 
 
+[[configure-active-directory-domain-controller-access]]
 == Configure el acceso del controlador de dominio de Active Directory
 
 Configurar el acceso de la controladora de dominio de Active Directory (AD) al clúster o a la máquina virtual de almacenamiento para poder habilitar el acceso de la cuenta de AD.
@@ -29,6 +30,7 @@ Ahora puede habilitar el acceso a la cuenta de AD en su sistema ASA R2.
 
 
 
+[[configure-ldap]]
 == Configurar LDAP
 
 Configure un servidor de protocolo ligero de acceso a directorios (LDAP) para mantener de forma centralizada la información de usuario para la autenticación.
@@ -47,6 +49,7 @@ Ahora puede usar LDAP para información y autenticación de usuario.
 
 
 
+[[configure-saml-authentication]]
 == Configurar la autenticación SAML
 
 La autenticación del lenguaje de marcado de aserción de seguridad (SAML) permite a los usuarios autenticarse mediante un proveedor de identidad (IdP) seguro en lugar de los proveedores de servicios directos, como Active Directory y LDAP.
@@ -80,6 +83,7 @@ Ahora puede usar la autenticación SAML para las cuentas de usuario.
 
 
 
+[[create-user-account-roles]]
 == Crear roles de cuenta de usuario
 
 Los roles para los administradores del clúster y los administradores de máquinas virtuales de almacenamiento se crean automáticamente cuando se inicializa el clúster. Cree roles de cuenta de usuario adicionales para definir funciones específicas que los usuarios asignados a los roles pueden realizar en el clúster.
@@ -100,6 +104,7 @@ Se creará una nueva cuenta de usuario que estará disponible para usar en su si
 
 
 
+[[create-an-administrator-account]]
 == Cree una cuenta de administrador
 
 Cree una cuenta de usuario de administrador para permitir al usuario de la cuenta realizar acciones específicas en el clúster en función del rol asignado a la cuenta. Para mejorar la seguridad de las cuentas, configure la autenticación multifactor (MFA) al crear la cuenta.

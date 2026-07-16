@@ -15,6 +15,7 @@ Para obtener una mejor protección contra ataques de ransomware, replica snapsho
 
 
 
+[[initialize-the-snaplock-compliance-clock]]
 == Inicialice el reloj de SnapLock Compliance
 
 Para poder crear copias Snapshot a prueba de manipulaciones, debe inicializar el reloj de SnapLock Compliance en los clústeres locales y de destino.

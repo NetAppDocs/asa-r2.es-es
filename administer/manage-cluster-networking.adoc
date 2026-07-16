@@ -15,6 +15,7 @@ Es posible usar System Manager de ONTAP para realizar administración básica de
 
 
 
+[[add-a-broadcast-domain]]
 == Añada un dominio de retransmisión
 
 Utilice dominios de retransmisión para simplificar la gestión de la red de clúster agrupando los puertos de red que pertenecen a la misma red de capa 2. Las máquinas virtuales de almacenamiento (VM) pueden usar los puertos del grupo para el tráfico de datos o de gestión.
@@ -49,6 +50,7 @@ Ha añadido un nuevo dominio de retransmisión.
 
 
 
+[[reassign-ports-to-a-different-broadcast-domain]]
 == Reasigne los puertos a un dominio de retransmisión diferente
 
 Los puertos solo pueden pertenecer a un dominio de retransmisión. Si desea cambiar el dominio de retransmisión al que pertenece un puerto, deberá reasignar el puerto del dominio de retransmisión existente a un nuevo dominio de retransmisión.
@@ -66,6 +68,7 @@ Ha reasignado los puertos a un dominio de retransmisión diferente.
 
 
 
+[[create-a-vlan]]
 == Cree una VLAN
 
 Una VLAN consta de puertos de switch agrupados en un dominio de retransmisión. Las VLAN le permiten aumentar la seguridad, aislar problemas y limitar las rutas disponibles dentro de su infraestructura de red IP.

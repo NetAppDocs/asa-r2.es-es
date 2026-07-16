@@ -15,6 +15,7 @@ Añada unidades a un nodo o bandeja para aumentar la capacidad de almacenamiento
 
 
 
+[[use-netapp-hardware-universe-to-prepare-for-installation-of-a-new-drive]]
 == Utilice NetApp Hardware Universe para preparar la instalación de una unidad nueva
 
 Antes de instalar una nueva unidad en un nodo o estante, utilice NetApp Hardware Universe para confirmar que la unidad que desea agregar es compatible con su sistema ASA r2 e identificar la ranura correcta para la nueva unidad.  Las ranuras correctas para agregar unidades varían según el modelo del sistema y la versión de ONTAP .  En algunos casos, es necesario agregar las unidades a ranuras específicas en secuencia.
@@ -33,6 +34,7 @@ Ha confirmado que la unidad nueva es compatible y conoce la ranura adecuada para
 
 
 
+[[install-a-new-drive-on-the-asa-r2]]
 == Instale una nueva unidad en el ASA R2
 
 La cantidad mínima de unidades que debe añadir en un solo procedimiento es de seis. Al añadir una sola unidad, se puede reducir el rendimiento.

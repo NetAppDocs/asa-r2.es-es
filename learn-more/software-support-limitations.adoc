@@ -42,6 +42,7 @@ Los sistemas ASA r2 admiten el cifrado por hardware mediante unidades de cifrado
 
 
 
+[[support-for-snapmirror-replication]]
 == Compatibilidad con la replicación de SnapMirror
 
 La replicación SnapMirror es compatible con los sistemas ASA r2 con las siguientes limitaciones:

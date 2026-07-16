@@ -15,6 +15,7 @@ Después de migrar una máquina virtual (VM) de almacenamiento de un clúster AS
 
 
 
+[[manually-cut-over-clients-to-an-asa-r2-system-after-a-storage-vm-migration]]
 == Tras una migración de máquina virtual de almacenamiento, realice manualmente la migración de los clientes a un sistema ASA r2.
 
 Si deshabilita el cambio automático de cliente durante la migración de una máquina virtual de almacenamiento de un clúster ASA a un clúster ASA r2, una vez completada la migración, realice el cambio manualmente para que la máquina virtual de almacenamiento ASA r2 pueda proporcionar datos a los clientes.
@@ -42,6 +43,7 @@ Ahora está listo para eliminar la máquina virtual de almacenamiento del clúst
 
 
 
+[[manually-remove-an-asa-storage-vm-after-migration-to-an-asa-r2-cluster]]
 == Eliminar manualmente una máquina virtual de almacenamiento ASA después de la migración a un clúster ASA r2.
 
 Si deshabilita la limpieza automática de origen durante la migración de una máquina virtual de almacenamiento de un clúster ASA a un clúster ASA r2, una vez completada la migración, elimine la máquina virtual de almacenamiento del clúster ASA para liberar el espacio de almacenamiento.

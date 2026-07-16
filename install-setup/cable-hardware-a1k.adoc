@@ -34,6 +34,7 @@ image:../media/drw_cable_pull_tab_direction_ieops-1699.svg["Dirección de la len
 
 
 
+[[step-1-cable-the-clusterha-connections]]
 == Paso 1: Conecte los cables de las conexiones del clúster/alta disponibilidad
 
 Cablea los controladores para crear las conexiones del clúster ONTAP. Para clústeres sin switches, conecta los controladores entre sí. Para clústeres con switches, conecta los controladores a los switches de red del clúster.
@@ -91,6 +92,7 @@ image::../media/drw_a1k_switched_cluster_cabling_ieops-1652.svg[Cablear las cone
 ====
 
 
+[[step-2-cable-the-host-network-connections]]
 == Paso 2: Conecte los cables de las conexiones de red host
 
 Conecte los puertos del módulo Ethernet a la red host.
@@ -135,6 +137,7 @@ image::../media/drw_a1k_network_cabling2_ieops-1650.svg[Cable a red Ethernet 10/
 ====
 
 
+[[step-3-cable-the-management-network-connections]]
 == Paso 3: Conecte los cables de las conexiones de red de gestión
 
 Conecte las controladoras a su red de gestión.
@@ -160,6 +163,7 @@ IMPORTANT: No enchufe los cables de alimentación todavía.
 
 
 
+[[step-4-cable-the-shelf-connections]]
 == Paso 4: Conecte los cables de las conexiones de la bandeja
 
 Los sistemas de almacenamiento ASA A1K admiten estanterías NS224 con el módulo NSM100 o NSM100B. Las principales diferencias entre los módulos son:
@@ -212,9 +216,9 @@ Conecte cada controladora a los módulos NSM de ambas bandejas NS224. Los gráfi
 . En la controladora A, conecte los siguientes puertos:
 +
 .. Conecte el puerto e11a a el puerto e0a de NSM A de la bandeja 1.
-.. Conecte el puerto e11b al puerto e0b NSM B de la bandeja 2.
-.. Conecte el puerto E10A a el puerto e0a de NSM A de la bandeja 2.
 .. Conecta el puerto e10b al puerto e0b del NSM B del shelf 1.
+.. Conecte el puerto E10A a el puerto e0a de NSM A de la bandeja 2.
+.. Conecte el puerto e11b al puerto e0b NSM B de la bandeja 2.
 +
 image:../media/drw_a1k_2shelf_cabling_a_ieops-1705.svg["Conexiones de controladora a bandeja para la controladora A"]
 
@@ -223,9 +227,9 @@ image:../media/drw_a1k_2shelf_cabling_a_ieops-1705.svg["Conexiones de controlado
 . En la controladora B, conecte los siguientes puertos:
 +
 .. Conecte el puerto e11a al puerto e0a NSM B de la bandeja 1.
-.. Conecte el puerto e11b a el puerto e0b de NSM A de la bandeja 2.
-.. Conecte el puerto E10A al puerto e0a NSM B de la bandeja 2.
 .. Conecte el puerto e10b a el puerto e0b de NSM A de la bandeja 1.
+.. Conecte el puerto E10A al puerto e0a NSM B de la bandeja 2.
+.. Conecte el puerto e11b a el puerto e0b de NSM A de la bandeja 2.
 +
 image:../media/drw_a1k_2shelf_cabling_b_ieops-1706.svg["Conexiones de controladora a bandeja para la controladora B"]
 

@@ -15,6 +15,7 @@ ONTAP descarga y actualiza automáticamente los archivos de firmware y sistema e
 
 
 
+[[enable-automatic-updates]]
 == Active las actualizaciones automáticas
 
 Las actualizaciones recomendadas para el firmware de almacenamiento, el firmware de SP/BMC y los archivos del sistema se descargan e instalan automáticamente en el sistema ASA R2 de forma predeterminada. Si se han desactivado las actualizaciones automáticas, puede habilitarlas para restablecer el comportamiento predeterminado.
@@ -33,6 +34,7 @@ Las actualizaciones recomendadas se descargan e instalan automáticamente en su 
 
 
 
+[[disable-automatic-updates]]
 == Desactive las actualizaciones automáticas
 
 Desactiva las actualizaciones automáticas solo si quieres gestionar las actualizaciones completamente por tu cuenta. Con las actualizaciones automáticas desactivadas, el sistema no notificará, descargará ni instalará actualizaciones. Tú eres responsable de supervisar, descargar, programar e instalar todas las actualizaciones manualmente.
@@ -47,6 +49,7 @@ Las actualizaciones automáticas están desactivadas. Debe comprobar regularment
 
 
 
+[[view-automatic-updates]]
 == Ver actualizaciones automáticas
 
 Vea una lista de las actualizaciones de archivos del sistema y firmware que se han descargado en el clúster y están programadas para la instalación automática. Vea también las actualizaciones que se han instalado previamente automáticamente.
@@ -58,6 +61,7 @@ Vea una lista de las actualizaciones de archivos del sistema y firmware que se h
 
 
 
+[[edit-automatic-updates]]
 == Editar actualizaciones automáticas
 
 Puede seleccionar que las actualizaciones recomendadas del firmware de almacenamiento, el firmware de SP/BMC y los archivos del sistema se descarguen e instalen automáticamente en el clúster, o bien puede seleccionar que se descarten automáticamente las actualizaciones recomendadas. Si desea controlar manualmente la instalación o el despido de las actualizaciones, seleccione para recibir una notificación cuando haya disponible una actualización recomendada; a continuación, puede seleccionar manualmente para instalarla o descartarla.
@@ -74,6 +78,7 @@ Las actualizaciones automáticas se modifican en función de las selecciones.
 
 
 
+[[update-firmware-manually]]
 == Actualice el firmware manualmente
 
 Si desea la flexibilidad de ver las actualizaciones recomendadas antes de que se descarguen e instalen, puede deshabilitar las actualizaciones automatizadas y actualizar el firmware manualmente.

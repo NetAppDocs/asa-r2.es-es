@@ -13,16 +13,32 @@ summary: Vea vídeos breves que muestran cómo utilizar System Manager de ONTAP 
 [role="lead"]
 Vea vídeos breves que muestran cómo utilizar System Manager de ONTAP para realizar tareas comunes de forma rápida y sencilla en sus sistemas de almacenamiento R2 de ASA.
 
-.Configure los protocolos SAN en su sistema ASA R2
+
+
+[[configure-san-protocols-on-your-asa-r2-system]]
+== Configure los protocolos SAN en su sistema ASA R2
+
+Puedes utilizar ONTAP System Manager para configurar de forma rápida y sencilla tus protocolos SAN. En este ejemplo, configuraremos direcciones IP para las interfaces de red iSCSI.
+
 video::96cf3b2d-1cbd-4fff-a6e7-b1f0014ef793[panopto]
 link:video_transcript_configure_san_protocols.html["Transcripción de vídeo"]
 
-[#video_transcript_return_configure_san_protocols]
-.Aprovisionar almacenamiento SAN en su sistema ASA R2
+
+
+[[provision-san-storage-on-your-asa-r2-system]]
+== Aprovisionar almacenamiento SAN en su sistema ASA R2
+
+Puedes usar ONTAP System Manager para aprovisionar de forma rápida y sencilla unidades de almacenamiento para hosts en tu sistema de almacenamiento ASA r2. En este ejemplo, vamos a crear seis nuevas unidades de almacenamiento para un host de VMware.
+
 video::1d3e1a18-7dbe-44e9-a53d-b1f0014ef7c5[panopto]
 link:video_transcript_provision_san_storage.html["Transcripción de vídeo"]
 
-[#video_transcript_return_provision_san_storage]
-.Replique datos en un clúster remoto de un sistema ASA R2
+
+
+[[replicate-data-to-a-remote-cluster-from-an-asa-r2-storage-system]]
+== Replique datos en un clúster remoto de un sistema de almacenamiento R2 de ASA
+
+Puedes usar ONTAP System Manager para proteger tus datos programando snapshots de tus unidades de almacenamiento o grupos de consistencia y replicando a una ubicación remota. En este ejemplo vamos a programar snapshots para las unidades de almacenamiento existentes.
+
 video::4b78312d-1bfa-4df5-afac-b1f0014ef80e[panopto]
 link:video_transcript_replicate_data.html["Transcripción de vídeo"]

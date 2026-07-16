@@ -17,6 +17,7 @@ Si ya no necesita proteger los datos de unidades de almacenamiento específicas 
 
 
 
+[[add-snapshot-data-protection-to-a-consistency-group]]
 == Añade protección de datos de snapshot a un grupo de coherencia
 
 Cuando se añade la protección de datos Snapshot a un grupo de coherencia, las Snapshot locales del grupo de coherencia se realizan a intervalos regulares de acuerdo con una programación predefinida.
@@ -66,6 +67,7 @@ Ahora que los datos están protegidos con copias snapshot, debe link:../secure-d
 
 
 
+[[remove-snapshot-data-protection-from-a-consistency-group]]
 == Quite la protección de datos Snapshot de un grupo de coherencia
 
 Cuando se quita la protección de datos Snapshot de un grupo de coherencia, se deshabilitan las Snapshot para todas las unidades de almacenamiento del grupo de coherencia.

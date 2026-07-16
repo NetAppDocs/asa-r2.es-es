@@ -142,6 +142,7 @@ El  `volume modify` El comando no está disponible cuando se utiliza junto con l
 ====
 
 
+[[set-up-an-ontap-asa-r2-cluster-using-the-cli]]
 == Configure un clúster de ONTAP ASA R2 mediante la interfaz de línea de comandos
 
 Se recomienda que usted link:../install-setup/initialize-ontap-cluster.html["Utilice System Manager para configurar su clúster de ONTAP ASA R2"]. System Manager ofrece un flujo de trabajo guiado rápido y sencillo para poner el clúster en funcionamiento. Sin embargo, si está acostumbrado a trabajar con comandos de la ONTAP, opcionalmente se puede utilizar la interfaz de línea de comandos de la ONTAP para la configuración del clúster. La configuración del clúster mediante CLI no ofrece opciones ni ventajas adicionales a la configuración del clúster con System Manager.

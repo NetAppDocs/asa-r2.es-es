@@ -21,6 +21,7 @@ Los grupos de coherencia jerárquicos le permiten aplicar políticas Snapshot in
 
 
 
+[[consistency-groups-in-replication-relationships]]
 == Grupos de consistencia en relaciones de replicación
 
 A partir de ONTAP 9.17.1, puede realizar los siguientes cambios de geometría en los grupos de consistencia en una relación de replicación asincrónica o en una relación de sincronización activa de SnapMirror sin interrumpir ni eliminar la relación.  Cuando se produce un cambio de geometría en el grupo de consistencia principal, el cambio se replica en el grupo de consistencia secundario.

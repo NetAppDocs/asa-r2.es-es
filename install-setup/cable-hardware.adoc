@@ -15,6 +15,7 @@ Conecta tu sistema de almacenamiento ASA r2 para habilitar la comunicación del 
 
 
 
+[[overview-of-hardware-cabling]]
 == Visión general del cableado de hardware
 
 El cableado difiere según el modelo de plataforma porque cada modelo de ASA r2 tiene ubicaciones de ranura, asignaciones de puertos y configuraciones de módulos de E/S únicas. Selecciona el procedimiento para tu modelo de ASA r2:
@@ -47,6 +48,7 @@ Conecta los controladores a los estantes de almacenamiento NS224 para proporcion
 
 
 
+[[additional-resources]]
 == Recursos adicionales
 
 Los procedimientos de cableado muestran configuraciones comunes. El cableado específico depende de los componentes pedidos para tu sistema de almacenamiento. Para obtener detalles completos de configuración y prioridad de ranuras, consulta link:https://hwu.netapp.com["NetApp Hardware Universe"^].

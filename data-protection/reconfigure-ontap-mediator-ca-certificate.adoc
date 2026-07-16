@@ -15,6 +15,7 @@ Si configura ONTAP Mediator o ONTAP Cloud Mediator con un certificado autofirmad
 
 
 
+[[step-1-remove-the-mediator-configuration]]
 == Paso 1: Eliminar la configuración del mediador
 
 Para reconfigurar el mediador, primero debe eliminar su configuración actual del clúster.
@@ -30,6 +31,7 @@ Si tiene varios mediadores instalados y desea eliminar todas las configuraciones
 
 
 
+[[step-2-remove-the-self-signed-certificate]]
 == Paso 2: Eliminar el certificado autofirmado
 
 Después de eliminar la configuración del mediador, debe eliminar el certificado autofirmado asociado del clúster.
@@ -43,6 +45,7 @@ Después de eliminar la configuración del mediador, debe eliminar el certificad
 
 
 
+[[step-3-reinstall-the-mediator-with-a-third-party-certificate]]
 == Paso 3: Reinstale el mediador con un certificado de terceros
 
 Después de eliminar el certificado autofirmado asociado, puede volver a configurar el mediador con el certificado de terceros.

@@ -15,6 +15,7 @@ A partir de ONTAP 9.16.1, puede usar el Administrador del sistema para crear gru
 
 
 
+[[promote-an-existing-consistency-group-into-a-parent-consistency-group]]
 == Promocionar un grupo de consistencia existente a un grupo de consistencia principal
 
 Si promueve un grupo de consistencia existente a padre, se crea un nuevo grupo de consistencia hijo y las unidades de almacenamiento que pertenecen al grupo de consistencia promocionado se mueven al nuevo grupo de consistencia hijo.  Las unidades de almacenamiento no se pueden asociar directamente con un grupo de consistencia principal.
@@ -35,6 +36,7 @@ Puede crear grupos de consistencia secundarios adicionales dentro del grupo de c
 
 
 
+[[demote-a-parent-consistency-group-to-a-single-consistency-group]]
 == Degrade un grupo de consistencia primario a un grupo de consistencia único
 
 Cuando se degrada un grupo de consistencia principal a un solo grupo de consistencia, las unidades de almacenamiento de los grupos de consistencia secundarios asociados se agregan al grupo de consistencia principal.  Los grupos de consistencia secundarios se eliminan y el grupo de consistencia principal se administra como un solo grupo de consistencia.
@@ -54,6 +56,7 @@ link:policies-schedules.html#apply-a-snapshot-policy-to-a-consistency-group["Añ
 
 
 
+[[create-a-child-consistency-group]]
 == Cree un grupo de consistencia secundario
 
 La creación de grupos de consistencia secundarios le permite aplicar políticas de instantáneas individuales a cada secundario.  A partir de ONTAP 9.17.1, también puede aplicar políticas de replicación individuales directamente a cada hijo.  En ONTAP 9.16.1, las políticas de replicación solo se pueden aplicar en el nivel principal.
@@ -104,6 +107,7 @@ Después de crear un grupo de consistencia secundario, puedelink:policies-schedu
 
 
 
+[[detach-a-child-consistency-group-from-a-parent-consistency-group]]
 == Desvincular un grupo de consistencia secundario de un grupo de consistencia primario
 
 Cuando se separa un grupo de consistencia secundario de un grupo de consistencia principal, el grupo de consistencia secundario se elimina del grupo de consistencia principal y se administra como un solo grupo de consistencia.  La política de replicación aplicada al padre ya no se aplica al grupo de consistencia secundario separado.

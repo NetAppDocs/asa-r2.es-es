@@ -18,6 +18,7 @@ Obtenga más información sobre los cambios en los límites y valores predetermi
 
 
 
+[[changes-to-ontap-limits]]
 == Cambios en los límites de ONTAP
 
 [cols="2,4,4"]

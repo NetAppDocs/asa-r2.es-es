@@ -11,7 +11,10 @@ summary: Si una zona de disponibilidad de almacenamiento se está quedando sin e
 
 
 [role="lead"]
-A partir de ONTAP 9.18.1, puede migrar sin interrupciones una máquina virtual (VM) de almacenamiento desde cualquier clúster ASA a cualquier clúster ASA r2.  La migración de un clúster ASA a un clúster ASA r2 le permite adoptar la arquitectura simplificada y optimizada de los sistemas ASA r2 para entornos exclusivamente SAN.
+A partir de ONTAP 9.18.1, puedes migrar sin interrupciones una máquina virtual de almacenamiento (VM) desde cualquier clúster ASA estándar a cualquier clúster ASA r2. Migrar de un clúster ASA estándar a un clúster ASA r2 te permite adoptar la arquitectura simplificada y optimizada de los sistemas ASA r2 para entornos solo SAN.
+
+
+NOTE: No puedes migrar una máquina virtual de almacenamiento desde un ASA MetroCluster a un clúster ASA r2. Los sistemas ASA r2 no admiten configuraciones MetroCluster.
 
 La migración de máquinas virtuales de almacenamiento entre sistemas de almacenamiento ASA y ASA r2 se admite de la siguiente manera:
 
@@ -46,8 +49,7 @@ La migración de máquinas virtuales de almacenamiento entre sistemas de almacen
 
 
 |===
-
-NOTE: Para obtener la lista más actualizada de sistemas ASA y ASA r2, consultelink:https://hwu.netapp.com/["NetApp Hardware Universe"^] .  Los sistemas ASA r2 aparecen en NetApp Hardware Universe como "ASA Serie A/Serie C (Nuevo)".
+Para obtener la lista más actualizada de sistemas ASA y ASA r2, consultelink:https://hwu.netapp.com/["NetApp Hardware Universe"^] .  Los sistemas ASA r2 aparecen en NetApp Hardware Universe como "ASA Serie A/Serie C (Nuevo)".
 
 Solo se puede migrar una máquina virtual de almacenamiento a un clúster ASA r2 desde un clúster ASA .  No se admite la migración desde ningún otro tipo de sistema ONTAP .
 
@@ -56,6 +58,7 @@ Todos los nodos del clúster ASA r2 y del clúster ASA deben estar ejecutando ON
 
 
 
+[[step-1-verify-the-status-of-the-asa-storage-vm]]
 == Paso 1: Verifique el estado de la máquina virtual de almacenamiento ASA.
 
 Antes de migrar una máquina virtual de almacenamiento desde un sistema ASA , no debe haber espacios de nombres NVMe ni vVols presentes y cada volumen en la máquina virtual de almacenamiento debe contener solo un LUN.  No se admite la migración de espacios de nombres NVMe ni de vVols .  La arquitectura de los sistemas ASA r2 requiere que los volúmenes contengan un único LUN.
@@ -95,6 +98,7 @@ Ya está listo para crear una relación de pares de clúster entre sus clústere
 
 
 
+[[step-2-create-a-cluster-peer-relationship-between-your-asa-and-asa-r2-clusters]]
 == Paso 2: Cree una relación de pares de clúster entre sus clústeres ASA y ASA r2.
 
 Antes de poder migrar una máquina virtual de almacenamiento de un clúster ASA a un clúster ASA r2, es necesario crear una relación de pares.  Una relación entre pares define las conexiones de red que permiten a los clústeres ONTAP y a las máquinas virtuales de almacenamiento intercambiar datos de forma segura.
@@ -165,6 +169,7 @@ Ya está listo para preparar su máquina virtual de almacenamiento ASA para la m
 
 
 
+[[step-3-prepare-for-storage-vm-migration-from-an-asa-to-an-asa-r2-cluster]]
 == Paso 3: Preparar la migración de la máquina virtual de almacenamiento desde un clúster ASA a un clúster ASA r2.
 
 Antes de migrar una máquina virtual (VM) de almacenamiento de un clúster ASA a un clúster ASA r2, debe ejecutar una comprobación previa de la migración y solucionar cualquier problema necesario.  No se puede realizar la migración hasta que la comprobación previa se supere correctamente.
@@ -186,6 +191,7 @@ Ya está listo para migrar su máquina virtual de almacenamiento desde su clúst
 
 
 
+[[step-4-migrate-an-asa-storage-vm-to-an-asa-r2-cluster]]
 == Paso 4: Migrar una máquina virtual de almacenamiento ASA a un clúster ASA r2
 
 Una vez que haya preparado su clúster ASA y creado la relación de pares de clúster necesaria con el clúster ASA r2, puede comenzar la migración de la máquina virtual de almacenamiento.

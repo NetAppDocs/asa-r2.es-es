@@ -21,6 +21,7 @@ Más información sobre link:https://docs.netapp.com/us-en/ontap/upgrade/index.h
 
 
 
+[[execute-automated-pre-upgrade-checks-before-a-planned-upgrade]]
 == Ejecuta comprobaciones automatizadas previas a una actualización planificada
 
 No tienes que estar en el proceso de actualizar tu software de ONTAP para ejecutar las comprobaciones previas a la actualización automatizada de ONTAP. Ejecutar las comprobaciones previas a la actualización de forma independiente al proceso de actualización automatizada de ONTAP te permite ver qué comprobaciones se realizan en tu clúster y te da una lista de los errores o advertencias que deberías corregir antes de comenzar la actualización real.

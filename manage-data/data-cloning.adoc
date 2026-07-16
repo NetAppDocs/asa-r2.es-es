@@ -19,6 +19,7 @@ La clonado de datos crea copias de unidades de almacenamiento y grupos de cohere
 
 
 
+[[clone-storage-units]]
 == Clonar unidades de almacenamiento
 
 Cuando se clona una unidad de almacenamiento, se crea una nueva unidad de almacenamiento en el sistema ASA R2, que es una copia editable de un momento específico de la unidad de almacenamiento que clonó.
@@ -74,6 +75,7 @@ Ha creado una nueva unidad de almacenamiento idéntica a la unidad de almacenami
 
 
 
+[[clone-consistency-groups]]
 == Clonar grupos de consistencia
 
 Cuando se clona un grupo de consistencia, se crea un nuevo grupo de consistencia que es idéntico en estructura, unidades de almacenamiento y datos al grupo de consistencia que se clona. Utilice un clon de grupo de consistencia para realizar la prueba de las aplicaciones o migrar datos. Suponga que, por ejemplo, necesita migrar una carga de trabajo de producción fuera de un grupo de consistencia. Puede clonar el grupo de consistencia para crear una copia de la carga de trabajo de producción a fin de mantener como backup hasta que se complete la migración.
@@ -153,6 +155,7 @@ Para proteger los datos, debe link:../data-protection/create-snapshots.html#step
 
 
 
+[[split-consistency-group-clone]]
 == Divida el clon del grupo de consistencia
 
 Cuando se divide un clon de un grupo de consistencia, se disocia el clon del grupo de consistencia de origen y se asigna espacio en disco al clon. El clon se convierte en un grupo de consistencia independiente que se puede usar independientemente del grupo de consistencia de origen.

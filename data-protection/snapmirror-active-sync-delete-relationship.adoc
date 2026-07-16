@@ -15,6 +15,7 @@ Si ya no necesita RPO y RTO cercanos a cero para una aplicación comercial, debe
 
 
 
+[[step-1-terminate-host-replication]]
 == Paso 1: Finalizar la replicación del host
 
 Si el grupo de hosts del clúster de origen se replica en el clúster de destino y los grupos de consistencia de destino se asignan al grupo de hosts replicado, debe finalizar la replicación de host en el clúster de origen antes de poder eliminar la relación de sincronización activa de SnapMirror .
@@ -27,6 +28,7 @@ Si el grupo de hosts del clúster de origen se replica en el clúster de destino
 
 
 
+[[step-2-delete-the-snapmirror-active-sync-relationship]]
 == Paso 2: Eliminar la relación de sincronización activa de SnapMirror
 
 Para eliminar la protección de sincronización activa de SnapMirror de un grupo de consistencia, debe eliminar la relación de sincronización activa de SnapMirror .

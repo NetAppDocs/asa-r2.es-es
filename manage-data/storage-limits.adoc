@@ -64,6 +64,7 @@ Los sistemas ASA r2 admiten los siguientes límites de almacenamiento:
 |===
 
 
+[[limits-for-snapmirror-asynchronous-relationships]]
 == Límites para las relaciones asincrónicas de SnapMirror
 
 Los siguientes límites se aplican a las unidades de almacenamiento y a los grupos de consistencia en una relación de replicación asincrónica de SnapMirror . Para obtener una lista completa de los límites de almacenamiento más recientes de ASA r2,link:https://hwu.netapp.com/["NetApp Hardware Universe"^] .
@@ -80,6 +81,7 @@ Los siguientes límites se aplican a las unidades de almacenamiento y a los grup
 |===
 
 
+[[limits-for-snapmirror-active-sync-relationship]]
 == Límites para la relación de sincronización activa de SnapMirror
 
 Los siguientes límites se aplican a las unidades de almacenamiento y a los grupos de consistencia en una relación de replicación de sincronización activa de SnapMirror . La sincronización activa de SnapMirror es compatible a partir de ONTAP 9.17.1 solo en clústeres de dos nodos.  A partir de ONTAP 9.18.1, la sincronización activa de SnapMirror es compatible con clústeres de cuatro nodos.

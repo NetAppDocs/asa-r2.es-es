@@ -18,6 +18,7 @@ Por ejemplo, supongamos que una aplicación crítica está experimentando alta l
 
 
 
+[[monitor-cluster-performance]]
 == Supervise el rendimiento del clúster
 
 Use las métricas de rendimiento del clúster para determinar si necesita cambiar cargas de trabajo para minimizar la latencia y maximizar las IOPS y el rendimiento para sus aplicaciones críticas.
@@ -33,6 +34,7 @@ Use las métricas de rendimiento del clúster para analizar si necesita modifica
 
 
 
+[[monitor-storage-unit-performance]]
 == Supervise el rendimiento de la unidad de almacenamiento
 
 Utilice métricas de rendimiento de unidad de almacenamiento para determinar el impacto de aplicaciones específicas en la latencia, las operaciones de IOPS y el rendimiento.

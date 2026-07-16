@@ -18,6 +18,7 @@ Conozca las nuevas capacidades disponibles en ONTAP 9.18.1 para sistemas ASA r2.
 
 
 
+[[data-protection]]
 == Protección de datos
 
 [cols="2,4"]
@@ -29,6 +30,7 @@ Conozca las nuevas capacidades disponibles en ONTAP 9.18.1 para sistemas ASA r2.
 |===
 
 
+[[networking]]
 == Redes
 
 [cols="2,4"]
@@ -43,6 +45,7 @@ Conozca las nuevas capacidades disponibles en ONTAP 9.18.1 para sistemas ASA r2.
 |===
 
 
+[[san-data-migration]]
 == Migración de datos SAN
 
 [cols="2,4"]
@@ -54,6 +57,7 @@ Conozca las nuevas capacidades disponibles en ONTAP 9.18.1 para sistemas ASA r2.
 |===
 
 
+[[security]]
 == Seguridad
 
 [cols="2,4"]
@@ -65,6 +69,7 @@ Conozca las nuevas capacidades disponibles en ONTAP 9.18.1 para sistemas ASA r2.
 |===
 
 
+[[storage-efficiency]]
 == Eficiencia del almacenamiento
 
 [cols="2,4"]

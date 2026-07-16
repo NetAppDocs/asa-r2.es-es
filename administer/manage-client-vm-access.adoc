@@ -16,6 +16,7 @@ Las unidades de almacenamiento de un sistema ASA R2 se encuentran dentro de las 
 
 
 
+[[create-a-storage-vm]]
 == Cree una máquina virtual de almacenamiento
 
 Durante la configuración del clúster, se crea la máquina virtual de almacenamiento de datos predeterminada. Todas las unidades de almacenamiento nuevas se crean dentro de la máquina virtual de almacenamiento de datos predeterminada, a menos que cree y seleccione una máquina virtual de almacenamiento diferente. Es posible que desee crear una máquina virtual de almacenamiento adicional para segregar las unidades de almacenamiento para diferentes aplicaciones, departamentos o clientes. Por ejemplo, quizás desee crear una máquina virtual de almacenamiento para el entorno de desarrollo y otra máquina virtual de almacenamiento para el entorno de producción, o bien crear una máquina virtual de almacenamiento para el departamento financiero y otra máquina virtual de almacenamiento para el departamento de marketing.
@@ -38,6 +39,7 @@ Creó una máquina virtual de almacenamiento. Ahora es posible utilizar la máqu
 
 
 
+[[create-ipspaces]]
 == Cree espacios IP
 
 Un espacio IP es un espacio de direcciones IP distinto en el que residen las máquinas virtuales de almacenamiento. Cuando se crean espacios IP, se permite que las máquinas virtuales de almacenamiento tengan su propio almacenamiento, administración y enrutamiento seguros. También puede habilitar a los clientes en dominios de red independientes de forma administrativa para que utilicen direcciones IP superpuestas del mismo rango de subredes de direcciones IP.
@@ -59,6 +61,7 @@ Ahora que ha creado un espacio IP, puede utilizarlo para crear una subred.
 
 
 
+[[create-subnets]]
 == Crear subredes
 
 Una subred le permite asignar bloques específicos de direcciones IPv4 o IPv6 que deben usarse al crear una LIF (interfaz de red) . Una subred simplifica la creación de LIF al permitirle especificar el nombre de subred en lugar de una dirección IP y una máscara de red específicas para cada LIF.
@@ -89,6 +92,7 @@ Ha creado una subred que ahora puede usar para simplificar la creación de sus L
 
 
 
+[[create-a-lif-network-interface]]
 == Crear una LIF (interfaz de red)
 
 Una LIF (interfaz de red) es una dirección IP asociada a un puerto físico o lógico. Cree LIF en los puertos que desee utilizar para acceder a los datos. Los equipos virtuales de almacenamiento sirven datos a los clientes a través de una o más LIF. Si hay un fallo de un componente, un LIF puede conmutar al respaldo o migrarse a un puerto físico diferente, de modo que la comunicación de la red no se interrumpa.
@@ -121,6 +125,7 @@ Puede utilizar la interfaz de línea de comandos (CLI) de ONTAP para crear un LI
 
 
 
+[[create-a-custom-iscsi-only-lif-service-policy]]
 === Cree una política de servicio LIF solo para iSCSI personalizada
 
 Si desea crear LIF solo iSCSI con conmutación por error automática de LIF, primero debe crear una política de servicio LIF solo iSCSI personalizada.
@@ -156,6 +161,7 @@ set -privilege admin
 
 
 
+[[create-iscsi-only-lifs-with-automatic-lif-failover]]
 === Cree LIF solo iSCSI con conmutación por error automática de LIF
 
 Si existen LIF iSCSI en la máquina virtual de almacenamiento que no están habilitadas para la conmutación por error automática de LIF, las LIF que cree recientemente tampoco estarán habilitadas para la conmutación por error automática de LIF.  Si la conmutación por error automática de LIF no está habilitada y se produce un evento de conmutación por error, sus LIF iSCSI no migrarán.
@@ -197,6 +203,7 @@ network interface show -lif iscsi*
 
 
 
+[[modify-a-lif-network-interfaces]]
 == Modificar una LIF (interfaces de red)
 
 Las LIF se pueden deshabilitar o cambiar su nombre según sea necesario. También puede cambiar la dirección IP de LIF y la máscara de subred.

@@ -17,12 +17,14 @@ Para obtener más información sobre las características y funciones comunes, c
 
 
 
+[[data-protection]]
 == Protección de datos
 
 Obtenga más información sobre las funciones comunes de protección de datos compatibles con los sistemas ASA r2.
 
 
 
+[[clustered-external-key-servers]]
 === servidores de claves externas agrupados
 
 Puede configurar la conectividad a servidores de administración de claves externos agrupados en una máquina virtual de almacenamiento. Con servidores de claves en clúster, puede designar servidores de claves primarios y secundarios en una máquina virtual de almacenamiento. Al registrar las claves, ONTAP primero intentará acceder a un servidor de claves primario antes de intentar secuencialmente acceder a los servidores secundarios hasta que la operación se complete correctamente, evitando así la duplicación de claves.
@@ -31,6 +33,7 @@ link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-cluster-ke
 
 
 
+[[external-key-management-for-encryption-at-rest]]
 === Gestión externa de claves para el cifrado en reposo
 
 Puede utilizar uno o más servidores KMIP para proteger las claves que el clúster utiliza para acceder a los datos cifrados.
@@ -41,12 +44,14 @@ Puede utilizar uno o más servidores KMIP para proteger las claves que el clúst
 
 
 
+[[data-security]]
 == Seguridad de datos
 
 Obtenga más información sobre las funciones comunes de seguridad de datos compatibles con los sistemas ASA r2.
 
 
 
+[[administrator-access-management]]
 === gestión de acceso de administrador
 
 El rol asignado a un administrador determina qué funciones puede desempeñar.  System Manager proporciona roles predefinidos para administradores de clústeres y administradores de máquinas virtuales de almacenamiento.  El rol se asigna al crear la cuenta de administrador, o se puede asignar un rol diferente más adelante.
@@ -56,6 +61,7 @@ El rol asignado a un administrador determina qué funciones puede desempeñar.  
 
 
 
+[[client-authentication-and-authorization]]
 === Autenticación y autorización del cliente
 
 ONTAP utiliza métodos estándar para asegurar el acceso de clientes y administradores al almacenamiento y para proteger contra virus.  Existen tecnologías avanzadas para el cifrado de datos en reposo y para el almacenamiento WORM.  ONTAP autentica una máquina cliente y un usuario verificando sus identidades con una fuente de confianza.  ONTAP autoriza a un usuario a acceder a un archivo o directorio comparando las credenciales del usuario con los permisos configurados en el archivo o directorio.
@@ -64,6 +70,7 @@ link:https://docs.netapp.com/us-en/ontap/concepts/client-access-storage-concept.
 
 
 
+[[oauth-2-0-authentication]]
 === Autenticación OAuth 2.0
 
 Puede utilizar el marco de autorización abierta (OAuth 2.0) para controlar el acceso a sus clústeres ONTAP .  OAuth 2.0 restringe y controla el acceso a los recursos protegidos mediante tokens de acceso firmados.
@@ -72,6 +79,7 @@ link:https://docs.netapp.com/us-en/ontap/authentication/overview-oauth2.html["Ob
 
 
 
+[[saml-authentication-and-administrator-access]]
 === Autenticación SAML y acceso de administrador
 
 Puede configurar y habilitar la autenticación Security Assertion Markup Language (SAML) para servicios web.  SAML autentica a los usuarios mediante un proveedor de identidad externo (IdP) en lugar de los proveedores de servicios de directorio como Active Directory y LDAP.
@@ -80,6 +88,7 @@ link:https://docs.netapp.com/us-en/ontap/system-admin/configure-saml-authenticat
 
 
 
+[[tls-hardware-offload]]
 === Descarga de hardware TLS
 
 Puedes descargar el cifrado y descifrado de Transport Layer Security (TLS) de todo tu clúster a las tarjetas Ethernet compatibles. Esto reduce la sobrecarga de la CPU y mejora el rendimiento de los sistemas que usan TLS.
@@ -88,12 +97,14 @@ link:https://docs.netapp.com/us-en/ontap/networking/configure-tls-offload.html["
 
 
 
+[[networking]]
 == Redes
 
 Obtenga más información sobre las funciones de red comunes compatibles con los sistemas ASA r2.
 
 
 
+[[fips-compliance]]
 === Cumplimiento de FIPS
 
 ONTAP cumple con los Estándares Federales de Procesamiento de Información (FIPS) 140-2 para todas las conexiones SSL.  Puedes activar y desactivar el modo SSL FIPS, configurar los protocolos SSL globalmente y desactivar cualquier cifrado débil como RC4 dentro de ONTAP.
@@ -105,6 +116,7 @@ A partir de ONTAP 9.18.1, se admiten algoritmos criptográficos de computación 
 
 
 
+[[link-aggregation-groups-lags]]
 === Grupos de agregación de enlaces (LAG)
 
 Un grupo de interfaces, también conocido como grupo de agregación de enlaces (LAG), se crea combinando dos o más puertos físicos en el mismo nodo en un único puerto lógico.  El puerto lógico proporciona mayor resiliencia, mayor disponibilidad y reparto de carga.
@@ -113,12 +125,14 @@ link:https://docs.netapp.com/us-en/ontap/networking/combine_physical_ports_to_cr
 
 
 
+[[performance]]
 == Rendimiento
 
 Conoce más sobre las funciones de rendimiento comunes compatibles con los sistemas ASA r2.
 
 
 
+[[modify-default-settings-that-control-automatic-qos-throughput-ceiling-increases]]
 === Modifica la configuración predeterminada que controla los aumentos automáticos del límite de rendimiento de QoS
 
 Los grupos de políticas de QoS adaptables y no adaptables se activan automáticamente para aumentar temporalmente el límite máximo de rendimiento de una carga de trabajo en un 50% durante 1 segundo para responder a demandas elevadas de rendimiento a corto plazo de forma predeterminada. A partir de ONTAP 9.19.1, puedes modificar esta configuración predeterminada. En ONTAP 9.18.1 y versiones anteriores, esta configuración no se puede modificar.
@@ -127,12 +141,14 @@ link:https://docs.netapp.com/us-en/ontap/performance-admin/guarantee-throughput-
 
 
 
+[[san-configuration]]
 == Configuración de SAN
 
 Una red de área de almacenamiento (SAN) consiste en una solución de almacenamiento conectada a hosts a través de un protocolo de transporte SAN como iSCSI o FC. Puedes configurar tu SAN para que tu solución de almacenamiento se conecte a tus hosts a través de uno o más switches. Si usas iSCSI, también puedes configurar tu SAN para que tu solución de almacenamiento se conecte directamente a tu host sin usar un switch.
 
 
 
+[[san-direct-attachment]]
 === Conexión directa SAN
 
 A partir de ONTAP 9.19.1, no es necesario un switch FC para establecer conexiones entre hosts FC y FC-NVMe y el almacenamiento ONTAP. Los hosts se pueden conectar directamente a los puertos del adaptador FC en los sistemas ASA r2. La capacidad de conexión directa puede ser especialmente valiosa en sitios remotos y entornos híbridos en los que la simplicidad es clave.
@@ -142,6 +158,7 @@ A partir de ONTAP 9.19.1, no es necesario un switch FC para establecer conexione
 
 
 
+[[san-protocols]]
 == Protocolos SAN
 
 Los sistemas ASA r2 admiten todos los protocolos SAN (iSCSI, FC, NVMe/FC, NVMe/TCP).
@@ -164,6 +181,7 @@ A partir de ONTAP 9.16.1, la desasignación de espacio (también llamada “perf
 
 
 
+[[storage-efficiency]]
 == Eficiencia del almacenamiento
 
 La eficiencia del almacenamiento es la medida de la eficacia con la que un sistema de almacenamiento utiliza el espacio disponible optimizando los recursos de almacenamiento, minimizando el espacio desperdiciado y reduciendo la huella física de los datos escritos.
@@ -174,12 +192,14 @@ link:https://docs.netapp.com/us-en/ontap/concepts/storage-efficiency-overview.ht
 
 
 
+[[global-deduplication]]
 === Deduplicación global
 
 A partir de ONTAP 9.19.1, la _deduplicación global_ amplía la link:https://docs.netapp.com/us-en/ontap/concepts/deduplication-concept.html["ahorro de espacio de deduplicación ONTAP existente"^] a nivel de unidad de almacenamiento a toda la zona de disponibilidad de almacenamiento (SAZ). Al eliminar los bloques de datos duplicados en todas las unidades de almacenamiento de la SAZ, se puede mejorar significativamente la eficiencia del almacenamiento y reducir el coste total de propiedad. La deduplicación global no requiere licencia de funciones, está activada por defecto, se integra perfectamente con las tecnologías de eficiencia del almacenamiento existentes y funciona de forma transparente con un impacto mínimo en el rendimiento y sin necesidad de configuración administrativa.
 
 
 
+[[system-manager]]
 == System Manager
 
 En el Administrador del sistema puede buscar diversas acciones, objetos y temas de información.  También puede buscar entradas específicas en los datos de la tabla.

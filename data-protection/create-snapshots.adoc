@@ -16,6 +16,7 @@ Cree una instantánea para realizar una copia de seguridad de los datos en su si
 
 
 
+[[step-1-optionally-create-a-consistency-group]]
 == Paso 1: Opcionalmente, cree un grupo de consistencia
 
 Un grupo de consistencia es una colección de unidades de almacenamiento que se administran como una sola unidad. Cree grupos de coherencia para simplificar la gestión del almacenamiento y la protección de datos para cargas de trabajo de aplicaciones que abarcan varias unidades de almacenamiento. Por ejemplo, suponga que tiene una base de datos que consta de 10 unidades de almacenamiento en un grupo de coherencia y necesita realizar un backup de toda la base de datos. En lugar de realizar un backup de cada unidad de almacenamiento, puede hacer backups de toda la base de datos simplemente añadiendo la protección de datos Snapshot al grupo de coherencia.
@@ -101,6 +102,7 @@ Has creado un grupo de coherencia que contiene las unidades de almacenamiento qu
 ====
 
 
+[[step-2-create-a-snapshot]]
 == Paso 2: Crear una instantánea
 
 Una copia Snapshot es una copia local de solo lectura de los datos que se puede utilizar para restaurar unidades de almacenamiento a momentos específicos.

@@ -16,6 +16,7 @@ Utilice System Manager de ONTAP para supervisar la utilización del almacenamien
 
 
 
+[[monitor-cluster-utilization]]
 == Supervise el uso del clúster
 
 Supervise regularmente la cantidad de almacenamiento que consume el clúster para garantizar que, si es necesario, esté preparado para expandir la capacidad del clúster antes de quedarse sin espacio.
@@ -33,6 +34,7 @@ Si su clúster se está quedando sin espacio o si no tiene capacidad para satisf
 
 
 
+[[monitor-storage-availability-zone-utilization]]
 == Supervise el uso de la zona de disponibilidad del almacenamiento
 
 Cada par de HA de un sistema ASA r2 utiliza un pool de almacenamiento común denominado _zona de disponibilidad de almacenamiento_. La zona de disponibilidad de almacenamiento tiene acceso a todos los discos disponibles en el sistema de almacenamiento y es visible para ambos nodos del par de HA. La supervisión del espacio disponible de tus zonas de disponibilidad de almacenamiento te permite disminuir el uso o aumentar la capacidad según sea necesario para que no experimentes cargas de trabajo fallidas debido a un espacio insuficiente.
@@ -60,6 +62,7 @@ Si tu zona de disponibilidad de almacenamiento se está quedando sin espacio, de
 
 
 
+[[monitor-storage-unit-utilization]]
 == Supervisar el uso de la unidad de almacenamiento
 
 Supervisar la cantidad de almacenamiento consumido por una unidad de almacenamiento para aumentar de forma proactiva el tamaño de la unidad de almacenamiento en función de las necesidades de su negocio.

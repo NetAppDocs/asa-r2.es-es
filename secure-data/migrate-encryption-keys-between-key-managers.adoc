@@ -50,6 +50,7 @@ Nivel de máquina virtual de almacenamiento: Administrador de claves externo
 |===
 
 
+[[migrate-keys-between-key-managers-at-the-ontap-cluster-level]]
 == Migre claves entre gestores de claves en el nivel del clúster de ONTAP
 
 A partir de ONTAP 9.16.1, puede utilizar la interfaz de línea de comandos (CLI) de ONTAP para migrar claves entre gestores de claves en el nivel del clúster.
@@ -131,6 +132,7 @@ set -privilege admin
 ====
 
 
+[[migrate-keys-between-key-managers-across-ontap-cluster-and-storage-vm-levels]]
 == Migrar claves entre los administradores de claves en todo el clúster de ONTAP y los niveles de máquina virtual de almacenamiento
 
 Puede usar la interfaz de línea de comandos (CLI) de ONTAP para migrar claves entre el administrador de claves en el nivel del clúster y un administrador de claves en el nivel de máquina virtual de almacenamiento.

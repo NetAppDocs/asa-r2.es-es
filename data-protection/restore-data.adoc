@@ -15,6 +15,7 @@ Los datos de un grupo de coherencia o unidad de almacenamiento protegidos por Sn
 
 
 
+[[restore-a-consistency-group]]
 == Restaure un grupo de consistencia
 
 Al restaurar un grupo de coherencia, se reemplazan los datos de todas las unidades de almacenamiento del grupo de coherencia con los datos de una copia Snapshot. Los cambios realizados en las unidades de almacenamiento después de crear la instantánea no se restauran.
@@ -56,6 +57,7 @@ El grupo de coherencia se restaura al momento específico de la Snapshot utiliza
 
 
 
+[[restore-a-storage-unit]]
 == Restaurar una unidad de almacenamiento
 
 Al restaurar una unidad de almacenamiento, se reemplazan todos los datos de la unidad de almacenamiento con los datos de una instantánea. Los cambios realizados en la unidad de almacenamiento después de crear la instantánea no se restauran.

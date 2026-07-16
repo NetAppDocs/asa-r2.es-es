@@ -15,6 +15,7 @@ Prepárese para instalar su sistema de almacenamiento ASA R2 preparando el sitio
 
 
 
+[[step-1-prepare-the-site]]
 == Paso 1: Preparar el sitio
 
 Para instalar el sistema de almacenamiento ASA R2, asegúrese de que el sitio y el armario o rack que planea utilizar cumplan las especificaciones de su configuración.
@@ -68,6 +69,7 @@ Consulte la https://docs.netapp.com/us-en/ontap-systems-switches/index.html["Doc
 
 
 
+[[step-2-unpack-the-boxes]]
 == Paso 2: Desempaquetar las cajas
 
 Después de asegurarse de que el sitio y el gabinete o rack que planea utilizar para su sistema de almacenamiento ASA R2 cumplen con las especificaciones requeridas, desembale todas las cajas y compare el contenido con los artículos en la hoja de embalaje.
@@ -108,6 +110,7 @@ Los siguientes elementos son algunos de los contenidos que puede ver en las caja
 
 
 
+[[step-3-register-your-storage-system]]
 == Paso 3: Registre el sistema de almacenamiento
 
 Una vez que se asegura de que su sitio cumple los requisitos de las especificaciones de su sistema de almacenamiento R2 de ASA y que cuenta con todas las piezas solicitadas, debe registrar su sistema.

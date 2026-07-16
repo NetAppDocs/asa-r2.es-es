@@ -15,6 +15,7 @@ Revise el equipo necesario y las precauciones de elevación para el sistema de a
 
 
 
+[[equipment-needed-for-install]]
 == Equipo necesario para la instalación
 
 Para instalar el sistema de almacenamiento R2 de ASA, necesita los siguientes equipos y herramientas.
@@ -29,12 +30,14 @@ Para instalar el sistema de almacenamiento R2 de ASA, necesita los siguientes eq
 
 
 
+[[lifting-precautions]]
 == Precauciones de elevación
 
 Los sistemas de almacenamiento y las bandejas de almacenamiento R2 de ASA son pesados. Tenga cuidado al levantar y mover estos elementos.
 
 
 
+[[storage-system-weights]]
 === Pesos del sistema de almacenamiento
 
 Tome las precauciones necesarias al mover o levantar su sistema de almacenamiento ASA R2.
@@ -72,6 +75,7 @@ image::../media/drw_g_lifting_weight_ieops-1831.svg[Icono de precaución de peso
 ====
 
 
+[[storage-shelf-weights]]
 === Pesos de los estantes de almacenamiento
 
 Tome las precauciones necesarias al mover o levantar su estante.
@@ -82,7 +86,7 @@ Tome las precauciones necesarias al mover o levantar su estante.
 --
 Un estante NS224 puede pesar hasta 66,78 lbs (30,29 kg). Para levantar el estante, utilice dos personas o un elevador hidráulico. Mantenga todos los componentes en la bandeja (tanto delantera como trasera) para evitar desequilibrar el peso de la bandeja.
 
-image::../media/drw_ns224_lifting_weight_ieops-1716.svg[NS224 NSM100 Cuidado de elevación]
+image::../media/drw_ns224_lifting_weight_2_ieops-2960.svg[NS224 NSM100 Cuidado de elevación]
 
 --
 .Bandeja NS224 con módulos de NSM100B TB

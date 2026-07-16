@@ -15,6 +15,7 @@ Aumente o disminuya el tamaño de un grupo de consistencia modificando la cantid
 
 
 
+[[add-storage-units-to-a-consistency-group]]
 == Añada unidades de almacenamiento a un grupo de consistencia
 
 Amplíe la cantidad de almacenamiento administrado por un grupo de consistencia agregando unidades de almacenamiento nuevas o existentes al grupo de consistencia.
@@ -75,6 +76,7 @@ Las copias Snapshot existentes del grupo de coherencia no incluirán las unidade
 
 
 
+[[remove-a-storage-unit-from-a-consistency-group]]
 == Quitar una unidad de almacenamiento de un grupo de consistencia
 
 Elimine una unidad de almacenamiento de un grupo de consistencia para borrarla, administrarla como parte de un grupo de consistencia diferente o dejar de proteger sus datos.  Eliminar una unidad de almacenamiento de un grupo de consistencia rompe la relación entre la unidad de almacenamiento y el grupo de consistencia, pero no elimina la unidad de almacenamiento.
