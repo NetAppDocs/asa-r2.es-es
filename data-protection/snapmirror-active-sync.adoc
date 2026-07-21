@@ -19,7 +19,7 @@ En los sistemas ASA r2, SnapMirror active sync admite configuraciones activas/ac
 
 .Acerca de esta tarea
 * A partir de ONTAP 9.18.1, la sincronización activa de SnapMirror es compatible con configuraciones de cuatro nodos.  En ONTAP 9.17.1, la sincronización activa de SnapMirror solo es compatible con configuraciones de dos nodos.
-* A partir de ONTAP 9.19.1 RC, Autonomous Ransomware Protection with Artificial Intelligence (ARP/AI) es compatible con unidades de almacenamiento primarias de lectura/escritura en relaciones SAN de sincronización activa SnapMirror en sistemas ASA r2. ARP/AI se ejecuta en las unidades de almacenamiento primarias activas, crea instantáneas ARP solo primarias y proporciona detección de ransomware basada en aprendizaje automático para esas unidades de almacenamiento. Para conocer los pasos de habilitación de ARP/AI, consulta link:../secure-data/enable-anti-ransomware-protection.html["Activa la protección autónoma contra el ransomware con IA"].
+* A partir de ONTAP 9.19.1, la Protección Autónoma contra Ransomware con Inteligencia Artificial (ARP/AI) es compatible con las unidades de almacenamiento primarias de lectura y escritura en relaciones SAN de sincronización activa de SnapMirror en sistemas ASA r2. ARP/AI se ejecuta en las unidades de almacenamiento primario activas, crea instantáneas ARP solo para el almacenamiento primario y ofrece detección de ransomware basada en aprendizaje automático para esas unidades de almacenamiento. Para ver los pasos para habilitar ARP/AI, consulta link:../secure-data/enable-anti-ransomware-protection.html["Activa la protección autónoma contra el ransomware con IA"].
 
 
 .Antes de empezar

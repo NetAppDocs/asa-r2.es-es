@@ -20,7 +20,7 @@ NOTE: Ningún sistema de detección o prevención de ransomware puede garantizar
 
 .Acerca de esta tarea
 * El soporte ARP/AI está incluido en el link:https://kb.netapp.com/onprem/ontap/os/ONTAP_9.10.1_and_later_licensing_overview["Licencia ONTAP One"] .
-* A partir de ONTAP 9.19.1 RC, Autonomous Ransomware Protection with Artificial Intelligence (ARP/AI) es compatible con unidades de almacenamiento primarias de lectura/escritura en relaciones SAN de sincronización activa SnapMirror en sistemas ASA r2. ARP/AI se ejecuta en las unidades de almacenamiento primarias activas, crea instantáneas ARP solo primarias y proporciona detección de ransomware basada en aprendizaje automático para esas unidades de almacenamiento.
+* A partir de ONTAP 9.19.1, la Protección Autónoma contra Ransomware con Inteligencia Artificial (ARP/AI) es compatible con las unidades de almacenamiento primarias de lectura y escritura en relaciones SAN de sincronización activa SnapMirror en sistemas ASA r2. ARP/AI se ejecuta en las unidades de almacenamiento primarias activas, crea instantáneas ARP solo para el almacenamiento primario y ofrece detección de ransomware basada en aprendizaje automático para esas unidades de almacenamiento.
 * A partir de ONTAP 9.18.1, ARP/AI se activa por defecto en todas las unidades de almacenamiento recién creadas 12 horas después de actualizar a ONTAP 9.18.1 o de inicializar un nuevo clúster ASA r2 de ONTAP 9.18.1.
 * ARP/AI no es compatible con unidades de almacenamiento protegidas por SnapLock.
 * Después de haber habilitado ARP/AI, debe link:../administer/update-firmware.html#enable-automatic-updates["Habilite las actualizaciones automáticas para sus archivos de seguridad"] para recibir automáticamente nuevas actualizaciones de seguridad.

@@ -141,6 +141,15 @@ link:https://docs.netapp.com/us-en/ontap/performance-admin/guarantee-throughput-
 
 
 
+[[ipspace-tcp-performance]]
+=== Rendimiento de TCP de IPspace
+
+A partir de ONTAP 9.19.1, ONTAP mejora el rendimiento de la transferencia de datos TCP en enlaces WAN con pérdidas y alta latencia al integrar dos funciones de recuperación de pérdidas, PRR y RACK, en la pila TCP de ONTAP. PRR es adecuado para todas las redes y está activado de forma predeterminada. RACK es adecuado para redes congestionadas con velocidades de enlace de aproximadamente 25 gigabits/segundo y está desactivado de forma predeterminada.
+
+link:https://docs.netapp.com/us-en/ontap/networking/improve-tcp-wan-performance.html["Aprende más sobre cómo mejorar el rendimiento de TCP en WAN con PRR y RACK"^].
+
+
+
 [[san-configuration]]
 == Configuración de SAN
 

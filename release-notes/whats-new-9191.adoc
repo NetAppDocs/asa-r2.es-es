@@ -30,6 +30,18 @@ Conoce las nuevas funciones disponibles en ONTAP 9.19.1 para sistemas ASA r2.
 |===
 
 
+[[performance]]
+== Rendimiento
+
+[cols="2,4"]
+|===
+| Actualizar | Descripción 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#performance["Mejoras en el rendimiento de TCP"] | ONTAP mejora el rendimiento de la transferencia de datos TCP en enlaces WAN con pérdidas y alta latencia mediante la integración de dos funciones de recuperación de pérdidas, PRR y RACK, en la pila TCP de ONTAP. 
+|===
+
+
 [[san-data-migration]]
 == Migración de datos SAN
 
@@ -62,7 +74,7 @@ Conoce las nuevas funciones disponibles en ONTAP 9.19.1 para sistemas ASA r2.
 | Actualizar | Descripción 
 
 
-| link:../secure-data/enable-anti-ransomware-protection.html["Soporte para ARP/AI con relaciones de sincronización activa de SnapMirror"] | Autonomous Ransomware Protection with Artificial Intelligence (ARP/AI) admite unidades de almacenamiento primarias de lectura/escritura en relaciones de sincronización activa SnapMirror en sistemas ASA r2. ARP/AI se ejecuta en las unidades de almacenamiento primarias activas, crea instantáneas ARP solo primarias y proporciona detección de ransomware basada en aprendizaje automático para esas unidades de almacenamiento. 
+| link:../secure-data/enable-anti-ransomware-protection.html["Soporte para ARP/AI con relaciones de sincronización activa de SnapMirror"] | La protección autónoma contra ransomware con inteligencia artificial (ARP/AI) es compatible con las unidades de almacenamiento primarias de lectura y escritura en relaciones de sincronización activa de SnapMirror en sistemas ASA r2. ARP/AI se ejecuta en las unidades de almacenamiento primarias activas, crea instantáneas ARP solo para el almacenamiento primario y ofrece detección de ransomware basada en aprendizaje automático para esas unidades de almacenamiento. Los clústeres actualizados a ONTAP 9.19.1 que antes tenían la habilitación predeterminada de ARP suprimida debido a relaciones de replicación síncrona la tendrán restaurada automáticamente. Una advertencia previa a la actualización notifica a los administradores y da la opción de desactivarla. 
 
 
 | link:../learn-more/additional-supported-ontap-features.html#tls-hardware-offload["Soporte para la descarga de hardware TLS"] | Puedes descargar el cifrado y descifrado de Transport Layer Security (TLS) de todo tu clúster a las tarjetas Ethernet compatibles. Esto reduce la sobrecarga de la CPU y mejora el rendimiento de los sistemas que usan TLS. 
