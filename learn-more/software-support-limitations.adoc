@@ -14,47 +14,35 @@ summary: Aunque los sistemas ASA R2 ofrecen una amplia gama de compatibilidad pa
 Aunque los sistemas ASA R2 ofrecen una amplia gama de compatibilidad para las soluciones SAN, ciertas funciones de software ONTAP no son compatibles.
 
 .Los sistemas ASA R2 no son compatibles con lo siguiente:
-* Conmutación por error automática de LIF de iSCSI predeterminada
-+
-En los sistemas ASA R2, el LIF de red predeterminado se comparte entre hosts NVMe y SCSI, por lo que no admite la conmutación al respaldo automática. Para habilitar la conmutación automática al respaldo de LIF iSCSI, debe link:../administer/manage-client-vm-access.html#create-a-lif-network-interface["Cree una LIF solo para iSCSI"]. La conmutación automática por error está activada en LIFS sólo iSCSI de forma predeterminada.
-
-+
-Cuando se habilita la conmutación por error automática de LIF iSCSI, si se produce un fallo de almacenamiento, el LIF de iSCSI se migra automáticamente desde su nodo o puerto principal al nodo o al puerto que pertenecen al partner de alta disponibilidad y, posteriormente, una vez finalizada la recuperación tras fallos. O bien, si el puerto de un LIF iSCSI deja de estar en buen estado, el LIF se migra automáticamente a un puerto en buen estado de su nodo de inicio actual y vuelve a su puerto original cuando el estado del puerto vuelve a estar en buen estado.
-
 * FabricPool
 * Aprovisionamiento grueso de LUN
 * MetroCluster
 * Cifrado de agregados de NetApp (NAE)
 * Protocolos de objetos
 * ONTAP S3 SnapMirror y API S3
-
-
-.Los sistemas ASA R2 ofrecen lo siguiente:
 * SnapLock
 +
-link:../secure-data/ransomware-protection.html["Aprenda a bloquear instantáneas"] En su sistema ASA R2.
+SnapLock Compliance y Enterprise no son compatibles con los clústeres primarios en entornos SAN. SnapLock para SnapVault es compatible con los clústeres secundarios.
 
-* Cifrado de doble capa
+* La replicación SnapMirror es compatible con los sistemas ASA r2 con las siguientes limitaciones:
 +
-Los sistemas ASA r2 admiten el cifrado por hardware mediante unidades de cifrado automático (SED) y el cifrado por software mediante la tecnología NetApp Volume Encryption (NVE). link:../secure-data/encrypt-data-at-rest.html["Aprenda a aplicar el cifrado de doble capa"] a los datos en tu sistema ASA r2.
+** La replicación síncrona de SnapMirror no es compatible.
+** La replicación asíncrona de SnapMirror solo es compatible entre dos sistemas ASA r2. La replicación asíncrona de SnapMirror no es compatible entre un sistema ASA r2 y un sistema ASA, AFF o FAS o la nube.
++
+Obtenga más información sobrelink:../data-protection/pre-defined-protection-policies.html["Políticas de replicación de SnapMirror compatibles con sistemas ASA r2"] .
 
-
-
-
-
-[[support-for-snapmirror-replication]]
-== Compatibilidad con la replicación de SnapMirror
-
-La replicación SnapMirror es compatible con los sistemas ASA r2 con las siguientes limitaciones:
-
-* La replicación síncrona de SnapMirror no es compatible.
-* La sincronización activa de SnapMirror solo es compatible entre dos sistemas ASA r2.
+** La sincronización activa de SnapMirror solo es compatible entre dos sistemas ASA r2.
 +
 Obtenga más información sobrelink:../data-protection/snapmirror-active-sync.html["Sincronización activa de SnapMirror en sistemas ASA r2"] .
 
-* La replicación asíncrona de SnapMirror solo es compatible entre dos sistemas ASA r2. La replicación asíncrona de SnapMirror no es compatible entre un sistema ASA r2 y un sistema ASA, AFF o FAS o la nube.
+
+
+
+
+.Los sistemas ASA R2 ofrecen lo siguiente:
+* Cifrado de doble capa
 +
-Obtenga más información sobrelink:../data-protection/pre-defined-protection-policies.html["Políticas de replicación de SnapMirror compatibles con sistemas ASA r2"] .
+Los sistemas ASA r2 admiten el cifrado por hardware mediante unidades de cifrado automático (SED) y el cifrado por software mediante la tecnología NetApp Volume Encryption (NVE). link:../secure-data/encrypt-data-at-rest.html["Aprenda a aplicar el cifrado de doble capa"] a los datos en tu sistema ASA r2.
 
 
 

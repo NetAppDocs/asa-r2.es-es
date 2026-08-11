@@ -27,7 +27,7 @@ Puedes desactivar la activación por defecto durante o después del periodo de g
 +
 ** Para desactivar durante el periodo de gracia de 12 horas:
 +
-... En *Anti-ransomware*, selecciona *No activar* y luego selecciona *Desactivar*.
+... En *Anti-ransomware*, selecciona *No habilitar* y luego selecciona *Desactivar*.
 
 
 ** Para desactivar después del periodo de gracia de 12 horas:

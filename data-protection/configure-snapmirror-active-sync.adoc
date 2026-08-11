@@ -29,7 +29,7 @@ Obtenga más información sobre  https://docs.netapp.com/us-en/ontap/snapmirror-
 .Pasos
 . En System Manager, seleccione *Protección > Grupos de consistencia*.
 . Coloque el cursor sobre el nombre del grupo de consistencia que desea proteger con la sincronización activa de SnapMirror .
-. Seleccionar image:icon_kabob.gif["tres puntos verticales azules"] y luego seleccione *Proteger*.
+. Selecciona image:icon_kabob.gif["tres puntos verticales azules"] y luego selecciona *Protect*.
 . En *Protección remota*, selecciona *Replicar a un clúster remoto*.
 . Seleccione un par de clúster existente o elija *Agregar uno nuevo*.
 . Seleccione la máquina virtual de almacenamiento.

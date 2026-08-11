@@ -86,53 +86,27 @@ Más información sobre link:../administer/manage-client-vm-access.html["Equipos
 
 Una relación de replicación de Snapshot establece una conexión entre el sistema ASA R2 y una ubicación remota para que pueda replicar grupos de coherencia en un clúster remoto. Los grupos de consistencia replicados pueden usarse para recuperación ante desastres o para migración de datos.
 
-Para obtener protección contra ataques de ransomware, cuando se configura la relación de replicación, puede seleccionar bloquear las copias de Snapshot de destino. Las instantáneas bloqueadas no se pueden eliminar accidentalmente ni de forma malintencionada. Puede utilizar snapshots bloqueados para recuperar datos si una unidad de almacenamiento se ve afectada por un ataque de ransomware.
+Para mayor seguridad frente a los ataques de ransomware, crea una relación de replicación de SnapLock para SnapVault.
 
 .Antes de empezar
 * link:pre-defined-protection-policies.html["Obtenga más información sobre las políticas de replicación"] .
 +
 Cuando crea una relación de replicación, debe seleccionar la política de replicación adecuada para su relación de replicación.  Puede utilizar una política predefinida o crear una política personalizada.
 
-* Si desea bloquear las snapshots de destino, debe link:../secure-data/ransomware-protection.html#initialize-the-snaplock-compliance-clock["Inicialice el reloj de cumplimiento de normativas de instantáneas"]antes de crear la relación de replicación.
 
 
-Crear una relación de replicación con o sin snapshots de destino bloqueadas.
-
-[role="tabbed-block"]
-====
-.Con instantáneas bloqueadas
---
-.Pasos
-. En System Manager, seleccione *Protección > Grupos de consistencia*.
-. Seleccione un grupo de consistencia.
-. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Proteger*.
-. En *Protección remota*, selecciona *Replicar a un clúster remoto*.
-. Seleccione la *Política de replicación*.
-+
-Debe seleccionar una política de replicación _vault_.
-
-. Selecciona *Ajustes de destino*.
-. Seleccione *Bloquear instantáneas de destino para evitar su eliminación*
-. Introduzca el período de retención de datos máximo y mínimo.
-. Para retrasar el inicio de la transferencia de datos, anule la selección de *Iniciar transferencia inmediatamente*.
-+
-De forma predeterminada, la transferencia de datos inicial comienza inmediatamente.
-
-. Opcionalmente, para anular el horario de transferencia predeterminado, seleccione *Configuración de destino* y, a continuación, seleccione *Anular horario de transferencia*.
-+
-Su horario de transferencia debe ser de un mínimo de 30 minutos para ser admitido.
-
-. Seleccione *Guardar*.
 
 
---
-.Sin instantáneas bloqueadas
---
+[[create-a-relationship-to-replicate-snapshots-to-a-remote-cluster]]
+=== Crea una relación para replicar instantáneas en un clúster remoto
+
+Protege tus datos replicando instantáneas en un clúster remoto. Las instantáneas replicadas de tus grupos de consistencia pueden utilizarse para la recuperación ante desastres o para la migración de datos.
+
 .Pasos
 . En System Manager, seleccione *Protección > Replicación*.
 . Seleccione esta opción para crear la relación de replicación con el destino local o el origen local.
 +
-[cols="2,2"]
+[cols="1,2"]
 |===
 | Opción | Pasos 
 
@@ -150,24 +124,59 @@ El grupo de consistencia _source_ hace referencia al grupo de coherencia en el c
 | Fuentes locales  a| 
 .. Seleccione *Fuentes locales* y, a continuación, seleccione image:icon_replicate_blue_bg.png["rectángulo con fondo azul y la palabra se replican en letras blancas"] .
 .. Busque y seleccione el grupo de coherencia de origen.
-.. En *Destino de replicación*, seleccione el clúster en el que desea replicar y, a continuación, seleccione la VM de almacenamiento.
+.. En *Destino de replicación*, selecciona el clúster al que quieres replicar y luego selecciona la máquina virtual de almacenamiento.
 
 
 |===
 . Seleccione una política de replicación.
-. Para retrasar el inicio de la transferencia de datos, seleccione *Ajustes de destino*; luego anule la selección de *Iniciar transferencia inmediatamente*.
+. Para retrasar el inicio de la transferencia de datos, selecciona *Configuración de destino* y luego desmarca *Iniciar la transferencia inmediatamente*.
 +
 De forma predeterminada, la transferencia de datos inicial comienza inmediatamente.
 
-. Opcionalmente, para anular el horario de transferencia predeterminado, seleccione *Configuración de destino* y, a continuación, seleccione *Anular horario de transferencia*.
+. Si lo deseas, para anular el horario de transferencia predeterminado, selecciona *Configuración de destino* y luego selecciona *Anular el horario de transferencia*.
 +
 Su horario de transferencia debe ser de un mínimo de 30 minutos para ser admitido.
 
 . Seleccione *Guardar*.
 
 
---
-====
+.El futuro
+Ahora que has creado una política y una relación de replicación, tu transferencia de datos inicial comienza tal como se define en tu política de replicación. Opcionalmente, puedes probar la conmutación por error de la replicación para verificar que la conmutación por error se realiza correctamente si tu sistema ASA r2 queda fuera de línea.
+
+
+
+[[create-a-relationship-to-replicate-snapshots-with-snaplock-for-snapvault]]
+=== Crea una relación para replicar instantáneas con SnapLock para SnapVault
+
+Para protegerte contra los ataques de ransomware, cuando configuras tu relación de replicación, puedes habilitar SnapLock para SnapVault seleccionando una política de replicación de bóveda y luego eligiendo bloquear las instantáneas de destino. Las instantáneas protegidas por SnapLock para SnapVault no pueden eliminarse accidental ni maliciosamente.
+
+
+NOTE: Los sistemas ASA r2 no admiten el modo SnapLock Compliance ni el modo SnapLock Enterprise. Crear una relación de replicación SnapLock para SnapVault solo permite el bloqueo de las instantáneas de destino. No habilita el modo SnapLock Compliance ni Enterprise.
+
+.Antes de empezar
+Debes link:../secure-data/snaplock.html#initialize-the-snaplock-compliance-clock["inicializa el reloj de cumplimiento de SnapLock Compliance"].
+
+.Pasos
+. En System Manager, selecciona *Protección > Grupos de consistencia* y luego selecciona un grupo de consistencia.
+. Selecciona image:icon_kabob.gif["tres puntos verticales azules"] y luego selecciona *Protect*.
+. En *Protección remota*, selecciona *Replicar a un clúster remoto*.
+. Seleccione la *Política de replicación*.
++
+Debe seleccionar una política de replicación _vault_.
+
+. Selecciona *Configuración de destino* y luego selecciona *Bloquear instantáneas de destino para evitar su eliminación*.
+. Introduzca el período de retención de datos máximo y mínimo.
+. Para retrasar el inicio de la transferencia de datos, anule la selección de *Iniciar transferencia inmediatamente*.
++
+De forma predeterminada, la transferencia de datos inicial comienza inmediatamente.
+
+. Si lo deseas, para anular el horario de transferencia predeterminado, selecciona *Configuración de destino* y luego selecciona *Anular el horario de transferencia*.
++
+Su horario de transferencia debe ser de un mínimo de 30 minutos para ser admitido.
+
+. Seleccione *Guardar*.
+
+
 .El futuro
 Ahora que ha creado una política y una relación de replicación, la transferencia de datos inicial comienza según se define en la política de replicación. Opcionalmente, puede probar la conmutación por error de replicación para verificar que se puede producir una conmutación por error correcta si el sistema ASA R2 se desconecta.
 

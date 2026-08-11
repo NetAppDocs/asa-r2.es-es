@@ -37,7 +37,7 @@ Ha confirmado que la unidad nueva es compatible y conoce la ranura adecuada para
 [[install-a-new-drive-on-the-asa-r2]]
 == Instale una nueva unidad en el ASA R2
 
-La cantidad mínima de unidades que debe añadir en un solo procedimiento es de seis. Al añadir una sola unidad, se puede reducir el rendimiento.
+El número mínimo de unidades que debes añadir en una sola operación es tres. Añadir una sola unidad podría reducir el rendimiento.
 
 .Acerca de esta tarea
 Debe repetir los pasos de este procedimiento con cada unidad.

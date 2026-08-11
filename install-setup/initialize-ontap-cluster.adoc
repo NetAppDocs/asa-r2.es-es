@@ -53,7 +53,7 @@ Se abrirá System Manager.
 +
 La contraseña debe tener al menos ocho caracteres y debe contener al menos una letra y un número.
 
-. Vuelva a introducir la contraseña para confirmar y luego seleccione *Continuar*.
+. Vuelve a introducir la contraseña para confirmarla y, a continuación, selecciona *Continuar*.
 . En *Direcciones de red*, ingrese un nombre de sistema de almacenamiento o acepte el nombre predeterminado.
 +
 Si cambia el nombre del sistema de almacenamiento predeterminado, el nuevo nombre debe comenzar por una letra y debe tener menos de 44 caracteres. Puede utilizar un punto (.), un guión (-) o un guión bajo (_) en el nombre.
