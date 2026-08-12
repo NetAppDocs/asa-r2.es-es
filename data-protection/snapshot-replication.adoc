@@ -178,7 +178,7 @@ Su horario de transferencia debe ser de un mínimo de 30 minutos para ser admiti
 
 
 .El futuro
-Ahora que ha creado una política y una relación de replicación, la transferencia de datos inicial comienza según se define en la política de replicación. Opcionalmente, puede probar la conmutación por error de replicación para verificar que se puede producir una conmutación por error correcta si el sistema ASA R2 se desconecta.
+Ahora que has creado una relación de replicación, comienza la transferencia de datos inicial tal y como se ha definido en tu política de replicación. Opcionalmente, puedes probar la conmutación por error de la replicación para verificar que la conmutación por error se realiza correctamente si tu sistema ASA r2 queda fuera de línea.
 
 
 

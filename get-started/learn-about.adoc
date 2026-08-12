@@ -34,19 +34,18 @@ Los sistemas R2 de ASA introducen el uso de unidades de almacenamiento con grupo
 
 Los sistemas ASA r2 utilizan unidades de almacenamiento con grupos de consistencia para simplificar la administración del almacenamiento y la protección de datos.  Por ejemplo, supongamos que tiene una base de datos que consta de 10 unidades de almacenamiento en un grupo de consistencia y necesita realizar una copia de seguridad de toda la base de datos.  En lugar de realizar una copia de seguridad de cada unidad de almacenamiento individualmente, puede proteger toda la base de datos realizando una copia de seguridad del grupo de consistencia.
 
+.Protección y seguridad de los datos
 Para ayudarte a proteger tus datos frente a ataques maliciosos como el robo o el ransomware, los sistemas ASA r2 incorporan un gestor de claves integrado, cifrado de doble capa, autenticación multifactor y verificación de múltiples administradores. También puedes replicar instantáneas en una ubicación secundaria y usar SnapLock para SnapVault para proteger las instantáneas de destino y evitar que se eliminen accidental o maliciosamente.
 
 .Protocolos compatibles, multivía y configuraciones
-Los sistemas ASA r2 son compatibles con todos los protocolos SAN (iSCSI, FC, NVMe/FC, NVMe/TCP). Todos los protocolos admiten una arquitectura simétrica activa-activa para multivía, así que todos los caminos entre los hosts y el almacenamiento están activos/optimizados. Los protocolos iSCSI y NVMe/TCP admiten configuraciones de red y de conexión directa para todas las versiones de ONTAP compatibles. Los protocolos FC y NVMe/FC admiten configuraciones de red para todas las versiones de ONTAP compatibles y, a partir de ONTAP 9.19.1, también admiten la configuración de conexión directa.
+Los sistemas ASA r2 son compatibles con todos los protocolos SAN (iSCSI, FC, NVMe/FC, NVMe/TCP). Todos los protocolos admiten una arquitectura simétrica activa-activa para el multipathing, así que todos los caminos entre los hosts y el almacenamiento están activos y optimizados. Los protocolos iSCSI y NVMe/TCP admiten configuraciones de red y de conexión directa para todas las versiones de ONTAP compatibles. Los protocolos FC y NVMe/FC admiten configuraciones de red para todas las versiones compatibles de ONTAP y, a partir de ONTAP 9.19.1, también admiten la configuración de conexión directa. Los sistemas ASA r2 no admiten la combinación de clústeres con sistemas ASA, AFF o FAS.
 
 * Más información sobre link:https://docs.netapp.com/us-en/ontap/san-admin/multipath-automatic-lif-failover-support.html["Compatibilidad con multivía en SAN"^].
 * Más información sobre link:https://docs.netapp.com/us-en/ontap/san-config/configure-iscsi-san-hosts-ha-pairs-reference.html["Configuraciones para los protocolos iSCSI y NVMe/TCP"^].
 * Más información sobre link:https://docs.netapp.com/us-en/ontap/san-config/configure-fc-nvme-hosts-ha-pairs-reference.html["Configuraciones para los protocolos FC y NVMe/FC"^].
 
 
-Los sistemas ASA r2 no admiten la combinación de clústeres con sistemas ASA, AFF o FAS .
-
-.Si quiere más información
+.Información relacionada
 * Obtenga más información sobre la compatibilidad con los sistemas ASA R2 y las limitaciones en la link:https://hwu.netapp.com/["NetApp Hardware Universe"^].
 * Más información sobre link:../learn-more/hardware-comparison.html["Los sistemas ASA R2 en comparación con los sistemas ASA"].
 * Obtenga más información sobre el link:https://www.netapp.com/pdf.html?item=/media/85736-ds-4254-asa.pdf["ASA de NetApp"^].

@@ -98,9 +98,9 @@ Ha creado una subred que ahora puede usar para simplificar la creación de sus L
 Un LIF (interfaz de red) es una dirección IP asociada a un puerto físico o lógico. Crea LIF en los puertos que quieres usar para acceder a los datos. Las máquinas virtuales de almacenamiento sirven datos a los clientes a través de uno o varios LIF. En un sistema ASA r2, puedes crear LIF de IP, FC y NVMe/FC. Un LIF de datos IP puede gestionar tanto el tráfico iSCSI como el tráfico NVMe/TCP de forma predeterminada. Debes crear LIF de datos independientes para el tráfico FC y NVMe/FC.
 
 .Conmutación por error de LIF en sistemas ASA r2
-Si se produce un fallo en un componente, un LIF puede realizar una conmutación por error o migrarse a un puerto físico diferente, de modo que la comunicación de red no se interrumpa. A partir de ONTAP 9.19.1, la conmutación por error automática de LIF es compatible de forma predeterminada para LIF de iSCSI, NVMe/TCP e IP compartida. Cuando la conmutación automática de LIF está habilitada, si ocurre una conmutación por error del almacenamiento, el LIF se migra automáticamente desde su nodo o puerto de origen al nodo o puerto de su socio de alta disponibilidad (HA) y luego regresa una vez que la conmutación ha finalizado. O, si el puerto deja de estar operativo, el LIF se migra automáticamente a un puerto operativo en su nodo de origen actual y luego regresa a su puerto original una vez que el puerto vuelve a estar operativo.
+Si se produce un fallo en un componente, un LIF puede realizar una conmutación por error o migrarse a otro puerto físico, de modo que la comunicación de red no se interrumpa. A partir de ONTAP 9.19.1, la conmutación automática de LIF está habilitada de forma predeterminada para los LIF IP. Cuando la conmutación automática de LIF está habilitada, si ocurre una conmutación por error del almacenamiento, el LIF se migra automáticamente desde su nodo o puerto de origen al nodo o puerto de su socio HA y luego vuelve una vez que la conmutación ha finalizado. O, si el puerto deja de estar operativo, el LIF se migra automáticamente a un puerto operativo en su nodo de origen actual y luego vuelve a su puerto original una vez que el puerto vuelve a estar operativo.
 
-En ONTAP 9.18.1 y versiones anteriores, no se admite la conmutación automática por error de LIF para los LIF NVMe/TCP ni para los LIF de IP compartida. Cuando creas LIF exclusivos de iSCSI, la conmutación automática por error de LIF se habilita de forma predeterminada, a menos que la máquina virtual de almacenamiento ya tenga LIF de iSCSI que no tengan habilitada la conmutación automática por error de LIF. Si hay LIF exclusivos de iSCSI en la máquina virtual de almacenamiento que no tienen habilitada la conmutación automática por error de LIF, los LIF que crees tampoco la tendrán habilitada. En estos casos, primero debes eliminar los LIF exclusivos de iSCSI existentes y luego volver a crearlos con la conmutación automática por error de LIF habilitada. Descubre cómo hacerlo link:https://docs.netapp.com/us-en/ontap/san-admin/delete-lif-san-environment-task.html["Eliminar un LIF en un entorno SAN"^].
+En ONTAP 9.18.1 y versiones anteriores, no se admite la conmutación automática por error de LIF para los LIF IP que tengan tráfico tanto iSCSI como NVMe/TCP. Cuando creas LIF solo para iSCSI, la conmutación automática por error de LIF se habilita de forma predeterminada, a menos que la máquina virtual de almacenamiento ya tenga LIF de iSCSI en los que no esté habilitada la conmutación automática por error de LIF. Si hay LIF de iSCSI en la máquina virtual de almacenamiento que no tienen habilitada la conmutación automática por error de LIF, los LIF que crees tampoco la tendrán habilitada. En estos casos, primero tienes que eliminar los LIF de iSCSI existentes y luego volver a crearlos con la conmutación automática por error de LIF habilitada. Descubre cómo link:https://docs.netapp.com/us-en/ontap/san-admin/delete-lif-san-environment-task.html["Eliminar un LIF en un entorno SAN"^].
 
 Los puertos persistentes se utilizan para la conmutación por error de los LIF de FC y NVMe/FC. Obtén más información sobre link:https://docs.netapp.com/us-en/ontap/san-config/asa-support-limitations.html#support-for-persistent-ports["puertos persistentes"^] en la documentación de ONTAP.
 
@@ -130,6 +130,7 @@ Ha creado una LIF para el acceso a los datos.
 
 Si deseas habilitar la conmutación automática por error de los LIF iSCSI en ONTAP 9.18.1 o versiones anteriores, primero debes crear una política de servicio LIF personalizada exclusiva para iSCSI.
 
+.Acerca de esta tarea
 Debe utilizar la interfaz de línea de comandos (CLI) de ONTAP para crear la política de servicio personalizada.
 
 .Paso
@@ -167,10 +168,13 @@ Puede utilizar la interfaz de línea de comandos (CLI) de ONTAP para crear un LI
 [[create-iscsi-only-lifs-with-automatic-lif-failover]]
 === Cree LIF solo iSCSI con conmutación por error automática de LIF
 
-En ONTAP 9.18.1 y versiones anteriores, la conmutación automática de LIF está habilitada de forma predeterminada cuando creas LIF exclusivos de iSCSI si todos los demás LIF de iSCSI en la máquina virtual de almacenamiento también tienen habilitada la conmutación automática de LIF. Si hay LIF exclusivos de iSCSI en la máquina virtual de almacenamiento que no tienen habilitada la conmutación automática de LIF, los LIF que crees tampoco tendrán habilitada la conmutación automática de LIF.
+En ONTAP 9.18.1 y versiones anteriores, la conmutación automática por error de LIF está habilitada de forma predeterminada cuando creas LIF exclusivos de iSCSI si todos los demás LIF de iSCSI en la máquina virtual de almacenamiento también tienen habilitada la conmutación automática por error de LIF. Si hay LIF de iSCSI en la máquina virtual de almacenamiento que no tienen habilitada la conmutación automática por error de LIF, los LIF que crees tampoco tendrán habilitada la conmutación automática por error de LIF.
 
 .Antes de empezar
 Debe haber creado una política de servicio LIF solo iSCSI personalizada.
+
+.Acerca de esta tarea
+Debes utilizar la interfaz de línea de comandos (CLI) de ONTAP para crear un LIF exclusivo para iSCSI.
 
 .Pasos
 . Cree LIF solo iSCSI con conmutación por error automática de LIF:
@@ -226,6 +230,6 @@ ONTAP utiliza el Protocolo de tiempo de red (NTP) para sincronizar la hora en to
 Se ha modificado su LIF.
 
 .Información relacionada
-* link:https://docs.netapp.com/us-en/ontap/san-admin/move-san-lifs-task.html["Mover un LIF de SAN"].
-* link:https://docs.netapp.com/us-en/ontap/san-admin/remove-lif-from-portset-task.html["Eliminar un LIF de SAN de un conjunto de puertos"].
+* link:https://docs.netapp.com/us-en/ontap/san-admin/move-san-lifs-task.html["Mover un LIF de SAN"^].
+* link:https://docs.netapp.com/us-en/ontap/san-admin/remove-lif-from-portset-task.html["Eliminar un LIF de SAN de un conjunto de puertos"^].
 
