@@ -4,7 +4,7 @@ permalink: data-protection/configure-ontap-mediator.html
 keywords: asa r2, data protection, protect data, configure mediator, ontap mediator, cloud mediator, self-signed, ca, certificates 
 summary: Aprenda a configurar ONTAP Mediator o ONTAP Cloud Mediator con certificados autofirmados o de terceros para sistemas ASA r2. 
 ---
-= Configurar ONTAP Mediator o ONTAP Cloud Mediator en sistemas ASA r2
+= Configura ONTAP Mediator u ONTAP Cloud Mediator en sistemas ASA r2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

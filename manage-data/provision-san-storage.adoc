@@ -5,7 +5,7 @@ keywords: provision storage,san, create storage units, luns, namespaces, nvme, a
 summary: 'Aprovisione el almacenamiento ONTAP en ASA R2 para permitir que los hosts SAN (SCSI y NVMe) lean y escriban datos en unidades de almacenamiento especificadas (LUN y espacios de nombres NVMe).' 
 searchtitle: Aprovisione el almacenamiento SAN con el administrador del sistema de ONTAP | ASA R2 
 ---
-= Aprovisione el almacenamiento SAN de ONTAP en los sistemas ASA R2
+= Provisiona almacenamiento SAN ONTAP en sistemas ASA r2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
