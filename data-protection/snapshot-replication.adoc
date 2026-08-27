@@ -36,21 +36,21 @@ Los requisitos previos para el peering de clústeres son los mismos para los sis
 .Pasos
 . En el clúster local, en System Manager, seleccione *Clúster > Configuración*.
 . En *Intercluster Settings* junto a *Cluster peers*, seleccione image:icon_kabob.gif["tres puntos verticales azules"]y luego seleccione *Add a cluster peer*.
-. Selecciona *Lauch remote cluster*; esto genera una frase de contraseña que usarás para autenticarte con el cluster remoto.
+. Selecciona *Iniciar clúster remoto*; esto genera una frase de contraseña que usarás para autenticarte con el clúster remoto.
 . Después de generar la frase de acceso para el clúster remoto, péguela en *Passphrase* en el clúster local.
 . Seleccione image:icon_add.gif["signo más azul seguido de la palabra añadir en letras azules"]; y, a continuación, introduzca la dirección IP de la interfaz de red de interconexión de clústeres.
 . Seleccione *Iniciar interconexión de clústeres*.
 
 
 .El futuro
-Ha establecido una relación entre iguales para el clúster R2 de ASA local con un clúster remoto. Ahora puede crear una relación de replicación.
+Has establecido una conexión entre tu clúster ASA r2 local y un clúster remoto. Ahora puedes crear una relación de replicación.
 
 
 
 [[step-2-optionally-create-a-custom-replication-policy]]
 == Paso 2: Opcionalmente, cree una política de replicación personalizada
 
-La política de replicación define cuándo se replican en el sitio remoto las actualizaciones realizadas en el clúster ASA r2.  ONTAP incluye varias políticas de protección de datos predefinidas que puede utilizar para sus relaciones de replicación.  Si las políticas predefinidas no satisfacen sus necesidades, puede crear una política de replicación personalizada.
+La política de replicación define cuándo se replican en el sitio remoto las actualizaciones realizadas en el clúster ASA r2. ONTAP incluye varias políticas de protección de datos predefinidas que puedes usar para tus relaciones de replicación. Si las políticas predefinidas no se ajustan a tus necesidades, puedes crear una política de replicación personalizada.
 
 Conozca más sobrelink:pre-defined-protection-policies.html["políticas de protección de datos de ONTAP predefinidas"] .
 

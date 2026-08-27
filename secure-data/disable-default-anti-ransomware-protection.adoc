@@ -4,14 +4,14 @@ permalink: secure-data/disable-default-anti-ransomware-protection.html
 keywords: asa r2, secure data, data security, anti-ransomware, autonomous ransomware protection, arp, ai, disable 
 summary: Si tienes una licencia de Autonomous Ransomware Protection instalada en tu clúster ASA r2, ARP se activa por defecto en todas las unidades de almacenamiento existentes y de nueva creación 12 horas después de actualizar a ONTAP 9.18.1 o de inicializar un nuevo clúster ASA r2 de ONTAP 9.18.1. 
 ---
-= Desactiva la protección autónoma contra ransomware predeterminada en tus sistemas de almacenamiento ASA r2
+= Desactivar la protección autónoma contra ransomware predeterminada en los sistemas de almacenamiento ASA r2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Cuando inicializas un nuevo clúster ASA r2 de ONTAP 9.18.1 o actualizas tu clúster a ONTAP 9.18.1, ARP/AI se habilita automáticamente por defecto en todas las unidades de almacenamiento nuevas después de un periodo de gracia de 12 horas. Si no desactivas ARP/AI durante el periodo de gracia, se habilita en todo el clúster para las unidades de almacenamiento nuevas cuando termina el periodo de gracia.
+Al inicializar un nuevo clúster ONTAP 9.18.1 ASA r2 o al actualizar un clúster a ONTAP 9.18.1, ARP/AI se habilita de forma predeterminada en todas las nuevas unidades de almacenamiento tras un periodo de gracia de 12 horas. Si no desactivas ARP/AI durante ese periodo, ONTAP lo habilita en todo el clúster para las nuevas unidades de almacenamiento cuando finaliza el periodo de gracia.
 
 Las unidades de almacenamiento creadas en ONTAP 9.17.1 deben ser link:enable-anti-ransomware-protection.html["activado manualmente"] para ARP/AI.
 
@@ -49,7 +49,7 @@ Puedes desactivar la activación por defecto durante o después del periodo de g
 ----
 security anti-ransomware auto-enable show
 ----
-. Desactiva la activación por defecto para volúmenes existentes y nuevos:
+. Desactivar la habilitación predeterminada para las unidades de almacenamiento existentes y nuevas:
 +
 [source, cli]
 ----

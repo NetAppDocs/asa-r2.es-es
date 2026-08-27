@@ -13,9 +13,9 @@ summary: Las reversiones del software ONTAP para sistemas ASA r2 siguen el mismo
 [role="lead"]
 Las reversiones del software ONTAP para sistemas ASA r2 siguen el mismo proceso que las reversiones para otros sistemas ONTAP .
 
-Revertir un clúster de ONTAP es disruptivo. Debe desconectar el clúster mientras dure la reversión. No debe revertir un clúster de producción sin la asistencia del soporte técnico. Puede revertir un clúster nuevo o de prueba sin asistencia. Si la reversión de un sistema nuevo o de prueba falla o se completa correctamente, pero no está satisfecho con el rendimiento del clúster en su entorno de producción, debe contactar con el soporte técnico para obtener ayuda.
+La reversión de un clúster ONTAP provoca interrupciones en el servicio. Debes desconectar el clúster mientras dure el proceso de reversión. No deberías revertir un clúster de producción sin la ayuda del soporte técnico de NetApp. Puedes revertir un clúster nuevo o de prueba sin asistencia. Si la reversión de un sistema nuevo o de prueba falla, o si finaliza correctamente pero no estás satisfecho con el rendimiento del clúster en tu entorno de producción, deberías ponerte en contacto con el soporte técnico de NetApp para obtener ayuda.
 
-link:https://docs.netapp.com/us-en/ontap/revert/task_reverting_an_ontap_cluster.html["Revertir un clúster ONTAP"] .
+Consulta link:https://docs.netapp.com/us-en/ontap/revert/task_reverting_an_ontap_cluster.html["Revertir un clúster ONTAP"] para conocer el procedimiento completo de reversión.
 
 
 

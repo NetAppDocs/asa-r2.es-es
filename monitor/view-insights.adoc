@@ -13,7 +13,7 @@ summary: Vea información en ONTAP System Manager para identificar las práctica
 [role="lead"]
 Vea _Insights_ en ONTAP System Manager para identificar las prácticas recomendadas y las modificaciones de configuración que puede implementar en su sistema ASA R2 para optimizar la seguridad y el rendimiento de los clústeres.
 
-Por ejemplo, suponga que tiene servidores de protocolo de tiempo de redes (NTP) configurados para el clúster. Sin embargo, no sabe que tiene menos de la cantidad recomendada de servidores NTP necesarios para gestionar el tiempo del clúster de forma óptima. Para ayudarle a evitar los problemas que pueden producirse cuando la hora del clúster no es precisa, Insights le notificará que tiene demasiados pocos servidores NTP configurados y le dará opciones para obtener más información acerca de este problema, solucionarlo o ignorarlo.
+Por ejemplo, supongamos que tienes servidores Network Time Protocol (NTP) configurados para tu clúster. Sin embargo, no sabes que tienes menos servidores NTP de los recomendados para una gestión óptima del tiempo del clúster. Para ayudarte a evitar problemas que pueden ocurrir cuando la hora del clúster es inexacta, Insights te avisa de que tienes muy pocos servidores NTP configurados y te da opciones para saber más sobre el problema, solucionarlo o descartarlo.
 
 image:insights.png["captura de pantalla de la página de información del administrador del sistema"]
 

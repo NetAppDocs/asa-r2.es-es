@@ -19,7 +19,7 @@ Las unidades de almacenamiento de un sistema ASA R2 se encuentran dentro de las 
 [[create-a-storage-vm]]
 == Cree una máquina virtual de almacenamiento
 
-Durante la configuración del clúster, se crea la máquina virtual de almacenamiento de datos predeterminada. Todas las unidades de almacenamiento nuevas se crean dentro de la máquina virtual de almacenamiento de datos predeterminada, a menos que cree y seleccione una máquina virtual de almacenamiento diferente. Es posible que desee crear una máquina virtual de almacenamiento adicional para segregar las unidades de almacenamiento para diferentes aplicaciones, departamentos o clientes. Por ejemplo, quizás desee crear una máquina virtual de almacenamiento para el entorno de desarrollo y otra máquina virtual de almacenamiento para el entorno de producción, o bien crear una máquina virtual de almacenamiento para el departamento financiero y otra máquina virtual de almacenamiento para el departamento de marketing.
+Durante la configuración del clúster, se crea tu máquina virtual (VM) de almacenamiento de datos predeterminada. Todas las nuevas unidades de almacenamiento se crean dentro de tu VM de almacenamiento de datos predeterminada, a menos que crees y selecciones una VM de almacenamiento diferente. Quizá quieras crear una VM de almacenamiento adicional para separar tus unidades de almacenamiento según diferentes aplicaciones, departamentos o clientes. Por ejemplo, podrías querer crear una VM de almacenamiento para tu entorno de desarrollo y otra VM de almacenamiento para tu entorno de producción, o podrías querer crear una VM de almacenamiento para tu departamento de finanzas y otra para tu departamento de marketing.
 
 .Pasos
 . Selecciona *Cluster > Storage VMs*.

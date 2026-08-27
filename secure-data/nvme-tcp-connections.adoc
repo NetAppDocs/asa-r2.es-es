@@ -15,7 +15,7 @@ Si utiliza el protocolo NVMe, puede configurar la autenticación en banda para m
 
 .Pasos
 . Seleccione *HOSTS*; luego seleccione *NVMe*.
-. Seleccione image:icon_add_blue_bg.png["Cuadrado azul con un signo más seguido de la palabra Añadir en letras blancas"] .
+. Selecciona image:icon_add_blue_bg.png["Cuadrado azul con un signo más seguido de la palabra Añadir en letras blancas"].
 . Introduzca el nombre de host y, a continuación, seleccione el sistema operativo del host.
 . Introduzca la descripción de un host y, a continuación, seleccione la máquina virtual de almacenamiento para conectarse al host.
 . image:icon_dropdown_arrow.gif["flecha azul hacia abajo"]Seleccione junto al nombre de host.

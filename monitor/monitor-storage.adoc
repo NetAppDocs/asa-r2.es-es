@@ -30,7 +30,7 @@ La relación de reducción de datos representa la cantidad de espacio ahorrado g
 
 
 .El futuro
-Si su clúster se está quedando sin espacio o si no tiene capacidad para satisfacer una demanda futura, debe planificar la link:../administer/increase-storage-capacity.html["añadir unidades nuevas"] puesta en marcha de su sistema ASA R2 para aumentar la capacidad de almacenamiento.
+Si tu clúster se está quedando sin espacio o no tiene capacidad suficiente para satisfacer la demanda futura, link:../administer/increase-storage-capacity.html["añadir unidades nuevas"] a tu sistema ASA r2 para aumentar tu capacidad de almacenamiento.
 
 
 
@@ -50,7 +50,7 @@ Se muestra un resumen de la utilización de la zona de disponibilidad de almacen
 
 . Si desea obtener métricas más detalladas, seleccione una disponibilidad específica del almacenamiento.
 +
-En *Overview*, se muestra la capacidad de la zona de disponibilidad de almacenamiento, la cantidad de espacio utilizado y la relación de reducción de datos.
+En la sección *Resumen*, se muestran la capacidad de la zona de disponibilidad de almacenamiento, la cantidad de espacio utilizado y la relación de reducción de datos.
 
 +
 En *Unidades de almacenamiento*, se muestra una lista de todas las unidades de almacenamiento de la zona de disponibilidad de almacenamiento.
@@ -58,7 +58,7 @@ En *Unidades de almacenamiento*, se muestra una lista de todas las unidades de a
 
 
 .El futuro
-Si tu zona de disponibilidad de almacenamiento se está quedando sin espacio, deberías planear link:../manage-data/move-storage-units.html["mueva las unidades de almacenamiento"] a otra zona de disponibilidad de almacenamiento para equilibrar la utilización del almacenamiento en todo el clúster, eliminar snapshots para liberar espacio o agregar discos adicionales a tus nodos para aumentar la capacidad.
+Si tu zona de disponibilidad de almacenamiento se está quedando sin espacio, link:../manage-data/move-storage-units.html["mueva las unidades de almacenamiento"] a otra zona de disponibilidad de almacenamiento para equilibrar el uso del almacenamiento en todo el clúster, elimina snapshots para liberar espacio o añade discos adicionales a tus nodos para aumentar la capacidad.
 
 
 
@@ -76,7 +76,7 @@ Supervisar la cantidad de almacenamiento consumido por una unidad de almacenamie
 ** Cantidad de espacio utilizado
 ** De reducción de datos
 +
-La relación de reducción de datos representa la cantidad de espacio ahorrado gracias a la eficiencia del almacenamiento
+La relación de reducción de datos representa la cantidad de espacio ahorrado gracias a la eficiencia del almacenamiento.
 
 ** Instantánea utilizada
 +

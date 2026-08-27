@@ -26,7 +26,7 @@ Conozca las nuevas capacidades disponibles en ONTAP 9.18.1 para sistemas ASA r2.
 | Actualizar | Descripción 
 
 
-| link:../data-protection/snapmirror-active-sync.html["Mayor compatibilidad con configuraciones de sincronización activa de SnapMirror"] | Se amplía la compatibilidad con la sincronización activa de SnapMirror de clústeres de dos nodos a clústeres de cuatro nodos. 
+| link:../data-protection/snapmirror-active-sync.html["Mayor compatibilidad con configuraciones de sincronización activa de SnapMirror"] | El soporte para SnapMirror active sync aumenta de clústeres de dos nodos a clústeres de cuatro nodos. 
 |===
 
 

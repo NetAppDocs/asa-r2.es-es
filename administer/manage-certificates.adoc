@@ -31,7 +31,7 @@ Genere una solicitud de firma de certificación (CSR) para crear una clave priva
 
 
 .Resultado
-Ha generado una CSR en la que se puede utilizar para generar un certificado público.
+Has generado una CSR que puedes usar para generar un certificado público.
 
 
 

@@ -12,7 +12,7 @@ searchtitle: Diferencias entre ASA r2 y otros sistemas ONTAP
 
 
 [role="lead"]
-Los sistemas ASA r2 ofrecen una solución de hardware y software para entornos exclusivamente SAN basados ​​en soluciones totalmente flash. ASA diferencian de otros sistemas ONTAP (ASA, AFF y FAS) en la implementación de su personalidad ONTAP , la capa de almacenamiento y los protocolos compatibles.
+Los sistemas ASA r2 son soluciones de hardware y software para entornos exclusivamente SAN basadas en sistemas all-flash. Se diferencian de otros sistemas ONTAP (ASA, AFF y FAS) en la personalidad de ONTAP, la capa de almacenamiento y los protocolos compatibles.
 
 Los siguientes sistemas se clasifican como sistemas ASA r2:
 
@@ -30,7 +30,7 @@ Los siguientes sistemas se clasifican como sistemas ASA r2:
 [[personality-differences]]
 == Diferencias de personalidad
 
-En un sistema ASA R2, se ha optimizado el software ONTAP para admitir las funciones SAN esenciales, a la vez que se limita la visibilidad y la disponibilidad de las funciones y funciones que no son de SAN. Por ejemplo, System Manager que se ejecuta en un sistema ASA R2 no muestra opciones para crear directorios iniciales para clientes NAS. Esta versión optimizada de ONTAP se identifica como _ASA R2 Personality_. ONTAP que se ejecuta en sistemas ASA se identifica como _ASA ONTAP Personality_. ONTAP que se ejecuta en sistemas AFF y FAS ONTAP se identifica como _Unified ONTAP Personality_. Las diferencias entre las personalidades de la ONTAP se mencionan en la referencia de comandos de ONTAP (páginas de manual), la especificación de la API de REST y los mensajes de EMS donde corresponda.
+En un sistema ASA r2, el software ONTAP está optimizado para ofrecer soporte para la funcionalidad esencial de SAN, mientras limita la visibilidad y disponibilidad de las funciones y características no relacionadas con SAN. Por ejemplo, System Manager ejecutándose en un sistema ASA r2 no muestra opciones para crear directorios iniciales para clientes NAS. Esta versión optimizada de ONTAP se identifica como la _personalidad ASA r2_. ONTAP ejecutándose en sistemas ASA se identifica como la _personalidad ASA ONTAP_. ONTAP ejecutándose en sistemas AFF y FAS ONTAP se identifica como la _personalidad ONTAP unificada_. Las diferencias entre las personalidades de ONTAP se mencionan en la referencia de comandos de ONTAP (páginas man), la especificación de la API de REST y los mensajes de EMS donde corresponda.
 
 Puede verificar la personalidad de su almacenamiento de ONTAP desde System Manager o desde la CLI de ONTAP.
 
@@ -50,7 +50,7 @@ La personalidad de su sistema de almacenamiento de ONTAP no puede cambiarse.
 Los sistemas ASA r2 utilizan una capa de almacenamiento simplificada que es diferente de la capa de almacenamiento utilizada por los sistemas FAS, AFF y ASA .
 
 .Sistemas FAS, AFF y ASA
-La capa de almacenamiento de los sistemas FAS, AFF y ASA utiliza agregados como unidad base de almacenamiento. Un agregado posee un conjunto específico de discos disponibles en un sistema de almacenamiento. El agregado asigna espacio en los discos que posee a volúmenes para LUN y espacios de nombres. Con estos sistemas, los usuarios de ONTAP pueden crear y modificar agregados, volúmenes, LUN y espacios de nombres.
+La capa de almacenamiento de los sistemas FAS, AFF y ASA utiliza los agregados como unidad básica de almacenamiento. Un agregado posee un conjunto específico de discos disponibles en un sistema de almacenamiento. El agregado asigna espacio en los discos que posee a volúmenes para LUN y espacios de nombres. Con estos sistemas, los usuarios de ONTAP pueden crear y modificar agregados, volúmenes, LUN y espacios de nombres.
 
 .Sistemas ASA r2
 En lugar de agregados, la capa de almacenamiento en sistemas ASA r2 utiliza zonas de disponibilidad de almacenamiento. Una zona de disponibilidad de almacenamiento es un conjunto común de almacenamiento disponible para ambos nodos de un mismo par de alta disponibilidad (HA). Ambos nodos del par de HA tienen acceso a todos los discos disponibles en su zona de disponibilidad de almacenamiento compartida. Por ejemplo, en un clúster de ASA r2 system ONTAP de dos nodos, hay una zona de disponibilidad de almacenamiento, accesible para ambos nodos del clúster. En un clúster de ASA r2 system ONTAP de cuatro nodos, hay dos zonas de disponibilidad de almacenamiento. Cada par de HA del clúster tiene acceso a una de las zonas de disponibilidad de almacenamiento.
@@ -93,7 +93,7 @@ Debido a este enfoque automatizado y simplificado para la administración del al
 A continuación, se describen las principales diferencias entre los sistemas de ASA R2 y los sistemas FAS, AFF y ASA, relevantes para la interfaz de línea de comandos (CLI) y la API REST DE ONTAP.
 
 .Creación de máquina virtual de almacenamiento predeterminado con servicios de protocolo
-Los nuevos clústeres contienen automáticamente una máquina virtual (VM) de almacenamiento de datos predeterminada con los protocolos SAN habilitados.  Las LIF de datos IP admiten los protocolos iSCSI y NVMe/TCP y utilizan `default-data-blocks` Política de servicio por defecto.
+Los nuevos clústeres incluyen automáticamente una máquina virtual de almacenamiento de datos predeterminada con los protocolos SAN habilitados. Las LIF de datos IP son compatibles con los protocolos iSCSI y NVMe/TCP y utilizan la política de servicio  `default-data-blocks` de forma predeterminada.
 
 .Creación de volúmenes automática
 La creación de una unidad de almacenamiento (LUN o espacio de nombres) crea automáticamente un volumen desde la zona de disponibilidad de almacenamiento. El resultado es un espacio de nombres común y simplificado. Al eliminar una unidad de almacenamiento, se elimina automáticamente el volumen asociado.

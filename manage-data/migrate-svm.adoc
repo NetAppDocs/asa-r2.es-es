@@ -11,7 +11,7 @@ summary: Si una zona de disponibilidad de almacenamiento se está quedando sin e
 
 
 [role="lead"]
-A partir de ONTAP 9.18.1, puedes migrar sin interrupciones una máquina virtual de almacenamiento (VM) desde cualquier clúster ASA estándar a cualquier clúster ASA r2. Migrar de un clúster ASA estándar a un clúster ASA r2 te permite adoptar la arquitectura simplificada y optimizada de los sistemas ASA r2 para entornos solo SAN.
+A partir de ONTAP 9.18.1, puedes migrar sin interrupciones una máquina virtual de almacenamiento (VM) desde cualquier clúster ASA estándar a cualquier clúster ASA r2 para adoptar la arquitectura simplificada y optimizada de los sistemas ASA r2 en entornos solo SAN.
 
 
 NOTE: No puedes migrar una máquina virtual de almacenamiento desde un ASA MetroCluster a un clúster ASA r2. Los sistemas ASA r2 no admiten configuraciones MetroCluster.
@@ -77,7 +77,7 @@ Si se muestran entradas, los objetos NVMe deben serlink:https://docs.netapp.com/
 +
 [source, cli]
 ----
-lun show -verser <storage_VM> -class protocol-endpoint,vvol
+lun show -vserver <storage_VM> -class protocol-endpoint,vvol
 ----
 +
 Si existen vVols , deben copiarse a otra máquina virtual de almacenamiento y luego eliminarse de la máquina virtual de almacenamiento que se va a migrar.  Ver el `lun copy` y `lun delete` comandos en ellink:https://docs.netapp.com/us-en/ontap/concepts/manual-pages.html["Referencia de comandos del ONTAP"^] Para obtener más información.
@@ -86,7 +86,7 @@ Si existen vVols , deben copiarse a otra máquina virtual de almacenamiento y lu
 +
 [source, cli]
 ----
-lun show -verser <storage_VM>
+lun show -vserver <storage_VM>
 ----
 +
 Si un volumen contiene más de un LUN, utilice el `volume create` y `lun move` comandos para crear una relación volumen-LUN de 1:1. Ver ellink:https://docs.netapp.com/us-en/ontap/concepts/manual-pages.html["Referencia de comandos del ONTAP"^] Para más información.
@@ -182,7 +182,7 @@ Antes de migrar una máquina virtual (VM) de almacenamiento de un clúster ASA a
 vserver migrate start -vserver <storage_VM> -source-cluster <asa_cluster> -check-only true
 ----
 +
-Si necesita solucionar algún problema para preparar su clúster ASA para la migración, se mostrarán el problema y la acción correctiva.  Solucione el problema y repita la comprobación previa hasta que se complete correctamente.
+Si necesitas solucionar algún problema para preparar tu clúster ASA para la migración, se mostrarán el problema y la medida correctiva. Soluciona el problema y repite la comprobación previa hasta que se complete con éxito.
 
 
 

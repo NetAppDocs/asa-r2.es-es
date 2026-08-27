@@ -11,9 +11,9 @@ summary:
 
 
 [role="lead"]
-AutoSupport es un mecanismo que supervisa de forma proactiva el estado del sistema y envía automáticamente mensajes al soporte técnico de NetApp, su organización de soporte interno y un partner de soporte.
+AutoSupport supervisa de forma proactiva el estado de tu sistema y envía automáticamente mensajes al soporte técnico de NetApp, a tu equipo interno de soporte y a un socio de soporte.
 
-Los mensajes de AutoSupport para el soporte técnico se habilitan de forma predeterminada cuando configura el clúster. Debe configurar las opciones correctas y contar con un host de correo válido para que se envíen mensajes a la organización de soporte interno. ONTAP comienza a enviar mensajes de AutoSupport 24 horas después de que se ha habilitado.
+AutoSupport los mensajes al soporte técnico están habilitados de forma predeterminada cuando configuras tu clúster. Debes establecer las opciones correctas y tener un servidor de correo válido para enviar mensajes a tu organización de soporte interno. ONTAP comienza a enviar mensajes de AutoSupport 24 horas después de que se habilita.
 
 .Antes de empezar
 Debe ser un administrador de clústeres para gestionar AutoSupport.
@@ -26,7 +26,7 @@ Debe ser un administrador de clústeres para gestionar AutoSupport.
 Después de configurar el clúster, debe probar su conectividad AutoSupport para verificar que el soporte técnico recibirá mensajes generados por AutoSupport.
 
 .Pasos
-. En el Administrador del sistema, selecciona *Clúster > Configuración*.
+. En System Manager, seleccione *Cluster > Settings*.
 . Junto a *AutoSupport* selecciona image:icon_kabob.gif["tres puntos verticales azules"]; y luego selecciona *Probar conectividad*.
 . Ingrese un asunto para el mensaje AutoSupport y luego seleccione *Enviar mensaje AutoSupport de prueba*.
 
@@ -42,14 +42,14 @@ Ha confirmado que el soporte técnico puede recibir mensajes de AutoSupport de s
 Añada miembros de la organización de soporte interno a la lista de direcciones de correo electrónico que reciben mensajes de AutoSupport.
 
 .Pasos
-. En el Administrador del sistema, selecciona *Clúster > Configuración*.
+. En System Manager, seleccione *Cluster > Settings*.
 . Junto a *AutoSupport* selecciona image:icon_kabob.gif["tres puntos verticales azules"]; y luego selecciona *Más opciones*.
 . Junto a *Correo electrónico*, seleccione image:icon_edit_pencil_blue_outline.png["icono de lápiz"]; y, a continuación, seleccione image:icon_add.gif["Signo más azul seguido de la palabra Agregar"].
-. Introduzca la dirección de correo electrónico del destinatario y, a continuación, la categoría del destinatario.
+. Introduce la dirección de correo electrónico del destinatario; luego selecciona la categoría de destinatario.
 +
-Para los socios, seleccione *Partner* para la categoría de destinatarios. Seleccione *General* para los miembros de su organización de apoyo interno.
+Para los partners, selecciona *Partner* en la categoría de destinatario. Selecciona *General* para los miembros de tu organización de soporte interno.
 
-. Seleccione GUARDAR.
+. Seleccione *Guardar*.
 
 
 .El futuro
@@ -63,7 +63,7 @@ Las direcciones de correo electrónico que haya añadido recibirán nuevos mensa
 Si se produce algún problema en el sistema ASA R2, los datos de AutoSupport pueden reducir considerablemente el tiempo necesario para identificar y resolver los problemas.
 
 .Pasos
-. En el Administrador del sistema, selecciona *Clúster > Configuración*.
+. En System Manager, seleccione *Cluster > Settings*.
 . Junto a *AutoSupport* selecciona image:icon_kabob.gif["tres puntos verticales azules"]; y luego selecciona *Generar y enviar*.
 . Introduzca un asunto para el mensaje AutoSupport y, a continuación, seleccione *Enviar*.
 
@@ -79,14 +79,14 @@ Los datos de AutoSupport se envían al soporte técnico.
 Si realiza una actualización o un mantenimiento en el sistema ASA R2, podría suprimir la generación de casos de soporte de AutoSupport hasta que se complete la actualización o el mantenimiento.
 
 .Pasos
-. En el Administrador del sistema, selecciona *Clúster > Configuración*.
+. En System Manager, seleccione *Cluster > Settings*.
 . Junto a *AutoSupport* seleccione image:icon_kabob.gif["tres puntos verticales azules"]; y luego seleccione *Suprimir generación de casos de soporte*.
 . Especifique la cantidad de horas para suprimir la generación de casos de soporte y, a continuación, seleccione los nodos para los que no desea que se generen los casos.
 . Seleccione *Enviar*.
 
 
 .El futuro
-Los casos AutoSupport no se generarán durante el tiempo especificado. Si completa la actualización o el mantenimiento antes de que caduque el tiempo especificado, deberá reanudar la generación de casos de soporte de inmediato.
+AutoSupport no se generan casos durante el tiempo que especificaste. Si completas la actualización o el mantenimiento antes de que expire el tiempo especificado, reanuda inmediatamente la generación de casos de soporte.
 
 
 
@@ -96,7 +96,7 @@ Los casos AutoSupport no se generarán durante el tiempo especificado. Si comple
 Si ha suprimido la generación de casos de soporte durante una ventana de actualización o mantenimiento, debería reanudar la generación de caso de soporte inmediatamente una vez que finalice la actualización o el mantenimiento.
 
 .Pasos
-. En el Administrador del sistema, selecciona *Clúster > Configuración*.
+. En System Manager, seleccione *Cluster > Settings*.
 . Junto a *AutoSupport* seleccione image:icon_kabob.gif["tres puntos verticales azules"]; y luego seleccione *Reanudar generación de casos de soporte*.
 . Seleccione los nodos para los que desea reanudar los casos de AutoSupport generados.
 . Seleccione *Enviar*.

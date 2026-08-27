@@ -25,5 +25,5 @@ La sincronización activa de SnapMirror ofrece disponibilidad continua para apli
 . Seleccionar image:icon_kabob.gif["tres puntos verticales azules"] ; luego seleccione *Conmutación por error*.
 
 
-.Lo siguiente
+.El futuro
 Utilice el  `snapmirror failover show` comando en la interfaz de línea de comandos (CLI) de ONTAP para monitorear el estado de la conmutación por error.

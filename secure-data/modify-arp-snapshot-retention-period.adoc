@@ -11,7 +11,7 @@ summary: Aprenda a modificar los períodos de retención de instantáneas de ARP
 
 
 [role="lead"]
-Si la Protección Autónoma contra Ransomware con Inteligencia Artificial (ARP/IA) detecta actividad anormal en una o más unidades de almacenamiento de su sistema ASA r2, crea automáticamente una instantánea de ARP para proteger los datos de la unidad. Según su capacidad de almacenamiento y las necesidades de su negocio, podría querer aumentar o reducir el periodo de retención predeterminado de las instantáneas de ARP. Por ejemplo, podría querer aumentar el periodo de retención de las aplicaciones críticas para la empresa para, si es necesario, disponer de periodos de retención más largos para la recuperación de datos, o bien, podría querer reducir el periodo de retención de las aplicaciones no críticas para ahorrar espacio de almacenamiento.
+Si la Protección Autónoma contra el Ransomware con Inteligencia Artificial (ARP/AI) detecta actividad anómala en una o varias unidades de almacenamiento de tu sistema ASA r2, crea automáticamente una instantánea ARP para proteger los datos. Dependiendo de tu capacidad de almacenamiento y de los requisitos del negocio, podrías querer aumentar o reducir el periodo de retención predeterminado de las instantáneas ARP. Por ejemplo, podrías aumentar el periodo de retención para aplicaciones críticas para el negocio para permitir ventanas de recuperación de datos más largas, o reducirlo para aplicaciones no críticas y así ahorrar espacio de almacenamiento.
 
 El período de retención predeterminado para la instantánea de ARP varía según la acción que realice en respuesta a la actividad anormal.
 
@@ -28,4 +28,4 @@ El período de retención predeterminado para la instantánea de ARP varía seg�
 
 | No tome medidas inmediatas | 10 días 
 |===
-Los períodos de retención predeterminados se pueden modificar mediante la interfaz de línea de comandos (CLI) de ONTAP . Consulte  https://docs.netapp.com/us-en/ontap/anti-ransomware/modify-automatic-snapshot-options-task.html["Modificar las opciones para las instantáneas automáticas de ONTAP"] para conocer los pasos para cambiar el período de retención predeterminado.
+Puedes modificar los períodos de retención predeterminados usando la interfaz de línea de comandos (CLI) de ONTAP. Consulta https://docs.netapp.com/us-en/ontap/anti-ransomware/modify-automatic-snapshot-options-task.html["Modificar las opciones para las instantáneas automáticas de ONTAP"] para ver los pasos para cambiar el período de retención predeterminado.

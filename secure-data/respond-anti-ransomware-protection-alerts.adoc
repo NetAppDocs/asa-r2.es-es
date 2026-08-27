@@ -11,9 +11,9 @@ summary: Vea advertencias de posibles ataques de ransomware y tome medidas en el
 
 
 [role="lead"]
-Si la Protección Autónoma contra Ransomware con Inteligencia Artificial (ARP/IA) detecta actividad anormal en una o más unidades de almacenamiento de su sistema ASA r2, se generará una advertencia en el panel del Administrador del Sistema. Debe revisar la advertencia, verificar la actividad y, si es necesario, tomar medidas para detener cualquier posible amenaza a sus datos.
+Si la Protección autónoma contra el ransomware con inteligencia artificial (ARP/AI) detecta una actividad anómala en una o varias unidades de almacenamiento de tu sistema ASA r2, System Manager muestra una advertencia en el panel de control. Revisa la advertencia, verifica la actividad y actúa si es necesario para proteger tus datos.
 
-Si se muestra un mensaje de advertencia de ARP/AI, antes de actuar, debe usar el verificador de integridad de la aplicación adecuado para verificar la integridad de los datos en la unidad de almacenamiento. Verificar la integridad de los datos de la unidad de almacenamiento le ayuda a determinar si la actividad es aceptable o si se trata de un posible ataque de ransomware.
+Si aparece un mensaje de advertencia de ARP/AI, utiliza la herramienta de verificación de integridad de aplicaciones adecuada para comprobar los datos de la unidad de almacenamiento antes de tomar ninguna medida. Comprobar la integridad de los datos de la unidad de almacenamiento te ayuda a determinar si la actividad es aceptable o si se trata de un posible ataque de ransomware.
 
 [cols="2,2"]
 |===
@@ -26,12 +26,12 @@ Si se muestra un mensaje de advertencia de ARP/AI, antes de actuar, debe usar el
 | Un posible ataque de ransomware | Marcar la actividad como un posible ataque de ransomware. 
 
 
-| Indeterminado | No actúe de inmediato. Supervise la unidad de almacenamiento hasta por 7 días. Si la unidad de almacenamiento continúa funcionando con normalidad, marque la actividad como falso positivo. Si la unidad de almacenamiento continúa mostrando actividad anormal, marque la actividad como un posible ataque de ransomware. 
+| Indeterminado | No tomes medidas inmediatas. Supervisa la unidad de almacenamiento durante un máximo de 7 días. Si la unidad de almacenamiento sigue funcionando con normalidad, marca la actividad como un falso positivo. Si la unidad de almacenamiento sigue mostrando una actividad anómala, marca la actividad como un posible ataque de ransomware. 
 |===
 .Pasos
 . En System Manager, seleccione *Panel*.
 +
-Si ARP ha detectado actividad anormal en una o más unidades de almacenamiento, aparece un mensaje en *Advertencias*.
+Si ARP/AI ha detectado una actividad anómala en una o varias unidades de almacenamiento, aparece un mensaje en la sección *Advertencias*.
 
 . Seleccione el mensaje de advertencia.
 . En *Descripción general de eventos*, seleccione el mensaje *Advertencias* que indica la cantidad de unidades de almacenamiento con actividad anormal.
@@ -45,4 +45,4 @@ Si hay actividad anormal en la unidad de almacenamiento, se muestra un mensaje d
 
 
 .El futuro
-Si sabes de aumentos repentinos en la actividad de tu unidad de almacenamiento, ya sea un aumento puntual o uno que sea característico de una nueva normalidad, deberías reportarlos como seguros. Reportar manualmente estos aumentos como seguros ayuda a mejorar la precisión de las evaluaciones de amenazas de ARP. Aprende cómo link:https://docs.netapp.com/us-en/ontap/anti-ransomware/manage-parameters-task.html#report-known-surges["informar los aumentos de ARP/AI conocidos"^].
+Si sabes de aumentos repentinos en la actividad de tu unidad de almacenamiento, ya sea un aumento puntual o uno que sea característico de una nueva normalidad, deberías reportarlos como seguros. Reportar manualmente estos picos como seguros ayuda a mejorar la precisión de las evaluaciones de amenazas de ARP. Descubre cómo link:https://docs.netapp.com/us-en/ontap/anti-ransomware/manage-parameters-task.html#report-known-surges["informar los aumentos de ARP/AI conocidos"^].

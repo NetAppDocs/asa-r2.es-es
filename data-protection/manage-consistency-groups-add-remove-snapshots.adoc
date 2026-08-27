@@ -63,7 +63,7 @@ a continuación, seleccione image:icon_dropdown_arrow.gif["flecha azul apuntando
 
 
 .El futuro
-Ahora que los datos están protegidos con copias snapshot, debe link:../secure-data/encrypt-data-at-rest.html["configurar la replicación de snapshots"]copiar sus grupos de coherencia en una ubicación geográficamente remota a efectos de backup y recuperación ante desastres.
+Ahora que tus datos están protegidos mediante instantáneas, deberías link:snapshot-replication.html["configurar la replicación de snapshots"] copiar tus grupos de consistencia a una ubicación geográficamente remota para respaldo y recuperación ante desastres.
 
 
 

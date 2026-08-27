@@ -12,7 +12,7 @@ searchtitle: Supervise el rendimiento del clúster mediante ONTAP System Manager
 
 
 [role="lead"]
-Utilice System Manager de ONTAP para supervisar el rendimiento general de su clúster y el rendimiento de unidades de almacenamiento específicas para determinar cómo la latencia, las IOPS y el rendimiento afectan a sus aplicaciones vitales para el negocio. El rendimiento se puede supervisar en varios períodos de tiempo que van de una hora a un año.
+Utiliza ONTAP System Manager para supervisar el rendimiento general de tu clúster y de unidades de almacenamiento específicas, incluyendo la latencia, las IOPS y el rendimiento, en intervalos de tiempo que van desde una hora hasta un año.
 
 Por ejemplo, supongamos que una aplicación crítica está experimentando alta latencia y bajo rendimiento. Al ver el rendimiento del clúster de los últimos cinco días laborables, observa una disminución del rendimiento en el mismo momento cada día. Se utiliza esta información para determinar que la aplicación crucial está compitiendo por los recursos del clúster cuando un proceso no crítico comienza a ejecutarse en segundo plano. A continuación, puede modificar la política de calidad de servicio para limitar el impacto de la carga de trabajo no crítica en los recursos del sistema y garantizar que la carga de trabajo crítica cumpla con los objetivos de rendimiento mínimos.
 
@@ -37,7 +37,7 @@ Use las métricas de rendimiento del clúster para analizar si necesita modifica
 [[monitor-storage-unit-performance]]
 == Supervise el rendimiento de la unidad de almacenamiento
 
-Utilice métricas de rendimiento de unidad de almacenamiento para determinar el impacto de aplicaciones específicas en la latencia, las operaciones de IOPS y el rendimiento.
+Utiliza los indicadores de rendimiento de las unidades de almacenamiento para determinar el impacto de aplicaciones concretas en la latencia, las IOPS y el rendimiento.
 
 .Pasos
 . En System Manager, seleccione *Almacenamiento*.
@@ -47,4 +47,4 @@ Utilice métricas de rendimiento de unidad de almacenamiento para determinar el 
 
 
 .El futuro
-Utilice las métricas de rendimiento de su unidad de almacenamiento para analizar si necesita modificar las políticas de calidad de servicio asignadas a sus unidades de almacenamiento para reducir la latencia y maximizar las IOPS y el rendimiento.
+Utiliza los indicadores de rendimiento de tus unidades de almacenamiento para analizar si necesitas modificar las políticas de QoS asignadas a tus unidades de almacenamiento para disminuir la latencia y maximizar las IOPS y el rendimiento.

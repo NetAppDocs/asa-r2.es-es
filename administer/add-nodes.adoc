@@ -25,7 +25,7 @@ Recopile la siguiente información:
 
 .Pasos
 . En System Manager, seleccione *Clúster > Descripción general*.
-. Seleccione image:icon_kabob.gif["tres puntos verticales azules"] junto al nodo que desea unir al clúster y, a continuación, seleccione *Añadir nodo*
+. Selecciona image:icon_kabob.gif["tres puntos verticales azules"] junto al nodo que quieres unir al clúster; luego selecciona *Add node*.
 . Introduzca la dirección IP para cada nodo.
 . Introduzca la dirección IP de la interfaz de red entre clústeres, la máscara de subred y la pasarela.
 . Si desea configurar el gestor de claves incorporado (OKM), introduzca la clave de acceso de OKM.

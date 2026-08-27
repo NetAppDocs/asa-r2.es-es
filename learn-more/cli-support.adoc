@@ -11,13 +11,13 @@ summary: 'Ciertos comandos ONTAP no son compatibles con los sistemas ASA r2 (ASA
 
 
 [role="lead"]
-En lugar de agregados, la capa de almacenamiento de los sistemas ASA r2 utiliza zonas de disponibilidad de almacenamiento. Una zona de disponibilidad de almacenamiento es un conjunto común de almacenamiento disponible para un único par de alta disponibilidad (HA). Ambos nodos del par de HA tienen acceso a todos los discos disponibles en su zona de disponibilidad de almacenamiento compartida. Al crear una unidad de almacenamiento (LUN o espacio de nombres NVMe), ONTAP crea automáticamente un volumen en la zona de disponibilidad de almacenamiento correspondiente para alojarla.
+Los sistemas ASA r2 utilizan zonas de disponibilidad de almacenamiento en lugar de agregados, por lo que algunos comandos y parámetros de la CLI de ONTAP no son compatibles. También puedes utilizar la CLI para configurar un clúster si lo prefieres a System Manager.
 
 Debido a este enfoque simplificado para la gestión del almacenamiento,  `storage aggregate` Los comandos no son compatibles con los sistemas ASA r2. Compatibilidad con ciertos  `lun` ,  `storage` y  `volume` Los comandos y parámetros también son limitados.
 
 A menos que se indique que no son compatibles, todos los demás comandos en el link:https://docs.netapp.com/us-en/ontap-cli/["Referencia de comandos del ONTAP"] son compatibles con los sistemas ASA r2.
 
-ASA R2 no admite los siguientes comandos y conjuntos de comandos:
+Los siguientes comandos y conjuntos de comandos no son compatibles con ASA r2:
 
 .Comandos <code>lun</code> no admitidos
 [%collapsible]
@@ -145,9 +145,9 @@ El  `volume modify` El comando no está disponible cuando se utiliza junto con l
 [[set-up-an-ontap-asa-r2-cluster-using-the-cli]]
 == Configure un clúster de ONTAP ASA R2 mediante la interfaz de línea de comandos
 
-Se recomienda que usted link:../install-setup/initialize-ontap-cluster.html["Utilice System Manager para configurar su clúster de ONTAP ASA R2"]. System Manager ofrece un flujo de trabajo guiado rápido y sencillo para poner el clúster en funcionamiento. Sin embargo, si está acostumbrado a trabajar con comandos de la ONTAP, opcionalmente se puede utilizar la interfaz de línea de comandos de la ONTAP para la configuración del clúster. La configuración del clúster mediante CLI no ofrece opciones ni ventajas adicionales a la configuración del clúster con System Manager.
+Se recomienda que link:../install-setup/initialize-ontap-cluster.html["Utilice System Manager para configurar su clúster de ONTAP ASA R2"]. System Manager ofrece un flujo de trabajo guiado, rápido y sencillo para poner en marcha tu clúster. Sin embargo, si estás acostumbrado a trabajar con comandos de ONTAP, también puedes usar la interfaz de línea de comandos (CLI) de ONTAP para configurar el clúster. Configurar el clúster con la CLI no ofrece opciones ni ventajas adicionales frente a System Manager.
 
-Durante la configuración del clúster, se crea la máquina virtual de almacenamiento de datos (VM) predeterminada, se crea una unidad de almacenamiento inicial y se detectan las LIF de datos automáticamente. Opcionalmente, puede habilitar el Sistema de nombres de dominio (DNS) para resolver nombres de host, configurar el clúster para que utilice el Protocolo de hora de red (NTS) para la sincronización de tiempo y habilitar el cifrado de datos en reposo.
+Durante la configuración del clúster, ONTAP crea tu máquina virtual de almacenamiento de datos predeterminada, crea una unidad de almacenamiento inicial y detecta automáticamente tus LIF de datos. Opcionalmente, puedes habilitar el Domain Name System (DNS) para resolver nombres de host, configurar tu clúster para que use el Network Time Protocol (NTP) para la sincronización horaria y habilitar el cifrado de los datos en reposo.
 
 .Antes de empezar
 Recopile la siguiente información:

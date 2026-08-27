@@ -11,7 +11,7 @@ summary: Aunque los sistemas ASA R2 ofrecen una amplia gama de compatibilidad pa
 
 
 [role="lead"]
-Aunque los sistemas ASA R2 ofrecen una amplia gama de compatibilidad para las soluciones SAN, ciertas funciones de software ONTAP no son compatibles.
+Los sistemas ASA r2 admiten una amplia gama de funcionalidades SAN, pero algunas funciones del software ONTAP no son compatibles.
 
 .Los sistemas ASA R2 no son compatibles con lo siguiente:
 * FabricPool
@@ -27,7 +27,7 @@ SnapLock Compliance y Enterprise no son compatibles con los clústeres primarios
 * La replicación SnapMirror es compatible con los sistemas ASA r2 con las siguientes limitaciones:
 +
 ** La replicación síncrona de SnapMirror no es compatible.
-** La replicación asíncrona de SnapMirror solo es compatible entre dos sistemas ASA r2. La replicación asíncrona de SnapMirror no es compatible entre un sistema ASA r2 y un sistema ASA, AFF o FAS o la nube.
+** SnapMirror la replicación asíncrona solo es compatible entre dos sistemas ASA r2. SnapMirror la replicación asíncrona no es compatible entre un sistema ASA r2 y un sistema ASA, AFF o FAS, ni con la nube.
 +
 Obtenga más información sobrelink:../data-protection/pre-defined-protection-policies.html["Políticas de replicación de SnapMirror compatibles con sistemas ASA r2"] .
 

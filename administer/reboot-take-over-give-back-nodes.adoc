@@ -11,7 +11,7 @@ summary: Es posible que necesite reiniciar un nodo para mantenimiento, soluciona
 
 
 [role="lead"]
-Es posible que necesite reiniciar un nodo para mantenimiento, solucionar problemas, actualizaciones de software u otros motivos administrativos. Cuando un nodo se reinicia, su compañero de alta disponibilidad ejecuta automáticamente una toma de control. A continuación, el nodo del partner realiza una devolución al control automática cuando el nodo reiniciado vuelve a conectarse.
+Es posible que tengas que reiniciar un nodo por motivos de mantenimiento, resolución de problemas, actualizaciones de software u otras razones administrativas. Cuando se reinicia un nodo, su nodo asociado de alta disponibilidad (HA) ejecuta automáticamente una toma de control. Luego, el nodo asociado realiza una devolución automática después de que el nodo reiniciado vuelve a estar en línea.
 
 .Pasos
 . En System Manager, seleccione *Clúster > Descripción general*.
@@ -23,4 +23,4 @@ El motivo por el que se introduce el reinicio se registra en el registro de audi
 
 
 .El futuro
-Mientras el nodo se está reiniciando, su compañero de alta disponibilidad realiza una toma de control para que no haya interrupción en el servicio de datos. Cuando el reinicio se completa, el partner de alta disponibilidad realiza un retorno al nodo primario.
+Mientras se reinicia el nodo, su socio de alta disponibilidad (HA) realiza una toma de control para que no haya interrupción en el servicio de datos. Cuando se completa el reinicio, el socio de alta disponibilidad (HA) realiza una devolución del control.

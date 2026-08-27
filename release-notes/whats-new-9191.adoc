@@ -38,7 +38,7 @@ Conoce las nuevas funciones disponibles en ONTAP 9.19.1 para sistemas ASA r2.
 | Actualizar | Descripción 
 
 
-| link:../administer/manage-client-vm-access.html#create-a-lif-network-interface["Compatibilidad mejorada con la conmutación por error automática de SAN LIF"] | Se admite la conmutación automática por error predeterminada para los LIF IP y NVMe/TCP. 
+| link:../administer/manage-client-vm-access.html#create-a-lif-network-interface["Compatibilidad mejorada con la conmutación por error automática de SAN LIF"] | Se admite la conmutación automática por error predeterminada para las LIF IP y NVMe/TCP. 
 |===
 
 

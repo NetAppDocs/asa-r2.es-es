@@ -15,7 +15,7 @@ searchtitle: Clonado de datos mediante el Administrador del sistema de ONTAP | A
 
 
 [role="lead"]
-La clonado de datos crea copias de unidades de almacenamiento y grupos de coherencia en su sistema ASA R2 mediante System Manager de ONTAP, que se pueden usar para el desarrollo de aplicaciones, pruebas, backups, migración de datos u otras funciones administrativas.
+La clonación de datos crea copias de las unidades de almacenamiento y los grupos de consistencia en tu sistema ASA r2. Puedes usar las copias para el desarrollo de aplicaciones, pruebas, copias de seguridad, migración de datos y otras funciones administrativas.
 
 
 
@@ -62,7 +62,7 @@ Cree un nuevo grupo de hosts
 Añada un nuevo host
  a| 
 .. En *Asignación de host*, selecciona *Nuevos hosts*.
-.. Introduzca el nombre A para el nuevo host y seleccione *FC* o *iSCSi*.
+.. Introduce un nombre para el nuevo host; luego selecciona *FC* o *iSCSI*.
 .. Seleccione los iniciadores de host de la lista de iniciadores existentes o seleccione *Añadir* para añadir iniciadores nuevos para el host.
 
 
@@ -126,7 +126,7 @@ Cree un nuevo grupo de hosts
 Añada un nuevo host
  a| 
 .. En *Asignación de host*, selecciona *Nuevos hosts*.
-.. Introduzca el nombre del nuevo host y seleccione *FC* o *iSCSi*.
+.. Introduce un nombre para el nuevo host; luego selecciona *FC* o *iSCSI*.
 .. Seleccione los iniciadores de host de la lista de iniciadores existentes o seleccione *Add initiator* para añadir iniciadores nuevos para el host.
 
 
@@ -162,7 +162,7 @@ Cuando se divide un clon de un grupo de consistencia, se disocia el clon del gru
 
 .Pasos
 . En System Manager, seleccione *Protección > Grupos de consistencia*.
-. Pase el ratón por el clon del grupo de consistencia que desea dividir.
+. Pasa el cursor por encima del clon del grupo de consistencia que quieras dividir.
 . Seleccione *Split clone*.
 . Selecciona *Split*.
 

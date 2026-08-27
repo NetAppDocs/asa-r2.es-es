@@ -12,12 +12,12 @@ searchtitle: Proteja los datos en reposo con el cifrado mediante ONTAP System Ma
 
 
 [role="lead"]
-Al cifrar datos en reposo, no se podrán leer si un medio de almacenamiento se reasigna, devuelve, se pierde o es robado. Puede usar System Manager de ONTAP para cifrar sus datos a nivel de hardware y software para lograr una protección de doble capa.
+Cuando están cifrados, los datos en reposo no se pueden leer si el soporte de almacenamiento se reutiliza, se devuelve, se extravía o se roba. Puedes usar ONTAP System Manager para aplicar cifrado por hardware y por software para una protección de doble capa.
 
 El cifrado en almacenamiento de NetApp (NSE) admite el cifrado de hardware mediante unidades de cifrado automático (SED). SEDS cifra los datos a medida que se escriben. Cada SED contiene una clave de cifrado única. Los datos cifrados almacenados en el SED no se pueden leer sin la clave de cifrado del SED. Los nodos que intentan leer desde un SED se deben autenticar para acceder a la clave de cifrado del SED. Los nodos se autentican obteniendo una clave de autenticación de un administrador de claves y, a continuación, presentando la clave de autenticación al SED. Si la clave de autenticación es válida, el SED le dará al nodo su clave de cifrado para acceder a los datos que contiene.
 
 
-NOTE: En los sistemas ASA r2, los SED solo son compatibles con SSD basados ​​en NVMe.
+NOTE: En los sistemas ASA r2, los SED solo son compatibles con las unidades SSD basadas en NVMe.
 
 Use el administrador de claves incorporado o un gestor de claves externo de ASA R2 para servir claves de autenticación a los nodos.
 
@@ -28,7 +28,7 @@ Más información sobre link:https://docs.netapp.com/us-en/ontap/encryption-at-r
 Más información sobre link:https://docs.netapp.com/us-en/asa-r2/learn-more/hardware-comparison.html["las diferencias entre los sistemas ASA r2 y otros sistemas ONTAP"].
 
 .Pasos
-. En el Administrador del sistema, selecciona *Clúster > Configuración*.
+. En System Manager, seleccione *Cluster > Settings*.
 . En la sección *Seguridad*, en *Cifrado*, selecciona *Configurar*.
 . Configure el gestor de claves.
 +
@@ -37,7 +37,7 @@ Más información sobre link:https://docs.netapp.com/us-en/asa-r2/learn-more/har
 | Opción | Pasos 
 
 
-| Configure el gestor de claves incorporado  a| 
+| Configura el gestor de claves integrado  a| 
 .. Seleccione *Onboard Key Manager* para agregar los servidores de claves.
 .. Introduzca una frase de contraseña.
 

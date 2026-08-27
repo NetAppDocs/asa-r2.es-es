@@ -21,7 +21,7 @@ La API REST DE ASA R2 se basa en la API REST proporcionada con la personalidad u
 [[types-of-api-changes]]
 == Tipos de cambios de API
 
-Existen varios tipos de diferencias entre la API de REST del sistema ASA R2 y la API DE REST unificada de ONTAP disponible en sistemas FAS, AFF y ASA. Comprender los tipos de cambios le ayudará a utilizar mejor la documentación de referencia de la API en línea.
+Existen varias diferencias entre la API de REST de ASA r2 y la API de REST unificada de ONTAP disponible en los sistemas FAS, AFF y ASA. Comprender estos cambios te ayudará a utilizar la documentación de referencia en línea de la API de REST de forma más eficaz.
 
 .No se admiten nuevos extremos de ASA R2 en Unified ONTAP
 Se han añadido varios extremos a la API de REST DE ASA R2 que no están disponibles con Unified ONTAP.
@@ -34,7 +34,7 @@ Como otro ejemplo, los puntos finales *storage-units* proporcionan una vista agr
 Varios puntos finales disponibles con ASA R2 tienen restricciones sobre los métodos HTTP que se pueden utilizar en comparación con el ONTAP unificado. Por ejemplo, POST y DELETE no se permiten cuando se utiliza el punto final `/api/protocols/nvme/services` con sistemas ASA R2.
 
 .Cambios de propiedad para un punto final y método HTTP
-Algunas combinaciones de métodos y puntos finales del sistema ASA R2 no admiten todas las propiedades definidas disponibles en la personalidad unificada de ONTAP. Por ejemplo, al utilizar EL PARCHE con el punto final `/api/storage/volumes/{uuid}`, no se admiten varias propiedades con ASA R2, entre las que se incluyen:
+Algunas combinaciones de puntos finales y métodos de ASA r2 no admiten todas las propiedades definidas para la personalidad unificada de ONTAP. Por ejemplo, al utilizar PATCH con el endpoint `/api/storage/volumes/{uuid}`, varias propiedades no son compatibles con ASA r2, incluyendo:
 
 * `autosize.maximum`
 * `autosize.minimum`
@@ -49,7 +49,7 @@ Hay varios cambios en la forma en que ASA R2 procesa ciertas solicitudes de API 
 [[enhanced-security-with-oauth-2-0]]
 == Seguridad mejorada con OAuth 2,0
 
-OAuth 2,0 es el marco de autorización estándar de la industria. Se utiliza para restringir y controlar el acceso a recursos protegidos basados en tokens de acceso firmados. Puede configurar OAuth 2,0 mediante System Manager para proteger los recursos del sistema ASA R2.
+OAuth 2.0 es el marco de autorización estándar del sector. Se utiliza para restringir y controlar el acceso a recursos protegidos basándose en tokens de acceso firmados. Puedes configurar OAuth 2.0 usando System Manager para proteger los recursos del sistema ASA r2.
 
 Una vez configurado OAuth 2,0 con System Manager, se puede controlar el acceso a los clientes API de REST. Primero debe obtener un token de acceso desde un servidor de autorización. A continuación, el cliente REST pasa el token al clúster de ASA R2 como un token portador mediante el encabezado de solicitud de autorización HTTP. Consulte https://docs.netapp.com/us-en/ontap/authentication/overview-oauth2.html["Autenticación y autorización mediante OAuth 2,0"^] para obtener más información.
 

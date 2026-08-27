@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: administer/space-balancing.html 
 keywords: capacity, space, rebalancing, balanced, placement, balance, asa r2 
-summary: Es posible que deba cambiar el nombre de un nodo para alinearlo con las convenciones de nomenclatura de la organización o por otros motivos administrativos. 
+summary: En los sistemas ASA r2, ONTAP utiliza la distribución equilibrada, el equilibrio dinámico del espacio o el reequilibrio de la carga de trabajo basado en copias para mantener equilibrado el uso del almacenamiento entre las zonas de disponibilidad de almacenamiento. 
 ---
 = Obtenga información sobre el equilibrio de capacidad de ONTAP en un clúster ASA r2
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Es posible que deba cambiar el nombre de un nodo para alinearlo con las
 
 
 [role="lead"]
-Para los sistemas ASA r2, ONTAP utiliza _ubicación equilibrada_ para colocar automáticamente las unidades de almacenamiento recién creadas en la mejor zona de disponibilidad de almacenamiento para lograr un rendimiento óptimo y una utilización equilibrada del almacenamiento.  Si está ejecutando ONTAP 9.17.1 o posterior, el espacio consumido por las unidades de almacenamiento existentes se equilibra mediante el _equilibrio de espacio dinámico_.  Si está ejecutando ONTAP 9.16.1, el espacio consumido por las unidades de almacenamiento existentes se equilibra mediante el _reequilibrio de carga de trabajo basado en copias_.
+En los sistemas ASA r2, ONTAP utiliza la _colocación equilibrada_ para ubicar automáticamente las unidades de almacenamiento recién creadas en la mejor zona de disponibilidad de almacenamiento para un rendimiento óptimo y un uso equilibrado del almacenamiento. Si usas ONTAP 9.17.1 o una versión posterior, el espacio consumido por las unidades de almacenamiento existentes se equilibra mediante el _equilibrio dinámico del espacio_. Si usas ONTAP 9.16.1, el espacio consumido por las unidades de almacenamiento existentes se equilibra mediante el _reequilibrio de la carga de trabajo basado en copias_.
 
 [cols="2"]
 |===
@@ -27,10 +27,10 @@ Para los sistemas ASA r2, ONTAP utiliza _ubicación equilibrada_ para colocar au
 | Reequilibrio de la carga de trabajo basado en copias | Solo ONTAP 9.16.1 
 |===
 .Colocación equilibrada
-Con la _ubicación equilibrada_, las unidades de almacenamiento recién creadas se colocan automáticamente dentro de la mejor zona de disponibilidad de almacenamiento para lograr un rendimiento óptimo y una utilización equilibrada del almacenamiento.  La ubicación equilibrada está habilitada de forma predeterminada en ONTAP 9.16.1 y versiones posteriores.
+Con la _ubicación equilibrada_, las unidades de almacenamiento de nueva creación se colocan automáticamente en la mejor zona de disponibilidad de almacenamiento para lograr un rendimiento óptimo y un uso equilibrado del almacenamiento. La ubicación equilibrada está habilitada de forma predeterminada en ONTAP 9.16.1 y versiones posteriores.
 
 .Equilibrio dinámico del espacio
-Con el _equilibrio dinámico del espacio_, ONTAP monitorea activamente la cantidad de espacio libre en el clúster y mueve automáticamente unidades de almacenamiento dentro de las zonas de disponibilidad de almacenamiento para mantener una utilización equilibrada del espacio.  Se emite automáticamente una advertencia EMS si la utilización de la capacidad de todo el clúster alcanza el 80 % y se emite automáticamente una alerta EMS si alcanza el 90 %.
+Con el _equilibrio dinámico del espacio_, ONTAP supervisa de forma activa la cantidad de espacio libre en el clúster y traslada automáticamente las unidades de almacenamiento dentro de las zonas de disponibilidad de almacenamiento para mantener un uso equilibrado del espacio. Se emite automáticamente una advertencia del Sistema de Gestión de Eventos (EMS) si el uso de la capacidad en todo el clúster alcanza el 80 %, y se emite automáticamente una alerta del EMS si alcanza el 90 %.
 
 El equilibrio dinámico del espacio se habilita de forma predeterminada 14 días después de actualizar o instalar ONTAP 9.17.1 o posterior.  Si necesita modificar el período de habilitación predeterminado de 14 días, comuníquese con el soporte de NetApp .  No es posible volver desde ONTAP 9.17.1 una vez habilitado el equilibrio de espacio dinámico.
 

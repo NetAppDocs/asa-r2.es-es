@@ -57,7 +57,7 @@ Asegúrese de cerrar el mango de leva lentamente para que quede alineado correct
 
 . Verifique que el LED de actividad de la unidad (verde) esté iluminado.
 +
-** SI el LED está fijo, la unidad tiene alimentación.
+** Si el LED permanece encendido, la unidad tiene alimentación.
 ** Si el LED parpadea, la unidad se enciende y las operaciones de I/O están en curso. El LED también parpadeará si se está actualizando el firmware de la unidad.
 +
 El firmware de la unidad se actualiza automáticamente (sin interrupciones) en las unidades nuevas que no tienen versiones de firmware actuales.

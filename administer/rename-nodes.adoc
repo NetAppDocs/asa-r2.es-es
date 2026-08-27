@@ -11,7 +11,7 @@ summary: Es posible que deba cambiar el nombre de un nodo para alinearlo con las
 
 
 [role="lead"]
-Puede usar ONTAP System Manager para cambiar el nombre de un nodo en el sistema ASA R2. Es posible que deba cambiar el nombre de un nodo para alinearlo con las convenciones de nomenclatura de la organización o por otros motivos administrativos.
+Puedes usar System Manager para cambiar el nombre de un nodo en tu sistema ASA r2 para alinearlo con las convenciones de nomenclatura de tu organización o por otros motivos administrativos.
 
 .Pasos
 . En System Manager, seleccione *Clúster > Descripción general*.

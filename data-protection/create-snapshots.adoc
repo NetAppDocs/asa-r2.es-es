@@ -23,11 +23,11 @@ Un grupo de consistencia es una colección de unidades de almacenamiento que se 
 
 Cree un grupo de consistencia mediante nuevas unidades de almacenamiento o cree un grupo de consistencia mediante unidades de almacenamiento existentes.
 
-A partir de ONTAP 9.18.1, puede configurar el porcentaje de reserva de instantáneas y habilitar la eliminación automática de instantáneas al crear un grupo de consistencia con nuevas unidades de almacenamiento.  La reserva de instantáneas es la cantidad de espacio en la unidad de almacenamiento reservada específicamente para instantáneas.  Cuando la reserva de instantáneas está configurada con eliminación automática de instantáneas, las instantáneas más antiguas se eliminan automáticamente cuando el espacio utilizado por las instantáneas supera la reserva de instantáneas.  Si la reserva de instantáneas y la eliminación automática de instantáneas están habilitadas en un grupo de coherencia principal, se habilitan en todos los grupos de coherencia secundarios existentes.  Si se agregan nuevos grupos de coherencia secundarios, estos no heredan la configuración de reserva de instantáneas ni la configuración de eliminación de instantáneas del grupo principal.
+A partir de ONTAP 9.18.1, puedes configurar el porcentaje de reserva de snapshot y habilitar la eliminación automática de snapshot al crear un grupo de consistencia con nuevas unidades de almacenamiento. La reserva de snapshot es la cantidad de espacio en la unidad de almacenamiento reservada específicamente para snapshots. Cuando la reserva de snapshot se configura junto con la eliminación automática de snapshot, las snapshots más antiguas se eliminan automáticamente cuando el espacio usado por las snapshots supera la reserva de snapshot. Si la reserva de snapshot y la eliminación automática de snapshot están habilitadas en un grupo de consistencia principal, también lo estarán en todos los grupos de consistencia secundarios existentes. Si se añaden nuevos grupos de consistencia secundarios, estos no heredan la configuración de la reserva de snapshot ni de la eliminación automática de snapshot del grupo principal.
 
 link:snapshot-reserve.html["Obtenga más información sobre la reserva de instantáneas en los sistemas de almacenamiento ASA r2."].
 
-A partir de ONTAP 9.16.1, cuando cree grupos de consistencia utilizando nuevas unidades de almacenamiento, puede configurar hasta cinco grupos de consistencia secundarios. link:manage-hierarchical-consistency-groups.html["Obtenga más información sobre los grupos de consistencia infantil en los sistemas ASA r2."].
+A partir de ONTAP 9.16.1, cuando creas grupos de consistencia utilizando nuevas unidades de almacenamiento, puedes configurar hasta cinco grupos de consistencia secundarios. link:manage-hierarchical-consistency-groups.html["Obtenga más información sobre los grupos de consistencia infantil en los sistemas ASA r2."].
 
 [role="tabbed-block"]
 ====
@@ -185,7 +185,8 @@ La transferencia inicial de datos para la replicación comienza inmediatamente d
 .Pasos
 . En System Manager, seleccione *Almacenamiento*.
 . Pase el ratón sobre el nombre de la unidad de almacenamiento que desea proteger.
-. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Proteger*. Si desea crear una instantánea inmediata bajo demanda, en *Protección local*, seleccione *Añadir una instantánea ahora*.
+. image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Proteger*.
+. Si desea crear una instantánea inmediata bajo demanda, en *Protección local*, seleccione *Añadir una instantánea ahora*.
 +
 La protección local crea la instantánea en el mismo clúster que contiene la unidad de almacenamiento.
 
@@ -232,4 +233,4 @@ La transferencia inicial de datos para la replicación comienza inmediatamente d
 --
 ====
 .El futuro
-Ahora que los datos están protegidos con copias snapshot, debe link:../secure-data/encrypt-data-at-rest.html["configurar la replicación de snapshots"]copiar sus grupos de coherencia en una ubicación geográficamente remota a efectos de backup y recuperación ante desastres.
+Ahora que tus datos están protegidos mediante instantáneas, deberías link:snapshot-replication.html["configurar la replicación de snapshots"] copiar tus grupos de consistencia a una ubicación geográficamente remota para respaldo y recuperación ante desastres.

@@ -76,5 +76,5 @@ Un grupo de consistencia se puede asignar a múltiples subsistemas, pero cada su
 * link:https://docs.netapp.com/us-en/ontap/san-admin/microsoft-offloaded-data-transfer-odx-concept.html["Transferencia de datos descargados de Microsoft (ODX)"]
 
 
-.¿Cuál es el siguiente?
+.El futuro
 Después de haber completado la preparación necesaria para habilitar la sincronización activa de SnapMirror , debe link:snapmirror-active-sync-confirm-cluster-configuration.html["Confirme la configuración de su clúster"] .

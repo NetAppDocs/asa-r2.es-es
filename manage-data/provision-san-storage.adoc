@@ -77,7 +77,7 @@ Si la política de calidad de servicio predeterminada no se configuró anteriorm
  a| 
 Cree una nueva política de calidad de servicio
  a| 
-.. En *Almacenamiento y optimización*, junto a *Calidad de servicio (QoS)*, selecciona image:icon_dropdown_arrow.gif["icono de flecha azul apuntando hacia abajo"] .
+.. En *Almacenamiento y optimización*, junto a *Calidad de servicio (QoS)*, selecciona image:icon_dropdown_arrow.gif["icono de flecha azul apuntando hacia abajo"].
 .. Seleccione *Definir nueva política*.
 .. Introduzca un nombre para la nueva política de calidad de servicio.
 .. Establezca un límite de QoS, una garantía de QoS o ambos.
@@ -161,7 +161,7 @@ TLS cifra todos los datos enviados a través de la red entre los hosts NVMe/TCP 
 
 .. Seleccione *Agregar iniciador* para agregar más iniciadores.
 +
-Formatee el NQN del host como <nqn.yyyy-mm> seguido de un nombre de dominio completo.  El año debe ser igual o posterior a 1970.  La longitud máxima total debe ser 223.  Un ejemplo de un iniciador NVMe válido es nqn.2014-08.com.example:string
+Da formato al NQN del host como <nqn.yyyy-mm> seguido de un nombre de dominio completo. El año debe ser igual o posterior a 1970. La longitud máxima total debe ser 223. Un ejemplo de un iniciador NVMe válido es nqn.2014-08.com.example:string.
 
 
 

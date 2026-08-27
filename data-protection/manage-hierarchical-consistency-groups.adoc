@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: data-protection/manage-hierarchical-consistency-groups.html 
 keywords: consistency groups, snapshots, data protection, protect data, add, remove, delete, storage units, lun, namespace, increase capacity 
-summary: Utilice grupos de consistencia para realizar diversas acciones en múltiples unidades de almacenamiento al mismo tiempo en lugar de realizar acciones individualmente en cada unidad.  En una estructura jerárquica, uno o más grupos de consistencia se configuran como hijos de un grupo de consistencia padre. 
+summary: Usa los grupos de consistencia para realizar diversas acciones en varias unidades de almacenamiento al mismo tiempo en vez de hacerlas individualmente en cada unidad. En una estructura jerárquica, uno o varios grupos de consistencia se configuran como hijos bajo un grupo de consistencia principal. 
 ---
 = Administrar grupos de consistencia jerárquica en su sistema ASA r2
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Utilice grupos de consistencia para realizar diversas acciones en múlt
 
 
 [role="lead"]
-A partir de ONTAP 9.16.1, puede usar el Administrador del sistema para crear grupos de consistencia jerárquicos en su sistema ASA r2.  En una estructura jerárquica, uno o más grupos de consistencia se configuran como hijos de un grupo de consistencia padre.  Puede aplicar políticas de instantáneas individuales a cada grupo de consistencia secundario y replicar las instantáneas de todos los grupos de consistencia secundarios a un clúster remoto como una sola unidad replicando el grupo primario.  Esto simplifica la protección y gestión de datos para estructuras de datos complejas.
+A partir de ONTAP 9.16.1, puedes usar System Manager para crear grupos jerárquicos de consistencia en tu sistema ASA r2. En una estructura jerárquica, uno o más grupos de consistencia se configuran como hijos bajo un grupo de consistencia padre. Puedes aplicar políticas de snapshot individuales a cada grupo de consistencia hijo y replicar las snapshots de todos los grupos de consistencia hijos a un clúster remoto como una sola unidad al replicar el grupo padre. Esto simplifica la protección y gestión de datos para estructuras de datos complejas.
 
 
 
@@ -25,14 +25,14 @@ Si está ejecutando ONTAP 9.16.1 y el grupo de consistencia que desea promover e
 
 .Pasos
 . En System Manager, seleccione *Protección > Grupos de consistencia*.
-. Pase el ratón por el grupo de consistencia que desea convertir en un grupo de consistencia primario.
+. Pasa el cursor por encima del grupo de consistencia que quieras convertir en un grupo de consistencia principal.
 . image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Promocionar al grupo de consistencia primario*.
 . Ingrese un nombre para el nuevo grupo de consistencia secundario o acepte el nombre predeterminado; luego seleccione el tipo de componente del grupo de consistencia.
 . Selecciona *Promocionar*.
 
 
 .El futuro
-Puede crear grupos de consistencia secundarios adicionales dentro del grupo de consistencia principal.  También puedeslink:../secure-data/encrypt-data-at-rest.html["configurar la replicación de snapshots"] para copiar los grupos de consistencia padre e hijo a una ubicación geográficamente remota para realizar copias de seguridad y recuperación ante desastres.
+Puedes crear grupos de consistencia secundarios adicionales bajo el grupo de consistencia principal. También puedes link:snapshot-replication.html["configurar la replicación de snapshots"] para copiar los grupos de consistencia principal y secundarios a una ubicación geográficamente remota con fines de copia de seguridad y recuperación ante desastres.
 
 
 
@@ -118,7 +118,7 @@ Si está ejecutando ONTAP 9.16.1 y el grupo de consistencia que desea separar es
 .Pasos
 . En System Manager, seleccione *Protección > Grupos de consistencia*.
 . Seleccione el grupo de consistencia primario.
-. Seleccione el grupo de consistencia secundario que desea desvincular.
+. Pasa el cursor por encima del grupo de consistencia secundario que quieras separar.
 . image:icon_kabob.gif["tres puntos verticales azules"]Seleccione ; y, a continuación, seleccione *Desasociar de padre*.
 . Introduzca un nuevo nombre para el grupo de consistencia que desea desvincular o acepte el nombre predeterminado; a continuación, seleccione el tipo de aplicación del grupo de consistencia.
 . Seleccione *Detach*.

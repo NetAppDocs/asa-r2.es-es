@@ -11,12 +11,12 @@ summary: Para un rendimiento, configuración y soporte óptimos, debe tener en c
 
 
 [role="lead"]
-Para un rendimiento, configuración y soporte óptimos, debe tener en cuenta los límites de almacenamiento de ASA r2.
+Para un rendimiento, una configuración y un soporte óptimos, debes conocer los límites de almacenamiento de ASA r2.
 
 Los límites pueden variar en función de tu sistema ASA r2 y de tu versión de ONTAP. Consulta link:https://hwu.netapp.com/["NetApp Hardware Universe"^] para ver una lista completa de los límites más recientes para tu sistema específico.
 
 
-NOTE: Los límites de las máquinas virtuales (VM) no aparecen en Hardware Universe. El número máximo recomendado de máquinas virtuales por par de alta disponibilidad (HA) es de 800 y por clúster es de 1200 según los límites de volumen del sistema ASA r2. Este límite no se aplica a las máquinas virtuales que residen en almacenes de datos VMFS. No existe un número máximo de máquinas virtuales para los almacenes de datos VMFS.
+NOTE: Los límites de las máquinas virtuales (VM) no aparecen en Hardware Universe. El número máximo recomendado de máquinas virtuales por par de alta disponibilidad (HA) es de 800 y por clúster es de 1.200 según los límites de volumen del sistema ASA r2. Este límite no se aplica a las máquinas virtuales que residen en almacenes de datos VMFS. No existe un número máximo de máquinas virtuales para los almacenes de datos VMFS.
 
 .Acerca de esta tarea
 Los sistemas ASA r2 aparecen en NetApp Hardware Universe bajo *Products* como plataformas "ASA".
