@@ -32,6 +32,8 @@ entries:
   entries:
   - title: Añada nodos
     url: "/administer/add-nodes.html"
+  - title: Eliminar nodos
+    url: "/administer/remove-nodes.html"
   - title: Reinicie, tome la toma de control y devuelva los nodos
     url: "/administer/reboot-take-over-give-back-nodes.html"
   - title: Cambie el nombre de los nodos

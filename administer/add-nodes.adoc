@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: administer/add-nodes.html 
-keywords: rename, node, renaming, asa r2 
-summary: Es posible que deba cambiar el nombre de un nodo para alinearlo con las convenciones de nomenclatura de la organización o por otros motivos administrativos. 
+keywords: add, node, adding, asa r2, expand cluster 
+summary: Los sistemas de almacenamiento ASA r2 admiten hasta 12 nodos por clúster. Después de cablear y encender los nuevos nodos de un par de HA, tienes que unirlos al clúster. 
 ---
 = Añada nodos ASA R2 a un clúster ONTAP
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Es posible que deba cambiar el nombre de un nodo para alinearlo con las
 
 
 [role="lead"]
-A partir de ONTAP 9.16.1, los sistemas de almacenamiento ASA r2 admiten hasta 12 nodos por clúster.  Una vez que se hayan cableado y encendido los nuevos nodos de un par HA, es necesario unirlos al clúster.
+Los sistemas de almacenamiento ASA r2 admiten hasta 12 nodos por clúster. Después de cablear y encender los nuevos nodos de un par de HA, tienes que unirlos al clúster.
 
 .Antes de empezar
 Recopile la siguiente información:

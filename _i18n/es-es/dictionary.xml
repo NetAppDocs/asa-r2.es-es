@@ -123,12 +123,9 @@
   <block id="f3833c816c6fe5b26b4e4266ccfed699" category="paragraph">Se ha modificado su LIF.</block>
   <block id="092a2a219a66f53ad918ecfca02a40cb" category="summary">Utilice System Manager de ONTAP para realizar administración básica de redes de almacenamiento en el sistema ASA R2.</block>
   <block id="7727ebf2fbdb4d8c5b88383f3872253c" category="doc">Gestione las redes de clúster en sistemas de almacenamiento R2 de ASA</block>
-  <block id="dce69090c45af3d113621dac45bca7fb" category="paragraph">Es posible usar System Manager de ONTAP para realizar administración básica de red de almacenamiento en el sistema ASA R2. Por ejemplo, puede agregar un dominio de retransmisión o reasignar puertos a un dominio de retransmisión diferente.</block>
   <block id="142e63ab347e5afebe1ee3eddeb82dc4" category="section-title">Añada un dominio de retransmisión</block>
   <block id="18021c31fe204f4bcb54336f24bb7958" category="paragraph">Utilice dominios de retransmisión para simplificar la gestión de la red de clúster agrupando los puertos de red que pertenecen a la misma red de capa 2. Las máquinas virtuales de almacenamiento (VM) pueden usar los puertos del grupo para el tráfico de datos o de gestión.</block>
   <block id="4d00d5474a9eac58d3c8b5a5efd05a9a" category="paragraph">El dominio de retransmisión “default” y el dominio de retransmisión “Cluster” se crean durante la configuración del clúster. El dominio de difusión “predeterminado” contiene puertos que están en el espacio IP “predeterminado”. Estos puertos se utilizan principalmente para servir datos. Los puertos de gestión de clústeres y gestión de nodos también están en este dominio de retransmisión. El dominio de difusión “Cluster” contiene puertos que están en el espacio IP “Cluster”. Estos puertos se utilizan para la comunicación del clúster e incluyen todos los puertos de clúster de todos los nodos del clúster.</block>
-  <block id="98436b7b9537997727c62df8cd1c5b4b" category="paragraph">Puede crear dominios de retransmisión adicionales después de inicializar el clúster. Cuando se crea un dominio de retransmisión, se crea automáticamente un grupo de conmutación por error que contiene los mismos puertos.</block>
-  <block id="67484e42ec7ef0f9c6081b26a7966a3f" category="paragraph">La unidad de transmisión máxima (MTU) de los puertos agregados a un dominio de retransmisión se actualiza al valor MTU establecido en el dominio de retransmisión.</block>
   <block id="5be487237484d4edf568d618438fb533" category="list-text">En System Manager, seleccione *Red &gt; Descripción general*.</block>
   <block id="6169050a4730f8d024d60e5e811d6085" category="list-text">En Dominios *Broadcast*, seleccione <block ref="120e8ce30fa09c1e015e32b4fdada4d3" category="inline-image-macro-rx" type="image"></block>.</block>
   <block id="01b73cca64689dc46d9d7ff592613e09" category="list-text">Escriba un nombre para el dominio de retransmisión o acepte el nombre predeterminado.</block>
@@ -1931,7 +1928,6 @@
   <block id="4a9d271be00cfe80ccf9f2ae1e86c4ff" category="sidebar">Conozca las soluciones de disponibilidad continua para entornos vSphere</block>
   <block id="07deeffbd26ae347c81cfaf3e2169044" category="sidebar">Mejores prácticas para los sistemas NetApp ASA</block>
   <block id="65393a1b15c3a63904bb446f4a99001a" category="sidebar">Guía de transición de la API REST</block>
-  <block id="eaeb215b56b171344d62780dd997477e" category="paragraph">A partir de ONTAP 9.16.1, los sistemas de almacenamiento ASA r2 admiten hasta 12 nodos por clúster.  Una vez que se hayan cableado y encendido los nuevos nodos de un par HA, es necesario unirlos al clúster.</block>
   <block id="b8838348a8da924f377a5d293230f4f4" category="summary">Las reversiones del software ONTAP para sistemas ASA r2 siguen el mismo proceso que las reversiones para otros sistemas ONTAP . Revertir un clúster de ONTAP es disruptivo.</block>
   <block id="b4a4e19f8caa5675ed75c7e4c2f95379" category="inline-link-macro">Eliminar la relación de sincronización activa de SnapMirror</block>
   <block id="79bc5a42c0ce5e77f02d040d055dfae3" category="summary">Las actualizaciones de software ONTAP para sistemas ASA r2 siguen el mismo proceso que las actualizaciones para otros sistemas ONTAP .  Cuando actualiza el software ONTAP en su sistema ASA r2, puede aprovechar las funciones nuevas y mejoradas de ONTAP .</block>
@@ -2859,4 +2855,77 @@
   <block id="e7e7921d40004de3413b2feb5d015c04" category="paragraph">Si sabes de aumentos repentinos en la actividad de tu unidad de almacenamiento, ya sea un aumento puntual o uno que sea característico de una nueva normalidad, deberías reportarlos como seguros. Reportar manualmente estos picos como seguros ayuda a mejorar la precisión de las evaluaciones de amenazas de ARP. Descubre cómo <block ref="8dee558f5c9b6bedf916b9781132862f" category="inline-link-macro-rx"></block>.</block>
   <block id="200e37440690270fcdf5d35f1f9f63c6" category="paragraph">ONTAP SnapLock es una solución de cumplimiento de alto rendimiento para organizaciones que utilizan almacenamiento WORM para conservar archivos sin modificaciones con fines normativos y de gobernanza. Puedes ejecutar SnapLock en los modos Compliance o Enterprise, que ofrecen distintos niveles de protección de datos WORM. Los modos SnapLock Compliance y Enterprise no son compatibles con clústeres primarios en entornos SAN, pero puedes habilitar SnapLock para SnapVault en tus sistemas secundarios para proteger las instantáneas secundarias frente a un borrado accidental o malintencionado.</block>
   <block id="44ed1558e28022693124a32e31d67183" category="paragraph">Después de que hayas inicializado el SnapLock Compliance Clock en tus clústeres local y de destino, ya estás listo para <block ref="716f8ed67937d4ffe779f9f204ed103b" category="inline-link-macro-rx"></block>.</block>
+  <block id="e237bf865e87bbdfd26ab56b61fc4b9e" category="summary">Los sistemas de almacenamiento ASA r2 admiten hasta 12 nodos por clúster. Después de cablear y encender los nuevos nodos de un par de HA, tienes que unirlos al clúster.</block>
+  <block id="cc7c52d2eca1519912be5504b86923e5" category="paragraph">ONTAP System Manager te permite realizar tareas básicas de administración de redes de almacenamiento en tu sistema ASA r2, como añadir un dominio de difusión o reasignar puertos entre dominios de difusión, para que puedas organizar el tráfico de red según las necesidades de tu infraestructura.</block>
+  <block id="ba9a7a46c6bc7f943d070bcccd364153" category="paragraph">Puedes crear dominios de difusión adicionales una vez que hayas inicializado tu clúster. Cuando creas un dominio de difusión, se crea automáticamente un grupo de conmutación por error que contiene los mismos puertos.</block>
+  <block id="8b32050d3c96b6bd0a885f98eb1416ea" category="paragraph">La unidad máxima de transmisión (MTU) de los puertos añadidos a un dominio de difusión se actualiza al valor de MTU establecido en el dominio de difusión.</block>
+  <block id="81cbd40cd8660cff0ad2a901db8d929f" category="section-title">Eliminar un VLAN</block>
+  <block id="e6a55391d40a820f0fb96c2886a44b1b" category="paragraph">Es posible que tengas que eliminar una VLAN antes de quitar una NIC de su ranura o antes de quitar un nodo de un clúster. Cuando eliminas una VLAN, se elimina automáticamente de todas las reglas y grupos de conmutación por error que la usan.</block>
+  <block id="dc4d5090d51115b6ed8141aa254c3b32" category="paragraph">Asegúrate de que no haya ningún LIF asociado a la VLAN.</block>
+  <block id="dd5e47c75e64cbe3996c8133e894e247" category="paragraph">Si eliminas la última VLAN de un puerto, la red podría desconectarse temporalmente de ese puerto.</block>
+  <block id="ac7d09a665b758116e45c0e4113cc186" category="paragraph">Puedes utilizar System Manager o la CLI para eliminar una VLAN.</block>
+  <block id="cea11a3fe22277f7f45d6feb4b7f56bf" category="list-text">En System Manager, selecciona *Red &gt; Puerto Ethernet &gt; VLAN*.</block>
+  <block id="1aae6a12505549a87c2e3ea5f5464f0f" category="list-text">Selecciona la VLAN que deseas eliminar.</block>
+  <block id="feb83dac816796145feb86b7475c73f5" category="list-text">Ver tus VLAN:</block>
+  <block id="0f39a6bacc3fe5756c2bc83081df6c3a" category="list-text">Eliminar una VLAN:</block>
+  <block id="ac309ab0be86396fc6a66899780ddf5b" category="list-text">Comprueba que la VLAN se haya eliminado:</block>
+  <block id="8bd15b309bcdb0c15b1b0e6adeb166d0" category="doc">Eliminar nodos ASA r2 de un clúster ONTAP</block>
+  <block id="f46b886aa665a8d7c7a7a4c7aa9c6346" category="paragraph">Es posible que tengas que quitar un nodo del clúster por motivos de mantenimiento, sustitución o retirada del servicio. Los nodos deben quitarse de uno en uno. Si quitas un nodo, también debes quitar su partner de HA.</block>
+  <block id="e0236ccc281e8e954020151e28594361" category="section-title">Paso 1: prepárate para eliminar nodos de un clúster ASA r2</block>
+  <block id="71b734249d4ab321665fcafc817c1579" category="paragraph">Antes de quitar un nodo de un clúster ASA r2, debes comprobar que el clúster esté en buen estado. Después, debes migrar o eliminar las unidades de almacenamiento, las VLAN y las LIF del nodo, y desactivar la conmutación por error del almacenamiento.</block>
+  <block id="1715d07a24988d9207de94794a6f01cc" category="list-text">Comprueba que el clúster esté en buen estado:</block>
+  <block id="6bc362dbf494c61ea117fe3c71ca48a5" category="inline-link-macro">Mover</block>
+  <block id="099af53f601532dbd31e0ea99ffdeb64" category="inline-link-macro">borrar</block>
+  <block id="cd6171fad4b783d0411b357a70e025b9" category="list-text"><block ref="103126b24482021bd492866bc35410e7" category="inline-link-macro-rx"></block> o <block ref="397d82cf73bd33098ee8615a2f9e95f3" category="inline-link-macro-rx"></block> para eliminar todas las unidades de almacenamiento del nodo.</block>
+  <block id="09a776ad2b6e83e1b754e6f7ebfafba3" category="inline-link-macro">elimina el nodo y su partner de HA de la lista de nodos de informes de Selective LUN Map (SLM)</block>
+  <block id="ae6f4389297774f1a5988f7c44c7db66" category="list-text">Si tienes unidades de almacenamiento SCSI (LUN) en el nodo que se va a eliminar, <block ref="2df19a9598282fc5088ade88859e3e79" category="inline-link-macro-rx"></block>.</block>
+  <block id="e84ba10869a172504b256da9f24370e6" category="paragraph">Si no eliminas el nodo y su partner de HA de la lista de nodos de informes de SLM, puedes perder el acceso a los LUN que antes estaban en ese nodo, aunque esos LUN se hayan movido a otro nodo.</block>
+  <block id="f2a6c498fb90ee345d997f888fce3b18" category="inline-link-macro">Borrar</block>
+  <block id="f183fde1c1f409b21fc8463052ca49e5" category="inline-link-macro">migrar</block>
+  <block id="39b0e3c1790c5d7e62d9065fac6449c0" category="list-text"><block ref="a406326f89a3bbce30953ad7824da1f0" category="inline-link-macro-rx"></block> o <block ref="7991084d788264d2f8515724f03312a6" category="inline-link-macro-rx"></block> todas las interfaces de red (LIF) del nodo.</block>
+  <block id="a1d06a7b7bc7900c0dc19460251f84e1" category="list-text">Los LIF de datos deben moverse a otro nodo o eliminarse.</block>
+  <block id="eea3b175d0f6393f8f1dbd8d7bdc392e" category="paragraph">La migración de LIF de iSCSI se limita únicamente a los puertos del nodo de inicio o del partner de alta disponibilidad, por lo que debes eliminarlos.</block>
+  <block id="2155c348c0a765e1cbd1204177de8f6b" category="list-text">Los LIF interclúster deben eliminarse.</block>
+  <block id="a9702b3847949399c05d5c3540819764" category="paragraph">Al eliminar las LIF entre clústeres, aparece un aviso que puedes ignorar.</block>
+  <block id="284480082b3f00fd5851296324820748" category="list-text">El LIF de gestión del clúster debería trasladarse a otro nodo.</block>
+  <block id="c2031112d335614e483a8e73e8f0e80e" category="inline-link-macro">Eliminar todas las VLAN</block>
+  <block id="40f77f5330ce09a02647bfff9d2b11a1" category="list-text"><block ref="13cea30368888692a0a04edaddc87489" category="inline-link-macro-rx"></block> en el nodo.</block>
+  <block id="7da250e00cfaee667a1544bb30473c35" category="list-text">Desactiva la conmutación por error del almacenamiento para el nodo:</block>
+  <block id="df17f0e15b00039cb79f8c73233345dc" category="paragraph">Elimina el primer nodo del par de alta disponibilidad del clúster y luego elimina su partner de alta disponibilidad.</block>
+  <block id="400f2bdb4ba287bc175bb483c502645d" category="section-title">Paso 2: eliminar un nodo de un clúster ASA r2</block>
+  <block id="47560f69aa17b178f049071f943efdc3" category="paragraph">Quita un nodo de un clúster ASA r2 solo después de haber completado los pasos necesarios para preparar el nodo para su eliminación. Después de quitar un nodo del clúster, debes quitar también su partner de HA.</block>
+  <block id="ff13cd92e9c877582383685ad84e1408" category="inline-link-macro">emitir un mensaje de AutoSupport</block>
+  <block id="c742d6b26a30fa446c7ef8b5dab2c732" category="paragraph">Se recomienda que <block ref="82761e960f0e30a8f5a0b51f2de27c3a" category="inline-link-macro-rx"></block> notifiques al soporte técnico de NetApp que vas a eliminar un nodo de tu clúster.</block>
+  <block id="add39e8e05dc6feabb5680336ff42056" category="admonition">No elimines ningún nodo del clúster ni cambies el nombre de ningún nodo mientras se esté llevando a cabo una actualización automática de ONTAP.</block>
+  <block id="8b7e38ab7ab942e33ee9b58f43906ab5" category="list-text">Si quitas dos nodos de un clúster de cuatro nodos, la HA de clúster se activa automáticamente en los dos nodos restantes.</block>
+  <block id="ba20c2b3b00275ac5d310648e6ff4a27" category="list-text">Todos los datos del sistema y de los usuarios, de todos los discos que están conectados al nodo, deben hacerse inaccesibles para los usuarios antes de eliminar un nodo del clúster.</block>
+  <block id="2e926e0f22616c9494cae63cff92b8f5" category="list-text">Si se eliminó incorrectamente un nodo de un clúster, contacta al soporte de NetApp para que te ayuden con las opciones de recuperación.</block>
+  <block id="8a3e1e55cf4f3f7698b5923333b44f7a" category="list-text">Cambia el nivel de privilegio a avanzado:</block>
+  <block id="1e6d712b266f8755c066ccc30bde9fdc" category="list-text">Identifica el nodo del clúster que contiene epsilon:</block>
+  <block id="9f964a34bab4b3112781e0b28258f5bb" category="paragraph">En el siguiente ejemplo, "node0" contiene actualmente épsilon:</block>
+  <block id="b32cb3a5af2992203383db7140663697" category="list-text">Si el nodo que vas a eliminar contiene epsilon, traslada epsilon a un nodo superviviente.</block>
+  <block id="a688ab20f94fae358a349cab6d019da3" category="list-text">Elimina epsilon del nodo:</block>
+  <block id="c7a7b8bd7c37d4318c7e769f4286f17b" category="list-text">Mover epsilon a otro nodo:</block>
+  <block id="49e8d819c7a12b23ca983a3bc99e1bdf" category="list-text">Identifica el nodo principal actual:</block>
+  <block id="7a76ce80b9cd6059ed18dca9be6af204" category="paragraph">El nodo principal es el nodo que alberga procesos como mgmt, vldb, vifmgr, bcomd y crs.</block>
+  <block id="a4fdc400f1c7bb92f441328b2a58ab2c" category="list-text">Si el nodo que vas a eliminar es el nodo primario actual, habilita otro nodo del clúster para que se elija como nodo primario.</block>
+  <block id="1f915321f7e8155e5ee88f538eca12b5" category="list-text">Haz que el nodo primario actual no pueda participar en el clúster:</block>
+  <block id="b774483fd19fa8acb4407780df5d4d87" category="paragraph">Cuando el nodo primario deja de ser elegible, el quórum del clúster elige a uno de los nodos restantes como nuevo nodo primario. Si estás realizando este paso en el primer nodo de un par de HA, marca solo ese nodo como no elegible. No cambies el estado de su partner de HA hasta que repitas estos pasos en el partner.</block>
+  <block id="0d4121decd846754730f2b08483bac20" category="paragraph">Si el nodo asociado es elegido como nuevo primario y tiene el epsilon, debes mover el epsilon a otro nodo antes de marcar al asociado como no apto.</block>
+  <block id="bbbdda94513cf5e245680f89dc7113d5" category="list-text">Haz que el nodo primario anterior vuelva a ser apto para participar en el clúster:</block>
+  <block id="2c3337f10b57ece73ad05be4f4418e0d" category="list-text">Inicia sesión en la LIF de gestión del nodo remoto o en la LIF de gestión del clúster en un nodo que no vas a quitar del clúster.</block>
+  <block id="cd61023a75b13d7ddd81a51dd5fd5bad" category="list-text">Utiliza el nombre de nodo o la dirección IP del nodo para eliminar el nodo del clúster:</block>
+  <block id="c660a1ebe622089157d033f8e00d3b45" category="paragraph">Si tienes un clúster con versiones mixtas y vas a eliminar el último nodo con la versión más antigua, usa el parámetro -skip-last-low-version-node-check con estos comandos.</block>
+  <block id="6d2290891d47080550b5fed55fbf344f" category="list-text">Utiliza el nombre de nodo para eliminar el nodo:</block>
+  <block id="2935c03696a9fc643ed379f7af4ea5bf" category="list-text">Utiliza la dirección IP del nodo para eliminarlo:</block>
+  <block id="8a1cd083e3f95f4585c2102d6c2b05bf" category="paragraph">Se generará un mensaje de error si hay condiciones que debas resolver antes de eliminar el nodo. Si esto ocurre, resuelve las condiciones y vuelve a ejecutar el<block ref="b592ef8b0e17ac31ab55e93e7c1d10e1" prefix=" " category="inline-code"></block> comando.</block>
+  <block id="ee3943d184071eb8b00fa718413c59da" category="paragraph">El nodo se reinicia automáticamente después de ser eliminado con éxito del cluster.</block>
+  <block id="01d5d2ace7126b43c6c161bd5ee9a875" category="paragraph">Repite estos pasos para eliminar el partner de conmutación por error del clúster.</block>
+  <block id="b592ef8b0e17ac31ab55e93e7c1d10e1" category="inline-link-macro">cluster remove-node</block>
+  <block id="07e709e4a23132b1e1dd12b1fd7fee71" category="paragraph">Más información sobre el comando <block ref="700df13594259d61712a860f23f94890" category="inline-link-macro-rx"></block>.</block>
+  <block id="6d554e0c9ffc1fe9e00235aea8dd5770" category="section-title">Paso 3: si lo deseas, borra la configuración del nodo e inicializa todos los discos</block>
+  <block id="9cba5ce5176add967894dfbbc6536a52" category="paragraph">Si vas a reutilizar un nodo que has eliminado de tu clúster ASA r2, debes borrar la configuración del nodo e inicializar todos los discos antes de que pueda volver a unirse a un clúster.</block>
+  <block id="895863970f247b187f4fcbba3ee248c3" category="list-text">Durante el proceso de arranque, cuando se te solicite, pulsa *Ctrl-C* para mostrar el menú de arranque.</block>
+  <block id="7d12381790ebb192cc4ad1b88892635d" category="list-text">Selecciona la opción del menú de arranque *(4) Borrar la configuración e inicializar todos los discos* o la opción *(9) Configurar el particionado avanzado de unidades* para borrar la configuración del nodo e inicializar todos los discos.</block>
+  <block id="93fa60c43fe67fdb72ad8e06d21cbed0" category="sidebar">Eliminar nodos</block>
 </blocks>

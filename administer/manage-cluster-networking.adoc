@@ -11,7 +11,7 @@ summary: Utilice System Manager de ONTAP para realizar administración básica d
 
 
 [role="lead"]
-Es posible usar System Manager de ONTAP para realizar administración básica de red de almacenamiento en el sistema ASA R2. Por ejemplo, puede agregar un dominio de retransmisión o reasignar puertos a un dominio de retransmisión diferente.
+ONTAP System Manager te permite realizar tareas básicas de administración de redes de almacenamiento en tu sistema ASA r2, como añadir un dominio de difusión o reasignar puertos entre dominios de difusión, para que puedas organizar el tráfico de red según las necesidades de tu infraestructura.
 
 
 
@@ -22,10 +22,10 @@ Utilice dominios de retransmisión para simplificar la gestión de la red de cl�
 
 El dominio de retransmisión “default” y el dominio de retransmisión “Cluster” se crean durante la configuración del clúster. El dominio de difusión “predeterminado” contiene puertos que están en el espacio IP “predeterminado”. Estos puertos se utilizan principalmente para servir datos. Los puertos de gestión de clústeres y gestión de nodos también están en este dominio de retransmisión. El dominio de difusión “Cluster” contiene puertos que están en el espacio IP “Cluster”. Estos puertos se utilizan para la comunicación del clúster e incluyen todos los puertos de clúster de todos los nodos del clúster.
 
-Puede crear dominios de retransmisión adicionales después de inicializar el clúster. Cuando se crea un dominio de retransmisión, se crea automáticamente un grupo de conmutación por error que contiene los mismos puertos.
+Puedes crear dominios de difusión adicionales una vez que hayas inicializado tu clúster. Cuando creas un dominio de difusión, se crea automáticamente un grupo de conmutación por error que contiene los mismos puertos.
 
 .Acerca de esta tarea
-La unidad de transmisión máxima (MTU) de los puertos agregados a un dominio de retransmisión se actualiza al valor MTU establecido en el dominio de retransmisión.
+La unidad máxima de transmisión (MTU) de los puertos añadidos a un dominio de difusión se actualiza al valor de MTU establecido en el dominio de difusión.
 
 .Pasos
 . En System Manager, seleccione *Red > Descripción general*.
@@ -95,3 +95,54 @@ La VLAN no se puede conectar a un puerto que aloje una LIF de clúster ni a los 
 
 .Resultado
 Creó una VLAN para aumentar la seguridad, aislar problemas y limitar las rutas disponibles dentro de la infraestructura de red IP.
+
+
+
+[[delete-a-vlan]]
+== Eliminar un VLAN
+
+Es posible que tengas que eliminar una VLAN antes de quitar una NIC de su ranura o antes de quitar un nodo de un clúster. Cuando eliminas una VLAN, se elimina automáticamente de todas las reglas y grupos de conmutación por error que la usan.
+
+.Antes de empezar
+Asegúrate de que no haya ningún LIF asociado a la VLAN.
+
+.Acerca de esta tarea
+Si eliminas la última VLAN de un puerto, la red podría desconectarse temporalmente de ese puerto.
+
+.Pasos
+Puedes utilizar System Manager o la CLI para eliminar una VLAN.
+
+[role="tabbed-block"]
+====
+.System Manager
+--
+. En System Manager, selecciona *Red > Puerto Ethernet > VLAN*.
+. Selecciona la VLAN que deseas eliminar.
+. Seleccione *Eliminar*.
+
+
+--
+.CLI
+--
+. Ver tus VLAN:
++
+[source, cli]
+----
+network port vlan show
+----
+. Eliminar una VLAN:
++
+[source, cli]
+----
+network port vlan delete -node <node> -vlan-name <vlan-name>
+----
+. Comprueba que la VLAN se haya eliminado:
++
+[source, cli]
+----
+network port vlan show
+----
+
+
+--
+====

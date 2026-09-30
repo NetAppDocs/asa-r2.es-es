@@ -1,0 +1,197 @@
+---
+sidebar: sidebar 
+permalink: administer/remove-nodes.html 
+keywords: remove, node, removing, asa r2 
+summary: Es posible que deba cambiar el nombre de un nodo para alinearlo con las convenciones de nomenclatura de la organización o por otros motivos administrativos. 
+---
+= Eliminar nodos ASA r2 de un clúster ONTAP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible que tengas que quitar un nodo del clúster por motivos de mantenimiento, sustitución o retirada del servicio. Los nodos deben quitarse de uno en uno. Si quitas un nodo, también debes quitar su partner de HA.
+
+
+
+[[step-1-prepare-to-remove-nodes-from-an-asa-r2-cluster]]
+== Paso 1: prepárate para eliminar nodos de un clúster ASA r2
+
+Antes de quitar un nodo de un clúster ASA r2, debes comprobar que el clúster esté en buen estado. Después, debes migrar o eliminar las unidades de almacenamiento, las VLAN y las LIF del nodo, y desactivar la conmutación por error del almacenamiento.
+
+.Pasos
+. Comprueba que el clúster esté en buen estado:
++
+[source, cli]
+----
+cluster show
+----
+. link:../manage-data/move-storage-units.html["Mover"] o link:../manage-data/delete-storage-units.html["borrar"] para eliminar todas las unidades de almacenamiento del nodo.
+. Si tienes unidades de almacenamiento SCSI (LUN) en el nodo que se va a eliminar, link:https://docs.netapp.com/us-en/ontap/san-admin/modify-slm-reporting-nodes-task.html["elimina el nodo y su partner de HA de la lista de nodos de informes de Selective LUN Map (SLM)"^].
++
+Si no eliminas el nodo y su partner de HA de la lista de nodos de informes de SLM, puedes perder el acceso a los LUN que antes estaban en ese nodo, aunque esos LUN se hayan movido a otro nodo.
+
+. link:https://docs.netapp.com/us-en/ontap/networking/delete_a_lif.html["Borrar"^] o link:https://docs.netapp.com/us-en/ontap/san-admin/move-san-lifs-task.html["migrar"^] todas las interfaces de red (LIF) del nodo.
++
+** Los LIF de datos deben moverse a otro nodo o eliminarse.
++
+La migración de LIF de iSCSI se limita únicamente a los puertos del nodo de inicio o del partner de alta disponibilidad, por lo que debes eliminarlos.
+
+** Los LIF interclúster deben eliminarse.
++
+Al eliminar las LIF entre clústeres, aparece un aviso que puedes ignorar.
+
+** El LIF de gestión del clúster debería trasladarse a otro nodo.
+
+
+. link:../administer/manage-cluster-networking.html#delete-a-vlan["Eliminar todas las VLAN"] en el nodo.
+. Desactiva la conmutación por error del almacenamiento para el nodo:
++
+[source, cli]
+----
+storage failover modify -enabled false -node <nodename>
+----
+
+
+.El futuro
+Elimina el primer nodo del par de alta disponibilidad del clúster y luego elimina su partner de alta disponibilidad.
+
+
+
+[[step-2-remove-a-node-from-an-asa-r2-cluster]]
+== Paso 2: eliminar un nodo de un clúster ASA r2
+
+Quita un nodo de un clúster ASA r2 solo después de haber completado los pasos necesarios para preparar el nodo para su eliminación. Después de quitar un nodo del clúster, debes quitar también su partner de HA.
+
+.Antes de empezar
+Se recomienda que link:../get-help/manage-autosupport.html#send-autosupport-data["emitir un mensaje de AutoSupport"] notifiques al soporte técnico de NetApp que vas a eliminar un nodo de tu clúster.
+
+
+NOTE: No elimines ningún nodo del clúster ni cambies el nombre de ningún nodo mientras se esté llevando a cabo una actualización automática de ONTAP.
+
+.Acerca de esta tarea
+* Si quitas dos nodos de un clúster de cuatro nodos, la HA de clúster se activa automáticamente en los dos nodos restantes.
+* Todos los datos del sistema y de los usuarios, de todos los discos que están conectados al nodo, deben hacerse inaccesibles para los usuarios antes de eliminar un nodo del clúster.
+* Si se eliminó incorrectamente un nodo de un clúster, contacta al soporte de NetApp para que te ayuden con las opciones de recuperación.
+
+
+.Pasos
+. Cambia el nivel de privilegio a avanzado:
++
+[source, cli]
+----
+set -privilege advanced
+----
+. Identifica el nodo del clúster que contiene epsilon:
++
+[source, cli]
+----
+cluster show
+----
++
+En el siguiente ejemplo, "node0" contiene actualmente épsilon:
+
++
+[listing]
+----
+cluster::*> cluster show
+Node                 Health  Eligibility  Epsilon
+-------------------- ------- ------------ ------------
+node0                true    true         true
+node1                true    true         false
+node2                true    true         false
+node3                true    true         false
+----
+. Si el nodo que vas a eliminar contiene epsilon, traslada epsilon a un nodo superviviente.
++
+.. Elimina epsilon del nodo:
++
+[source, cli]
+----
+cluster modify -node <name_of_node_to_be_removed> -epsilon false
+----
+.. Mover epsilon a otro nodo:
++
+[source, cli]
+----
+cluster modify -node <node_name> -epsilon true
+----
+
+
+. Identifica el nodo principal actual:
++
+[source, cli]
+----
+cluster ring show
+----
++
+El nodo principal es el nodo que alberga procesos como mgmt, vldb, vifmgr, bcomd y crs.
+
+. Si el nodo que vas a eliminar es el nodo primario actual, habilita otro nodo del clúster para que se elija como nodo primario.
++
+.. Haz que el nodo primario actual no pueda participar en el clúster:
++
+[source, cli]
+----
+cluster modify -node <node_name> -eligibility false
+----
++
+Cuando el nodo primario deja de ser elegible, el quórum del clúster elige a uno de los nodos restantes como nuevo nodo primario. Si estás realizando este paso en el primer nodo de un par de HA, marca solo ese nodo como no elegible. No cambies el estado de su partner de HA hasta que repitas estos pasos en el partner.
+
++
+Si el nodo asociado es elegido como nuevo primario y tiene el epsilon, debes mover el epsilon a otro nodo antes de marcar al asociado como no apto.
+
+.. Haz que el nodo primario anterior vuelva a ser apto para participar en el clúster:
++
+[source, cli]
+----
+cluster modify -node <node_name> -eligibility true
+----
+
+
+. Inicia sesión en la LIF de gestión del nodo remoto o en la LIF de gestión del clúster en un nodo que no vas a quitar del clúster.
+. Utiliza el nombre de nodo o la dirección IP del nodo para eliminar el nodo del clúster:
++
+Si tienes un clúster con versiones mixtas y vas a eliminar el último nodo con la versión más antigua, usa el parámetro -skip-last-low-version-node-check con estos comandos.
+
++
+** Utiliza el nombre de nodo para eliminar el nodo:
++
+[source, cli]
+----
+cluster remove-node -node <node_name>
+----
+** Utiliza la dirección IP del nodo para eliminarlo:
++
+[source, cli]
+----
+cluster remove-node -cluster_ip <node_ip>
+----
++
+Se generará un mensaje de error si hay condiciones que debas resolver antes de eliminar el nodo. Si esto ocurre, resuelve las condiciones y vuelve a ejecutar el `cluster remove-node` comando.
+
++
+El nodo se reinicia automáticamente después de ser eliminado con éxito del cluster.
+
+
+
+
+
+.El futuro
+Repite estos pasos para eliminar el partner de conmutación por error del clúster.
+
+.Información relacionada
+Más información sobre el comando link:https://docs.netapp.com/us-en/ontap-cli/cluster-remove-node.html["cluster remove-node"].
+
+
+
+[[step-3-optionally-erase-the-node-configuration-and-initialize-all-disks]]
+== Paso 3: si lo deseas, borra la configuración del nodo e inicializa todos los discos
+
+Si vas a reutilizar un nodo que has eliminado de tu clúster ASA r2, debes borrar la configuración del nodo e inicializar todos los discos antes de que pueda volver a unirse a un clúster.
+
+.Pasos
+. Durante el proceso de arranque, cuando se te solicite, pulsa *Ctrl-C* para mostrar el menú de arranque.
+. Selecciona la opción del menú de arranque *(4) Borrar la configuración e inicializar todos los discos* o la opción *(9) Configurar el particionado avanzado de unidades* para borrar la configuración del nodo e inicializar todos los discos.
+
