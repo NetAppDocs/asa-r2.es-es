@@ -17,21 +17,41 @@ El protocolo de estado de certificados en línea (OCSP) valida el estado de las 
 
 
 
+[[modify-certificate-expiration-alerts]]
+== Modificar las alertas de caducidad de certificados
+
+A partir de ONTAP 9.20.1, System Manager muestra una alerta de estado en el panel de control 30 días antes de que caduque el certificado de un clúster o una máquina virtual de almacenamiento (VM). La alerta se actualiza diariamente para mostrar el número de días que quedan hasta la caducidad. Puedes modificar el umbral de alerta predeterminado a cualquier valor entre 0 y 90 días, desactivarlo para que no se muestren alertas o suprimir las alertas de los certificados ya caducados mientras sigues recibiendo alertas de los próximos vencimientos.
+
+.Pasos
+. En System Manager, seleccione *Cluster > Settings*.
+. En *Seguridad*, junto a Certificados, seleccione image:icon_arrow.gif["flecha azul apuntando a la derecha"].
+. Selecciona *Certificados de cliente/servidor*.
+. Actualiza el umbral de advertencia de caducidad, desactívalo o suprímelo:
++
+** Actualiza el *umbral de alerta* a cualquier número de días de 0 a 90.
+** Selecciona *Disable Expiry Warnings* para desactivar la alerta.
+** Selecciona *Suprimir alertas caducadas* para ocultar las alertas de los certificados ya caducados sin dejar de recibir alertas sobre próximos vencimientos.
+
+
+
+
+
+
 [[generate-a-certificate-signing-request]]
 == Genere una solicitud de firma de certificación
 
-Genere una solicitud de firma de certificación (CSR) para crear una clave privada que se pueda utilizar para generar un certificado público.
+Genera una solicitud de firma de certificado (CSR) para crear una clave privada que se pueda utilizar para generar un certificado público.
 
 .Pasos
 . En System Manager, seleccione *Cluster > Settings*.
 . En *Seguridad*, junto a *Certificados*, selecciona image:icon_arrow.gif["flecha azul apuntando a la derecha"]; y luego selecciona image:icon_generate_csr.png["rectángulo azul que contiene un signo más seguido de las palabras generar csr"].
 . Introduzca el nombre común del asunto y, a continuación, seleccione el país.
-. Si desea cambiar los valores predeterminados de GSR, seleccionar el uso de clave ampliada o agregar nombres alternativos de asunto, seleccione image:icon_more_options.png["dos flechas orientadas diagonalmente en direcciones opuestas seguidas por las palabras más opciones"]; y, a continuación, realice las actualizaciones deseadas.
+. Si quieres cambiar los valores predeterminados del CSR, seleccionar el uso extendido de la clave o añadir nombres alternativos del sujeto, selecciona image:icon_more_options.png["dos flechas orientadas diagonalmente en direcciones opuestas seguidas por las palabras más opciones"]; luego, haz las actualizaciones que quieras.
 . Seleccione *generar*.
 
 
 .Resultado
-Has generado una CSR que puedes usar para generar un certificado público.
+Has generado una solicitud de certificado (CSR) que puede utilizarse para generar un certificado público.
 
 
 
@@ -61,7 +81,7 @@ Las autoridades certificadoras de confianza deben renovarse anualmente. Si no de
 . Seleccione *Cluster > Settings*.
 . En *Seguridad*, junto a *Certificados*, selecciona image:icon_arrow.gif["flecha azul apuntando a la derecha"].
 . Seleccione *Autoridades de certificación de confianza*.
-. Seleccione la autoridad de certificación de confianza que desea renovar o eliminar.
+. Selecciona la entidad certificadora de confianza que quieras renovar o eliminar.
 . Renueve o elimine la entidad de certificación.
 +
 [cols="2"]

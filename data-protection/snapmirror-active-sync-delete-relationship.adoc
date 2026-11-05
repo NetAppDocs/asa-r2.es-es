@@ -22,7 +22,7 @@ Si el grupo de hosts del clúster de origen se replica en el clúster de destino
 
 .Pasos
 . En System Manager, seleccione *Host*.
-. Junto a un host que contiene el grupo de hosts que desea dejar de replicar, seleccioneimage:icon_kabob.gif["tres puntos verticales azules"] y luego seleccione *Editar*.
+. Junto a un host que contiene el grupo de hosts cuya replicación quieres detener, selecciona image:icon_kabob.gif["tres puntos verticales azules"] y luego selecciona *Edit*.
 . Anule la selección de *Replicar configuración de host* y, a continuación, seleccione *Actualizar*.
 
 

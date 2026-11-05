@@ -1,0 +1,15 @@
+= 
+:allow-uri-read: 
+
+
+.Paso
+. Desde tu clúster de destino, ejecuta la comprobación previa a la migración:
++
+[source, cli]
+----
+vserver migrate start -vserver <storage_VM> -source-cluster <sourcecluster> -check-only true
+----
++
+Si necesitas solucionar algún problema para preparar la migración, se muestran tanto el problema como la medida correctiva. Soluciona el problema y repite la comprobación previa hasta que se complete con éxito.
+
+

@@ -11,7 +11,7 @@ summary: En determinadas situaciones, es posible que sea necesario romper una re
 
 
 [role="lead"]
-En determinadas situaciones, es posible que sea necesario romper una relación de replicación asincrónica.  Por ejemplo, si está ejecutando ONTAP 9.16.1 y desea aumentar el tamaño de un grupo de consistencia que está en una relación de replicación asincrónica, debe romper la relación antes de poder modificar el tamaño del grupo de consistencia.
+Interrumpe una relación de replicación asíncrona cuando necesites hacer cambios que lo requieran. Por ejemplo, si usas ONTAP 9.16.1 y quieres aumentar el tamaño de un grupo de consistencia en una relación de replicación asíncrona, interrumpe la relación antes de modificar el tamaño del grupo de consistencia.
 
 .Pasos
 . En System Manager, seleccione *Protección > Replicación*.

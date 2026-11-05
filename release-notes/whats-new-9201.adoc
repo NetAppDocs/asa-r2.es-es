@@ -1,0 +1,93 @@
+---
+sidebar: sidebar 
+permalink: release-notes/whats-new-9201.html 
+keywords: 'what"s new, release notes, 9.20.1, asa r2, asa a1k, asa a90, asa a70, asa a50, asa a30, asa a20' 
+summary: Conoce las nuevas funciones disponibles en ONTAP 9.20.1 para sistemas ASA r2. 
+---
+= Novedades de ONTAP 9.20.1 para sistemas ASA r2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Conoce las nuevas funciones disponibles en ONTAP 9.20.1 para sistemas ASA r2.
+
+
+
+[[san-data-migration]]
+== Migración de datos SAN
+
+[cols="2,4"]
+|===
+| Actualizar | Descripción 
+
+
+| link:../manage-data/migrate-svm-from-asa-r2.html["Compatibilidad con la migración sin interrupciones de una VM de almacenamiento desde sistemas ASA r2 a sistemas ASA y AFF"] | Es posible migrar una máquina virtual de almacenamiento (VM) sin interrupciones desde un clúster ASA r2 de dos nodos a un clúster ASA de dos nodos o a un clúster AFF de dos nodos. Las asignaciones de host existentes y las configuraciones de las unidades de almacenamiento para los LUN y los espacios de nombres se mantienen durante la migración, lo que reduce el esfuerzo operativo y el riesgo. 
+
+
+| link:../manage-data/migrate-svm.html["Compatibilidad con un mejor rendimiento tras migrar máquinas virtuales de almacenamiento de un sistema ASA a un sistema ASA r2"] | ONTAP reduce la latencia de lectura adicional y el uso de la CPU que pueden producirse después de migrar máquinas virtuales de almacenamiento (VMs) de un sistema ASA a un sistema ASA r2. 
+|===
+
+
+[[security]]
+== Seguridad
+
+[cols="2,4"]
+|===
+| Actualizar | Descripción 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#fc-sp-3-authentication-and-encryption["Compatibilidad con la autenticación y el cifrado FC-SP-3 mediante adaptadores HBA seguros de Broadcom"] | ONTAP admite la autenticación y el cifrado del Fibre Channel Security Protocol 3 (FC-SP-3) en HBA seguras de Broadcom con sistemas ASA r2. La compatibilidad con FC-SP-3 permite el cifrado de extremo a extremo a nivel de hardware y la autenticación de dispositivos para proteger los datos en tránsito entre los hosts SAN FC y NVMe/FC y los sistemas de almacenamiento ONTAP, en consonancia con los estándares de seguridad Fibre Channel T11. 
+
+
+| Compatibilidad con la protección de la disponibilidad de la gestión web y mejoras previas a la creación de clústeres | Se implementaron mejoras que preservan la disponibilidad de la API de gestión web[1] durante las inundaciones de conexiones. También se mejoró la gestión previa al clúster del Protocolo de Configuración Dinámica de Host (DHCP), de modo que una LIF de gestión de nodos pueda mantener y renovar la conectividad DHCP mientras espera la configuración del clúster. 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#external-key-management-for-encryption-at-rest["Compatibilidad con la migración automática de las claves de cifrado de los volúmenes de las máquinas virtuales de almacenamiento"] | Al habilitar un gestor de claves externo en una máquina virtual de almacenamiento de datos, ONTAP migra automáticamente las claves de cifrado de los volúmenes de dicha máquina virtual desde el gestor de claves de ámbito administrativo al nuevo gestor de claves de la máquina virtual de almacenamiento de datos. Esto simplifica la transición a la gestión externa de claves y elimina la necesidad de realizar un paso de migración manual independiente en el flujo de trabajo estándar. 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#multi-admin-verification-mav["Asistencia de MAV Groups"] | Los grupos de aprobación de MAV pueden incluir como aprobadores grupos de proveedores de identidad (IdP), de Active Directory (AD) y de LDAP (nsswitch), además de administradores individuales. Los tipos de grupos compatibles incluyen Entra ID, ADFS, grupos de dominio de AD y grupos LDAP. Añadir o eliminar usuarios en el directorio del IdP, AD o LDAP no requiere ningún cambio en la configuración de MAV. 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#snmp["Compatibilidad de SNMP con SHA-512"] | ONTAP admite la autenticación SHA-512 para usuarios de SNMPv3. Esta mejora te permite usar una autenticación SNMPv3 más sólida para clientes SNMP externos y para la supervisión de switches, incluidos los que requieren autenticación SHA-512. 
+|===
+
+
+[[storage-efficiency]]
+== Eficiencia del almacenamiento
+
+[cols="2,4"]
+|===
+| Actualizar | Descripción 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#data-reduction-rate-drr["Compatibilidad con la generación simplificada de informes sobre la tasa de reducción de datos de la eficiencia del almacenamiento"] | La tasa de reducción de datos (DRR) de la eficiencia de almacenamiento ofrece una evaluación más precisa del ahorro de espacio que proporciona la eficiencia de almacenamiento de ONTAP, ya que solo tiene en cuenta los datos reducibles. En ONTAP 9.19.1 y versiones anteriores, la DRR incluye tanto los datos reducibles como los no reducibles. 
+
+
+| Compatibilidad con las mejoras de rendimiento en la copia de datos descargados en SAN | ONTAP mejora el rendimiento de la copia de datos descargados de SAN para las cargas de trabajo de copia NVMe y SCSI compatibles. Ponte en contacto con tu representante de NetApp para obtener más información. 
+
+
+| Optimización del programador automático de deduplicación (ADS) | Automatic Dedupe Scheduler (ADS) se ha mejorado para permitir más sesiones de deduplicación simultáneas por nodo, así como una limitación más inteligente y específica para equilibrar mejor la I/O del cliente. La actividad de deduplicación en los volúmenes DP (de transferencias de SnapMirror) y las sesiones de deduplicación global se gestionan de forma más óptima junto con la deduplicación habitual de volúmenes, lo que reduce la contención y el crecimiento de los metadatos. Puedes beneficiarte del ahorro en eficiencia del almacenamiento, especialmente con cargas de trabajo mixtas, sin necesidad de cambiar la configuración. Esta función está habilitada de forma predeterminada. 
+|===
+
+
+[[system-manager]]
+== Administrador de sistemas
+
+[cols="2,4"]
+|===
+| Actualizar | Descripción 
+
+
+| link:../administer/manage-certificates.html["Soporte para alertas de caducidad de certificados"] | System Manager muestra una alerta de estado en el panel de control 30 días antes de que caduque el certificado de un clúster o de una máquina virtual de almacenamiento (SVM) y la actualiza a diario con los días que quedan hasta la caducidad. 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#system-manager["Compatibilidad con las alertas de caducidad de la contraseña de usuario"] | Si el rol asociado a una cuenta de usuario está configurado para recibir alertas de caducidad de la contraseña, el usuario recibirá una alerta en forma de banner en la parte superior de la página de System Manager inmediatamente después de iniciar sesión, a partir de 14 días antes de que caduque la contraseña. La alerta se actualiza cada vez que el usuario inicia sesión para mostrar el número de días que quedan hasta que caduque la contraseña. 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#autosupport["Compatibilidad con alertas adicionales de AutoSupport"] | System Manager muestra nuevas alertas de AutoSupport que pueden ayudarte a resolver problemas de configuración de AutoSupport. 
+|===

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: data-protection/snapmirror-active-sync-prepare.html 
 keywords: asa r2, data protection, business continuity, snapmirror active sync, protocol support, object limits, NVMe protocol limitations, prerequisites, interoperability, limits 
-summary: Para prepararse para configurar la sincronización activa de SnapMirror en su sistema ASA r2, debe revisar los requisitos previos de configuración, confirmar la compatibilidad con los sistemas operativos de sus hosts y tener en cuenta los límites de objetos que podrían afectar la configuración específica. 
+summary: Prepárate para configurar la sincronización activa de SnapMirror en sistemas ASA r2 revisando los requisitos previos, la compatibilidad con el sistema operativo del host, los límites de objetos y las limitaciones de NVMe. 
 ---
 = Prepárese para configurar la sincronización activa de SnapMirror en sistemas ASA r2
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Para prepararse para configurar la sincronización activa de SnapMirror
 
 
 [role="lead"]
-Para prepararse para configurar la sincronización activa de SnapMirror en su sistema ASA r2, debe revisar los requisitos previos de configuración, confirmar la compatibilidad con los sistemas operativos de sus hosts y tener en cuenta los límites de objetos que podrían afectar la configuración específica.
+Antes de configurar la sincronización activa de SnapMirror en tu sistema ASA r2, revisa los requisitos previos de configuración, comprueba que sea compatible con tus sistemas operativos de host y verifica los límites de objetos que puedan afectar a tu configuración.
 
 .Pasos
 . Revisar la sincronización activa de SnapMirror link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/prerequisites-reference.html["prerrequisitos"^] .
@@ -19,7 +19,7 @@ Para prepararse para configurar la sincronización activa de SnapMirror en su si
 . Revisar el link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/limits-reference.html["límites de los objetos"^] que podrían afectar su configuración.
 . Verifique la compatibilidad del protocolo de host con la sincronización activa de SnapMirror en su sistema ASA r2.
 +
-La compatibilidad con la sincronización activa de SnapMirror en sistemas ASA r2 varía según la versión de ONTAP y el protocolo del host.
+La compatibilidad con la sincronización activa de SnapMirror en los sistemas ASA r2 varía en función de la versión de ONTAP y del protocolo del host.
 
 +
 [cols="2,2"]
@@ -49,13 +49,13 @@ La compatibilidad con la sincronización activa de SnapMirror en sistemas ASA r2
 [[nvme-protocol-limitations-with-snapmirror-active-sync-on-asa-r2-systems]]
 == Limitaciones del protocolo NVMe con la sincronización activa de SnapMirror en sistemas ASA r2
 
-Antes de configurar la sincronización activa de SnapMirror en un sistema ASA r2 con hosts NVMe, debe tener en cuenta ciertas limitaciones del protocolo NVMe.
+Antes de configurar la sincronización activa de SnapMirror en un sistema ASA r2 con hosts NVMe, revisa las limitaciones aplicables del protocolo NVMe.
 
 Todas las unidades de almacenamiento NVMe en el subsistema NVMe deben ser miembros del mismo grupo de consistencia y deben ser parte de la misma relación de sincronización activa de SnapMirror .
 
 Los protocolos NVMe/FC y NVMe/TCP son compatibles con la sincronización activa de SnapMirror de la siguiente manera:
 
-* Sólo en clústeres de 2 nodos
+* Solo en clústeres de dos nodos
 * Sólo en hosts ESXi
 * Sólo con configuraciones simétricas activas/activas
 +
@@ -77,4 +77,4 @@ Un grupo de consistencia se puede asignar a múltiples subsistemas, pero cada su
 
 
 .El futuro
-Después de haber completado la preparación necesaria para habilitar la sincronización activa de SnapMirror , debe link:snapmirror-active-sync-confirm-cluster-configuration.html["Confirme la configuración de su clúster"] .
+Una vez que hayas completado los pasos necesarios para habilitar la sincronización activa de SnapMirror, link:snapmirror-active-sync-confirm-cluster-configuration.html["Confirme la configuración de su clúster"].

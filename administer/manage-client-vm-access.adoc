@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: administer/manage-client-vm-access.html 
 keywords: asa r2, client access, host access, virtual machines, storage virtual machines, create, ipspaces, subnets, lifs, network interface, iscsi lif failover, 
-summary: Cree una LIF para acceder a los datos de las unidades de almacenamiento en su ASA R2. Utilice subredes para simplificar la creación de LIF y los espacios IP para proporcionar administración y enrutamiento seguros. 
+summary: Crea una LIF para acceder a los datos de las unidades de almacenamiento de tu ASA r2. Utiliza subredes para simplificar la creación de LIF e IPspaces para proporcionar una administración y un enrutamiento seguros. 
 searchtitle: Gestione el acceso de los clientes al almacenamiento mediante ONTAP System Manager | ASA R2 
 ---
 = Gestione el acceso de clientes a las máquinas virtuales de almacenamiento en los sistemas de almacenamiento R2 de ASA
@@ -64,7 +64,7 @@ Ahora que ha creado un espacio IP, puede utilizarlo para crear una subred.
 [[create-subnets]]
 == Crear subredes
 
-Una subred le permite asignar bloques específicos de direcciones IPv4 o IPv6 que deben usarse al crear una LIF (interfaz de red) . Una subred simplifica la creación de LIF al permitirle especificar el nombre de subred en lugar de una dirección IP y una máscara de red específicas para cada LIF.
+Una subred te permite asignar bloques específicos de direcciones IPv4 o IPv6 para usarlos cuando creas una LIF (interfaz de red). Una subred simplifica la creación de LIF, ya que te permite especificar el nombre de la subred en lugar de una dirección IP y una máscara de red concretas para cada LIF.
 
 .Antes de empezar
 * Para realizar esta tarea, debe ser un administrador de clústeres.
@@ -95,10 +95,10 @@ Ha creado una subred que ahora puede usar para simplificar la creación de sus L
 [[create-a-lif-network-interface]]
 == Crear una LIF (interfaz de red)
 
-Un LIF (interfaz de red) es una dirección IP asociada a un puerto físico o lógico. Crea LIF en los puertos que quieres usar para acceder a los datos. Las máquinas virtuales de almacenamiento sirven datos a los clientes a través de uno o varios LIF. En un sistema ASA r2, puedes crear LIF de IP, FC y NVMe/FC. Un LIF de datos IP puede gestionar tanto el tráfico iSCSI como el tráfico NVMe/TCP de forma predeterminada. Debes crear LIF de datos independientes para el tráfico FC y NVMe/FC.
+Un LIF (interfaz de red) es una dirección IP asociada a un puerto físico o lógico. Crea LIF en los puertos que quieras usar para acceder a los datos. Las máquinas virtuales de almacenamiento sirven datos a los clientes a través de uno o varios LIF. En un sistema ASA r2, puedes crear LIF de IP, FC y NVMe/FC. De forma predeterminada, un LIF de datos IP puede gestionar tanto el tráfico iSCSI como el de NVMe/TCP. Debes crear LIF de datos independientes para el tráfico FC y NVMe/FC.
 
 .Conmutación por error de LIF en sistemas ASA r2
-Si se produce un fallo en un componente, un LIF puede realizar una conmutación por error o migrarse a otro puerto físico, de modo que la comunicación de red no se interrumpa. A partir de ONTAP 9.19.1, la conmutación automática de LIF está habilitada de forma predeterminada para los LIF IP. Cuando la conmutación automática de LIF está habilitada, si ocurre una conmutación por error del almacenamiento, el LIF se migra automáticamente desde su nodo o puerto de origen al nodo o puerto de su socio HA y luego vuelve una vez que la conmutación ha finalizado. O, si el puerto deja de estar operativo, el LIF se migra automáticamente a un puerto operativo en su nodo de origen actual y luego vuelve a su puerto original una vez que el puerto vuelve a estar operativo.
+Si hay un fallo de un componente, un LIF puede realizar una conmutación por error o migrarse a otro puerto físico, para que no se interrumpa la comunicación de red. A partir de ONTAP 9.19.1, la conmutación automática por error de LIF es compatible de forma predeterminada para los LIF IP. Cuando la conmutación automática por error de LIF está habilitada, si se produce una conmutación por error del almacenamiento, el LIF migra automáticamente desde su nodo o puerto de origen al nodo o puerto de su partner de HA y luego vuelve cuando se completa la conmutación por error. O, si el puerto deja de estar en buen estado, el LIF migra automáticamente a un puerto en buen estado de su nodo de origen actual y luego vuelve a su puerto original cuando el puerto vuelve a estar en buen estado.
 
 En ONTAP 9.18.1 y versiones anteriores, no se admite la conmutación automática por error de LIF para los LIF IP que tengan tráfico tanto iSCSI como NVMe/TCP. Cuando creas LIF solo para iSCSI, la conmutación automática por error de LIF se habilita de forma predeterminada, a menos que la máquina virtual de almacenamiento ya tenga LIF de iSCSI en los que no esté habilitada la conmutación automática por error de LIF. Si hay LIF de iSCSI en la máquina virtual de almacenamiento que no tienen habilitada la conmutación automática por error de LIF, los LIF que crees tampoco la tendrán habilitada. En estos casos, primero tienes que eliminar los LIF de iSCSI existentes y luego volver a crearlos con la conmutación automática por error de LIF habilitada. Descubre cómo link:https://docs.netapp.com/us-en/ontap/san-admin/delete-lif-san-environment-task.html["Eliminar un LIF en un entorno SAN"^].
 
@@ -184,7 +184,7 @@ Debes utilizar la interfaz de línea de comandos (CLI) de ONTAP para crear un LI
 network interface create -vserver <storage_VM_name> -lif <iscsi_lif_name> -service-policy <service_policy_name> -home-node <home_node> -home-port <port_name> -address <ip_address> -netmask <netmask> -failover-policy sfo-partner-only -status-admin up
 ----
 +
-** Se recomienda crear dos LIF iSCSI en cada nodo, uno para la estructura A y otro para la estructura B. Esto proporciona redundancia y equilibrio de carga para el tráfico iSCSI. En el siguiente ejemplo, se crean cuatro LIF iSCSI: dos en cada nodo y uno para cada estructura.
+** Crea dos LIF de iSCSI en cada nodo, una para fabric A y la otra para fabric B. Esto proporciona redundancia y equilibrio de carga para tu tráfico iSCSI. En el siguiente ejemplo, se crea un total de cuatro LIF de iSCSI, dos en cada nodo, una para cada fabric.
 +
 [listing]
 ----
@@ -216,7 +216,7 @@ network interface show -lif iscsi*
 Las LIF se pueden deshabilitar o cambiar su nombre según sea necesario. También puede cambiar la dirección IP de LIF y la máscara de subred.
 
 .Acerca de esta tarea
-ONTAP utiliza el Protocolo de tiempo de red (NTP) para sincronizar la hora en todo el clúster. Después de cambiar las direcciones IP de LIF, es posible que deba actualizar la configuración de NTP para evitar fallas de sincronización. Para obtener más información, consulte el artículo de la base de conocimientos.link:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-Issues/CONTAP-500629["La sincronización NTP falla después del cambio de IP de LIF"] .
+ONTAP utiliza el Protocolo de tiempo de red (NTP) para sincronizar la hora en todo el clúster. Tras cambiar las direcciones IP de las LIF, es posible que tengas que actualizar la configuración de NTP para evitar fallos de sincronización. Para obtener más información, consulta el artículo de base de conocimientos link:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-Issues/CONTAP-500629["La sincronización NTP falla después del cambio de IP de LIF"].
 
 .Pasos
 . Seleccione *Red > Descripción general* y, a continuación, seleccione *Interfaces de red*.

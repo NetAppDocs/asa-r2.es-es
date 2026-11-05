@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: data-protection/manage-hierarchical-consistency-groups.html 
 keywords: consistency groups, snapshots, data protection, protect data, add, remove, delete, storage units, lun, namespace, increase capacity 
-summary: Usa los grupos de consistencia para realizar diversas acciones en varias unidades de almacenamiento al mismo tiempo en vez de hacerlas individualmente en cada unidad. En una estructura jerárquica, uno o varios grupos de consistencia se configuran como hijos bajo un grupo de consistencia principal. 
+summary: Promueve, degrada, crea y desvincula grupos de consistencia jerárquicos para gestionar snapshots y la replicación de varias unidades de almacenamiento en tu sistema ASA r2. 
 ---
 = Administrar grupos de consistencia jerárquica en su sistema ASA r2
 :allow-uri-read: 
@@ -42,13 +42,13 @@ Puedes crear grupos de consistencia secundarios adicionales bajo el grupo de con
 Cuando se degrada un grupo de consistencia principal a un solo grupo de consistencia, las unidades de almacenamiento de los grupos de consistencia secundarios asociados se agregan al grupo de consistencia principal.  Los grupos de consistencia secundarios se eliminan y el grupo de consistencia principal se administra como un solo grupo de consistencia.
 
 .Antes de empezar
-Si está ejecutando ONTAP 9.16.1 y el grupo de consistencia que desea degradar está en una relación de sincronización activa de SnapMirror , debelink:snapmirror-active-sync-delete-relationship.html["eliminar la relación de sincronización activa de SnapMirror"] antes de que el grupo de consistencia pueda ser degradado.  Si está ejecutando ONTAP 9.16.1 y el grupo de consistencia está en una relación de replicación asincrónica, debelink:snapmirror-active-sync-break-relationship.html["romper la relación"] antes de poder degradar el grupo de consistencia.  No es necesario eliminar la relación de sincronización activa de SnapMirror ni romper la relación asincrónica antes de expandir un grupo de consistencia en ONTAP 9.17.1 y versiones posteriores.
+Si usas ONTAP 9.16.1 y el grupo de consistencia que quieres degradar está en una relación de sincronización activa de SnapMirror, debes link:snapmirror-active-sync-delete-relationship.html["eliminar la relación de sincronización activa de SnapMirror"] antes de que se pueda degradar el grupo de consistencia. Si usas ONTAP 9.16.1 y el grupo de consistencia está en una relación de replicación asíncrona, debes link:snapmirror-active-sync-break-relationship.html["romper la relación"] antes de poder degradar el grupo de consistencia. En ONTAP 9.17.1 y versiones posteriores, no es necesario eliminar la relación de sincronización activa de SnapMirror ni romper la relación asíncrona antes de degradar un grupo de consistencia.
 
 .Pasos
 . En System Manager, seleccione *Protección > Grupos de consistencia*.
 . Pase el ratón por el grupo de consistencia primario que desea degradar.
 . Seleccione image:icon_kabob.gif["tres puntos verticales azules"]; y, a continuación, seleccione *Descender a un único grupo de consistencia*.
-. Selecciona *Descender*
+. Selecciona *Demote*.
 
 
 .El futuro
@@ -113,7 +113,7 @@ Después de crear un grupo de consistencia secundario, puedelink:policies-schedu
 Cuando se separa un grupo de consistencia secundario de un grupo de consistencia principal, el grupo de consistencia secundario se elimina del grupo de consistencia principal y se administra como un solo grupo de consistencia.  La política de replicación aplicada al padre ya no se aplica al grupo de consistencia secundario separado.
 
 .Antes de empezar
-Si está ejecutando ONTAP 9.16.1 y el grupo de consistencia que desea separar está en una relación de sincronización activa de SnapMirror , debelink:snapmirror-active-sync-delete-relationship.html["eliminar la relación de sincronización activa de SnapMirror"] antes de que se pueda separar el grupo de consistencia.  Si está ejecutando ONTAP 9.16.1 y el grupo de consistencia está en una relación de replicación asincrónica, debelink:snapmirror-active-sync-break-relationship.html["romper la relación"] antes de poder separar el grupo de consistencia.  No es necesario eliminar la relación de sincronización activa de SnapMirror ni romper la relación asincrónica antes de expandir un grupo de consistencia en ONTAP 9.17.1 y versiones posteriores.
+Si ejecutas ONTAP 9.16.1 y el grupo de consistencia que quieres desvincular está en una relación de sincronización activa de SnapMirror, debes link:snapmirror-active-sync-delete-relationship.html["eliminar la relación de sincronización activa de SnapMirror"] antes de poder desvincular el grupo de consistencia. Si ejecutas ONTAP 9.16.1 y el grupo de consistencia está en una relación de replicación asíncrona, debes link:snapmirror-active-sync-break-relationship.html["romper la relación"] antes de poder desvincular el grupo de consistencia. En ONTAP 9.17.1 y versiones posteriores, no es necesario eliminar la relación de sincronización activa de SnapMirror ni romper la relación asíncrona antes de desvincular un grupo de consistencia.
 
 .Pasos
 . En System Manager, seleccione *Protección > Grupos de consistencia*.

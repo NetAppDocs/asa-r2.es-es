@@ -26,11 +26,11 @@ entries:
       url: "/manage-data/delete-storage-units.html"
   - title: Migrar máquinas virtuales de almacenamiento
     entries:
-    - title: Migrar una máquina virtual de almacenamiento desde un clúster ASA
+    - title: Migrar una máquina virtual de almacenamiento ASA a un clúster ASA r2
       url: "/manage-data/migrate-svm.html"
-    - title: Migración de clientes y limpieza de la máquina virtual de almacenamiento
-        de origen
-      url: "/manage-data/svm-post-migrate-cutover-cleanup.html"
+    - title: Migrar una máquina virtual de almacenamiento ASA r2 a un clúster ASA
+        o AFF
+      url: "/manage-data/migrate-svm-from-asa-r2.html"
   - title: Límites de almacenamiento
     url: "/manage-data/storage-limits.html"
 - title: Proteja sus datos
@@ -114,7 +114,7 @@ entries:
       url: "/secure-data/enable-anti-ransomware-protection.html"
     - title: Desactivar la activación predeterminada de ARP/AI
       url: "/secure-data/disable-default-anti-ransomware-protection.html"
-    - title: Modificar los períodos de retención de instantáneas de ARP/AI
+    - title: Configurar políticas de respuesta de instantáneas ARP/AI
       url: "/secure-data/modify-arp-snapshot-retention-period.html"
     - title: Responder a las alertas de ARP/AI
       url: "/secure-data/respond-anti-ransomware-protection-alerts.html"

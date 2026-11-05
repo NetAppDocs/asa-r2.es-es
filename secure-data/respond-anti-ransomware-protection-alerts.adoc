@@ -46,3 +46,6 @@ Si hay actividad anormal en la unidad de almacenamiento, se muestra un mensaje d
 
 .El futuro
 Si sabes de aumentos repentinos en la actividad de tu unidad de almacenamiento, ya sea un aumento puntual o uno que sea característico de una nueva normalidad, deberías reportarlos como seguros. Reportar manualmente estos picos como seguros ayuda a mejorar la precisión de las evaluaciones de amenazas de ARP. Descubre cómo link:https://docs.netapp.com/us-en/ontap/anti-ransomware/manage-parameters-task.html#report-known-surges["informar los aumentos de ARP/AI conocidos"^].
+
+
+NOTE: Si la link:modify-arp-snapshot-retention-period.html["política de respuesta de instantáneas"] de una unidad de almacenamiento está configurada para solo alertar o para crear solo instantáneas activadas por ataques, no aparecen instantáneas ARP periódicas para esa unidad de almacenamiento, incluso cuando ARP/AI está habilitado.

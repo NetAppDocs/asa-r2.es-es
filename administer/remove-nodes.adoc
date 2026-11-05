@@ -30,7 +30,7 @@ cluster show
 . link:../manage-data/move-storage-units.html["Mover"] o link:../manage-data/delete-storage-units.html["borrar"] para eliminar todas las unidades de almacenamiento del nodo.
 . Si tienes unidades de almacenamiento SCSI (LUN) en el nodo que se va a eliminar, link:https://docs.netapp.com/us-en/ontap/san-admin/modify-slm-reporting-nodes-task.html["elimina el nodo y su partner de HA de la lista de nodos de informes de Selective LUN Map (SLM)"^].
 +
-Si no eliminas el nodo y su partner de HA de la lista de nodos de informes de SLM, puedes perder el acceso a los LUN que antes estaban en ese nodo, aunque esos LUN se hayan movido a otro nodo.
+Si no eliminas el nodo y su partner de HA de la lista de nodos de informes de SLM, puedes perder el acceso a los LUN que antes estaban en el nodo, aunque esos LUN se hayan movido a otro nodo.
 
 . link:https://docs.netapp.com/us-en/ontap/networking/delete_a_lif.html["Borrar"^] o link:https://docs.netapp.com/us-en/ontap/san-admin/move-san-lifs-task.html["migrar"^] todas las interfaces de red (LIF) del nodo.
 +
@@ -40,7 +40,7 @@ La migración de LIF de iSCSI se limita únicamente a los puertos del nodo de in
 
 ** Los LIF interclúster deben eliminarse.
 +
-Al eliminar las LIF entre clústeres, aparece un aviso que puedes ignorar.
+Al eliminar los LIF entre clústeres, puedes ignorar la advertencia que aparece.
 
 ** El LIF de gestión del clúster debería trasladarse a otro nodo.
 
@@ -150,7 +150,7 @@ cluster modify -node <node_name> -eligibility true
 ----
 
 
-. Inicia sesión en la LIF de gestión del nodo remoto o en la LIF de gestión del clúster en un nodo que no vas a quitar del clúster.
+. Inicia sesión en la LIF de gestión del nodo remoto o en la LIF de gestión del clúster de un nodo que no vayas a eliminar del clúster.
 . Utiliza el nombre de nodo o la dirección IP del nodo para eliminar el nodo del clúster:
 +
 Si tienes un clúster con versiones mixtas y vas a eliminar el último nodo con la versión más antigua, usa el parámetro -skip-last-low-version-node-check con estos comandos.
@@ -169,7 +169,7 @@ cluster remove-node -node <node_name>
 cluster remove-node -cluster_ip <node_ip>
 ----
 +
-Se generará un mensaje de error si hay condiciones que debas resolver antes de eliminar el nodo. Si esto ocurre, resuelve las condiciones y vuelve a ejecutar el `cluster remove-node` comando.
+ONTAP genera un mensaje de error si existen condiciones que debes resolver antes de eliminar el nodo. Si esto ocurre, resuelve las condiciones y vuelve a ejecutar el comando  `cluster remove-node`.
 
 +
 El nodo se reinicia automáticamente después de ser eliminado con éxito del cluster.

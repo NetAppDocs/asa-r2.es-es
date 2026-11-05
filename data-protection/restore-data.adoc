@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: data-protection/restore-data.html 
 keywords: restore data, asa r2, data restoration 
-summary: Si los datos de un grupo de consistencia están dañados o se pierden, puede restaurar todo el grupo de coherencia desde una snapshot remota. 
+summary: Restaura un grupo de consistencia o una unidad de almacenamiento desde una snapshot local o remota si pierdes datos o se dañan en tu sistema ASA r2. 
 ---
 = Restauración de los datos en sistemas de almacenamiento R2 de ASA
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Si los datos de un grupo de consistencia están dañados o se pierden, 
 
 
 [role="lead"]
-Los datos de un grupo de coherencia o unidad de almacenamiento protegidos por Snapshot se pueden restaurar si se pierden o resultan dañados.
+Si se pierden o se dañan los datos de un grupo de consistencia o una unidad de almacenamiento protegidos por instantáneas, restáuralos a partir de una instantánea para devolver los datos al momento en que se creó la instantánea.
 
 
 
@@ -43,7 +43,7 @@ Se abrirá la página de detalles del grupo de consistencia.
 .Pasos
 . En System Manager, seleccione *Protección > Replicación*.
 . Selecciona *Destinos locales*.
-. Seleccione el *Source* que desea restaurar y, a continuación, seleccione image:icon_kabob.gif["tres puntos verticales azules"].
+. Selecciona el *origen* que quieras restaurar; a continuación, selecciona image:icon_kabob.gif["tres puntos verticales azules"].
 . Seleccione *Restaurar*.
 . Seleccione el clúster, la máquina virtual de almacenamiento y el grupo de consistencia en el que desea restaurar datos.
 . Seleccione la copia de Snapshot desde la que desea restaurar.

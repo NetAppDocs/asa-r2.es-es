@@ -1,0 +1,61 @@
+= 
+:allow-uri-read: 
+
+
+.Antes de empezar
+Debe haber creado LIF intercluster en cada nodo de los clústeres que se están interconectando utilizando uno de los siguientes métodos.
+
+* link:https://docs.netapp.com/us-en/ontap/peering/configure-intercluster-lifs-share-data-ports-task.html["Configure las LIF intercluster en los puertos de datos compartidos."^]
+* link:https://docs.netapp.com/us-en/ontap/peering/configure-intercluster-lifs-use-dedicated-ports-task.html["Configure las LIF intercluster en puertos de datos dedicados."^]
+* link:https://docs.netapp.com/us-en/ontap/peering/configure-intercluster-lifs-use-ports-own-networks-task.html["Configurar LIF entre clústeres en espacios IP personalizados"^]
+
+
+.Pasos
+. En el clúster de destino, crea una relación entre iguales con el clúster de origen y genera una frase de contraseña:
++
+[source, cli]
+----
+cluster peer create -peer-addrs <source_cluster_LIF_IPs> -generate-passphrase
+----
++
+El siguiente ejemplo crea una relación de pares de clúster entre el clúster 1 y el clúster 2 y crea una contraseña generada por el sistema:
+
++
+[listing]
+----
+cluster1::> cluster peer create -peer-addrs 10.98.191.193 -generate-passphrase
+Passphrase: UCa+6lRVICXeL/gq1WrK7ShR
+            Peer Cluster Name: cluster2
+            Initial Allowed Vserver Peers: -
+            Expiration Time: 6/7/2017 09:16:10 +5:30
+            Intercluster LIF IP: 10.140.106.185
+Warning: make a note of the passphrase - it cannot be displayed again.
+
+----
+. Copie la frase de contraseña generada.
+. En el clúster de origen, crea una relación entre iguales con el clúster de destino:
++
+[source, cli]
+----
+cluster peer create -peer-addrs <destination_cluster_LIF_IPs>
+----
+. Introduce la frase de contraseña generada en el clúster de destino.
+. Verifique que se haya creado la relación de pares del clúster:
++
+[source, cli]
+----
+cluster peer show
+----
++
+El siguiente ejemplo muestra el resultado esperado para clústeres emparejados correctamente.
+
++
+[listing]
+----
+cluster1::> cluster peer show
+
+Peer Cluster Name   Cluster Serial Number   Availability   Authentication
+-----------------   ---------------------   -------------- --------------
+cluster2             1-80-123456             Available      ok
+----
+

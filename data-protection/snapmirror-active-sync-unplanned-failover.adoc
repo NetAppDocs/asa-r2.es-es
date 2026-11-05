@@ -2,22 +2,22 @@
 sidebar: sidebar 
 permalink: data-protection/snapmirror-active-sync-unplanned-failover.html 
 keywords: asa r2, reestablish, snapmirror active sync, unplanned failover, disaster recovery 
-summary: Aprenda cómo restablecer las relaciones de sincronización activa de SnapMirror después de una conmutación por error no planificada de sus clústeres ASA r2. 
+summary: Restablece las relaciones de SnapMirror active sync tras una conmutación por error no planificada de tus clústeres ASA r2. 
 ---
-= Restablece la sincronización activa de SnapMirror después de una conmutación por error no planificada en ASA r2
+= Restablecer la sincronización activa de SnapMirror después de una conmutación por error no planificada en ASA r2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-En los sistemas ASA r2, SnapMirror active sync admite configuraciones activas/activas simétricas. En una configuración activa/activa simétrica ambos sitios pueden acceder al almacenamiento local para E/S activas. Si el clúster de origen falla o se aísla, el mediador activa una conmutación por error automática no planificada (AUFO) y sirve todas las E/S del clúster de destino hasta que el clúster de origen se recupere.
+Restablece tu relación de sincronización activa de SnapMirror para reanudar las operaciones en el clúster de origen original tras una conmutación por error no planificada. En los sistemas ASA r2, la sincronización activa de SnapMirror admite configuraciones simétricas activo/activo. En una configuración simétrica activo/activo, ambos sitios pueden acceder al almacenamiento local para la E/S activa. Si el clúster de origen falla o queda aislado, ONTAP Mediator activa una conmutación por error automática no planificada (AUFO) y atiende toda la E/S desde el clúster de destino hasta que el clúster de origen se recupere.
 
 Si experimentas un AUFO de tu relación de sincronización activa SnapMirror, deberías restablecer la relación y reanudar las operaciones en el clúster de origen después de que vuelva a estar en línea.
 
 .Antes de empezar
 * La relación de sincronización activa de SnapMirror debe estar sincronizada.
-* No se puede iniciar una conmutación por error planificada cuando hay en proceso una operación no disruptiva, como el traslado de una unidad de almacenamiento.
+* No se puede iniciar una conmutación por error planificada mientras se esté llevando a cabo una operación sin interrupciones, como el traslado de una unidad de almacenamiento.
 * El mediador de ONTAP debe estar configurado, conectado y en quórum.
 * Para recuperar rutas de E/S perdidas o actualizar estados de rutas de E/S en sus hosts, debe realizar un nuevo escaneo del adaptador/almacenamiento en los hosts después de que el clúster de almacenamiento principal reanude su operación.
 

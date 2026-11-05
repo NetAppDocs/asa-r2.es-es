@@ -21,12 +21,12 @@ Añada unidades a un nodo o bandeja para aumentar la capacidad de almacenamiento
 Antes de instalar una nueva unidad en un nodo o estante, utilice NetApp Hardware Universe para confirmar que la unidad que desea agregar es compatible con su sistema ASA r2 e identificar la ranura correcta para la nueva unidad.  Las ranuras correctas para agregar unidades varían según el modelo del sistema y la versión de ONTAP .  En algunos casos, es necesario agregar las unidades a ranuras específicas en secuencia.
 
 .Pasos
-. Vaya a la link:https://hwu.netapp.com/["NetApp Hardware Universe"^].
+. Ve a link:https://hwu.netapp.com/["NetApp Hardware Universe"^].
 . En *Productos*, selecciona tus configuraciones de hardware.
 . Seleccione su sistema ASA r2.
 . Seleccione su versión de ONTAP; luego seleccione *Mostrar resultados*.
 . Debajo del gráfico, selecciona *Haga clic aquí para ver vistas alternativas*; luego elige la vista que coincida con tu configuración.
-. Utilice la vista de su configuración para confirmar que la unidad nueva es compatible y la ranura correcta para la instalación.
+. Utiliza la vista de tu configuración para confirmar que tu nueva unidad es compatible e identificar la ranura correcta para la instalación.
 
 
 .Resultado
@@ -40,7 +40,7 @@ Ha confirmado que la unidad nueva es compatible y conoce la ranura adecuada para
 El número mínimo de unidades que debes añadir en una sola operación es tres. Añadir una sola unidad podría reducir el rendimiento.
 
 .Acerca de esta tarea
-Debe repetir los pasos de este procedimiento con cada unidad.
+Repite los pasos de este procedimiento para cada unidad.
 
 .Pasos
 . Puesta a tierra apropiadamente usted mismo.
@@ -64,7 +64,7 @@ El firmware de la unidad se actualiza automáticamente (sin interrupciones) en l
 
 
 
-. Si el nodo está configurado para la asignación automática de unidades, puede esperar a que ONTAP asigne automáticamente las nuevas unidades a un nodo. Si el nodo no está configurado para la asignación automática de unidades o si se prefiere, es posible asignar las unidades manualmente.
+. Si tu nodo está configurado para la asignación automática de unidades, espera a que ONTAP asigne las nuevas unidades a un nodo. Si tu nodo no está configurado para la asignación automática de unidades, o si lo prefieres, asigna las unidades manualmente.
 +
 Las unidades nuevas no se reconocen hasta que se asignan a un nodo.
 

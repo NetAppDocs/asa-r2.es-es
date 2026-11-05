@@ -20,11 +20,11 @@ Si está utilizando ONTAP Cloud Mediator, verifique que su sistema ASA r2 cumpla
 . En el Administrador del sistema, seleccione *Protección > Descripción general*.
 . En el panel derecho, bajo *Mediadores*, seleccione *Agregar un mediador*.
 . Seleccione el *Tipo de mediador*.
-. Para un mediador en la nube, introduzca el ID de la organización, el ID del cliente y el secreto del cliente. Para un mediador local, introduzca la dirección IP, el puerto, el nombre de usuario y la contraseña del mediador.
+. Para un mediador *Cloud*, introduce el ID de la organización, el ID de cliente y el secreto de cliente. Para un mediador *On-premises*, introduce la dirección IP, el puerto, el nombre de usuario del mediador y la contraseña del mediador.
 . Seleccione el par del clúster de la lista de pares del clúster elegibles o seleccione *Agregar un par del clúster* para agregar uno nuevo.
 . Agregue la información del certificado
 +
-** Si está utilizando un certificado autofirmado, copie el contenido del `intermediate.crt` archivo y péguelo en el campo *Certificado*, o seleccione *Importar* para navegar hasta el `intermediate.crt` archivo e importar la información del certificado.
+** Si utilizas un certificado autofirmado, copia el contenido del archivo `intermediate.crt` y pégalo en el campo *Certificado*, o selecciona *Importar* para buscar el archivo `intermediate.crt` e importar la información del certificado.
 ** Si está utilizando un certificado de terceros, ingrese la información del certificado en el campo *Certificado*.
 
 
@@ -32,4 +32,4 @@ Si está utilizando ONTAP Cloud Mediator, verifique que su sistema ASA r2 cumpla
 
 
 .El futuro
-Después de haber inicializado el mediador, puede link:configure-snapmirror-active-sync.html["configurar la sincronización activa de SnapMirror"] para crear una copia de sus datos en un sitio secundario y permitir que sus aplicaciones host conmuten por error de manera automática y transparente en caso de un desastre.
+Una vez que hayas inicializado el mediador, puedes link:configure-snapmirror-active-sync.html["configurar la sincronización activa de SnapMirror"] para crear una copia de tus datos en un sitio secundario y permitir que tus aplicaciones host realicen una conmutación por error de forma automática y transparente en caso de desastre.

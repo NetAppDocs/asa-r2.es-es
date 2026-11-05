@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: data-protection/manage-consistency-groups-delete.html 
 keywords: consistency groups, snapshots, data protection, protect data, add, remove, delete, storage units, lun, namespace 
-summary: Si ya no necesita administrar los miembros de un grupo de consistencia como una sola unidad, puede eliminar el grupo de consistencia. 
+summary: Elimina un grupo de consistencia en un sistema ASA r2 cuando ya no necesites gestionar sus unidades de almacenamiento como una sola unidad. 
 ---
 = Eliminar grupos de consistencia en su sistema ASA r2
 :allow-uri-read: 
@@ -14,7 +14,7 @@ summary: Si ya no necesita administrar los miembros de un grupo de consistencia 
 Si ya no necesita administrar los miembros de un grupo de consistencia como una sola unidad, puede eliminar el grupo de consistencia.  Después de eliminar un grupo de consistencia, las unidades de almacenamiento que estaban anteriormente en el grupo permanecen activas en el clúster.  Si el grupo de consistencia estaba en una relación de replicación, las copias replicadas permanecen en el clúster remoto.
 
 .Antes de empezar
-Si está ejecutando ONTAP 9.16.1 y el grupo de consistencia que desea eliminar está en una relación de sincronización activa de SnapMirror , debelink:snapmirror-active-sync-delete-relationship.html["eliminar la relación de sincronización activa de SnapMirror"] antes de eliminar el grupo de consistencia.  No es necesario eliminar esta relación antes de modificar un grupo de consistencia en ONTAP 9.17.1 y versiones posteriores.
+Si utilizas ONTAP 9.16.1 y el grupo de consistencia que quieres eliminar está en una relación de sincronización activa de SnapMirror, debes link:snapmirror-active-sync-delete-relationship.html["eliminar la relación de sincronización activa de SnapMirror"] antes de eliminar el grupo de consistencia. No es necesario eliminar esta relación antes de modificar un grupo de consistencia en ONTAP 9.17.1 y versiones posteriores.
 
 .Pasos
 . En System Manager, seleccione *Protección > Grupos de consistencia*.

@@ -1,0 +1,27 @@
+= 
+:allow-uri-read: 
+
+
+.Pasos
+. Desde el clúster de destino, inicia la migración de la máquina virtual de almacenamiento:
++
+[source, cli]
+----
+vserver migrate start -vserver <storage_VM_name> -source-cluster <source_cluster>
+----
++
+Para desactivar la transición automática, usa el parámetro  `-auto-cutover false`. Para desactivar la eliminación automática de la máquina virtual de almacenamiento de origen, usa el parámetro  `-auto-source-cleanup false`.
+
+. Supervisar el estado de la migración
++
+[source, cli]
+----
+vserver migrate show -vserver <storage_VM_name>
+----
++
+Si necesita pausar o cancelar la migración antes de que comience el cambio automático, utilice la siguiente opción: `vserver migrate pause` y el `vserver migrate abort` comandos.  Debes pausar la migración antes de cancelarla.  No se puede cancelar la migración una vez que haya comenzado el cambio.
+
++
+Si la transición automática está activada, cuando se complete la migración, el *status* se muestra como *migration-complete*. Si la transición automática está desactivada, el *status* se muestra como *Ready for source cleanup*.
+
+

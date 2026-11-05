@@ -53,7 +53,7 @@ Ha añadido un nuevo dominio de retransmisión.
 [[reassign-ports-to-a-different-broadcast-domain]]
 == Reasigne los puertos a un dominio de retransmisión diferente
 
-Los puertos solo pueden pertenecer a un dominio de retransmisión. Si desea cambiar el dominio de retransmisión al que pertenece un puerto, deberá reasignar el puerto del dominio de retransmisión existente a un nuevo dominio de retransmisión.
+Los puertos solo pueden pertenecer a un único dominio de difusión. Para cambiar el dominio de difusión de un puerto, reasigna el puerto de su dominio de difusión actual a uno nuevo.
 
 .Pasos
 . En System Manager, seleccione *Red > Descripción general*.

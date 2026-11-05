@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: data-protection/manage-consistency-groups-add-remove-snapshots.html 
 keywords: consistency groups, snapshots, data protection, protect data, add, remove, delete, storage units, lun, namespace, increase capacity 
-summary: Cree instantáneas de los grupos de consistencia para proteger los datos en las unidades de almacenamiento que forman parte del grupo de consistencia.  Si ya no necesita proteger los datos en ninguna de las unidades de almacenamiento del grupo de consistencia, puede eliminar la protección de instantáneas. 
+summary: Añade la protección mediante instantáneas a un grupo de consistencia para proteger los datos de sus unidades de almacenamiento o elimina dicha protección cuando ya no la necesites. 
 ---
 = Proteja los grupos de consistencia en su sistema ASA r2 con instantáneas
 :allow-uri-read: 
@@ -20,7 +20,7 @@ Si ya no necesita proteger los datos de unidades de almacenamiento específicas 
 [[add-snapshot-data-protection-to-a-consistency-group]]
 == Añade protección de datos de snapshot a un grupo de coherencia
 
-Cuando se añade la protección de datos Snapshot a un grupo de coherencia, las Snapshot locales del grupo de coherencia se realizan a intervalos regulares de acuerdo con una programación predefinida.
+Cuando añades protección de datos con snapshots a un grupo de consistencia, ONTAP toma snapshots locales del grupo de consistencia a intervalos regulares según una programación predefinida.
 
 Puede usar instantáneas link:restore-data.html["restaure los datos"]para que estén perdidas o dañadas.
 
@@ -54,7 +54,7 @@ a continuación, seleccione image:icon_dropdown_arrow.gif["flecha azul apuntando
 
 .. Seleccione la programación de políticas.
 .. En *Máximo de instantáneas*, introduzca el número máximo de instantáneas que desea conservar del grupo de consistencia.
-.. Opcionalmente, en *Etiqueta SnapMirror*, introduzca una etiqueta SnapMirror.
+.. Si lo deseas, en el campo *SnapMirror label*, introduce una etiqueta de SnapMirror.
 .. Seleccione *Guardar*.
 
 

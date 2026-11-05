@@ -11,7 +11,7 @@ summary: Cree relaciones de pares entre las VM de almacenamiento de diferentes c
 
 
 [role="lead"]
-Una relación de pares define las conexiones de red que permiten que los clústeres y las máquinas virtuales (VM) de almacenamiento intercambien datos de forma segura. Cree relaciones de pares entre las VM de almacenamiento de diferentes clústeres para habilitar la protección de datos y la recuperación ante desastres mediante SnapMirror.
+Una relación entre iguales define las conexiones de red que permiten a los clústeres y a las máquinas virtuales de almacenamiento (VMs) intercambiar datos de forma segura. Crea relaciones entre iguales entre las VM de almacenamiento en distintos clústeres para habilitar la protección de datos y la recuperación ante desastres mediante SnapMirror.
 
 link:https://docs.netapp.com/us-en/ontap/peering/peering-basics-concept.html["Aprenda más sobre las relaciones entre pares"^] .
 
@@ -20,7 +20,7 @@ Debe haber establecido una relación de pares de clúster entre los clústeres l
 
 .Pasos
 . En el Administrador del sistema, seleccione *Protección > Descripción general*.
-. En *Pares de máquinas virtuales de almacenamiento*, seleccione *Agregar un par de máquinas virtuales de almacenamiento*.
+. En *Pares de máquinas virtuales de almacenamiento*, selecciona *Agregar un par de máquinas virtuales de almacenamiento*.
 . Seleccione la VM de almacenamiento en el clúster local; luego, seleccione la VM de almacenamiento en el clúster remoto.
 . Seleccione *Agregar un par de VM de almacenamiento*.
 

@@ -26,6 +26,9 @@ Obtenga más información sobre los cambios en los límites y valores predetermi
 | Función | Cambio de límite | Cambiado en la versión... 
 
 
+| Escalabilidad del registro de reservas persistentes de SCSI | El número máximo admitido de registros de reserva persistente SCSI-3 por LUN aumenta de 182 a 256. | ONTAP 9.20.1 
+
+
 | Máquinas virtuales de almacenamiento por clúster | El número máximo de máquinas virtuales (VM) de almacenamiento admitidas por par HA se incrementa de 32 a 256. | ONTAP 9.18.1 
 
 

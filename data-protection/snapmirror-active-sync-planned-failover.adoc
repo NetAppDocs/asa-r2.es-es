@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: data-protection/snapmirror-active-sync-planned-failover.html 
 keywords: snapmirror active sync, planned failover, disaster recovery 
-summary: Aprenda cómo realizar una conmutación por error planificada de las relaciones de sincronización activa de SnapMirror para garantizar la continuidad del negocio y la recuperación ante desastres. 
+summary: Realiza una conmutación por error planificada de una relación de sincronización activa de SnapMirror para probar el proceso de conmutación por error o para realizar tareas de mantenimiento en el sitio principal. 
 ---
 = Conmutar por error una relación de sincronización activa ASA r2 SnapMirror
 :allow-uri-read: 

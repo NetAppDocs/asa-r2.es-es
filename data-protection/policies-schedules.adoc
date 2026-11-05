@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: data-protection/policies-schedules.html 
 keywords: data protection, polices, schedules, protect data, snapshot policies, snapshot schedules, replication policies 
-summary: Usa políticas y programas de protección de datos para proteger los datos en un horario automatizado. 
+summary: Crea y gestiona políticas de snapshot, programaciones de políticas y políticas de replicación para proteger automáticamente los grupos de consistencia en los sistemas ASA r2. 
 ---
 = Gestiona las políticas de protección de datos y los calendarios en los sistemas ASA r2
 :allow-uri-read: 
@@ -18,9 +18,9 @@ Use políticas de Snapshot para proteger los datos de sus grupos de coherencia c
 [[create-a-new-protection-policy-schedule]]
 == Crear una nueva programación de políticas de protección
 
-Una programación de la política de protección define la frecuencia con la que se ejecuta una política de Snapshot. Se pueden crear programaciones para que se ejecuten en intervalos regulares en función de la cantidad de días, horas o minutos. Por ejemplo, se puede crear una programación para que se ejecute cada hora o solo una vez al día. También se pueden crear programaciones para ejecutarse en momentos específicos en días concretos de la semana o del mes. Por ejemplo, puede crear una programación para que se ejecute a las 12:15am el 20th de cada mes.
+Una programación de política de protección define la frecuencia con la que se ejecuta una política de snapshot. Puedes crear programaciones para que se ejecuten a intervalos regulares en función de un número de días, horas o minutos. Por ejemplo, puedes crear una programación para que se ejecute cada hora o solo una vez al día. También puedes crear programaciones para que se ejecuten a horas concretas en días específicos de la semana o del mes. Por ejemplo, puedes crear una programación para que se ejecute a las 00:15 h del día 20 de cada mes.
 
-La definición de diferentes programas de políticas de protección le proporciona la flexibilidad para aumentar o reducir la frecuencia de snapshots para distintas aplicaciones. Esto le permite proporcionar un mayor nivel de protección y un menor riesgo de pérdida de datos para sus cargas de trabajo cruciales del que podría necesitar para cargas de trabajo menos cruciales.
+Definir varias programaciones de políticas de protección te da la flexibilidad de aumentar o reducir la frecuencia de las snapshots para distintas aplicaciones. Esto te permite ofrecer mayor protección y un menor riesgo de pérdida de datos para tus cargas de trabajo críticas que para las menos críticas.
 
 .Pasos
 . Seleccione *Protección > Políticas* y, a continuación, *Programación*.
@@ -30,7 +30,7 @@ La definición de diferentes programas de políticas de protección le proporcio
 
 
 .El futuro
-Ahora que ha creado una nueva programación de políticas, puede usar la programación recién creada dentro de sus políticas para definir cuándo se tomarán Snapshot.
+Ahora que has creado una programación de políticas, puedes usarla en tus políticas para definir cuándo se toman snapshots.
 
 
 
@@ -49,7 +49,7 @@ Una política de Snapshot define la frecuencia con la que se realizan las instan
 
 
 .El futuro
-Ahora que ha creado una política Snapshot, puede aplicarla a un grupo de coherencia. Se realizarán Snapshot del grupo de coherencia en función de los parámetros configurados en la política de Snapshot.
+Ahora que has creado una política de snapshot, puedes aplicarla a un grupo de consistencia. ONTAP toma snapshots del grupo de consistencia en función de los parámetros que hayas establecido en tu política de snapshot.
 
 
 
@@ -73,7 +73,7 @@ Ahora que los datos están protegidos con copias snapshot, debe link:snapshot-re
 [[edit-delete-or-disable-a-snapshot-policy]]
 == Editar, eliminar o deshabilitar una política de Snapshot
 
-Edite una política de Snapshot para modificar el nombre de la política, la cantidad máxima de Snapshot o la etiqueta de SnapMirror. Elimine una política para eliminarla y sus datos de backup asociados del clúster. Deshabilite una política para detener temporalmente la creación o transferencia de snapshots especificada por la política.
+Edita una política para modificar el nombre de la política, el número máximo de snapshots o la etiqueta SnapMirror. Elimina una política para quitarla a ella y sus datos de copia de seguridad asociados de tu clúster. Desactiva una política para detener temporalmente la creación o transferencia de snapshots especificadas por la política.
 
 .Pasos
 . En System Manager, seleccione *Protección > Políticas*; a continuación, seleccione *Políticas de instantánea*.

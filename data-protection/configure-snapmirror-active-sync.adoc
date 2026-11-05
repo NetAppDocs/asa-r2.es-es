@@ -11,12 +11,12 @@ summary: Aprenda a configurar la sincronización activa de SnapMirror para garan
 
 
 [role="lead"]
-Configure la sincronización activa de SnapMirror para crear una copia de sus datos en un sitio secundario y permitir que sus aplicaciones host conmuten por error de manera automática y transparente en caso de un desastre.
+Configura la sincronización activa de SnapMirror para crear una copia de tus datos en un sitio secundario y permitir que tus aplicaciones host cambien automáticamente y de forma transparente en caso de desastre.
 
 En sistemas ASA r2, la sincronización activa de SnapMirror admite configuraciones simétricas activo/activo. En una configuración simétrica activo/activo, ambos sitios pueden acceder al almacenamiento local para E/S activas.
 
 .Acerca de esta tarea
-Si utiliza el protocolo iSCSI o FC y utiliza herramientas ONTAP para VMware Sphere, puede opcionalmente link:https://docs.netapp.com/us-en/netapp-solutions/vmware/vmware-vmsc-with-smas.html["Utilice ONTAP Tools para VMware para configurar la sincronización activa de SnapMirror"^] .
+Si utilizas el protocolo iSCSI o FC y usas ONTAP tools for VMware vSphere, opcionalmente puedes link:https://docs.netapp.com/us-en/netapp-solutions/vmware/vmware-vmsc-with-smas.html["usa ONTAP tools for VMware vSphere para configurar la sincronización activa de SnapMirror"^].
 
 
 NOTE: A partir de ONTAP 9.19.1, la Protección Autónoma contra Ransomware con Inteligencia Artificial (ARP/AI) es compatible con las unidades de almacenamiento primarias de lectura y escritura en relaciones SAN de sincronización activa de SnapMirror en sistemas ASA r2. ARP/AI se ejecuta en las unidades de almacenamiento primario activas, crea instantáneas ARP solo para el almacenamiento primario y ofrece detección de ransomware basada en aprendizaje automático para esas unidades de almacenamiento. Para habilitar ARP/AI, consulta link:../secure-data/enable-anti-ransomware-protection.html["Activa la protección autónoma contra el ransomware con IA"].
@@ -34,7 +34,7 @@ Obtenga más información sobre  https://docs.netapp.com/us-en/ontap/snapmirror-
 . Seleccione un par de clúster existente o elija *Agregar uno nuevo*.
 . Seleccione la máquina virtual de almacenamiento.
 . Para la política de replicación, seleccione *AutomatedFailOverDuplex*.
-. Si está creando una configuración activa/activa simétrica no uniforme, seleccione *Configuración de destino*; luego ingrese el nombre del nuevo grupo de consistencia de destino que cree antes de comenzar este procedimiento.
+. Si vas a crear una configuración simétrica activa/activa no uniforme, selecciona *Configuración de destino* y, a continuación, introduce el nombre del nuevo grupo de consistencia de destino que creaste antes de iniciar este procedimiento.
 . Seleccione *Guardar*.
 
 

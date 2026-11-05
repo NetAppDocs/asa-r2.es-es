@@ -1,19 +1,69 @@
 ---
 sidebar: sidebar 
 permalink: secure-data/modify-arp-snapshot-retention-period.html 
-keywords: asa r2, secure data, data security, anti-ransomware, autonomous ransomware protection, arp, ai, alerts, respond, warnings, security 
-summary: Aprenda a modificar los períodos de retención de instantáneas de ARP para adaptarlos a sus requisitos comerciales y de almacenamiento. 
+keywords: asa r2, secure data, data security, anti-ransomware, autonomous ransomware protection, arp, ai, alerts, respond, warnings, security, snapshot response policy, protection level, alert-only 
+summary: Descubre cómo configurar la política de respuesta de instantáneas ARP/AI y modificar los períodos de retención de instantáneas ARP para adaptarlos a tus necesidades de almacenamiento y a los requisitos de tu negocio. 
 ---
-= Modificar los períodos de retención de instantáneas de ARP/AI en los sistemas de almacenamiento ASA r2
+= Configurar las políticas de respuesta de instantáneas ARP/AI y los períodos de retención en los sistemas de almacenamiento ASA r2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si la Protección Autónoma contra el Ransomware con Inteligencia Artificial (ARP/AI) detecta actividad anómala en una o varias unidades de almacenamiento de tu sistema ASA r2, crea automáticamente una instantánea ARP para proteger los datos. Dependiendo de tu capacidad de almacenamiento y de los requisitos del negocio, podrías querer aumentar o reducir el periodo de retención predeterminado de las instantáneas ARP. Por ejemplo, podrías aumentar el periodo de retención para aplicaciones críticas para el negocio para permitir ventanas de recuperación de datos más largas, o reducirlo para aplicaciones no críticas y así ahorrar espacio de almacenamiento.
+Si Autonomous Ransomware Protection with Artificial Intelligence (ARP/AI) detecta actividad anómala en una o varias unidades de almacenamiento de tu sistema ASA r2, puede crear automáticamente una instantánea ARP para proteger los datos. A partir de ONTAP 9.20.1, puedes configurar si ARP/AI crea estas instantáneas estableciendo una política de respuesta de instantáneas, de forma independiente de la detección de ransomware y las alertas de ARP/AI, que siempre permanecen activas. Según tu capacidad de almacenamiento y tus requisitos empresariales, puede que también quieras aumentar o reducir el periodo de retención predeterminado de las instantáneas ARP.
 
-El período de retención predeterminado para la instantánea de ARP varía según la acción que realice en respuesta a la actividad anormal.
+
+
+[[configure-a-snapshot-response-policy]]
+== Configurar una política de respuesta de snapshot
+
+La política de respuesta de instantáneas controla si ARP/AI crea instantáneas periódicas, instantáneas activadas por ataques o si no crea ninguna. La detección y las alertas de ARP/AI permanecen activas en todas las políticas; solo cambia la creación de instantáneas. Puedes establecer una política predeterminada para una máquina virtual de almacenamiento, que heredarán las nuevas unidades de almacenamiento de esa máquina virtual, y anular la política predeterminada para una unidad de almacenamiento concreta.
+
+[cols="1,3"]
+|===
+| Política | Comportamiento 
+
+
+| Instantáneas periódicas y proactivas (por defecto) | ARP/AI genera alertas y registros de eventos, crea instantáneas a intervalos regulares y genera una instantánea adicional cuando detecta un ataque. 
+
+
+| Solo instantáneas proactivas | ARP/AI genera alertas y registros de eventos y crea una instantánea solo cuando detecta un ataque. No se crean instantáneas periódicas. 
+
+
+| Solo alertas | ARP/AI solo genera alertas y registros de eventos. ARP/AI no crea instantáneas. 
+|===
+
+CAUTION: Si seleccionas la política de solo alertas, ARP/AI no crea ninguna instantánea. Si se confirma un ataque de ransomware, no habrá ninguna instantánea de ARP/AI disponible para la recuperación de datos. Antes de seleccionar esta política, asegúrate de contar con una solución de protección de datos externa adecuada, como instantáneas programadas u otra solución de backup.
+
+
+NOTE: Cuando cambias la política de respuesta de snapshots, las instantáneas ARP/AI existentes no se eliminan de inmediato. Se eliminan cuando se alcanza su hora de vencimiento programada.
+
+.Pasos
+Configurar la política de respuesta predeterminada para instantáneas de una máquina virtual de almacenamiento:
+
+. En el Administrador del sistema, seleccione *Clúster > Máquinas virtuales de almacenamiento*.
+. Seleccione la máquina virtual de almacenamiento.
+. En la sección *Seguridad*, junto a *Anti-ransomware*, selecciona image:icon_kabob.gif["tres puntos verticales azules"] y, a continuación, selecciona *Editar configuración de anti-ransomware*.
+. Selecciona la política de respuesta de snapshot predeterminada que se aplicará a las nuevas unidades de almacenamiento creadas en la máquina virtual de almacenamiento.
+. Seleccione *Guardar*.
+
+
+Configura la política de respuesta de snapshot para una unidad de almacenamiento, anulando la configuración predeterminada de la máquina virtual de almacenamiento:
+
+. En System Manager, selecciona *Storage* y elige la unidad de almacenamiento.
+. Seleccione *Seguridad*.
+. En *Anti-ransomware*, selecciona image:icon_kabob.gif["tres puntos verticales azules"] y, a continuación, selecciona *Edit anti-ransomware settings*.
+. Selecciona la política de respuesta de Snapshot que quieres aplicar a la unidad de almacenamiento.
+. Seleccione *Guardar*.
+
+
+
+
+[[modify-arpai-snapshot-retention-periods]]
+== Modificar los períodos de retención de instantáneas de ARP/AI
+
+Si la política de respuesta de instantáneas de una unidad de almacenamiento crea instantáneas ARP periódicas o activadas por ataques, el periodo de retención predeterminado de esas instantáneas varía en función de la medida que tomes en respuesta a la actividad anómala.
 
 [cols="2,2"]
 |===

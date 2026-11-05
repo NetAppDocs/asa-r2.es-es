@@ -1,0 +1,64 @@
+= Realiza manualmente la transición de los clientes después de una migración de una máquina virtual de almacenamiento
+:allow-uri-read: 
+
+
+Durante una migración entre clústeres de una máquina virtual de almacenamiento, las operaciones de E/S de los clientes se transfieren al clúster de destino y la máquina virtual de almacenamiento del clúster de origen se elimina automáticamente. Si decides desactivar la transición automática y la eliminación de la máquina virtual de almacenamiento de origen durante la migración, deberás realizar estos pasos manualmente una vez que el estado de la migración alcance *Ready for source cleanup*.
+
+
+
+[[manually-cut-over-clients-after-a-storage-vm-migration]]
+=== Realiza manualmente la transición de los clientes después de una migración de una máquina virtual de almacenamiento
+
+Si desactivas la transición automática de clientes durante la migración entre clústeres de una máquina virtual de almacenamiento, una vez que la relación de migración esté lista para la transición, realiza la transición manualmente para que la máquina virtual de almacenamiento de destino pueda servir datos a los clientes.
+
+.Acerca de esta tarea
+Realiza esta tarea desde el clúster de destino.
+
+.Pasos
+. Ejecuta manualmente la transición del cliente:
++
+[source, cli]
+----
+vserver migrate cutover -vserver <storage_VM_name>
+----
+. Verifique que la operación de migración se haya completado:
++
+[source, cli]
+----
+vserver migrate show
+----
+
+
+.Resultado
+Los datos se sirven a tus clientes desde la máquina virtual de almacenamiento de tu clúster de destino.
+
+.El futuro
+Ya estás listo para eliminar la máquina virtual de almacenamiento del clúster de origen.
+
+
+
+[[manually-remove-a-storage-vm-after-migration]]
+=== Eliminar manualmente una máquina virtual de almacenamiento tras la migración
+
+Si desactivas la limpieza automática del origen durante una migración de una máquina virtual de almacenamiento entre clústeres, una vez finalizada la migración, elimina la máquina virtual de almacenamiento del clúster de origen para liberar el espacio de almacenamiento.
+
+.Antes de empezar
+Tus clientes deberían estar sirviendo datos desde el clúster de destino.
+
+.Pasos
+. Desde el clúster de origen, comprueba que el estado de la VM de almacenamiento de origen sea *Ready for source cleanup*:
++
+[source, cli]
+----
+vserver migrate show
+----
+. Elimina la máquina virtual de almacenamiento de origen:
++
+[source, cli]
+----
+vserver migrate source-cleanup -vserver <storage_VM_name>
+----
+
+
+.Resultado
+Se ha eliminado la máquina virtual de almacenamiento de tu clúster de origen.

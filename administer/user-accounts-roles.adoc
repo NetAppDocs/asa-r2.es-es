@@ -74,7 +74,7 @@ Una ventana de confirmación muestra la información de metadatos, que se ha cop
 . Vuelva a la ventana de confirmación en System Manager; luego seleccione *He configurado el IdP con el URI del host o metadatos*.
 . Seleccione *Logout* para habilitar la autenticación basada en SAML.
 +
-El sistema IDP mostrará una pantalla de autenticación.
+El sistema IdP muestra una pantalla de autenticación.
 
 
 

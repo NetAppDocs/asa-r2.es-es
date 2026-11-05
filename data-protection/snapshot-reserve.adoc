@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: data-protection/snapshot-reserve.html 
 keywords: asa r2, snapshot reserve, percentage 
-summary: La reserva de instantáneas es la cantidad de espacio en la unidad de almacenamiento reservada específicamente para instantáneas.  Cuando la reserva de instantáneas está configurada con eliminación automática de instantáneas, las instantáneas más antiguas se eliminan automáticamente cuando el espacio utilizado por las instantáneas supera la reserva de instantáneas. 
+summary: Descubre cómo la reserva de snapshot reserva espacio en la unidad de almacenamiento para snapshots y cómo la eliminación automática de snapshots elimina las snapshots más antiguas cuando el uso supera la reserva en los sistemas ASA r2. 
 ---
 = Conoce la reserva de snapshot de ONTAP en los sistemas de almacenamiento ASA r2
 :allow-uri-read: 
@@ -13,7 +13,7 @@ summary: La reserva de instantáneas es la cantidad de espacio en la unidad de a
 [role="lead"]
 La reserva de instantáneas es la cantidad de espacio en la unidad de almacenamiento reservada específicamente para instantáneas.  Cuando la reserva de instantáneas está configurada con eliminación automática de instantáneas, las instantáneas más antiguas se eliminan automáticamente cuando el espacio utilizado por las instantáneas supera la reserva de instantáneas.  Esto evita que las instantáneas consuman espacio en su unidad de almacenamiento destinado a datos de usuario.
 
-La reserva instantánea se establece como un porcentaje del tamaño total de la unidad de almacenamiento.  Por ejemplo, si la unidad de almacenamiento es de 50 GB y se configura la reserva de instantáneas en un 10 %, la cantidad de espacio reservado para instantáneas es de 5 GB.  Cuando la cantidad de espacio utilizado por las instantáneas alcanza los 5 GB, las instantáneas más antiguas se eliminan automáticamente para dejar espacio para las nuevas.  Si el tamaño de la unidad de almacenamiento aumenta a 100 GB, entonces la reserva de instantáneas aumenta a 10 GB.  La reserva máxima de instantáneas que puedes configurar es del 200%.  Si su unidad de almacenamiento crece hasta el tamaño máximo de 128 TB, una reserva de instantáneas del 200 % le permite tomar 2 instantáneas completas.
+La reserva de snapshot se establece como un porcentaje del tamaño total de la unidad de almacenamiento. Por ejemplo, si la unidad de almacenamiento tiene un tamaño de 50 GB y estableces la reserva de snapshot en un 10 %, el espacio reservado para snapshots será de 5 GB. Cuando el espacio utilizado por snapshots aumenta hasta 5 GB, los snapshots más antiguos se eliminan automáticamente para dejar espacio para snapshots nuevos. Si el tamaño de la unidad de almacenamiento aumenta a 100 GB, la reserva de snapshot aumenta a 10 GB. La reserva de snapshot máxima que puedes establecer es del 200 %. Si tu unidad de almacenamiento aumenta hasta el tamaño máximo de 128 TB, una reserva de snapshot del 200 % te permite crear dos snapshots completos.
 
 Por defecto, la reserva de instantáneas está configurada en 0% y la eliminación automática de instantáneas no está habilitada.
 

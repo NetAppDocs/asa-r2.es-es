@@ -16,10 +16,10 @@ Si existe un problema con las operaciones de datos del host, puede usar ONTAP Sy
 .Pasos
 . En System Manager, seleccione *Host*.
 +
-El estado de conectividad de host se indica junto al nombre del grupo de hosts de la siguiente manera:
+System Manager muestra el estado de conectividad de host junto al nombre del grupo de hosts:
 
 +
-** *OK*: Indica que todos los iniciadores están conectados a ambos nodos.
+** *OK*: indica que todos los iniciadores están conectados a ambos nodos.
 ** *Conectado parcialmente*: indica que algunos de los iniciadores no están conectados a ambos nodos.
 ** *Ninguno conectado*: Indica que no hay iniciadores conectados.
 
@@ -27,4 +27,4 @@ El estado de conectividad de host se indica junto al nombre del grupo de hosts d
 
 
 .El futuro
-Realice actualizaciones en el host para corregir los problemas de conectividad. ONTAP volverá a comprobar el estado de la conexión cada quince minutos.
+Realiza las actualizaciones necesarias en tu host para solucionar los problemas de conectividad. ONTAP volverá a comprobar el estado de la conexión cada 15 minutos.
