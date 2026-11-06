@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: manage-data/data-cloning.html 
 keywords: data cloning, clone data, cloning data, luns, namespaces, clone storage units, clone, cloning, clone consistency groups 
-summary: Clone las unidades de almacenamiento y los grupos de consistencia en la versión R2 de ASA para crear copias de datos y utilizarlas fuera del entorno de producción para diversos fines. 
+summary: Clona unidades de almacenamiento y grupos de consistencia en sistemas ASA r2 para crear copias de datos que se puedan utilizar fuera de tu entorno de producción. 
 searchtitle: Clonado de datos mediante el Administrador del sistema de ONTAP | ASA R2 
 ---
 = Clone datos en sistemas de almacenamiento R2 de ASA

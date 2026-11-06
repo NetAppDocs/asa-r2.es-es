@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: manage-data/migrate-svm.html 
 keywords: move svm, migrate svm, asa, asa r2, storage vm, storage virtual machine 
-summary: Si una zona de disponibilidad de almacenamiento se está quedando sin espacio, puede mover las unidades de almacenamiento a otra zona de disponibilidad de almacenamiento para equilibrar la utilización del almacenamiento en todo el clúster. 
+summary: Migrar una máquina virtual de almacenamiento desde un clúster ASA a un clúster ASA r2 sin interrupciones, lo que incluye verificar la máquina virtual de almacenamiento, establecer la conexión entre los clústeres, ejecutar la comprobación previa y llevar a cabo la migración. 
 ---
 = Migrar una máquina virtual de almacenamiento de un clúster ASA a un clúster ASA r2
 :allow-uri-read: 
@@ -16,7 +16,7 @@ A partir de ONTAP 9.18.1, puedes migrar sin interrupciones una máquina virtual 
 
 NOTE: No puedes migrar una máquina virtual de almacenamiento desde un ASA MetroCluster a un clúster ASA r2. Los sistemas ASA r2 no admiten configuraciones MetroCluster.
 
-Los sistemas ASA r2 son compatibles con la tecnología QuickAssist (QAT). Los sistemas ASA no son compatibles con QAT. A partir de ONTAP 9.20.1, ONTAP reduce la elevada latencia de lectura y el uso de la CPU que pueden producirse tras la migración de una máquina virtual (VM) de almacenamiento desde un sistema ASA (sin QAT) a un sistema ASA r2 (con QAT).
+Los sistemas ASA r2 son compatibles con la tecnología QuickAssist (QAT). Los sistemas ASA no son compatibles con QAT. A partir de ONTAP 9.20.1, ONTAP reduce la elevada latencia de lectura y el uso de la CPU que pueden producirse tras la migración de una máquina virtual de almacenamiento desde un sistema ASA (sin QAT) a un sistema ASA r2 (con QAT).
 
 La migración de máquinas virtuales de almacenamiento entre sistemas de almacenamiento ASA y ASA r2 se admite de la siguiente manera:
 
@@ -249,7 +249,7 @@ Si la transición automática está activada, cuando se complete la migración, 
 
 
 .Resultado
-La máquina virtual de almacenamiento se migra del clúster ASA al clúster ASA r2.  El nombre y el UUID de la máquina virtual de almacenamiento, el nombre de la LIF de datos, la dirección IP y los nombres de los objetos, como el nombre del volumen, permanecen sin cambios.  Se actualiza el UUID de los objetos migrados en la máquina virtual de almacenamiento.
+La máquina virtual de almacenamiento se migra del clúster ASA al clúster ASA r2. El nombre y el UUID de la máquina virtual de almacenamiento, el nombre del LIF de datos, la dirección IP y los nombres de los objetos, como el nombre del volumen, permanecen sin cambios. Se actualiza el UUID de los objetos migrados en la máquina virtual de almacenamiento.
 
 .¿Cuál es el siguiente?
 Si has desactivado la transición automática y la eliminación automática de la máquina virtual de almacenamiento, realiza la transición y la limpieza posteriores a la migración para pasar manualmente tus clientes ASA a tu clúster de destino y eliminar la máquina virtual de almacenamiento del clúster ASA.

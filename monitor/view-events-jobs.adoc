@@ -60,7 +60,7 @@ Configure su sistema para enviar una notificación a direcciones de correo elect
 
 .Pasos
 . En System Manager, seleccione *Cluster > Settings*.
-. Junto a *Gestión de notificaciones* selecciona image:icon_kabob.gif["tres puntos verticales azules"].
+. Junto a *Gestión de notificaciones*, selecciona image:icon_kabob.gif["tres puntos verticales azules"].
 . Para configurar un destino de evento, selecciona *Ver destinos de evento*; luego selecciona *Destinos de evento*. Para configurar un destino de registro de auditoría, seleccione *Ver destinos de auditoría* y, a continuación, seleccione *Destinos de registro de auditoría*.
 . Seleccione image:icon_add_blue_bg.png["rectángulo azul con signo más seguido de la palabra añadir en letras blancas"].
 . Ingrese la información de destino y luego seleccione *Agregar*.

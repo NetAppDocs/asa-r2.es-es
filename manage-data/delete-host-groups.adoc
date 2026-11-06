@@ -15,7 +15,7 @@ En un sistema ASA r2, un grupo de hosts es el mecanismo que permite a los hosts 
 
 .Pasos
 . En System Manager, seleccione *Almacenamiento*.
-. En *Mapeo de host* seleccione el grupo de host que desea eliminar.
+. En *Asignación de hosts*, selecciona el grupo de hosts que quieres eliminar.
 . Seleccione *Almacenamiento mapeado*.
 . Seleccione *Más*; luego seleccione *Eliminar*.
 . Selecciona la opción de confirmación para verificar que deseas continuar; luego selecciona *Eliminar*.

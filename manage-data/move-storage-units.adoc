@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: manage-data/move-storage-units.html 
 keywords: move lun, lun move, move namespace, move storage unit, asa r2 
-summary: Si una zona de disponibilidad de almacenamiento se está quedando sin espacio, puede mover las unidades de almacenamiento a otra zona de disponibilidad de almacenamiento para equilibrar la utilización del almacenamiento en todo el clúster. 
+summary: Traslada las unidades de almacenamiento a otra zona de disponibilidad de almacenamiento para equilibrar el uso del almacenamiento en todo el clúster cuando una zona se esté quedando sin espacio. 
 ---
 = Mueva unidades de almacenamiento a los sistemas de almacenamiento R2 de ASA
 :allow-uri-read: 
@@ -13,7 +13,7 @@ summary: Si una zona de disponibilidad de almacenamiento se está quedando sin e
 [role="lead"]
 Si una zona de disponibilidad de almacenamiento se está quedando sin espacio, puede mover las unidades de almacenamiento a otra zona de disponibilidad de almacenamiento para equilibrar la utilización del almacenamiento en todo el clúster.
 
-Puede mover una unidad de almacenamiento mientras la unidad de almacenamiento está en línea y sirve datos. La operación de movimiento no es disruptiva.
+Puedes mover una unidad de almacenamiento mientras está en línea y sirviendo datos. La operación de traslado no provoca interrupciones.
 
 .Antes de empezar
 * Debe ejecutar ONTAP 9.16.1 o una versión posterior.

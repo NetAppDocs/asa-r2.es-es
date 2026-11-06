@@ -14,7 +14,7 @@ searchtitle: Supervise el rendimiento del clúster mediante ONTAP System Manager
 [role="lead"]
 Utiliza ONTAP System Manager para supervisar el rendimiento general de tu clúster y de unidades de almacenamiento específicas, incluyendo la latencia, las IOPS y el rendimiento, en intervalos de tiempo que van desde una hora hasta un año.
 
-Por ejemplo, supongamos que una aplicación crítica está experimentando alta latencia y bajo rendimiento. Al ver el rendimiento del clúster de los últimos cinco días laborables, observa una disminución del rendimiento en el mismo momento cada día. Se utiliza esta información para determinar que la aplicación crucial está compitiendo por los recursos del clúster cuando un proceso no crítico comienza a ejecutarse en segundo plano. A continuación, puede modificar la política de calidad de servicio para limitar el impacto de la carga de trabajo no crítica en los recursos del sistema y garantizar que la carga de trabajo crítica cumpla con los objetivos de rendimiento mínimos.
+Por ejemplo, supongamos que una aplicación crítica está experimentando una latencia alta y un rendimiento bajo. Cuando consultas el rendimiento del clúster durante los últimos cinco días laborables, notas una disminución del rendimiento a la misma hora cada día. Usas esta información para determinar que la aplicación crítica compite por los recursos del clúster cuando un proceso no crítico empieza a ejecutarse en segundo plano. Luego, puedes modificar tu política de calidad de servicio (QoS) para limitar el impacto de la carga de trabajo no crítica en los recursos del sistema y asegurarte de que tu carga de trabajo crítica cumpla los objetivos mínimos de rendimiento.
 
 
 

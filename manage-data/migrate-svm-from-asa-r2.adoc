@@ -2,16 +2,16 @@
 sidebar: sidebar 
 permalink: manage-data/migrate-svm-from-asa-r2.html 
 keywords: move svm, migrate svm, asa, asa r2, storage vm, storage virtual machine 
-summary: 'A partir de ONTAP 9.20.1, es posible migrar sin interrupciones una máquina virtual de almacenamiento (VM) desde un clúster ASA r2 de dos nodos a un clúster ASA de dos nodos o a un clúster AFF de dos nodos.' 
+summary: Migrar una máquina virtual de almacenamiento desde un clúster ASA r2 de 2 nodos a un clúster ASA o AFF de 2 nodos sin interrupciones, a partir de ONTAP 9.20.1. 
 ---
-= Migrar una máquina virtual de almacenamiento desde un clúster ASA r2 a un clúster ASA o AFF
+= Migrar una VM de almacenamiento de un clúster ASA r2 a un clúster ASA o AFF
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-A partir de ONTAP 9.20.1, puedes migrar sin interrupciones una máquina virtual de almacenamiento (VM) desde un clúster ASA r2 de 2 nodos a un clúster ASA de 2 nodos o a un clúster AFF de 2 nodos. Puede que necesites migrar una máquina virtual de almacenamiento para consolidar cargas de trabajo SAN y NAS, adoptar funciones de ONTAP que no están disponibles para los sistemas ASA r2 o como parte de una actualización de hardware de tu entorno. Las asignaciones de host y las configuraciones de unidades de almacenamiento existentes para las LUN y los espacios de nombres se mantienen durante la migración, lo que reduce el esfuerzo operativo y el riesgo.
+A partir de ONTAP 9.20.1, puedes migrar sin interrupciones una máquina virtual de almacenamiento (VM) de un clúster ASA r2 de 2 nodos a un clúster ASA de 2 nodos o a un clúster AFF de 2 nodos. Puede que necesites migrar una máquina virtual de almacenamiento para consolidar cargas de trabajo SAN y NAS, adoptar funciones de ONTAP que no están disponibles para los sistemas ASA r2 o actualizar tu hardware. Las asignaciones de host y las configuraciones existentes de unidades de almacenamiento para LUNs y espacios de nombres se mantienen durante la migración, lo que reduce el esfuerzo operativo y el riesgo.
 
 .Antes de empezar
 * Debes ser administrador del clúster.
@@ -21,8 +21,8 @@ A partir de ONTAP 9.20.1, puedes migrar sin interrupciones una máquina virtual 
 .Acerca de esta tarea
 * Solo es posible migrar una máquina virtual de almacenamiento ASA r2 desde un clúster ASA r2 de 2 nodos a un clúster AFF de 2 nodos.
 +
-** No puedes migrar una VM de almacenamiento ASA r2 a un clúster FAS ni a un clúster ASA o AFF con más de 2 nodos.
-** No es posible migrar una máquina virtual de almacenamiento ASA r2 desde un clúster ASA r2 con más de 2 nodos.
+** No es posible migrar una máquina virtual de almacenamiento ASA r2 a un clúster FAS, ni a un clúster ASA o AFF con más de dos nodos.
+** No es posible migrar una máquina virtual de almacenamiento ASA r2 desde un clúster ASA r2 con más de dos nodos.
 
 
 * La migración de datos de un clúster ASA r2 a un clúster AFF no es reversible.
@@ -30,7 +30,7 @@ A partir de ONTAP 9.20.1, puedes migrar sin interrupciones una máquina virtual 
 Puedes cancelar una migración antes de la transición, pero una vez iniciada esta, no podrás interrumpirla ni revertirla. Una vez completada la migración, no podrás migrar datos de un clúster AFF a un clúster ASA r2.
 
 +
-Puedes link:migrate-svm.html["migrar una SVM de un ASA a un clúster ASA r2"].
+Puedes link:migrate-svm.html["migrar una VM de almacenamiento de un ASA a un clúster ASA r2"].
 
 * Solo puedes migrar una máquina virtual de almacenamiento cada vez.
 * La máquina virtual de almacenamiento puede contener un máximo de 400 unidades de almacenamiento.
@@ -120,7 +120,7 @@ Antes de migrar una máquina virtual (VM) de almacenamiento desde un clúster AS
 
 .Pasos
 . link:../data-protection/snapmirror-active-sync-break-relationship.html["Elimina cualquier relación de replicación existente"].
-. link:../data-protection/snapmirror-active-sync-delete-relationship.html["Elimina cualquier relación de sincronización activa existente de SnapMirrror"].
+. link:../data-protection/snapmirror-active-sync-delete-relationship.html["Elimina cualquier relación existente de SnapMirror active sync"].
 . Comprueba si IPsec está activado:
 +
 [source, cli]
@@ -137,22 +137,22 @@ security ipsec config modify -is-enabled -false
 +
 Más información sobre el comando link:https://docs.netapp.com/us-en/ontap-cli/security-ipsec-config-show.html["security ipsec config show"^].
 
-.. Comprueba si hay LIF de iPv6 y de IP virtual (VIP):
+.. Comprueba si hay LIF de IPv6 y de IP virtual (VIP):
 +
 [source, cli]
 ----
 network interface show -vserver <storage_vm_name> -fields address-family, is-vip
 ----
 +
-Para los LIF de iPv6, el parámetro  `-address-family` es  `ipv6`. Para los LIF VIP, el parámetro  `-is-vip` es  `true`.
+Para los LIF de IPv6, el parámetro  `-address-family` es  `ipv6`. Para los LIF VIP, el parámetro  `-is-vip` es  `true`.
 
-.. Si existe algún LIF de iPv6 o VIP, elimínalos:
+.. Si existe algún LIF de IPv6 o VIP, elimínalos:
 +
 [source, cli]
 ----
 network interface delete -vserver <storage_vm_name> - lif <lif_name>
 ----
-.. Comprueba que no queden LIF de iPv6 ni VIP en la VM de almacenamiento:
+.. Comprueba que no queden LIF de IPv6 ni VIP en la VM de almacenamiento:
 +
 [source, cli]
 ----
@@ -221,7 +221,7 @@ Ya estás listo para migrar tu máquina virtual de almacenamiento desde tu clús
 
 Una vez que hayas creado la relación de paridad entre clústeres necesaria entre los clústeres ASA r2 y ASA o AFF, y hayas completado los pasos para preparar ambos clústeres, podrás iniciar la migración de la VM de almacenamiento.
 
-Al realizar una migración de una VM de almacenamiento, se recomienda dejar un margen de CPU del 30 % tanto en el clúster ASA r2 como en el clúster AFF para que la carga de trabajo de CPU de la migración pueda ejecutarse.
+Como práctica recomendada, deja un margen del 30 % de CPU tanto en el clúster ASA r2 como en el clúster AFF para que la carga de trabajo de migración pueda ejecutarse.
 
 .Acerca de esta tarea
 * Tras la migración de la máquina virtual de almacenamiento, la E/S del cliente se transfiere de forma fluida al clúster de destino sin interrupciones y la máquina virtual de almacenamiento del clúster ASA r2 se elimina automáticamente. La transición automática y la eliminación automática de la máquina virtual de almacenamiento están habilitadas de forma predeterminada. Si lo deseas, puedes desactivar una o ambas opciones y realizarlas manualmente.
